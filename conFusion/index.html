@@ -22,6 +22,57 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html"><img src="img/logo.png" height=30 width=41></a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html"><span class="glyphicon glyphicon-home"
+                         aria-hidden="true"></span> Home</a></li>
+                    <li><a href="aboutus.html"><span class="glyphicon glyphicon-info-sign"
+                         aria-hidden="true"></span>About</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                         role="button" aria-haspopup="true" aria-expanded="false">
+                         Menu <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Appetizers</a></li>
+                            <li><a href="#">Main Courses</a></li>
+                            <li><a href="#">Desserts</a></li>
+                            <li><a href="#">Drinks</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li class="dropdown-header">Specials</li>
+                            <li><a href="#">Lunch Buffet</a></li>
+                            <li><a href="#">Weekend Brunch</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#"><span class="glyphicon glyphicon-envelope" aria-hidden="true">Contact</a></li>
+               
+                        <form class="navbar-form navbar-right" role="search">
+                          <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Email">
+                             <input type="text" class="form-control" placeholder="Password">
+                          </div>
+                             <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" class="form-control"> <span>Remember Me</span>
+                                </label>
+                            </div>
+                          <button type="submit" class="btn btn-info btn-sm">Sign in</button>
+                        </form>
+                </ul>
+                
+            </div>
+        </div>
+    </nav>  
 
     <header class="jumbotron">
 
@@ -41,6 +92,7 @@
     </header>
     
     <div class="container">
+        
       <div class="row">
             <div class="col-xs-12 col-sm-3 col-sm-push-9">           
                 <p style="padding:20px;"></p>
