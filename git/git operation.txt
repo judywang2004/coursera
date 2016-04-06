@@ -20,6 +20,20 @@ git commit -m 'Added my project'
 git remote add origin https://github.com/judywang2004/coursera.git
 git push -u -f origin master
 
+
+3: add a subfolder
+1.create a folder
+2."git add" this folder
+3."git commit -m 'message'"
+4."git push"
+
+
+ git add -A stages All
+•git add . stages new and modified, without deleted
+•git add -u stages modified and deleted, without new
+
+
+
 2: Git Operations
 
  Created by David Payt on May 19, 2015 9:56 AM. Last modified by David Payt on Feb 12, 2016 9:50 AM. 
