@@ -32,6 +32,11 @@ git push -u -f origin master
 •git add . stages new and modified, without deleted
 •git add -u stages modified and deleted, without new
 
+sycing with remote
+git clone
+git fetch
+git merge
+git pull
 
 
 2: Git Operations
