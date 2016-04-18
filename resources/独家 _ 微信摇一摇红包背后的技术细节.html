@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<!-- saved from url=(0146)http://mp.weixin.qq.com/s?__biz=MjM5MDE0Mjc4MA==&mid=403405331&idx=1&sn=788581a2f52aa96290dfa63b2f009ebf&scene=5&srcid=0405rlw9pjmK0upSNpNgAUcM#rd -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+
+
+        <script type="text/javascript">
+            window.logs = {
+                pagetime: {}
+            };
+            window.logs.pagetime['html_begin'] = (+new Date());
+        </script>
+        
+
+<script type="text/javascript"> 
+
+    var page_begintime = (+new Date());
+
+    var biz = "MjM5MDE0Mjc4MA=="||"";
+    var sn = "788581a2f52aa96290dfa63b2f009ebf" || ""|| "";
+    var mid = "403405331" || ""|| "";
+    var idx = "1" || "" || "";
+
+    
+    var is_rumor = ""*1;
+    var norumor = ""*1;
+    if (!!is_rumor&&!norumor){
+      if (!document.referrer || document.referrer.indexOf("mp.weixin.qq.com/mp/rumor") == -1){
+        location.href = "http://mp.weixin.qq.com/mp/rumor?action=info&__biz=" + biz + "&mid=" + mid + "&idx=" + idx + "&sn=" + sn + "#wechat_redirect";
+      }
+    }
+
+    
+    
+</script>
+<script type="text/javascript">
+var MutationObserver = window.WebKitMutationObserver||window.MutationObserver||window.MozMutationObserver;
+if (location.href.indexOf("http://")==0 && typeof MutationObserver === 'function') {
+    window.__observer_data = {count:0, exec_time: 0, list:[]};
+    window.__observer = new MutationObserver(function(mutations) {
+        
+        window.__observer_data.count++;
+        var begin = new Date(), deleteNodes = [];
+        mutations.forEach(function(mutation) {
+            var nodes = mutation.addedNodes;
+            for (var i = 0; i < nodes.length; i++) {
+                var node = nodes[i];
+
+                if (node.tagName === 'SCRIPT') {
+                    var scriptSrc = node.src;
+                    if(scriptSrc && !/qq\.com/.test(scriptSrc)) {
+                        window.__observer_data.list.push(scriptSrc);
+                        deleteNodes.push(node);
+                    }
+                } else {
+                    
+                }
+            }
+        });
+        for(var i=0; i<deleteNodes.length; i++) {
+            var node = deleteNodes[i];
+            node.parentNode.removeChild(node);
+        }
+        window.__observer_data.exec_time += (new Date() - begin);
+    });
+    window.__observer.observe(document, {subtree: true, childList: true});
+}
+
+</script>
+
+        <link rel="dns-prefetch" href="http://res.wx.qq.com/">
+<link rel="dns-prefetch" href="http://mmbiz.qpic.cn/">
+<link rel="shortcut icon" type="image/x-icon" href="http://res.wx.qq.com/mmbizwap/en_US/htmledition/images/icon/common/favicon22c41c.ico">
+<script type="text/javascript">
+    String.prototype.html = function(encode) {
+        var replace =["&#39;", "'", "&quot;", '"', "&nbsp;", " ", "&gt;", ">", "&lt;", "<", "&amp;", "&", "&yen;", "¥"];
+        if (encode) {
+            replace.reverse();
+        }
+        for (var i=0,str=this;i< replace.length;i+= 2) {
+             str=str.replace(new RegExp(replace[i],'g'),replace[i+1]);
+        }
+        return str;
+    };
+
+    window.isInWeixinApp = function() {
+        return /MicroMessenger/.test(navigator.userAgent);
+    };
+
+    window.getQueryFromURL = function(url) {
+        url = url || 'http://qq.com/s?a=b#rd'; 
+        var query = url.split('?')[1].split('#')[0].split('&'),
+            params = {};
+        for (var i=0; i<query.length; i++) {
+            var arg = query[i].split('=');
+            params[arg[0]] = arg[1];
+        }
+        if (params['pass_ticket']) {
+        	params['pass_ticket'] = encodeURIComponent(params['pass_ticket'].html(false).html(false).replace(/\s/g,"+"));
+        }
+        return params;
+    };
+
+    (function() {
+	    var params = getQueryFromURL(location.href);
+        window.uin = params['uin'] || '';
+        window.key = params['key'] || '';
+        window.wxtoken = params['wxtoken'] || '';
+        window.pass_ticket = params['pass_ticket'] || '';
+    })();
+
+</script>
+
+        <title>独家 | 微信摇一摇红包背后的技术细节</title>
+        
+<link rel="stylesheet" type="text/css" href="./独家 _ 微信摇一摇红包背后的技术细节_files/page_mp_article_improve2d1390.css">
+<style>
+        .rich_media_content{font-size:18px;}
+    </style>
+<!--[if lt IE 9]>
+<link rel="stylesheet" type="text/css" href="http://res.wx.qq.com/mmbizwap/en_US/htmledition/style/page/appmsg/page_mp_article_improve_pc2c9cd7.css">
+<![endif]-->
+<script type="text/javascript">
+    document.domain = "qq.com";
+</script>
+
+    <link rel="stylesheet" type="text/css" href="./独家 _ 微信摇一摇红包背后的技术细节_files/not_in_mm2c9cd7.css"></head>
+    <body id="activity-detail" class="en_US mm_appmsg not_in_mm" ontouchstart="">
+        
+    <script type="text/javascript">
+        var write_sceen_time = (+new Date());
+    </script>
+    
+    <div id="js_cmt_mine" class="discuss_container editing access" style="display:none;">
+        <div class="discuss_container_inner">
+            <h2 class="rich_media_title">独家 | 微信摇一摇红包背后的技术细节</h2>
+            <span id="log"></span>
+            <div class="frm_textarea_box_wrp">
+                <span class="frm_textarea_box">
+                    <textarea id="js_cmt_input" class="frm_textarea" placeholder="留言将由公众号筛选后显示，对所有人可见。"></textarea>
+                    <div class="emotion_tool">
+                        <span class="emotion_switch" style="display:none;"></span>
+                        <span id="js_emotion_switch" class="pic_emotion_switch_wrp">
+                            <img class="pic_default" src="./独家 _ 微信摇一摇红包背后的技术细节_files/icon_emotion_switch.2x278965.png" alt="">
+                            <img class="pic_active" src="./独家 _ 微信摇一摇红包背后的技术细节_files/icon_emotion_switch_active.2x278965.png" alt="">
+                        </span>
+                        <div class="emotion_panel" id="js_emotion_panel">
+                            <span class="emotion_panel_arrow_wrp" id="js_emotion_panel_arrow_wrp">
+                                <i class="emotion_panel_arrow arrow_out"></i>
+                                <i class="emotion_panel_arrow arrow_in"></i>
+                            </span>
+                            <div class="emotion_list_wrp" id="js_slide_wrapper">
+                                
+                                
+                            </div>
+                            <ul class="emotion_navs" id="js_navbar">
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </span>
+            </div>
+            <div class="discuss_btn_wrp"><a id="js_cmt_submit" class="btn btn_primary btn_discuss btn_disabled" href="javascript:;">提交</a></div>
+            <div class="discuss_list_wrp" style="display:none">
+                <div class="rich_tips with_line title_tips discuss_title_line">
+                    <span class="tips">我的留言</span>
+                </div>
+                <ul class="discuss_list" id="js_cmt_mylist"></ul>
+            </div>
+            <div class="rich_tips tips_global loading_tips" id="js_mycmt_loading">
+                <img src="./独家 _ 微信摇一摇红包背后的技术细节_files/icon_loading_white2805ea.gif" class="rich_icon icon_loading_white" alt="">
+                <span class="tips">加载中</span>
+            </div>
+            <div class="wx_poptips" id="js_cmt_toast" style="display:none;">
+                <img alt="" class="icon_toast" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGoAAABqCAYAAABUIcSXAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA3NpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDoyMTUxMzkxZS1jYWVhLTRmZTMtYTY2NS0xNTRkNDJiOGQyMWIiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MTA3QzM2RTg3N0UwMTFFNEIzQURGMTQzNzQzMDAxQTUiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MTA3QzM2RTc3N0UwMTFFNEIzQURGMTQzNzQzMDAxQTUiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChNYWNpbnRvc2gpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6NWMyOGVjZTMtNzllZS00ODlhLWIxZTYtYzNmM2RjNzg2YjI2IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjIxNTEzOTFlLWNhZWEtNGZlMy1hNjY1LTE1NGQ0MmI4ZDIxYiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pmvxj1gAAAVrSURBVHja7J15rF1TFMbXk74q1ZKHGlMkJVIhIgg1FH+YEpEQJCKmGBpThRoSs5jVVNrSQUvEEENIhGiiNf9BiERICCFIRbUiDa2qvudbOetF3Tzv7XWGffa55/uS7593977n3vO7e5+199p7v56BgQGh0tcmvAUERREUQVEERREUQVEERREUQVEERREUQVEERREUQVEERREUQVEERVAUQVEERVAUQbVYk+HdvZVG8b5F0xj4RvhouB+eCy8KrdzDJc1RtAX8ILxvx98V1GyCSkN98Cx4z/95/Wn4fj6j6tUEeN4wkFSnw1MJqj5NhBfAuwaUHREUg4lqNMmePVsHll/HFhVfe1t3FwpJI8DXCCquDrCWNN4B6Tb4M3Z98aTPmTvh0YHl18PXw29yZiKejoPvcUD6E74yFBJbVDk6Bb7K8aP/Hb4c/tRzEYIqprPhSxzlf4Uvhb/0Xoig8qnHAJ3lqPMzfDH8XZ4LEpRf2sVdA5/sqPO9Qfop70UJyn+/boaPddT5yrq7VUUvTIVJI7q74MMddXR8NB1eXcYvhBpZm0s2w72/o86HFoKvLau/pYaXzjLMdUJ6y0LwtWV9CIIaXtvA8+G9HHV03u5q+K+yH47U0NoRngPv7KjzHDwTLj0bS1BDazfJJlcnOOostC6ysnCT+q80G/sIvFVgeW09D8FPVT0uoP7VfvAD8NjA8pqmuAN+OcYAjso0RbIZ8DGB5TVNcRO8JMaHY9SXSdfa3eeANJimWBLrA7JFiZwIXye+NMUV8CcxP2SRFjXefok7NRjSGZJlWUPvw2/wtNiQirSoXWyMsR28wR7AzzYM0oXw+Y7yK+CLJGeaoqjyrJSdZJD6Ov4+z5y6NJc0Az7NUecHydIUy+v60KNyQHoM3nKI1y7YCFiq0i7uBvgER52vDdKqWn9djhY1Dn4G3n6Ecqm2rF74dvgoR53S0hQxW9RJAZAGW5bSn58QJA27dQ7uIEedjywEX5NKVxCqsY6y+qA+LxFI4+yZ6oH0trWkNan80jygtIUsc5SflgAsDXgehfdx1KkkTRE76tN+Xue2jnTU0Ru1oIbvpt30bBtKhOp5yaaRkts0lic8V1i6dPcIRx2d/l8Y8XtNNEg7OOo8bl1kmmOKnDsO88CaYzejau0hWZqiL7C83oCH4SeTHvwV2BqqsHRVztSEYOmWF80NeXZT6Hd4KflResE9vCnBOlCyGfDNAstHTVPUDWoQ1t3iW+9WNizvlhfd4aerXd+ThqiMfNR6+9LvOOro5OY5JX2H4+F7HZD+kGzlamMgldWiirQsjcwWFbjmqZJteekJLK9pisvgL6RhKvuciZiwzrWWGapfrPy30kBVcSBIrw0aD3PU0XB6cehntq7rTMf7/2iQlktDVdXJLXlg6VjmiYBn6rWSTRCH6hvJ0hQrpcGq8oidsmHpTP8t8DGO9/vcWt9qabiqPgup1yKyQwvC2tSefZ73SSpNkUJ4PlLorlHZ+446nc8f3fIyywlJhwrTuwVSjBa1ccvSxN0hjjoK5xVrYZMd9V6XbFfgBukixTwGLg8sDam3dZR/wZ6L/dJlin1en8LS+bgpFbz3Ygvzu1J1HKxYNqxGpCmaCEo12rrBorD6LRp8UbpcdR5VWhTW35KlKd6QFqjuM2XzwlpnMxTvSkuUwuG/Xlg6NtPjbT6WFimF/VG6LEvXgn8QGDjMbBukVECFwhpoS+CQatfX2Q1q6H7wENHdrfCr0lKleEB9JyxNneus+VJpsVL9TwI6W65LovWIGl3KtVJaLv7LBwYTFEERFEVQFEERFEVQFEERFEVQFEERFEVQFEERFEVQFEERFFWq/hFgADUMN4RzT6/OAAAAAElFTkSuQmCC">
+                <p class="toast_content">已留言</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="js_article" class="rich_media">
+        
+        <div id="js_top_ad_area" class="top_banner">
+ 
+        </div>
+                
+
+        <div class="rich_media_inner">
+            <div id="page-content">
+                <div id="img-content" class="rich_media_area_primary">
+                    <h2 class="rich_media_title" id="activity-name">
+                        独家 | 微信摇一摇红包背后的技术细节 
+                    </h2>
+                    <div class="rich_media_meta_list">
+                                                <span id="copyright_logo" class="rich_media_meta meta_original_tag">原创</span>
+                        						                        <em id="post-date" class="rich_media_meta rich_media_meta_text">2016-04-04</em>
+
+                                                <em class="rich_media_meta rich_media_meta_text">姜楠</em>
+                                                <a class="rich_media_meta rich_media_meta_link rich_media_meta_nickname" href="javascript:void(0);" id="post-user">InfoQ</a>
+                        <span class="rich_media_meta rich_media_meta_text rich_media_meta_nickname">InfoQ</span>
+
+                        <div id="js_profile_qrcode" class="profile_container" style="display:none;">
+                            <div class="profile_inner">
+                                <strong class="profile_nickname">InfoQ</strong>
+                                <img class="profile_avatar" id="js_profile_qrcode_img" src="" alt="">
+
+                                <p class="profile_meta">
+                                <label class="profile_meta_label">微信号</label>
+                                <span class="profile_meta_value">infoqchina</span>
+                                </p>
+
+                                <p class="profile_meta">
+                                <label class="profile_meta_label">功能介绍</label>
+                                <span class="profile_meta_value">有内容的技术社区媒体</span>
+                                </p>
+                                
+                            </div>
+                            <span class="profile_arrow_wrp" id="js_profile_arrow_wrp">
+                                <i class="profile_arrow arrow_out"></i>
+                                <i class="profile_arrow arrow_in"></i>
+                            </span>
+                        </div>
+                    </div>
+                    
+                    
+                    
+                    
+                                                            
+                                                            
+                    
+                    <div class="rich_media_content " id="js_content">
+                        
+                        <p><img data-src="http://mmbiz.qpic.cn/mmbiz/YriaiaJPb26VO5MfjZEicomiaKtwtPdqycofjvnvLZWGlascNTX3pBR9t4Ux7uJbbFJzMuBicCiafZVddiad8bBF2u2vg/0?wx_fmt=gif" data-type="gif" data-ratio="0.1564748201438849" data-w="" src="./独家 _ 微信摇一摇红包背后的技术细节_files/0" style="width: auto !important; visibility: visible !important; height: auto !important;"></p><section style="box-sizing: border-box; background-color: rgb(255, 255, 255);"><section class="Powered-by-XIUMI V5" style="   box-sizing: border-box; "><section class="" style=" margin-top: 10px; margin-bottom: 10px;  box-sizing: border-box; "><section class="" style="padding-top: 10px; padding-right: 10px; padding-left: 10px; box-sizing: border-box; background-color: rgb(239, 239, 239);"><span style="display: inline-block; width: 5%; line-height: 0.8; font-weight: bolder; font-size: 48px; box-sizing: border-box;" class=""><section style="box-sizing: border-box;">“</section></span> <section class="" style="display: inline-block; vertical-align: top; float: right; width: 90%; line-height: 1.5; font-size: 19.2px; box-sizing: border-box;"><section style="box-sizing: border-box;"><span style="font-size: 16px;">近两年的除夕夜，多少人摇烂了手机，戳坏了屏幕，宕机了多少系统。想知道微信摇一摇背后的技术细节吗？文末送书彩蛋！</span></section></section><section style="clear: both; box-sizing: border-box;"></section></section></section></section></section><section style="box-sizing: border-box; background-color: rgb(255, 255, 255);"><section class="Powered-by-XIUMI V5" style="   box-sizing: border-box; "><section class="" style=" margin-top: 10px; margin-bottom: 10px;  box-sizing: border-box; "><section class="" style="float: left; margin-left: 0.8em; box-sizing: border-box;"><img style="width: 2.5em !important; display: inline-block; vertical-align: bottom; box-sizing: border-box; visibility: visible !important; height: auto !important;" data-src="http://mmbiz.qpic.cn/mmbiz/YriaiaJPb26VNxRjjlib4QZBttic514Sn2oLpn70NQX1ylAWtNfPo7En8TScOGX6iaARuRLmibwrewk0qSrUsbjt8FUw/0?wx_fmt=png" class="" data-type="png" data-ratio="0.925" data-w="40" _width="2.5em" src="./独家 _ 微信摇一摇红包背后的技术细节_files/640"> <section class="" style="display: inline-block; vertical-align: top; margin-top: 0.5em; font-size: 24px; box-sizing: border-box;"><section style="box-sizing: border-box;"><strong><span style="font-size: 20px;">除夕红包有多火？</span></strong></section></section></section><img style="width: 100% !important; float: left; display: inline-block; vertical-align: middle; box-sizing: border-box; visibility: visible !important; height: auto !important; background-color: rgb(12, 130, 227);" data-src="http://mmbiz.qpic.cn/mmbiz/YriaiaJPb26VNxRjjlib4QZBttic514Sn2oLKf05RgLQBCeawpnr5U1QwV6YPENI5ySoJmicY0lseVvxxiaYEEfXPH7w/0?wx_fmt=png" class="" data-type="png" data-ratio="0.00539568345323741" data-w="" _width="100%" src="./独家 _ 微信摇一摇红包背后的技术细节_files/640(1)"> <section class="" style="clear: both; box-sizing: border-box;"></section></section></section></section><p style="margin-bottom: 15px; margin-top: 15px; line-height: 1.75em;">与传统意义上的红包相比，近两年火起来的“红包”，似乎才是如今春节的一大重头戏。历经上千年时代传承与变迁，春节发红包早已成为历史沉淀的文化习俗，融入了民族的血脉。</p><p style="margin-bottom: 15px; margin-top: 15px; line-height: 1.75em;">按照各家公布的数据，除夕全天微信用户红包总发送量达到80.8亿个，红包峰值收发量为40.9万个/秒。春晚直播期间讨论春晚的微博达到5191万条，网友互动量达到1.15亿，网友抢微博红包的总次数超过8亿次。</p><p style="margin-bottom: 15px; margin-top: 15px; line-height: 1.75em;">微信红包不仅为春节增添了新的欢乐，也成为了各种微信群活跃气氛的利器。为了让全国人民顺畅地玩红包，从网络运营商、微信基础消息系统、支付系统，到银行，无不为之付出了大量的人力和物力。作为红包整个环节中的发（即支付）这一步，支付系统承担了重要的责任。</p><p style="margin-bottom: 15px; margin-top: 15px; line-height: 1.75em;">在介绍2016年支付系统之前，先简单回顾一下。2015年，红包支付以迅猛的趋势快速增长。2015年5月，节日红包就已经突破了除夕的峰值。到年底的时候，日常更是已经达到每秒2万笔以上的支付峰值。2015年春节，我们的支付系统为了红包做了充分的准备并顺利完成了春节任务，支撑红包支付突破每秒1万笔的峰值。但是回过头来看，虽然对支付系统做过很多次优化，但仍然存在一些不足。</p><p style="margin-bottom: 15px; margin-top: 15px; line-height: 1.75em;"><strong>2015年，我们为红包支付做的优化有以下几项：&nbsp;</strong></p><blockquote><ul class=" list-paddingleft-2" style="list-style-type: disc;"><li><p style="margin-bottom: 15px; margin-top: 15px; line-height: 1.75em;">支付核心路径梳理简化；&nbsp;</p></li><li><p style="margin-bottom: 15px; margin-top: 15px; line-height: 1.75em;">通过预演确定请求访问模型，制定核心模块的支撑容量；&nbsp;</p></li><li><p style="margin-bottom: 15px; margin-top: 15px; line-height: 1.75em;">关键模块自我保护机制；&nbsp;</p></li><li><p style="margin-bottom: 15px; margin-top: 15px; line-height: 1.75em;">准静态数据多级缓存保护；&nbsp;</p></li><li><p style="margin-bottom: 15px; margin-top: 15px; line-height: 1.75em;">非核心功能手工降级。</p></li></ul></blockquote><p style="margin-bottom: 15px; margin-top: 15px; line-height: 1.75em;">虽然做了这些优化，在经历过2015年春节后，我们发现了<strong>一些不足之处：&nbsp;</strong></p><blockquote><ul class=" list-paddingleft-2" style="list-style-type: disc;"><li><p style="margin-bottom: 15px; margin-top: 15px; line-height: 1.75em;">链路耦合：红包交易对整体支付系统的冲击很大，也一定程度影响到了商业支付；&nbsp;</p></li><li><p style="margin-bottom: 15px; margin-top: 15px; line-height: 1.75em;">简单粗暴的旁路保护：核心模块与非核心模块的容量并不平衡，虽然核心模块对非核心模块的异常有自保措施，无法避免非核心模块在高压下过载；&nbsp;</p></li><li><p style="margin-bottom: 15px; margin-top: 15px; line-height: 1.75em;">支付异常体验差：支付扣款环节的异常的体验不闭环，支付结果不明确，容易导致用户产生重复支付行为；&nbsp;</p></li><li><p style="margin-bottom: 15px; margin-top: 15px; line-height: 1.75em;">降级处理慢：人工降级的决策和实施时间较长，影响业务恢复的及时性；&nbsp;</p></li><li><p style="margin-bottom: 15px; margin-top: 15px; line-height: 1.75em;">内部安全风险：为了赶业务目标，内部的部分资金敏感接口处于“裸奔”状态，随时可能成为安全问题的定时炸弹。</p></li></ul></blockquote><p style="margin-bottom: 15px; margin-top: 15px; line-height: 1.75em;">针对2016年春节，我们定下了支撑峰值每秒10万笔的目标，再加上上面提到的不足，系统的可用性保障面临较大的挑战。接下来分享一下我们所做出的准备工作。</p><section style="box-sizing: border-box; background-color: rgb(255, 255, 255);"><section class="Powered-by-XIUMI V5" style="   box-sizing: border-box; "><section class="" style=" margin-top: 10px; margin-bottom: 10px;  box-sizing: border-box; "><section class="" style="float: left; margin-left: 0.8em; box-sizing: border-box;"><img style="width: 2.5em !important; display: inline-block; vertical-align: bottom; box-sizing: border-box; visibility: visible !important; height: auto !important;" data-src="http://mmbiz.qpic.cn/mmbiz/YriaiaJPb26VNxRjjlib4QZBttic514Sn2oLpn70NQX1ylAWtNfPo7En8TScOGX6iaARuRLmibwrewk0qSrUsbjt8FUw/0?wx_fmt=png" class="" data-type="png" data-ratio="0.925" data-w="40" _width="2.5em" src="./独家 _ 微信摇一摇红包背后的技术细节_files/640"> <section class="" style="display: inline-block; vertical-align: top; margin-top: 0.5em; font-size: 24px; box-sizing: border-box;"><section style="box-sizing: border-box;"><strong><span style="font-size: 20px;">支付架构</span></strong></section></section></section><img style="width: 100% !important; float: left; display: inline-block; vertical-align: middle; box-sizing: border-box; visibility: visible !important; height: auto !important; background-color: rgb(12, 130, 227);" data-src="http://mmbiz.qpic.cn/mmbiz/YriaiaJPb26VNxRjjlib4QZBttic514Sn2oLKf05RgLQBCeawpnr5U1QwV6YPENI5ySoJmicY0lseVvxxiaYEEfXPH7w/0?wx_fmt=png" class="" data-type="png" data-ratio="0.00539568345323741" data-w="" _width="100%" src="./独家 _ 微信摇一摇红包背后的技术细节_files/640(1)"> <section class="" style="clear: both; box-sizing: border-box;"></section></section></section></section><p style="margin-bottom: 15px; margin-top: 15px; line-height: 1.75em;">经过详细分析和设计，2016年春节的红包支付架构引入了几个新的变化。&nbsp;<br><img data-src="http://mmbiz.qpic.cn/mmbiz/YriaiaJPb26VNxRjjlib4QZBttic514Sn2oLcianYIBoGQiatJcPRxO0VicfwiaAVqdIGicsME7p2ZSSPI47rVTo1qGRytg/0?wx_fmt=jpeg" title="" style="vertical-align: middle; border: 0px; width: auto !important; visibility: visible !important; height: auto !important;" class="" data-type="jpeg" data-ratio="0.6330935251798561" data-w="" src="./独家 _ 微信摇一摇红包背后的技术细节_files/640(2)"></p><section style="box-sizing: border-box; background-color: rgb(255, 255, 255);"><section class="Powered-by-XIUMI V5" style="   box-sizing: border-box; "><section class="" style=" margin-top: 10px; margin-bottom: 10px;  box-sizing: border-box; "><section class="" style="padding: 2px; display: inline-block; box-sizing: border-box; background-color: rgb(0, 0, 0);"><section class="" style="padding-right: 8px; padding-left: 8px; margin-right: 5px; display: inline-block; color: rgb(255, 255, 255); box-sizing: border-box; background-color: rgb(12, 130, 227);"><section style="box-sizing: border-box;"><span style="font-size: 18px;"><strong>1</strong></span></section></section><section class="" style="padding-right: 5px; padding-left: 5px; display: inline-block; color: rgb(255, 255, 255); box-sizing: border-box;"><section style="box-sizing: border-box;"><span style="font-size: 18px;"><strong>红包交易链路独立</strong></span></section></section></section></section></section><ul class=" list-paddingleft-2" style="list-style-type: disc;"><li><p style="margin-top: 15px; margin-bottom: 15px; line-height: 1.75em;"><span style="line-height: 1.75em;">针对红包的交易链路做隔离，除了一些公共服务及收款渠道服务（零钱系统和银行清算系统）以外，彻底和商业支付分开；&nbsp;</span></p></li><li><section style="box-sizing: border-box; background-color: rgb(255, 255, 255);"><p style="margin-top: 15px; margin-bottom: 15px; line-height: 1.75em;"><span style="line-height: 1.75em;">链路独立后，一个好处是可以针对红包的特点，大幅简化支付处理逻辑，另一个好处是，可以独立针对红包链路单独做柔性降级处理，而不会影响商业支付的体验。</span></p></section></li></ul></section><section style="box-sizing: border-box; background-color: rgb(255, 255, 255);"><section class="Powered-by-XIUMI V5" style="   box-sizing: border-box; "><section class="" style=" margin-top: 10px; margin-bottom: 10px;  box-sizing: border-box; "><section class="" style="padding: 2px; display: inline-block; box-sizing: border-box; background-color: rgb(0, 0, 0);"><section class="" style="padding-right: 8px; padding-left: 8px; margin-right: 5px; display: inline-block; color: rgb(255, 255, 255); box-sizing: border-box; background-color: rgb(12, 130, 227);"><section style="box-sizing: border-box;"><span style="font-size: 18px;"><strong>2</strong></span></section></section><section class="" style="padding-right: 5px; padding-left: 5px; display: inline-block; color: rgb(255, 255, 255); box-sizing: border-box;"><section style="box-sizing: border-box;"><span style="font-size: 18px;"><strong>极简红包支付逻辑</strong></span></section></section></section></section></section></section><p style="margin-bottom: 15px; margin-top: 15px; line-height: 1.75em;">针对红包系统的支付下单请求，仅验证内部票据即可，原有的大量鉴权逻辑及支付渠道按规则选择逻辑可以全部裁剪，对周边系统的依赖几乎可以降为零；</p><p style="margin-bottom: 15px; margin-top: 15px; line-height: 1.75em;"><span style="line-height: 1.75em;">针对红包的支付过程快的特点，将交易流程的上下文session数据换成高性能、低成本、低容灾级别的全内存服务集群处理，即使某台内存存储的机器故障，也只会影响极短时间的一小部分的用户支付；&nbsp;</span><br></p><p style="margin-bottom: 15px; margin-top: 15px; line-height: 1.75em;">针对红包是最简单的支付业务形态的特点，不记录交易单据，以红包业务单据来代替，红包业务系统直接和资金系统进行最终交易对账处理。如此进一步减少红包支付逻辑的复杂度，提高整体可用性。</p><section style="box-sizing: border-box; background-color: rgb(255, 255, 255);"><section class="Powered-by-XIUMI V5" style="   box-sizing: border-box; "><section class="" style=" margin-top: 10px; margin-bottom: 10px;  box-sizing: border-box; "><section class="" style="padding: 2px; display: inline-block; box-sizing: border-box; background-color: rgb(0, 0, 0);"><section class="" style="padding-right: 8px; padding-left: 8px; margin-right: 5px; display: inline-block; color: rgb(255, 255, 255); box-sizing: border-box; background-color: rgb(12, 130, 227);"><section style="box-sizing: border-box;"><span style="font-size: 18px;"><strong>3</strong></span></section></section><section class="" style="padding-right: 5px; padding-left: 5px; display: inline-block; color: rgb(255, 255, 255); box-sizing: border-box;"><section style="box-sizing: border-box;"><span style="font-size: 18px;"><strong>高可靠消息总线解耦非核心模块</strong></span></section></section></section></section></section></section><ul class=" list-paddingleft-2" style="list-style-type: disc;"><li><p style="margin-bottom: 15px; margin-top: 15px; line-height: 1.75em;">建设超高可靠、超大队列容量、灵活控制消费频率的消息总线系统；&nbsp;</p></li><li><p style="margin-bottom: 15px; margin-top: 15px; line-height: 1.75em;">解除非核心模块在高压力业务路径中的调用耦合，对红包高峰涌来时产生的巨量内部非核心模块调用进行削峰，减少冲击导致过载。</p></li></ul><section style="box-sizing: border-box; background-color: rgb(255, 255, 255);"><section class="Powered-by-XIUMI V5" style="   box-sizing: border-box; "><section class="" style=" margin-top: 10px; margin-bottom: 10px;  box-sizing: border-box; "><section class="" style="padding: 2px; display: inline-block; box-sizing: border-box; background-color: rgb(0, 0, 0);"><section class="" style="padding-right: 8px; padding-left: 8px; margin-right: 5px; display: inline-block; color: rgb(255, 255, 255); box-sizing: border-box; background-color: rgb(12, 130, 227);"><section style="box-sizing: border-box;"><span style="font-size: 18px;"><strong>4</strong></span></section></section><section class="" style="padding-right: 5px; padding-left: 5px; display: inline-block; color: rgb(255, 255, 255); box-sizing: border-box;"><section style="box-sizing: border-box;"><span style="font-size: 18px;"><strong>票据系统全程保护调用的安全</strong></span></section></section></section></section></section></section><ul class=" list-paddingleft-2" style="list-style-type: disc;"><li><p style="margin-bottom: 15px; margin-top: 15px; line-height: 1.75em;">支付系统内部接口敏感性高，需要确保接口使用的安全性；&nbsp;</p></li><li><p style="margin-bottom: 15px; margin-top: 15px; line-height: 1.75em;">在用户及商户鉴权的同时，生成不可伪造的票据，在业务过程中，由底层中间件系统全程携带票据到各个接口，并进行必要的接口请求合法性验证。</p></li></ul><section style="box-sizing: border-box; background-color: rgb(255, 255, 255);"><section class="Powered-by-XIUMI V5" style="   box-sizing: border-box; "><section class="" style=" margin-top: 10px; margin-bottom: 10px;  box-sizing: border-box; "><section class="" style="float: left; margin-left: 0.8em; box-sizing: border-box;"><img style="width: 2.5em !important; display: inline-block; vertical-align: bottom; box-sizing: border-box; visibility: visible !important; height: auto !important;" data-src="http://mmbiz.qpic.cn/mmbiz/YriaiaJPb26VNxRjjlib4QZBttic514Sn2oLpn70NQX1ylAWtNfPo7En8TScOGX6iaARuRLmibwrewk0qSrUsbjt8FUw/0?wx_fmt=png" class="" data-type="png" data-ratio="0.925" data-w="40" _width="2.5em" src="./独家 _ 微信摇一摇红包背后的技术细节_files/640"> <section class="" style="display: inline-block; vertical-align: top; margin-top: 0.5em; font-size: 24px; box-sizing: border-box;"><section style="box-sizing: border-box;">高并发下的异常应对</section></section></section><img style="width: 100% !important; float: left; display: inline-block; vertical-align: middle; box-sizing: border-box; visibility: visible !important; height: auto !important; background-color: rgb(12, 130, 227);" data-src="http://mmbiz.qpic.cn/mmbiz/YriaiaJPb26VNxRjjlib4QZBttic514Sn2oLKf05RgLQBCeawpnr5U1QwV6YPENI5ySoJmicY0lseVvxxiaYEEfXPH7w/0?wx_fmt=png" class="" data-type="png" data-ratio="0.00539568345323741" data-w="" _width="100%" src="./独家 _ 微信摇一摇红包背后的技术细节_files/640(1)"> <section class="" style="clear: both; box-sizing: border-box;"></section></section></section></section><section style="box-sizing: border-box; background-color: rgb(255, 255, 255);"><section class="Powered-by-XIUMI V5" style="   box-sizing: border-box; "><section class="" style=" margin-top: 10px; margin-bottom: 10px;  box-sizing: border-box; "><section class="" style="padding: 2px; display: inline-block; box-sizing: border-box; background-color: rgb(0, 0, 0);"><section class="" style="padding-right: 8px; padding-left: 8px; margin-right: 5px; display: inline-block; color: rgb(255, 255, 255); box-sizing: border-box; background-color: rgb(12, 130, 227);"><section style="box-sizing: border-box;"><span style="font-size: 18px;"><strong>1</strong></span></section></section><section class="" style="padding-right: 5px; padding-left: 5px; display: inline-block; color: rgb(255, 255, 255); box-sizing: border-box;"><section style="box-sizing: border-box;"><span style="font-size: 18px;"><strong>多IDC容灾</strong></span></section></section></section></section></section></section><ul class=" list-paddingleft-2" style="list-style-type: disc;"><li><p style="margin-bottom: 15px; margin-top: 15px; line-height: 1.75em;">由于业务峰值高，容灾冗余的成本非常大，无法做到完全任意IDC故障不影响业务，容灾策略上有所权衡；&nbsp;</p></li><li><p style="margin-bottom: 15px; margin-top: 15px; line-height: 1.75em;">所有可以做到业务无IDC状态的服务，至少有两个地点的IDC服务集群；&nbsp;</p></li><li><p style="margin-bottom: 15px; margin-top: 15px; line-height: 1.75em;">每个服务的所有IDC服务集群中，最多只能有一个集群，如果发生故障，另外的集群无法全量接管请求量；&nbsp;</p></li><li><p style="margin-bottom: 15px; margin-top: 15px; line-height: 1.75em;">万一极端情况出现，降低设计容量，进行业务限流。</p></li></ul><section style="box-sizing: border-box; background-color: rgb(255, 255, 255);"><section class="Powered-by-XIUMI V5" style="   box-sizing: border-box; "><section class="" style=" margin-top: 10px; margin-bottom: 10px;  box-sizing: border-box; "><section class="" style="padding: 2px; display: inline-block; box-sizing: border-box; background-color: rgb(0, 0, 0);"><section class="" style="padding-right: 8px; padding-left: 8px; margin-right: 5px; display: inline-block; color: rgb(255, 255, 255); box-sizing: border-box; background-color: rgb(12, 130, 227);"><section style="box-sizing: border-box;"><span style="font-size: 18px;"><strong>2</strong></span></section></section><section class="" style="padding-right: 5px; padding-left: 5px; display: inline-block; color: rgb(255, 255, 255); box-sizing: border-box;"><section style="box-sizing: border-box;"><span style="font-size: 18px;"><strong>优先零钱</strong></span></section></section></section></section></section></section><ul class=" list-paddingleft-2" style="list-style-type: disc;"><li><p style="margin-bottom: 15px; margin-top: 15px; line-height: 1.75em;">由于大量高频的群红包绝大比例是小额红包，所以但凡发现用户零钱够，就优先默认帮用户选择零钱来支付（用户也可以手工修改为其他支付方式）；&nbsp;</p></li><li><p style="margin-bottom: 15px; margin-top: 15px; line-height: 1.75em;">一方面大幅减少群里面小金额红包支付对可控性相对较差的银行渠道的压力，另一方面也降低了支付资金操作接口的耗时，进而降低系统服务处理的并发程度及负载，还可以提升用户的支付体验。</p></li></ul><section style="box-sizing: border-box; background-color: rgb(255, 255, 255);"><section class="Powered-by-XIUMI V5" style="   box-sizing: border-box; "><section class="" style=" margin-top: 10px; margin-bottom: 10px;  box-sizing: border-box; "><section class="" style="padding: 2px; display: inline-block; box-sizing: border-box; background-color: rgb(0, 0, 0);"><section class="" style="padding-right: 8px; padding-left: 8px; margin-right: 5px; display: inline-block; color: rgb(255, 255, 255); box-sizing: border-box; background-color: rgb(12, 130, 227);"><section style="box-sizing: border-box;"><span style="font-size: 18px;"><strong>3</strong></span></section></section><section class="" style="padding-right: 5px; padding-left: 5px; display: inline-block; color: rgb(255, 255, 255); box-sizing: border-box;"><section style="box-sizing: border-box;"><span style="font-size: 18px;"><strong>自动QOS</strong></span></section></section></section></section></section></section><ul class=" list-paddingleft-2" style="list-style-type: disc;"><li><p style="margin-bottom: 15px; margin-top: 15px; line-height: 1.75em;">按是否核心链路、重要程度做、是否明显影响用户体验几个方面，对接口作优先级分档排序；&nbsp;</p></li><li><p style="margin-bottom: 15px; margin-top: 15px; line-height: 1.75em;">当有高并发请求时，系统监控到有抖动时（服务队列满、系统错误突增、机器负载高、io高 等），自动从低优先级的接口开始做快速拒绝，逐步恢复系统。</p></li></ul><section style="box-sizing: border-box; background-color: rgb(255, 255, 255);"><section class="Powered-by-XIUMI V5" style="   box-sizing: border-box; "><section class="" style=" margin-top: 10px; margin-bottom: 10px;  box-sizing: border-box; "><section class="" style="padding: 2px; display: inline-block; box-sizing: border-box; background-color: rgb(0, 0, 0);"><section class="" style="padding-right: 8px; padding-left: 8px; margin-right: 5px; display: inline-block; color: rgb(255, 255, 255); box-sizing: border-box; background-color: rgb(12, 130, 227);"><section style="box-sizing: border-box;"><span style="font-size: 18px;"><strong>4</strong></span></section></section><section class="" style="padding-right: 5px; padding-left: 5px; display: inline-block; color: rgb(255, 255, 255); box-sizing: border-box;"><section style="box-sizing: border-box;"><span style="font-size: 18px;"><strong>消除支付异常的等待及不明确</strong></span></section></section></section></section></section></section><ul class=" list-paddingleft-2" style="list-style-type: disc;"><li><p style="margin-bottom: 15px; margin-top: 15px; line-height: 1.75em;">前端调用支付流程如果出现非明确的异常（银行收款超时，系统内部抖动，网络异常等），此时扣款渠道有可能已经成功，也有可能未成功，着急的用户可能会连续支付多笔，而胆小的用户也许不敢再发起支付；&nbsp;</p></li><li><p style="margin-bottom: 15px; margin-top: 15px; line-height: 1.75em;">在高并发下，这种异常会更加频繁产生，因此需要全面提升支付异常下的体验：&nbsp;</p></li></ul><ol class=" list-paddingleft-2" style="list-style-type: decimal;"><li><p style="margin-bottom: 15px; margin-top: 15px; line-height: 1.75em;">在支付流程异常时，发布支付结果未明的事件到可靠消息总线；&nbsp;</p></li><li><p style="margin-bottom: 15px; margin-top: 15px; line-height: 1.75em;">可靠消息总线在一定的用户可接受的等待延迟后，进行扣款渠道的单据结果确认，如果尚未成功，则对当次扣款渠道单据进行锁定，保障后续一定不会再成，如果实际的资金已经发生，则还需要负责及时将资金退回；&nbsp;</p></li><li><p style="margin-bottom: 15px; margin-top: 15px; line-height: 1.75em;">在整个过程中，每一步确认及操作的结果均通过微信支付消息触达到用户来透明信息，减少用户的困惑及等待。</p></li></ol><section style="box-sizing: border-box; background-color: rgb(255, 255, 255);"><section class="Powered-by-XIUMI V5" style="   box-sizing: border-box; "><section class="" style=" margin-top: 10px; margin-bottom: 10px;  box-sizing: border-box; "><section class="" style="padding: 2px; display: inline-block; box-sizing: border-box; background-color: rgb(0, 0, 0);"><section class="" style="padding-right: 8px; padding-left: 8px; margin-right: 5px; display: inline-block; color: rgb(255, 255, 255); box-sizing: border-box; background-color: rgb(12, 130, 227);"><section style="box-sizing: border-box;"><span style="font-size: 18px;"><strong>5</strong></span></section></section><section class="" style="padding-right: 5px; padding-left: 5px; display: inline-block; color: rgb(255, 255, 255); box-sizing: border-box;"><section style="box-sizing: border-box;"><span style="font-size: 18px;"><strong>其他体验柔性</strong></span></section></section></section></section></section></section><p style="margin-bottom: 15px; margin-top: 15px; line-height: 1.75em;"><span style="color: rgb(61, 170, 214);"><strong>钱包首页体验柔性&nbsp;</strong></span></p><ul class=" list-paddingleft-2" style="list-style-type: disc;"><li><p style="margin-bottom: 15px; margin-top: 15px; line-height: 1.75em;">由于在摇红包后或者发红包高峰时，大量用户会进入钱包首页查看零钱，此时对余额和绑卡数据的查询量会非常大，极可能影响收银台的相关功能稳定性；</p></li><li><p style="margin-bottom: 15px; margin-top: 15px; line-height: 1.75em;">针对首页查询设置固定的限流值来保护后端系统，在限流时，钱包首页的零钱将使用客户端的缓存数据，不会自动刷新，并且会挂出延迟公告，需要再进入下一级的零钱界面（大概是首页访问量的1/7），才会刷新。&nbsp;</p></li></ul><p style="margin-bottom: 15px; margin-top: 15px; line-height: 1.75em;"><span style="color: rgb(61, 170, 214);"><strong>朋友圈红包降级&nbsp;</strong></span></p><p style="margin-bottom: 15px; margin-top: 15px; line-height: 1.75em;">针对朋友圈红包（发红包看图），设计了惊喜体验的巧妙降级逻辑，当支付系统异常时，会不断提高彩蛋（免单）的比例，以减少对支付系统的压力，直至业务恢复或者全部降级。&nbsp;</p><p style="margin-bottom: 15px; margin-top: 15px; line-height: 1.75em;"><span style="color: rgb(61, 170, 214);"><strong>交易流水记录缓存&nbsp;</strong></span></p><p style="margin-bottom: 15px; margin-top: 15px; line-height: 1.75em;">如果交易流水查询系统出现异常，客户端及H5页面会自动将最近访问到的缓存数据进行展示，并挂出数据延迟公告。</p><section style="box-sizing: border-box; background-color: rgb(255, 255, 255);"><section class="Powered-by-XIUMI V5" style="   box-sizing: border-box; "><section class="" style=" margin-top: 10px; margin-bottom: 10px;  box-sizing: border-box; "><section class="" style="float: left; margin-left: 0.8em; box-sizing: border-box;"><img style="width: 2.5em !important; display: inline-block; vertical-align: bottom; box-sizing: border-box; visibility: visible !important; height: auto !important;" data-src="http://mmbiz.qpic.cn/mmbiz/YriaiaJPb26VNxRjjlib4QZBttic514Sn2oLpn70NQX1ylAWtNfPo7En8TScOGX6iaARuRLmibwrewk0qSrUsbjt8FUw/0?wx_fmt=png" class="" data-type="png" data-ratio="0.925" data-w="40" _width="2.5em" src="./独家 _ 微信摇一摇红包背后的技术细节_files/640"> <section class="" style="display: inline-block; vertical-align: top; margin-top: 0.5em; font-size: 24px; box-sizing: border-box;"><section style="box-sizing: border-box;"><strong><span style="font-size: 20px;">小结</span></strong></section></section></section><img style="width: 100% !important; float: left; display: inline-block; vertical-align: middle; box-sizing: border-box; visibility: visible !important; height: auto !important; background-color: rgb(12, 130, 227);" data-src="http://mmbiz.qpic.cn/mmbiz/YriaiaJPb26VNxRjjlib4QZBttic514Sn2oLKf05RgLQBCeawpnr5U1QwV6YPENI5ySoJmicY0lseVvxxiaYEEfXPH7w/0?wx_fmt=png" class="" data-type="png" data-ratio="0.00539568345323741" data-w="" _width="100%" src="./独家 _ 微信摇一摇红包背后的技术细节_files/640(1)"> <section class="" style="clear: both; box-sizing: border-box;"></section></section></section></section><p style="margin-bottom: 15px; margin-top: 15px; line-height: 1.75em;">对比2015年，2016年的红包支付系统在高压下的可用性前进了一大步。但是和以往一样，我们依然看到了很多的不足之处，在可用性优化的路上，面对越来越大的压力，永远没有最优的架构和系统。我们会再针对新的问题，继续优化，迎来2017年的春节考验，也希望大家继续关注微信红包，见证系统的不断成长。</p><section donone="shifuMouseDownCard(&#39;shifu_c_027&#39;)" style="margin-top: 2em; padding-top: 0.5em; padding-bottom: 0.5em; border-radius: 4px; white-space: normal; border: 1px solid rgb(204, 204, 204); font-size: 1em; font-family: inherit; font-weight: inherit; text-decoration: inherit; color: rgb(166, 166, 166); background-color: rgb(255, 255, 255);"><section style="margin-top: -1.8em; text-align: center; border: none; line-height: 1.4;"><section class="color" style="padding: 8px 12px; border-radius: 4px; color: rgb(255, 255, 255); font-size: 1em; font-family: inherit; font-weight: inherit; text-decoration: inherit; display: inline-block; border-color: rgb(183, 184, 184); background-color: rgb(0, 88, 156);"><section><span style="font-size: 18px;"><strong>作者介绍</strong></span></section></section></section><section style="padding: 16px; color: rgb(32, 32, 32); font-size: 1em; line-height: 1.4; font-family: inherit;"><p><span style="font-size: 20px; color: rgb(61, 170, 214);"><strong><span style="font-size: 20px; line-height: 28px;">姜楠</span></strong></span><span style="line-height: 28px;">，毕业之后即投身支付系统后台的设计及开发工作，早期在财付通参与对外清算及交易系统开发，后整体负责了微信支付系统从无到有的设计及搭建，经历了微信支付快速发展过程中的各种性能及可用性挑战，未来目标是在保障系统高资金安全及高可用性的架构设计上不断前行。</span></p></section></section><blockquote><p style="margin-top: 15px; margin-bottom: 15px; line-height: 1.75em;"><span style="font-size: 18px; color: rgb(61, 170, 214);"><strong>扩展阅读：</strong></span><br></p><ul class=" list-paddingleft-2" style="list-style-type: disc;"><li><p style="margin-top: 15px; margin-bottom: 15px; line-height: 1.75em;"><a href="http://mp.weixin.qq.com/s?__biz=MjM5MDE0Mjc4MA==&amp;mid=401735823&amp;idx=1&amp;sn=7a4df58c22d9d3145e0692dd580f6a3d&amp;scene=21#wechat_redirect" target="_blank" data_ue_src="http://mp.weixin.qq.com/s?__biz=MjM5MDE0Mjc4MA==&amp;mid=401735823&amp;idx=1&amp;sn=7a4df58c22d9d3145e0692dd580f6a3d&amp;scene=21#wechat_redirect" style="color: rgb(0, 0, 0); text-decoration: none;"><span style="color: rgb(0, 0, 0);">微信朋友圈技术之道：三个人的后台团队与每日十亿的发布量</span></a><br></p></li><li><p style="margin-top: 15px; margin-bottom: 15px; line-height: 1.75em;"><a href="http://mp.weixin.qq.com/s?__biz=MjM5MDE0Mjc4MA==&amp;mid=402714239&amp;idx=1&amp;sn=8c993ae2c554549d217c4fd5655bf58b&amp;scene=21#wechat_redirect" target="_blank" data_ue_src="http://mp.weixin.qq.com/s?__biz=MjM5MDE0Mjc4MA==&amp;mid=402714239&amp;idx=1&amp;sn=8c993ae2c554549d217c4fd5655bf58b&amp;scene=21#wechat_redirect" style="color: rgb(0, 0, 0); text-decoration: none;"><span style="color: rgb(0, 0, 0);">扛住一百亿次请求：如何做一个「有把握」的春晚红包系统？</span></a><br></p></li><li><p style="margin-top: 15px; margin-bottom: 15px; line-height: 1.75em;"><a href="http://mp.weixin.qq.com/s?__biz=MjM5MDE0Mjc4MA==&amp;mid=402340325&amp;idx=1&amp;sn=5b7bf6025b1a83a0e529e630fc95ae28&amp;scene=21#wechat_redirect" target="_blank" data_ue_src="http://mp.weixin.qq.com/s?__biz=MjM5MDE0Mjc4MA==&amp;mid=402340325&amp;idx=1&amp;sn=5b7bf6025b1a83a0e529e630fc95ae28&amp;scene=21#wechat_redirect" style="color: rgb(0, 0, 0); text-decoration: none;"><span style="color: rgb(0, 0, 0);">从0到1：微信后台系统的演进之路</span></a><br></p></li><li><p style="margin-top: 15px; margin-bottom: 15px; line-height: 1.75em;"><span style="color: rgb(0, 0, 0); text-decoration: none;"><a href="http://mp.weixin.qq.com/s?__biz=MjM5MDE0Mjc4MA==&amp;mid=401735823&amp;idx=1&amp;sn=7a4df58c22d9d3145e0692dd580f6a3d&amp;scene=21#wechat_redirect" target="_blank" data_ue_src="http://mp.weixin.qq.com/s?__biz=MjM5MDE0Mjc4MA==&amp;mid=401735823&amp;idx=1&amp;sn=7a4df58c22d9d3145e0692dd580f6a3d&amp;scene=21#wechat_redirect" style="color: rgb(0, 0, 0); text-decoration: none;">微信朋友圈技术之道：三个人的后台团队与每日十亿的发布量</a></span></p></li></ul></blockquote><section label="Copyright Reserved by PLAYHUDONG." donone="shifuMouseDownCard(&#39;shifu_c_006&#39;)" style="margin: 1em auto; max-width: 100%; line-height: 25.6px; border-style: none; box-sizing: border-box !important; word-wrap: break-word !important; background-color: rgb(255, 255, 255);"><section style="padding: 16px; max-width: 100%; border-width: 8px 2px 2px; border-style: solid; border-color: rgb(0, 88, 156); line-height: 1.4; box-sizing: border-box !important; word-wrap: break-word !important;"><p style="margin-top: 5px; margin-bottom: 5px; max-width: 100%; min-height: 1em; white-space: pre-wrap; line-height: 25.6px; box-sizing: border-box !important; word-wrap: break-word !important;"><span style="max-width: 100%; color: rgb(61, 170, 214); box-sizing: border-box !important; word-wrap: break-word !important;"><strong style="max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;"><span style="max-width: 100%; font-family: Avenir, sans-serif; box-sizing: border-box !important; word-wrap: break-word !important;">送书彩蛋！</span></strong></span></p><p style="margin-top: 5px; margin-bottom: 5px; max-width: 100%; min-height: 1em; white-space: pre-wrap; line-height: 25.6px; box-sizing: border-box !important; word-wrap: break-word !important;"><span style="max-width: 100%; font-family: Avenir, sans-serif; color: rgb(0, 0, 0); box-sizing: border-box !important; word-wrap: break-word !important;">感谢人邮出版社异步社区和图灵教育的大力支持！每天为InfoQ读者免费送出5本好书，一直送到世界读书日！书籍是人类进步的阶梯，跟小Q一起好读书，读好书吧！</span></p><p style="max-width: 100%; min-height: 1em; white-space: pre-wrap; box-sizing: border-box !important; word-wrap: break-word !important;"><span style="max-width: 100%; color: rgb(61, 170, 214); box-sizing: border-box !important; word-wrap: break-word !important;"><strong style="max-width: 100%; color: rgb(62, 62, 62); line-height: 25.6px; box-sizing: border-box !important; word-wrap: break-word !important;"><span style="max-width: 100%; font-family: Avenir, sans-serif; box-sizing: border-box !important; word-wrap: break-word !important;">参与规则：</span></strong><strong style="max-width: 100%; color: rgb(62, 62, 62); line-height: 25.6px; box-sizing: border-box !important; word-wrap: break-word !important;"><span style="max-width: 100%; font-family: Avenir, sans-serif; box-sizing: border-box !important; word-wrap: break-word !important;"></span></strong></span><span style="max-width: 100%; line-height: 25.6px; font-family: Avenir, sans-serif; color: rgb(0, 0, 0); box-sizing: border-box !important; word-wrap: break-word !important;">很简单！请于本文<span style="max-width: 100%; line-height: 25.6px; color: rgb(61, 170, 214); box-sizing: border-box !important; word-wrap: break-word !important;"><strong style="max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;">评论区</strong></span>留下你足够打动小Q的对本书的渴望，入选精选评论被小Q回复中奖的5位即是幸运儿。</span></p></section></section><p style="margin-top: 5px; margin-bottom: 5px; max-width: 100%; min-height: 1em; white-space: pre-wrap; line-height: 1.5em; box-sizing: border-box !important; word-wrap: break-word !important; background-color: rgb(255, 255, 255);"><img data-s="300,640" data-type="jpeg" data-src="http://mmbiz.qpic.cn/mmbiz/YriaiaJPb26VNybcziaayuQuUKYibMMmfKc6y7hnjUFBZwWEcFuO8fQ6HLcuIqE9PDnhZQoXS2Kia9BOSuicOkpQdxXw/0?wx_fmt=jpeg" data-ratio="0.5557553956834532" data-w="" src="./独家 _ 微信摇一摇红包背后的技术细节_files/640(3)" style="width: auto !important; visibility: visible !important; height: auto !important;"><br></p><hr style="margin-top: 1em; margin-bottom: 1em; max-width: 100%; line-height: 25.6px; font-family: Avenir, sans-serif; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-top-style: solid; border-top-color: rgb(234, 234, 234); height: 1px; color: rgb(51, 51, 51); box-sizing: border-box !important; word-wrap: break-word !important; background-color: rgb(255, 255, 255);"><p><strong><font color="#888888"><span style="line-height: 22.4px; font-size: 16px;">彩蛋：</span></font></strong></p><p><span style="font-size: 14px; color: rgb(136, 136, 136);">在AWS迎来10周年纪念之际，QCon北京AWS专场将邀请来自AWS的资深技术顾问、解决方案架构师及AWS云服务用户，分享在AWS上构建个性化服务的实践过程，展示云计算相关技术的创新成果，演讲内容将覆盖深度学习、Python开发、大数据平台架构、容器管理、物联网应用等多个技术领域。报名请戳<span style="color: rgb(136, 136, 136); font-size: 18px;"><strong>阅读原文</strong></span>！</span></p><p><span style="font-size: 14px; color: rgb(136, 136, 136);"><img data-s="300,640" data-type="jpeg" data-src="http://mmbiz.qpic.cn/mmbiz/YriaiaJPb26VNybcziaayuQuUKYibMMmfKc6LnEM2DU2MwjO1KcyoR6HujLL0c2ZWYUOhLuCGa7rzYOkMwgqHdQ3Fg/0?wx_fmt=jpeg" data-ratio="0.5557553956834532" data-w="" src="./独家 _ 微信摇一摇红包背后的技术细节_files/640(4)" style="width: auto !important; visibility: visible !important; height: auto !important;"><br></span></p><p style="margin-top: 5px; margin-bottom: 5px; max-width: 100%; min-height: 1em; white-space: pre-wrap; line-height: 1.5em; box-sizing: border-box !important; word-wrap: break-word !important; background-color: rgb(255, 255, 255);"><span style="max-width: 100%; color: rgb(136, 136, 136); font-family: Avenir, sans-serif; line-height: 25.6px; box-sizing: border-box !important; word-wrap: break-word !important;">本文系InfoQ原创首发，未经授权谢绝转载。</span><br style="max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;"></p><p style="max-width: 100%; min-height: 1em; white-space: pre-wrap; line-height: 25.6px; box-sizing: border-box !important; word-wrap: break-word !important; background-color: rgb(255, 255, 255);"><img data-type="gif" data-ratio="0.3902877697841727" data-w="" width="auto" data-src="http://mmbiz.qpic.cn/mmbiz/YriaiaJPb26VO5MfjZEicomiaKtwtPdqycofeojb7anLrsPLaZwCW1AdmEPcH2zfgEgmKmgntb0DoU2d8OQuwtwcyg/0?wx_fmt=gif" style="line-height: 25.6px; box-sizing: border-box !important; word-wrap: break-word !important; width: auto !important; visibility: visible !important; height: auto !important;" _width="auto" src="./独家 _ 微信摇一摇红包背后的技术细节_files/0(1)"></p>
+                    </div>
+                    <script type="text/javascript">
+                        var first_sceen__time = (+new Date());
+
+                        if ("" == 1 && document.getElementById('js_content'))
+                            document.getElementById('js_content').addEventListener("selectstart",function(e){ e.preventDefault(); });
+
+                                        (function(){
+                            if (navigator.userAgent.indexOf("WindowsWechat") != -1){
+                                var link = document.createElement('link');
+                                var head = document.getElementsByTagName('head')[0];
+                                link.rel = 'stylesheet';
+                                link.type = 'text/css';
+                                link.href = "http://res.wx.qq.com/mmbizwap/en_US/htmledition/style/page/appmsg/page_mp_article_improve_winwx2c9cd7.css";
+                                head.appendChild(link);
+                            }
+                        })();
+                    </script>
+                    <link rel="stylesheet" type="text/css" href="./独家 _ 微信摇一摇红包背后的技术细节_files/page_mp_article_improve_combo2d1390.css">
+                    
+                    
+                                        
+                                        
+                                        <div class="rich_media_tool" id="js_toobar3">
+                                                                    <a class="media_tool_meta meta_primary" id="js_view_source" href="javascript:void(0);">Read more</a>
+                                                <div id="js_read_area3" class="media_tool_meta tips_global meta_primary" style="display:none;">Pageview <span id="readNum3"></span></div>
+
+                        <span style="display:none;" class="media_tool_meta meta_primary tips_global meta_praise" id="like3">
+                            <i class="icon_praise_gray"></i><span class="praise_num" id="likeNum3"></span>
+                        </span>
+
+                        <a id="js_report_article3" style="display:none;" class="media_tool_meta tips_global meta_extra" href="javascript:void(0);">投诉</a>
+
+                    </div>
+
+
+
+                                    </div>
+
+                <div class="rich_media_area_primary sougou" id="sg_tj" style="display:none">
+
+                </div>
+
+                <div class="rich_media_area_extra">
+
+                    
+                                        <div class="mpda_bottom_container" id="js_bottom_ad_area">
+                        
+                    </div>
+                                        
+                    <div id="js_iframetest" style="display:none;"></div>
+                                        
+                                        <div class="rich_media_extra" id="js_cmt_area" style="display:none">
+
+                        <div class="discuss_container" id="js_cmt_main" style="display:none">
+                            <div class="rich_tips with_line title_tips discuss_title_line">
+                                <span class="tips">精选留言</span>
+                            </div>
+                            <p class="tips_global tc title_bottom_tips" id="js_cmt_nofans1" style="display:none;">关注该公众号可参与留言</p>
+                            <p class="discuss_icon_tips title_bottom_tips tr" id="js_cmt_addbtn1" style="display:none">
+                                
+                                                                <a href="http://mp.weixin.qq.com/s?__biz=MjM5MDE0Mjc4MA==&amp;mid=403405331&amp;idx=1&amp;sn=788581a2f52aa96290dfa63b2f009ebf&amp;scene=5&amp;srcid=0405rlw9pjmK0upSNpNgAUcM#comment">写留言<img class="icon_edit" src="./独家 _ 微信摇一摇红包背后的技术细节_files/icon_edit25decf.png" alt=""></a>
+                                                            </p>
+                            <ul class="discuss_list" id="js_cmt_list"></ul>
+                        </div>
+
+
+                        <div class="tips_global rich_split_tips tc" id="js_cmt_nofans2" style="display:none;">
+                            关注该公众号可参与留言
+                        </div>
+
+                        <p class="discuss_icon_tips rich_split_tips tr" id="js_cmt_addbtn2" style="display:none">
+                            
+                                                        <a href="http://mp.weixin.qq.com/s?__biz=MjM5MDE0Mjc4MA==&amp;mid=403405331&amp;idx=1&amp;sn=788581a2f52aa96290dfa63b2f009ebf&amp;scene=5&amp;srcid=0405rlw9pjmK0upSNpNgAUcM#comment">写留言<img class="icon_edit" src="./独家 _ 微信摇一摇红包背后的技术细节_files/icon_edit25decf.png" alt=""></a>
+                                                    </p>
+
+                        <p class="rich_split_tips tc tips_global" id="js_cmt_tips" style="display:none;"></p>
+
+
+                        <div class="rich_tips tips_global loading_tips" id="js_cmt_loading">
+                            <img src="./独家 _ 微信摇一摇红包背后的技术细节_files/icon_loading_white2805ea.gif" class="rich_icon icon_loading_white" alt="">
+                            <span class="tips">加载中</span>
+                        </div>
+
+                        <div class="rich_tips with_line tips_global" id="js_cmt_statement" style="display:none">
+                            <span class="tips">以上留言由公众号筛选后显示</span>
+                        </div>
+
+                        <p class="rich_split_tips tc" id="js_cmt_qa" style="display:none;">
+                            <a href="http://kf.qq.com/touch/sappfaq/150211YfyMVj150313qmMbyi.html?scene_id=kf264">
+                                了解留言功能详情
+                            </a>
+                        </p>
+
+                    </div>
+                                    </div>
+               
+            </div>
+            <div id="js_pc_qr_code" class="qr_code_pc_outer" style="display: block;">
+                <div class="qr_code_pc_inner">
+                    <div class="qr_code_pc">
+                        <img id="js_pc_qr_code_img" class="qr_code_pc_img" src="./独家 _ 微信摇一摇红包背后的技术细节_files/qrcode">
+                        <p>微信扫一扫<br>关注该公众号</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+        
+        <script>
+    var __DEBUGINFO = {
+        debug_js : "http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/biz_wap/debug/console2ca724.js",
+        safe_js : "http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/biz_wap/safe/moonsafe2cec60.js",
+        res_list: []
+    };
+</script>
+        <script>window.moon_map = {"appmsg/emotion/caret.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/appmsg/emotion/caret278965.js","biz_wap/jsapi/cardticket.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/biz_wap/jsapi/cardticket275627.js","appmsg/emotion/map.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/appmsg/emotion/map278965.js","appmsg/emotion/textarea.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/appmsg/emotion/textarea27cdc5.js","appmsg/emotion/nav.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/appmsg/emotion/nav278965.js","appmsg/emotion/common.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/appmsg/emotion/common278965.js","appmsg/emotion/slide.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/appmsg/emotion/slide2a9cd9.js","pages/report.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/pages/report2c9cd7.js","pages/music_player.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/pages/music_player2b674c.js","pages/loadscript.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/pages/loadscript2c9cd7.js","appmsg/emotion/dom.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/appmsg/emotion/dom278965.js","biz_wap/utils/hashrouter.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/biz_wap/utils/hashrouter2805ea.js","a/gotoappdetail.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/a/gotoappdetail2a2c13.js","a/ios.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/a/ios275627.js","a/android.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/a/android2c5484.js","a/profile.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/a/profile29b1f9.js","a/mpshop.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/a/mpshop2d1390.js","a/card.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/a/card2d1390.js","biz_wap/utils/position.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/biz_wap/utils/position29b1f9.js","appmsg/a_report.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/appmsg/a_report2b6c15.js","biz_common/utils/respTypes.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/biz_common/utils/respTypes2c57d0.js","appmsg/cmt_tpl.html.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/appmsg/cmt_tpl.html2a2c13.js","sougou/a_tpl.html.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/sougou/a_tpl.html2c6e7c.js","appmsg/emotion/emotion.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/appmsg/emotion/emotion2a9cd9.js","biz_common/utils/report.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/biz_common/utils/report275627.js","biz_common/utils/huatuo.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/biz_common/utils/huatuo293afc.js","biz_common/utils/cookie.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/biz_common/utils/cookie275627.js","pages/voice_component.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/pages/voice_component2c5484.js","new_video/ctl.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/new_video/ctl2933be.js","biz_common/utils/monitor.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/biz_common/utils/monitor2a30ee.js","biz_common/utils/spin.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/biz_common/utils/spin275627.js","biz_wap/jsapi/pay.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/biz_wap/jsapi/pay275627.js","appmsg/reward_entry.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/appmsg/reward_entry2b1291.js","appmsg/comment.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/appmsg/comment2c5484.js","appmsg/like.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/appmsg/like2b5583.js","appmsg/a.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/appmsg/a2d1390.js","pages/version4video.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/pages/version4video2c7544.js","rt/appmsg/getappmsgext.rt.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/rt/appmsg/getappmsgext.rt2c21f7.js","biz_wap/utils/storage.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/biz_wap/utils/storage2a74ab.js","biz_common/tmpl.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/biz_common/tmpl2b357a.js","appmsg/img_copyright_tpl.html.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/appmsg/img_copyright_tpl.html2a2c13.js","appmsg/a_tpl.html.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/appmsg/a_tpl.html2d1390.js","biz_common/ui/imgonepx.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/biz_common/ui/imgonepx275627.js","biz_common/dom/attr.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/biz_common/dom/attr275627.js","biz_wap/utils/ajax.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/biz_wap/utils/ajax2c7a90.js","biz_common/utils/string/html.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/biz_common/utils/string/html29f4e9.js","sougou/index.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/sougou/index2c7544.js","biz_wap/safe/mutation_observer_report.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/biz_wap/safe/mutation_observer_report2cc953.js","appmsg/report.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/appmsg/report2cf2a2.js","biz_common/dom/class.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/biz_common/dom/class275627.js","appmsg/report_and_source.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/appmsg/report_and_source2c0ff9.js","appmsg/page_pos.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/appmsg/page_pos2c7629.js","appmsg/cdn_speed_report.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/appmsg/cdn_speed_report2c57d0.js","appmsg/voice.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/appmsg/voice2ab8bd.js","appmsg/qqmusic.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/appmsg/qqmusic2ab8bd.js","appmsg/iframe.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/appmsg/iframe2cc9e4.js","appmsg/review_image.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/appmsg/review_image2d0cfe.js","appmsg/outer_link.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/appmsg/outer_link275627.js","biz_wap/jsapi/core.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/biz_wap/jsapi/core2c30c1.js","biz_common/dom/event.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/biz_common/dom/event275627.js","appmsg/copyright_report.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/appmsg/copyright_report2c57d0.js","appmsg/cache.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/appmsg/cache2a74ab.js","appmsg/pay_for_reading.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/appmsg/pay_for_reading2c5484.js","appmsg/async.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/appmsg/async2d1390.js","biz_wap/ui/lazyload_img.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/biz_wap/ui/lazyload_img2b18f7.js","biz_common/log/jserr.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/biz_common/log/jserr2805ea.js","appmsg/share.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/appmsg/share2b5583.js","biz_wap/utils/mmversion.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/biz_wap/utils/mmversion275627.js","appmsg/cdn_img_lib.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/appmsg/cdn_img_lib275627.js","biz_common/utils/url/parse.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/biz_common/utils/url/parse2d1e61.js","biz_wap/utils/device.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/biz_wap/utils/device2b3aae.js","biz_wap/jsapi/a8key.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/biz_wap/jsapi/a8key2a30ee.js","appmsg/index.js":"http://res.wx.qq.com/mmbizwap/en_US/htmledition/js/appmsg/index2cca7d.js"};window.moon_crossorigin = true;</script><script type="text/javascript" src="./独家 _ 微信摇一摇红包背后的技术细节_files/moon2c7b0a.js" crossorigin=""></script>
+    <script id="voice_tpl" type="text/html">        
+        <span id="voice_main_<#=voiceid#>_<#=posIndex#>" class="db audio_area <#if(!musicSupport){#> unsupport<#}#>">
+            <span class="tc tips_global unsupport_tips" <#if(show_not_support!==true){#>style="display:none;"<#}#>>
+            当前浏览器不支持播放音乐或语音，请在微信或其他浏览器中播放            </span>
+            <span class="audio_wrp db">
+                <span id="voice_play_<#=voiceid#>_<#=posIndex#>" class="audio_play_area">
+                    <i class="icon_audio_default"></i>
+                    <i class="icon_audio_playing"></i>
+                    <img src="http://res.wx.qq.com/mmbizwap/en_US/htmledition/images/icon/appmsg/audio/icon_audio_unread26f1f1.png" alt="" class="pic_audio_default">
+                </span>
+                <span class="audio_length tips_global"><#=duration_str#></span>
+                <span class="db audio_info_area">
+                    <strong class="db audio_title"><#=title#></strong>
+                    <span class="audio_source tips_global"><#if(window.nickname){#>来自<#=window.nickname#><#}#></span>
+                </span>
+                <span id="voice_progress_<#=voiceid#>_<#=posIndex#>" class="progress_bar" style="width:0px;"></span>
+            </span>
+        </span>
+    </script>
+
+    <script id="qqmusic_tpl" type="text/html">        
+        <span id="qqmusic_main_<#=comment_id#>_<#=posIndex#>" class="db qqmusic_area <#if(!musicSupport){#> unsupport<#}#>">
+            <span class="tc tips_global unsupport_tips" <#if(show_not_support!==true){#>style="display:none;"<#}#>>
+            当前浏览器不支持播放音乐或语音，请在微信或其他浏览器中播放            </span>
+            <span class="db qqmusic_wrp">
+                <span class="db qqmusic_bd">
+                    <span id="qqmusic_play_<#=musicid#>_<#=posIndex#>" class="play_area">
+                        <i class="icon_qqmusic_switch"></i>
+                        <img src="http://res.wx.qq.com/mmbizwap/en_US/htmledition/images/icon/appmsg/qqmusic/icon_qqmusic_default.2x26f1f1.png" alt="" class="pic_qqmusic_default">
+                        <img src="<#=music_img#>" data-autourl="<#=audiourl#>" data-musicid="<#=musicid#>" class="qqmusic_thumb" alt="">
+                    </span>
+                                        <a id="qqmusic_home_<#=musicid#>_<#=posIndex#>" href="javascript:void(0);" class="access_area">
+                        <span class="qqmusic_songname"><#=music_name#></span>
+                        <span class="qqmusic_singername"><#=singer#></span>
+                        <span class="qqmusic_source"><img src="http://res.wx.qq.com/mmbizwap/en_US/htmledition/images/icon/appmsg/qqmusic/icon_qqmusic_source263727.png" alt=""></span>
+                    </a>
+                </span>
+            </span>       
+        </span>
+    </script>
+  <script type="text/javascript">
+      var not_in_mm_css = "http://res.wx.qq.com/mmbizwap/en_US/htmledition/style/page/appmsg/not_in_mm2c9cd7.css";
+      var windowwx_css = "http://res.wx.qq.com/mmbizwap/en_US/htmledition/style/page/appmsg/page_mp_article_improve_winwx2c9cd7.css";
+      var tid = "";
+      var aid = "";
+      var clientversion = "0";
+      var appuin = "MjM5MDE0Mjc4MA=="||"";
+
+      var source = "5";
+      var scene = 75;
+      
+      var itemidx = "";
+
+      var _copyright_stat = "1";
+      var _ori_article_type = "科技互联网";
+
+      var nickname = "InfoQ";
+      var appmsg_type = "9";
+      var ct = "1459728071";
+      var publish_time = "2016-04-04" || "";
+      var user_name = "gh_b443474846ae";
+      var user_name_new = "";
+      var fakeid   = "";
+      var version   = "";
+      var is_limit_user   = "0";
+      var msg_title = "独家&nbsp;|&nbsp;微信摇一摇红包背后的技术细节";
+      var msg_desc = "除夕全天微信用户红包总发送量达到80.8亿个，红包峰值收发量为40.9万个/秒。究竟是怎样的技术和系统，可以支撑如此惊人的数据？";
+      var msg_cdn_url = "http://mmbiz.qpic.cn/mmbiz/YriaiaJPb26VNxRjjlib4QZBttic514Sn2oLKKx5A9AW6P0uhMDGb67CKRcE32CpPgnkRqosNRpCZXic9fHAI5puc6g/0?wx_fmt=jpeg";
+      var msg_link = "http://mp.weixin.qq.com/s?__biz=MjM5MDE0Mjc4MA==&amp;mid=403405331&amp;idx=1&amp;sn=788581a2f52aa96290dfa63b2f009ebf#rd";
+      var user_uin = "0"*1;
+      var msg_source_url = 'http://form.mikecrm.com/f.php?t=OExJfV#rd';
+      var img_format = 'jpeg';
+      var srcid = '0405rlw9pjmK0upSNpNgAUcM';
+      var networkType;
+      var appmsgid = '' || '403405331'|| "";
+      var comment_id = "2990064525" * 1;
+      var comment_enabled = "" * 1;
+      var is_need_reward = "0" * 1;
+      var is_https_res = ("" * 1) && (location.protocol == "https:");
+
+      var devicetype = "";
+      var source_username = "";  
+      var profile_ext_signature = "" || "";
+      var reprint_ticket = "";
+      var source_mid = "";
+      var source_idx = "";
+
+      var show_comment = "";
+      var __appmsgCgiData = {
+            can_use_page : "0"*1,
+            is_wxg_stuff_uin : "0"*1,
+            card_pos : "",
+            copyright_stat : "1",
+            source_biz : "",
+            hd_head_img : "http://wx.qlogo.cn/mmhead/Q3auHgzwzM63wOyLI60Bro3CVPy56dw7BoZ6LiaosxSd8XM4UNl9RVw/0"||(window.location.protocol+"//"+window.location.host + "http://res.wx.qq.com/mmbizwap/en_US/htmledition/images/pic/appmsg/pic_rumor_link.2x264e77.jpg")
+      };
+      var _empty_v = "http://res.wx.qq.com/mmbizwap/en_US/htmledition/images/pic/pages/voice/empty26f1f1.mp3";
+
+      var copyright_stat = "1" * 1;
+
+      var pay_fee = "" * 1;
+      var pay_timestamp = "";
+      var need_pay = "" * 1;
+
+      var need_report_cost = "0" * 1;
+      var use_tx_video_player = "0" * 1;
+      
+            window.wxtoken = "";
+          if(!!window.__initCatch){
+        window.__initCatch({
+            idkey : 27613,
+            startKey : 0,
+            limit : 128,
+            reportOpt : {
+                uin : uin,
+                biz : biz,
+                mid : mid,
+                idx : idx,
+                sn  : sn
+            },
+            extInfo : {
+                network_rate : 0.01    
+            }
+        });
+    }
+  </script>
+  <script type="text/javascript">
+          seajs.use('appmsg/index.js');
+  </script>
+
+    
+
+
+ 
+</body></html>
