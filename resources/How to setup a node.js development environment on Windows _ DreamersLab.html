@@ -1,0 +1,326 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0089)http://dreamerslab.com/blog/en/how-to-setup-a-node-js-development-environment-on-windows/ -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta http-equiv="content-language" content="en-US">
+<meta name="google-site-verification" content="gJ03bx5CirK3eKJJR0Rsco_9lczerTcW9DRzL_lZ-bU">
+<title>How to setup a node.js development environment on Windows | DreamersLab</title>
+<script async="" data-rocketsrc="?cf_action=sync_comments&amp;post_id=1061" data-rocketoptimized="true"></script><script type="text/javascript" src="./How to setup a node.js development environment on Windows _ DreamersLab_files/saved_resource"></script><script data-rocketsrc="https://apis.google.com/_/scs/apps-static/_/js/k=oz.gapi.en_US.Yleqrfrj9q8.O/m=auth/exm=plusone/rt=j/sv=1/d=1/ed=1/am=AQ/rs=AGLTcCPur55zIqUpJrMKwQyzAEwrjNNPQw/cb=gapi.loaded_1" data-rocketoptimized="true" async=""></script><script data-rocketsrc="https://apis.google.com/_/scs/apps-static/_/js/k=oz.gapi.en_US.Yleqrfrj9q8.O/m=plusone/rt=j/sv=1/d=1/ed=1/am=AQ/rs=AGLTcCPur55zIqUpJrMKwQyzAEwrjNNPQw/cb=gapi.loaded_0" data-rocketoptimized="true" async=""></script><script type="text/javascript" async="" data-rocketsrc="https://apis.google.com/js/plusone.js" data-rocketoptimized="true" gapi_processed="true"></script><script type="text/javascript" async="" data-rocketsrc="http://www.google-analytics.com/ga.js" data-rocketoptimized="true"></script><script type="text/javascript">
+//<![CDATA[
+try{if (!window.CloudFlare) {var CloudFlare=[{verbose:0,p:0,byc:0,owlid:"cf",bag2:1,mirage2:0,oracle:0,paths:{cloudflare:"/cdn-cgi/nexp/dok3v=1613a3a185/"},atok:"4bd3c0e660ec8741643c4db68aa6e92e",petok:"7fb7b54d4ab411212dc81e8d85eaa4caea66bced-1461079489-1800",zone:"dreamerslab.com",rocket:"a",apps:{},sha2test:0}];document.write('<script type="text/javascript" src="//ajax.cloudflare.com/cdn-cgi/nexp/dok3v=e982913d31/cloudflare.min.js"><'+'\/script>');}}catch(e){};
+//]]>
+</script><script type="text/javascript" src="./How to setup a node.js development environment on Windows _ DreamersLab_files/cloudflare.min.js"></script><style type="text/css">.cf-hidden { display: none; } .cf-invisible { visibility: hidden; }</style><script data-module="cloudflare/rocket" id="cfjs_block_4a76ab225c" onload="CloudFlare.__cfjs_block_4a76ab225c_load()" onerror="CloudFlare.__cfjs_block_4a76ab225c_error()" onreadystatechange="CloudFlare.__cfjs_block_4a76ab225c_readystatechange()" type="text/javascript" src="./How to setup a node.js development environment on Windows _ DreamersLab_files/rocket.js"></script>
+<link rel="stylesheet" type="text/css" media="all" href="./How to setup a node.js development environment on Windows _ DreamersLab_files/style.css">
+<link rel="stylesheet" type="text/css" media="all" href="./How to setup a node.js development environment on Windows _ DreamersLab_files/jquery.fancybox.css">
+<link rel="pingback" href="http://dreamerslab.com/blog/en/xmlrpc.php">
+<link rel="alternate" type="application/rss+xml" title="DreamersLab » Feed" href="http://dreamerslab.com/blog/en/feed/">
+<link rel="alternate" type="application/rss+xml" title="DreamersLab » Comments Feed" href="http://dreamerslab.com/blog/en/comments/feed/">
+<script type="text/rocketscript" data-rocketoptimized="true">//<![CDATA[
+			// Google Analytics for WordPress by Yoast v4.2.8 | http://yoast.com/wordpress/google-analytics/
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-20960410-1']);
+							_gaq.push(['_setCustomVar',1,'post_type','post',3],['_setCustomVar',2,'author','fred',3],['_setCustomVar',3,'tags','javascript mongodb node-js npm tutorial windows',3],['_trackPageview']);
+			(function () {
+				var ga = document.createElement('script');
+				ga.type = 'text/javascript';
+				ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(ga, s);
+			})();
+			//]]></script>
+<link rel="alternate" type="application/rss+xml" title="DreamersLab » How to setup a node.js development environment on Windows Comments Feed" href="http://dreamerslab.com/blog/en/how-to-setup-a-node-js-development-environment-on-windows/feed/">
+<link rel="stylesheet" id="jetpack-widgets-css" href="./How to setup a node.js development environment on Windows _ DreamersLab_files/widgets.css" type="text/css" media="all">
+<link rel="stylesheet" id="really_simple_share_style-css" href="./How to setup a node.js development environment on Windows _ DreamersLab_files/style(1).css" type="text/css" media="all">
+<script type="text/rocketscript" data-rocketsrc="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js?ver=1.4.4" data-rocketoptimized="true"></script>
+<script type="text/rocketscript" data-rocketsrc="https://platform.twitter.com/widgets.js?ver=3.2.1" data-rocketoptimized="true"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://dreamerslab.com/blog/xmlrpc.php?rsd">
+<link rel="start" title="Preload images with jQuery Preload plugin" href="http://dreamerslab.com/blog/en/preload-images-with-jquery-preload-plugin/">
+<link rel="canonical" href="http://dreamerslab.com/blog/en/how-to-setup-a-node-js-development-environment-on-windows/">
+<link rel="shortlink" href="http://wp.me/p1tpDL-h7">
+<meta http-equiv="Content-Language" content="en-US">
+<style type="text/css" media="screen">.qtrans_flag span{display:none}.qtrans_flag{height:12px;width:18px;display:block}.qtrans_flag_and_text{padding-left:20px}.qtrans_flag_en{background:url(http://dreamerslab.com/blog/wp-content/plugins/qtranslate/flags/gb.png) no-repeat}.qtrans_flag_tw{background:url(http://dreamerslab.com/blog/wp-content/plugins/qtranslate/flags/tw.png) no-repeat}</style>
+<link hreflang="tw" href="http://dreamerslab.com/blog/tw/how-to-setup-a-node-js-development-environment-on-windows/" rel="alternate">
+<script type="text/rocketscript" data-rocketoptimized="true">
+		  window.___gcfg = {lang: "en"};
+		  (function() {
+		    var po = document.createElement("script"); po.type = "text/javascript"; po.async = true;
+		    po.src = "https://apis.google.com/js/plusone.js";
+		    var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(po, s);
+		  })();
+		</script><meta name="keywords" content="node.js, install node.js, install node.js on windows">
+<meta name="description" content="It’s easy to install node.js on Windows, just go to node.js’s official site and download Windows installer, then execute the installer. Congra...">
+ 
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to setup a node.js development environment on Windows">
+<meta property="og:url" content="http://dreamerslab.com/blog/en/how-to-setup-a-node-js-development-environment-on-windows/">
+<meta property="og:description" content="Install node.js It’s easy to install node.js on Windows, just go to node.js official site and download Windows installer, then execute the installer. Congratulations!!! You successfully insta...">
+<meta property="og:site_name" content="DreamersLab">
+<meta property="og:image" content="http://nodejs.org/images/logos/nodejs-green.png">
+<meta property="og:image" content="http://farm6.static.flickr.com/5296/5512158063_a484a43c90.jpg">
+<meta property="og:image" content="http://farm6.static.flickr.com/5176/5512226095_05b274383c.jpg">
+<meta property="og:image" content="http://farm6.static.flickr.com/5256/5512155443_37ff5a1783.jpg">
+<meta property="og:image" content="http://farm6.static.flickr.com/5294/5512226025_5b6b43a3f6.jpg">
+<meta property="og:image" content="http://farm4.static.flickr.com/3154/3347768206_8f232307e6_m.jpg">
+<link rel="stylesheet" type="text/css" href="./How to setup a node.js development environment on Windows _ DreamersLab_files/shCore.css"><link rel="stylesheet" type="text/css" href="./How to setup a node.js development environment on Windows _ DreamersLab_files/shThemeRDark.css"><meta id="syntaxhighlighteranchor" name="syntaxhighlighter-version" content="3.1.5">
+<link href="http://dreamerslab.com/favicon.png" rel="shortcut icon" type="image/ico">
+<script type="text/javascript" async="" data-rocketsrc="//dreamerslab.disqus.com/embed.js?pname=wordpress&amp;pver=2.74" data-rocketoptimized="true"></script><script async="" type="text/javascript" data-rocketsrc="//disqus.com/forums/dreamerslab/count.js" data-rocketoptimized="true"></script><link rel="stylesheet" type="text/css" id="gravatar-card-css" href="./How to setup a node.js development environment on Windows _ DreamersLab_files/hovercard.css"><link rel="stylesheet" type="text/css" id="gravatar-card-services-css" href="./How to setup a node.js development environment on Windows _ DreamersLab_files/services.css"><script type="text/javascript" charset="utf-8" async="" data-rocketsrc="https://platform.twitter.com/js/button.71000885400e222c3c0eec823f8f93f0.js" data-rocketoptimized="true"></script></head>
+<body class="single single-post postid-1061 single-format-standard">
+<div id="bg-wrap">
+<div id="bg"></div>
+</div>
+<div id="wrap" class="en">
+<div id="header">
+<h1><span class="hidden">How to setup a node.js development environment on Windows</span></h1>
+<a id="home" href="http://dreamerslab.com/en/about" title="DreamersLab" rel="home">
+</a>
+<div id="lang" lang="en"><span class="">English</span> | <a class="chinese" href="http://dreamerslab.com/blog/tw/how-to-setup-a-node-js-development-environment-on-windows/">繁體中文</a></div> <div id="nav">
+<ul class="clearfix">
+<li>
+<h3>
+<a id="nav-about" href="http://dreamerslab.com/en/about">
+<span>About</span>
+</a>
+</h3>
+</li>
+<li>
+<h3>
+<a id="nav-works" href="http://dreamerslab.com/en/works">
+<span>Works</span>
+</a>
+</h3>
+</li>
+<li>
+<h3>
+<a id="nav-contact" href="http://dreamerslab.com/en/contact">
+<span>Contact</span>
+</a>
+</h3>
+</li>
+<li>
+<h3>
+<a id="nav-blog" class="selected" href="http://dreamerslab.com/blog/en/">
+<span>Blog</span>
+</a>
+</h3>
+</li>
+</ul>
+</div>
+</div> 
+<div id="main">
+<div id="container">
+<div id="content" role="main">
+<div id="nav-above" class="navigation">
+<div class="nav-previous"><a href="http://dreamerslab.com/blog/en/write-a-todo-list-with-express-and-mongodb/" rel="prev"><span class="meta-nav">←</span> Write a todo list with Express and MongoDB</a></div>
+<div class="nav-next"></div>
+</div> 
+<div class="spliter"></div>
+<div id="post-1061" class="post-1061 post type-post status-publish format-standard hentry category-javascript-2 category-node-js tag-javascript tag-mongodb tag-node-js tag-npm tag-tutorial tag-windows">
+<h2 class="entry-title">How to setup a node.js development environment on Windows</h2>
+<div class="entry-date"><div class="entry-day">29</div><div class="entry-month">2012.05</div></div> <div class="entry-meta"><div class="entry-cats entry-meta-child"><div class="entry-meta-title">Category</div><ul class="post-categories">
+<li><a href="http://dreamerslab.com/blog/en/category/javascript-2/" title="View all posts in Javascript" rel="category tag">Javascript</a></li>
+<li><a href="http://dreamerslab.com/blog/en/category/javascript-2/node-js/" title="View all posts in node.js" rel="category tag">node.js</a></li></ul></div><div class="entry-tags entry-meta-child"><div class="entry-meta-title">Tags</div><a href="http://dreamerslab.com/blog/en/tag/javascript/" rel="tag">javascript</a> <a href="http://dreamerslab.com/blog/en/tag/mongodb/" rel="tag">mongodb</a> <a href="http://dreamerslab.com/blog/en/tag/node-js/" rel="tag">node.js</a> <a href="http://dreamerslab.com/blog/en/tag/npm/" rel="tag">npm</a> <a href="http://dreamerslab.com/blog/en/tag/tutorial/" rel="tag">tutorial</a> <a href="http://dreamerslab.com/blog/en/tag/windows/" rel="tag">windows</a></div></div>
+<div class="entry-content">
+<div style="height:33px;" class="really_simple_share robots-nocontent snap_nopreview"><div class="really_simple_share_facebook_like" style="width:100px;"><iframe src="./How to setup a node.js development environment on Windows _ DreamersLab_files/like.html" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:27px;" allowtransparency="true"></iframe></div><div class="really_simple_share_google1" style="width:90px;"><div id="___plusone_0" style="text-indent: 0px; margin: 0px; padding: 0px; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 90px; height: 20px; background: transparent;"><iframe frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 90px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 20px;" tabindex="0" vspace="0" width="100%" id="I0_1461079503252" name="I0_1461079503252" src="./How to setup a node.js development environment on Windows _ DreamersLab_files/fastbutton.html" data-gapiattached="true" title="+1"></iframe></div></div><div class="really_simple_share_twitter" style="width:110px;"><iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" title="Twitter Tweet Button" src="./How to setup a node.js development environment on Windows _ DreamersLab_files/tweet_button.fd774b599f565016d763dd860cb31c79.en.html" style="position: absolute; visibility: hidden; width: 0px; height: 0px;" data-url="http://dreamerslab.com/blog/en/how-to-setup-a-node-js-development-environment-on-windows/"></iframe></div></div>
+<div style="clear:both;"></div><p><img class="alignright" src="./How to setup a node.js development environment on Windows _ DreamersLab_files/nodejs-green.png" alt="Node.js dark" width="300"></p>
+<h4>Install node.js</h4>
+<blockquote>It’s easy to install node.js on Windows, just go to <a href="http://nodejs.org/#download" onclick="javascript:_gaq.push([&#39;_trackEvent&#39;,&#39;outbound-article&#39;,&#39;http://nodejs.org&#39;]);">node.js official site</a> and download Windows installer, then execute the installer. Congratulations!!! You successfully installed node.js on Windows!!!</blockquote>
+<span id="more-1061"></span>
+<br>
+<h4>Install mongoDB</h4>
+<blockquote>Go to <a href="http://www.mongodb.org/downloads" onclick="javascript:_gaq.push([&#39;_trackEvent&#39;,&#39;outbound-article&#39;,&#39;http://www.mongodb.org&#39;]);">mongoDB official site</a> to download zip file for Windows, and unzip the contents to anywhere you like. MongoDB will read data at <code>\data\db</code> by default, but mongoDB won’t create this folder for us, so we must create it by ourself, you can create this folder in Windows Explorer, or type the following command in terminal:</blockquote>
+<div><div id="highlighter_247409" class="syntaxhighlighter  bash"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="bash plain">C:\&gt; </code><code class="bash functions">mkdir</code> <code class="bash plain">\data</code></div><div class="line number2 index1 alt1"><code class="bash plain">C:\&gt; </code><code class="bash functions">mkdir</code> <code class="bash plain">\data\db</code></div></div></td></tr></tbody></table></div></div>
+<blockquote>After creating <code>\data\db</code>, double click <code>mongod.exe</code> in <code>your_mongodb_path\bin</code> or type the following command in terminal to turn on mongoDB:</blockquote>
+<div><div id="highlighter_878623" class="syntaxhighlighter  bash"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="bash plain">C:\&gt; </code><code class="bash functions">cd</code> <code class="bash plain">your_mongodb_path\bin</code></div><div class="line number2 index1 alt1"><code class="bash plain">C:\&gt; mongod</code></div></div></td></tr></tbody></table></div></div>
+<blockquote>Then you can double click <code>mongo.exe</code> or type the following command in terminal to get into administrative shell：</blockquote>
+<div><div id="highlighter_900920" class="syntaxhighlighter  bash"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="bash plain">C:\&gt; </code><code class="bash functions">cd</code> <code class="bash plain">your_mongodb_path\bin</code></div><div class="line number2 index1 alt1"><code class="bash plain">C:\&gt; mongo</code></div></div></td></tr></tbody></table></div></div>
+<blockquote>Congratulations!!! You’ve successfully installed node.js and mongoDB on Windows!!!</blockquote>
+<br>
+<h4>Update node.js</h4>
+<blockquote>Go to <a href="http://nodejs.org/#download" onclick="javascript:_gaq.push([&#39;_trackEvent&#39;,&#39;outbound-article&#39;,&#39;http://nodejs.org&#39;]);">node.js’s official site</a> and download Windows installer, then execute the installer. Then your node.js is updated.</blockquote>
+<br>
+<h4>Update mongoDB</h4>
+<blockquote>Go to <a href="http://www.mongodb.org/downloads" onclick="javascript:_gaq.push([&#39;_trackEvent&#39;,&#39;outbound-article&#39;,&#39;http://www.mongodb.org&#39;]);">mongoDB official site</a> to download zip file for Windows, and use the files in new zip file, then you can start to use the latest mongoDB. If you have question about installng or using mongoDB, you can check the <a href="http://www.mongodb.org/display/DOCS/Quickstart+Windows" onclick="javascript:_gaq.push([&#39;_trackEvent&#39;,&#39;outbound-article&#39;,&#39;http://www.mongodb.org&#39;]);">Windows Quick Start</a> on mongoDB official site :)</blockquote>
+<br>
+<h4>Setup a node.js development environment on other OS</h4>
+<blockquote>If you want to setup a node.js development environment on Mac OSX Lion or Ubuntu 11.04, you can take a look at:
+<br>
+<a href="http://dreamerslab.com/blog/how-to-setup-a-node-js-development-environment-on-mac-osx-lion/">How to setup a node.js development environment on Mac OSX Lion</a>
+<br>
+<a href="http://dreamerslab.com/blog/how-to-setup-a-node-js-development-environment-on-ubuntu-11-04/">How to setup a node.js development environment on Ubuntu 11.04</a>.
+</blockquote>
+<br>
+<h4>npm commands and node.js basics</h4>
+<blockquote>Now you have setup a clean node.js development environment. Let’s have a quick look at <a href="http://dreamerslab.com/blog/tw/npm-basic-commands/">how to use npm</a> and <a href="http://dreamerslab.com/blog/tw/node-js-basics/">learn some basics of javascript and node.js.</a></blockquote><h4 class="related-post">Related posts</h4><div class="spliter"></div><div class="clearfix"><a class="thumbnail" href="http://dreamerslab.com/blog/en/hide-javascript-global-objects-with-jquery-secret-plugin/"><div class="thumb-wrap"><img src="./How to setup a node.js development environment on Windows _ DreamersLab_files/5508993731_d481acdb5c.jpg"></div><h5>Hide Javascript global objects with jQuery Secret plugin</h5></a><a class="thumbnail" href="http://dreamerslab.com/blog/en/npm-basic-commands/"><div class="thumb-wrap"><img src="./How to setup a node.js development environment on Windows _ DreamersLab_files/6331806942_c59e8a0ba6_m.jpg"></div><h5>npm basic commands</h5></a><a class="thumbnail" href="http://dreamerslab.com/blog/en/javascript-callbacks/"><div class="thumb-wrap"><img src="./How to setup a node.js development environment on Windows _ DreamersLab_files/2261209016_19729a3aa6_m.jpg"></div><h5>Javascript callbacks</h5></a><a class="thumbnail" href="http://dreamerslab.com/blog/en/javascript-function-scopes-and-closures/"><div class="thumb-wrap"><img src="./How to setup a node.js development environment on Windows _ DreamersLab_files/6032681608_33169d74a7_m.jpg"></div><h5>Javascript function scopes and closures</h5></a><a class="thumbnail" href="http://dreamerslab.com/blog/en/write-a-todo-list-with-express-and-mongodb/"><div class="thumb-wrap"><img src="./How to setup a node.js development environment on Windows _ DreamersLab_files/2738211580_01055557d6_m.jpg"></div><h5>Write a todo list with Express and MongoDB</h5></a></div><br><div style="clear: both"></div> </div> 
+<div class="spliter"></div>
+</div> 
+<div id="nav-below" class="navigation">
+<div class="nav-previous"><a href="http://dreamerslab.com/blog/en/write-a-todo-list-with-express-and-mongodb/" rel="prev"><span class="meta-nav">←</span> Write a todo list with Express and MongoDB</a></div>
+<div class="nav-next"></div>
+</div> 
+<div class="spliter spacer20"></div>
+<div id="disqus_thread"><iframe id="dsq-app2" name="dsq-app2" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" width="100%" src="./How to setup a node.js development environment on Windows _ DreamersLab_files/saved_resource.html" style="width: 1px !important; min-width: 100% !important; border: none !important; overflow: hidden !important; height: 3021px !important;" horizontalscrolling="no" verticalscrolling="no"></iframe><iframe id="indicator-north" name="indicator-north" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" style="width: 860px !important; border: none !important; overflow: hidden !important; top: 0px !important; min-width: 860px !important; max-width: 860px !important; position: fixed !important; z-index: 2147483646 !important; height: 29px !important; min-height: 29px !important; max-height: 29px !important; display: none !important;"></iframe><iframe id="indicator-south" name="indicator-south" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" style="width: 860px !important; border: none !important; overflow: hidden !important; bottom: 0px !important; min-width: 860px !important; max-width: 860px !important; position: fixed !important; z-index: 2147483646 !important; height: 29px !important; min-height: 29px !important; max-height: 29px !important; display: none !important;"></iframe></div>
+<script type="text/rocketscript" data-rocketoptimized="true">
+/* <![CDATA[ */
+    var disqus_url = 'http://dreamerslab.com/blog/en/how-to-setup-a-node-js-development-environment-on-windows/';
+    var disqus_identifier = '1061 http://dreamerslab.com/blog/?p=1061';
+    var disqus_container_id = 'disqus_thread';
+    var disqus_domain = 'disqus.com';
+    var disqus_shortname = 'dreamerslab';
+    var disqus_title = "How to setup a node.js development environment on Windows";
+        var disqus_config = function () {
+        var config = this; // Access to the config object
+        config.language = '';
+
+        /*
+           All currently supported events:
+            * preData — fires just before we request for initial data
+            * preInit - fires after we get initial data but before we load any dependencies
+            * onInit  - fires when all dependencies are resolved but before dtpl template is rendered
+            * afterRender - fires when template is rendered but before we show it
+            * onReady - everything is done
+         */
+
+        config.callbacks.preData.push(function() {
+            // clear out the container (its filled for SEO/legacy purposes)
+            document.getElementById(disqus_container_id).innerHTML = '';
+        });
+                config.callbacks.onReady.push(function() {
+            // sync comments in the background so we don't block the page
+            var script = document.createElement('script');
+            script.async = true;
+            script.src = '?cf_action=sync_comments&post_id=1061';
+
+            var firstScript = document.getElementsByTagName( "script" )[0];
+            firstScript.parentNode.insertBefore(script, firstScript);
+        });
+                this.page.remote_auth_s3 = 'W10= aaf324ea0d8ad6911b598208052e94ccc2c46ab6 1461079489';
+this.page.api_key = 'irIEWBr0J4ZcRrXnAplCpZ2bHwzIZ4bnHfszN6nxDuDToIoMjXTyKWNzu1LplrlU';
+this.sso = {
+          name: "DreamersLab",
+          button: "",
+          icon: "",
+          url: "http://dreamerslab.com/blog/wp-login.php",
+          logout: "http://dreamerslab.com/blog/wp-login.php?action=logout",
+          width: "800",
+          height: "700"
+    }    };
+/* ]]> */
+</script>
+<script type="text/rocketscript" data-rocketoptimized="true">
+/* <![CDATA[ */
+    var DsqLocal = {
+        'trackbacks': [
+        ],
+        'trackback_url': "http:\/\/dreamerslab.com\/blog\/en\/how-to-setup-a-node-js-development-environment-on-windows\/trackback\/"    };
+/* ]]> */
+</script>
+<script type="text/rocketscript" data-rocketoptimized="true">
+/* <![CDATA[ */
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.' + 'disqus.com' + '/embed.js?pname=wordpress&pver=2.74';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+/* ]]> */
+</script>
+<div class="spliter spacer20-top"></div>
+</div> 
+</div> 
+</div> 
+<div id="footer">
+Copyright&nbsp;©&nbsp;2011
+<span id="logo-s"></span>
+<a href="http://dreamerslab.com/en/about" title="DreamersLab" rel="home">
+DreamersLab </a>&nbsp;|&nbsp;All rights reserved.
+</div> 
+</div> 
+<script type="text/rocketscript" data-rocketsrc="http://s0.wp.com/wp-content/js/devicepx-jetpack.js?ver=201616" data-rocketoptimized="true"></script>
+<script type="text/rocketscript" data-rocketsrc="http://s.gravatar.com/js/gprofiles.js?ver=2016Apraa" data-rocketoptimized="true"></script>
+<script type="text/rocketscript" data-rocketoptimized="true">
+/* <![CDATA[ */
+var WPGroHo = {
+	my_hash: ""
+};
+/* ]]> */
+</script>
+<script type="text/rocketscript" data-rocketsrc="http://dreamerslab.com/blog/wp-content/plugins/jetpack/modules/wpgroho.js?ver=3.2.1" data-rocketoptimized="true"></script>
+<script type="text/rocketscript" data-rocketoptimized="true">
+    // <![CDATA[
+        var disqus_shortname = 'dreamerslab';
+        (function () {
+            var nodes = document.getElementsByTagName('span');
+            for (var i = 0, url; i < nodes.length; i++) {
+                if (nodes[i].className.indexOf('dsq-postid') != -1) {
+                    nodes[i].parentNode.setAttribute('data-disqus-identifier', nodes[i].getAttribute('rel'));
+                    url = nodes[i].parentNode.href.split('#', 1);
+                    if (url.length == 1) url = url[0];
+                    else url = url[1]
+                    nodes[i].parentNode.href = url + '#disqus_thread';
+                }
+            }
+            var s = document.createElement('script'); s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + 'disqus.com/forums/' + disqus_shortname + '/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    //]]>
+    </script>
+<div style="display:none">
+</div>
+<script type="text/rocketscript" data-rocketsrc="http://dreamerslab.com/blog/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shCore.js?ver=3.0.83c" data-rocketoptimized="true"></script>
+<script type="text/rocketscript" data-rocketsrc="http://dreamerslab.com/blog/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushBash.js?ver=3.0.83c" data-rocketoptimized="true"></script>
+<script type="text/rocketscript" data-rocketoptimized="true">
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "http://dreamerslab.com/blog/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css?ver=3.0.83c";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "http://dreamerslab.com/blog/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeRDark.css?ver=3.0.83c";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['pad-line-numbers'] = true;
+	SyntaxHighlighter.defaults['tab-size'] = 2;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+</script>
+<script data-rocketsrc="http://stats.wordpress.com/e-201616.js" type="text/rocketscript" data-rocketoptimized="true"></script>
+<script type="text/rocketscript" data-rocketoptimized="true">
+	st_go({v:'ext',j:'1:2.0.4',blog:'21786413',post:'1061',tz:'0'});
+	var load_cmc = function(){linktracker_init(21786413,1061,2);};
+	if ( typeof addLoadEvent != 'undefined' ) addLoadEvent(load_cmc);
+	else load_cmc();
+	</script>
+<style type="text/css">img#wpstats{display:none}</style> 
+ 
+<script type="text/rocketscript" data-rocketsrc="/js/lib/jquery.fancybox.js" data-rocketoptimized="true"></script>
+<script type="text/rocketscript" data-rocketsrc="/js/common/show_demo.js?20110902" data-rocketoptimized="true"></script>
+<script type="text/rocketscript" data-rocketsrc="/js/blog.js?20110902" data-rocketoptimized="true"></script>
+<!--[if lt IE 7]>
+<script type="text/javascript" src="/js/ie6.js?sfgdata=+sfgRmluamFuX1R5cGU9amF2YV9zY3JpcHQmRmluamFuX0xhbmc9dGV4dC9qYXZhc2NyaXB0+q"></script>
+<![endif]-->
+
+ <script id="twitter-csp-test"></script><iframe name="oauth2relay334770432" id="oauth2relay334770432" src="./How to setup a node.js development environment on Windows _ DreamersLab_files/postmessageRelay.html" tabindex="-1" style="width: 1px; height: 1px; position: absolute; top: -100px;"></iframe><img src="./How to setup a node.js development environment on Windows _ DreamersLab_files/g.gif" id="wpstats"><iframe id="rufous-sandbox" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: none;"></iframe></body></html>
