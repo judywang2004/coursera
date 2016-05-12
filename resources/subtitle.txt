@@ -1,0 +1,87 @@
+As you begin the journey into this third
+course in the specialization dealing with Front-End JavaScript frameworks,
+in particular AngularJS, let me give you a quick
+overview of the entire course. And then position it in
+the context of the specialization. Going back to our diagram where we looked
+at various technologies in the previous lecture, this particular course is
+still dealing with the front end side. We are looking at front end JavaScript,
+Frameworks. How they make use of the JavaScript on
+the front end side in order to deliver their information to the users, or
+random information in a browser. So, this course dealing with AngularJS, one of the most popular front
+end Java Script frameworks will give you a in-depth introduction
+to various features of AngularJS. As you go through this
+course in addition to AngularJS We will also
+deal with web tools. We have already seen node and
+in the previous course. In this course, we're gonna look
+at task runners, Grunt and Gulp. And also, scaffolding tools,
+Yo and the whole tool bench, the Yeoman tool bench,
+which includes Yo, Grunt and Gulp and together, to enable your
+web development work flow. This diagram is a big picture overview of several things that you will encounter
+as you go through this course. This picture may not make as much
+sense to you at this moment. But when complete the course we will come
+back to this picture one more time, and then see how all that we have covered fits
+into the big picture view of AngularJS. So as you go through this course, we will realize that views which
+is what is seen by the end user. Is rendered in AngularJS as a combination
+of templates and controllers. They require the use of scope. Templates themselves
+are built using directives. Which we will explore in some detail. And we might need to do some
+data filtering using Filters. Now the controllers themselves
+pull the data in from Factories, or Services, or Providers. These Factory Service or Provider
+in turn are the ones that interact with the back end server in order to
+pull in the data into your application. Your application itself, the Angular
+application, is organized as a module or as a group of cooperating modules. Each module has a configuration. And when you have multiple
+views how you move from one view to another in
+response to radius events and user interactions is all controlled by. So we will examine this entire
+picture as we go through this course. And then I'll come back to this
+picture at the end of the course, then put the entire course
+in the right perspective. Once you complete all these
+different pieces that you will see when you go through this course. The course itself is
+organized into four modules, each module corresponding
+to one week of work. In the first module we will still
+review the Full Stack Web Development. If you are coming in
+from the previous course, you will already seen me talking
+about Full Stack Web Development. You may just wish to review just
+the course overview in this lesson. After that,
+we'll introduce you to AngularJS, then we'll look at Model View Controller
+and model view whatever frame works that are essential for understanding and
+how Angular applications are built. Then we'll look at Angular Filters, and that will take you through to
+the first assignment in this course. The second module concentrates
+on giving you the skills of using task runners to automate
+your web development tasks. We'll look at Grunt and
+Gulp in a reasonable amount of detail to help you understand how this
+tools are organized, and how they enable you to manage
+your development workflow. In addition we'll look at Angular Scope,
+and an important concept about Angular
+forms and form validation. Support that is built into Angular, and that will take you through
+to the second assignment. The third week will concentrate
+on Single Page Applications. Now, Angular can be used without using
+it for Single Page Applications. Single Page Applications are something
+that brings angular together and then brings the entirety
+of the angular support integrated well into delivering
+a excellent application to the end user. So we'll look at how we communicate with
+a back end using an Angular Factory or a Service. We'll also talk about
+Dependency Injection. We'll look at Angular Templates and
+how they play a roll in defining the views that you use
+within your angular repetition. Then we look at routing, in particular
+about Angular's ngRoute module. For developing single page applications. We also look at the angular UI-Router
+which is another module that also enables you to build
+single page applications. UI-Router is more flexible of the two. That'll take you through
+to assignment three where you will complete
+a single page application. Finally, in the last module, we are
+dealing with Client-Server Communication. What kind of support does Angular have for
+providing Client-Server Communication? So we'll give you a quick
+overview of networking, essentials that are necessary for you to
+understand Client-Server Communication. We'll look at the use of
+Angular's $Http Service, and Angular's $resource Module to
+enable Client-Server Communication. We'll briefly touch upon
+Angular Testing and then round it off with a discussion about
+scaffolding tunes U. .And the Yeoman work flow. That will take you all the way through
+to the final assignment in this course. Now the Angular course lays
+a very good foundation for the next course that is coming up in
+this specialization, which is about mobile application development using HTML,
+CSS, and JavaScript. Where we will look at Cordova and
+the Ionic Framework. I hope you have fun going
+through this course. Again, it is going to be hard work but it is definitely worth
+the work that you put in. Please take the time to
+learn the concepts in depth. And as always, I am right behind
+you to take care of any questions, comments, and issues that arise
+as you go through this course.

@@ -1,0 +1,1145 @@
+WEBVTT
+
+1
+00:00:01.130 --> 00:00:04.710
+Okay, let's now get
+started with Angular JS.
+
+2
+00:00:04.710 --> 00:00:06.980
+What exactly is Angular JS?
+
+3
+00:00:06.980 --> 00:00:08.760
+How do we make use of it?
+
+4
+00:00:08.760 --> 00:00:11.940
+Where did it come from, and
+where are we going to go with it?
+
+5
+00:00:13.235 --> 00:00:17.835
+Let's ask ourselves some basic
+questions in this lesson.
+
+6
+00:00:20.485 --> 00:00:23.085
+Talking about the history of Angular.
+
+7
+00:00:23.085 --> 00:00:25.855
+Angular was designed by Misko Hevery.
+
+8
+00:00:27.195 --> 00:00:28.345
+I hope I got that right.
+
+9
+00:00:30.060 --> 00:00:35.510
+He was a Google employee that
+designed this framework.
+
+10
+00:00:35.510 --> 00:00:40.730
+It was first released in June 2012,
+and pretty soon became
+
+11
+00:00:40.730 --> 00:00:45.520
+one of the most popular front end
+JavaScript frameworks even to this day.
+
+12
+00:00:48.000 --> 00:00:49.790
+What is Angular?
+
+13
+00:00:49.790 --> 00:00:55.160
+Angular is a structural framework for
+designing dynamic web applications.
+
+14
+00:00:56.200 --> 00:01:01.770
+HTML, as you are familiar with,
+supports only static documents.
+
+15
+00:01:01.770 --> 00:01:05.870
+Whatever you specify in HTML is
+what is shown in your webpage.
+
+16
+00:01:07.410 --> 00:01:12.030
+Angular comes in and fills in the gaps
+to support dynamic applications.
+
+17
+00:01:12.030 --> 00:01:19.180
+So it solves what we call as the impedance
+mismatch between that back end data,
+
+18
+00:01:19.180 --> 00:01:25.750
+and the fact that HTML is only
+able to display static content.
+
+19
+00:01:27.270 --> 00:01:31.830
+Angular adds the dynamic features to HTML.
+
+20
+00:01:31.830 --> 00:01:37.940
+And Angular is particularly designed
+to work well with current applications.
+
+21
+00:01:37.940 --> 00:01:41.800
+Create, read, update,
+and delete applications.
+
+22
+00:01:41.800 --> 00:01:47.260
+We're gonna examine CRUD in more
+detail in some of the later modules.
+
+23
+00:01:48.310 --> 00:01:51.160
+So these applications
+are data driven applications.
+
+24
+00:01:51.160 --> 00:01:55.310
+So which means that the data
+keeps changing and so you need to
+
+25
+00:01:55.310 --> 00:02:00.320
+keep updating your page,
+depending on the changes in the data.
+
+26
+00:02:02.160 --> 00:02:07.760
+Interestingly, Angular also supports
+the declarative approach for programming.
+
+27
+00:02:07.760 --> 00:02:11.400
+So, which means that you specify
+what you want to accomplish, and
+
+28
+00:02:11.400 --> 00:02:16.710
+then Angular takes care of accomplishing
+it, or how it is done on your behalf.
+
+29
+00:02:18.470 --> 00:02:23.210
+When you open any book or
+go to any site talking about Angular,
+
+30
+00:02:23.210 --> 00:02:28.440
+you'll be bombarded with a whole
+bunch of Angular vocabulary.
+
+31
+00:02:28.440 --> 00:02:33.240
+You'll hear people talking about two-way
+data binding, scope, directives,
+
+32
+00:02:33.240 --> 00:02:37.260
+templates, routing, testing, modules,
+controllers, filters, factories,
+
+33
+00:02:37.260 --> 00:02:38.706
+services, provider.
+
+34
+00:02:38.706 --> 00:02:42.890
+And then you collapse, and
+then you say this is not for me, and
+
+35
+00:02:42.890 --> 00:02:43.840
+you will start running away.
+
+36
+00:02:45.010 --> 00:02:46.060
+Don't worry.
+
+37
+00:02:46.060 --> 00:02:52.660
+We'll examine all of these in
+a leisurely pace, step by step,
+
+38
+00:02:52.660 --> 00:02:58.000
+so at the end of this course, you'll have
+understood every one of these concepts.
+
+39
+00:02:58.000 --> 00:03:03.390
+So we'll start with two-way data binding
+and directives in the first lesson.
+
+40
+00:03:03.390 --> 00:03:08.060
+Then, we'll move on to looking at modules
+and controllers, and then filters.
+
+41
+00:03:08.060 --> 00:03:13.180
+Then, in some of the later modules, we'll
+come back to visit templates, routing,
+
+42
+00:03:13.180 --> 00:03:18.190
+scope, and also factories,
+
+43
+00:03:18.190 --> 00:03:22.480
+service, providers, and testing.
+
+44
+00:03:22.480 --> 00:03:26.230
+How you would write test
+driven code in Angular.
+
+45
+00:03:28.010 --> 00:03:28.940
+How do we get started?
+
+46
+00:03:29.960 --> 00:03:32.670
+First, of course get hold of Angular.
+
+47
+00:03:32.670 --> 00:03:38.620
+Now, since we have Bowers helping us,
+we're gonna make use of Bowers to
+
+48
+00:03:38.620 --> 00:03:44.710
+go and grab Angular for
+us when we do our exercises.
+
+49
+00:03:44.710 --> 00:03:46.830
+Now once you get hold of Angular,
+
+50
+00:03:46.830 --> 00:03:50.940
+you need to include the Angular JavaScript
+code into your page.
+
+51
+00:03:50.940 --> 00:03:55.559
+So the script tag comes
+to your rescue there.
+
+52
+00:03:55.559 --> 00:03:57.350
+So you're going to say script.
+
+53
+00:03:57.350 --> 00:04:02.680
+And than supply the source,
+which is Angular JS.
+
+54
+00:04:02.680 --> 00:04:06.280
+Now, in this case,
+I am using angular minified version of JS.
+
+55
+00:04:06.280 --> 00:04:09.685
+I'll talk about what minified
+means in the next module.
+
+56
+00:04:12.570 --> 00:04:16.252
+Now once you get hold of Angular and
+put it in your webpage,
+
+57
+00:04:16.252 --> 00:04:19.399
+then the immediate next step is
+how you make use of Angular.
+
+58
+00:04:20.710 --> 00:04:25.480
+Now the easiest way to get started
+with Angular is looking at
+
+59
+00:04:25.480 --> 00:04:29.110
+Angular directives,
+the built in directives in Angular.
+
+60
+00:04:30.180 --> 00:04:37.030
+Now, Angular directives or the built-in
+directives are HTML custom attributes.
+
+61
+00:04:37.030 --> 00:04:42.560
+They help you to extend HTML
+to support dynamic behavior.
+
+62
+00:04:42.560 --> 00:04:47.015
+Now the way to support it,
+is through what we call as,
+
+63
+00:04:47.015 --> 00:04:51.690
+ng-* attributes, or data-ng-* attributes.
+
+64
+00:04:51.690 --> 00:04:56.290
+If you recall, we had already seen
+the data hyphen star attributes,
+
+65
+00:04:56.290 --> 00:04:59.470
+in the context of Bootstrap and
+jQuery earlier.
+
+66
+00:04:59.470 --> 00:05:06.620
+Angular attributes are built in
+directives, all start with ng hyphen.
+
+67
+00:05:06.620 --> 00:05:12.040
+Or, if you want to make sure that
+the HTML validators will not complain,
+
+68
+00:05:12.040 --> 00:05:15.780
+then you can use data
+hyphen ng hyphen star,
+
+69
+00:05:17.360 --> 00:05:21.020
+when you specify the Angular directives.
+
+70
+00:05:21.020 --> 00:05:25.153
+Now some examples of Angular directives
+that you're gonna examine in this lesson
+
+71
+00:05:25.153 --> 00:05:30.052
+are ng-app, ng-bind, ng-model,
+
+72
+00:05:30.052 --> 00:05:33.320
+ng-init, ng-repeat.
+
+73
+00:05:33.320 --> 00:05:37.820
+Now, when you see them
+written in documentation,
+
+74
+00:05:37.820 --> 00:05:45.320
+you might see them being referred to
+using the using the camelCase as ng app.
+
+75
+00:05:45.320 --> 00:05:48.020
+Ng bind without the hyphen there.
+
+76
+00:05:48.020 --> 00:05:52.879
+So the camelCase,
+starting with ng as the first two letters,
+
+77
+00:05:52.879 --> 00:05:55.500
+and then the actual directives.
+
+78
+00:05:57.452 --> 00:06:02.500
+But within HTML,
+you always use ng- because HTML is case
+
+79
+00:06:02.500 --> 00:06:08.410
+insensitive so specifying it
+using camelCase will not work.
+
+80
+00:06:08.410 --> 00:06:14.790
+So that's why when you see that
+Angular directives being used in code,
+
+81
+00:06:14.790 --> 00:06:21.720
+you will see them being
+used with ng- prefix.
+
+82
+00:06:21.720 --> 00:06:25.980
+Directives is declarative
+programming in action.
+
+83
+00:06:25.980 --> 00:06:30.960
+When you specify a directive, you are
+specifying to Angular what it needs to do.
+
+84
+00:06:30.960 --> 00:06:35.970
+So when you say ng app,
+you are specifying to Angular, start up,
+
+85
+00:06:35.970 --> 00:06:38.490
+and bootstrap the Angular application.
+
+86
+00:06:38.490 --> 00:06:40.470
+When you say ng init,
+
+87
+00:06:40.470 --> 00:06:45.960
+Your asking angular to initialize some
+variables or execute and expression.
+
+88
+00:06:47.460 --> 00:06:51.450
+Let's examine some of
+these in more detail next.
+
+89
+00:06:54.508 --> 00:06:58.270
+The first directive that your gonna
+encounter when you need to do
+
+90
+00:06:58.270 --> 00:07:02.380
+angular application is
+the ngApp directive.
+
+91
+00:07:02.380 --> 00:07:05.480
+So, the ngApp directive is applied
+
+92
+00:07:05.480 --> 00:07:10.780
+to an HTML tag to specify
+the root of your application.
+
+93
+00:07:10.780 --> 00:07:15.980
+You can attach the ngApp directive
+to any of the tags that you want.
+
+94
+00:07:15.980 --> 00:07:20.276
+So, between the opening and
+the closing of that particular tag,
+
+95
+00:07:20.276 --> 00:07:23.090
+E is your very Angular application.
+
+96
+00:07:23.090 --> 00:07:24.610
+E is in operation.
+
+97
+00:07:25.940 --> 00:07:34.540
+Typically you would apply the ngApp
+tag to the HTML tag in your webpage.
+
+98
+00:07:34.540 --> 00:07:39.228
+Essentially, saying that the entire
+page is under the control of
+
+99
+00:07:39.228 --> 00:07:44.170
+an Angular application.
+
+100
+00:07:44.170 --> 00:07:49.099
+The next directive that you will
+encounter is the ng-init directive.
+
+101
+00:07:49.099 --> 00:07:55.520
+Now the ng-init directive is
+used to evaluate an expression.
+
+102
+00:07:55.520 --> 00:07:57.310
+What exactly is an expression?
+
+103
+00:07:57.310 --> 00:07:59.350
+I'm gonna talk about that next.
+
+104
+00:08:01.250 --> 00:08:05.450
+The ng-init can also be used
+to initialize a JavaScript
+
+105
+00:08:05.450 --> 00:08:09.930
+variable that we're gonna
+make use of within your page.
+
+106
+00:08:11.780 --> 00:08:15.910
+So for example,
+you can specify with a <p> tag,
+
+107
+00:08:15.910 --> 00:08:19.880
+you can say ng-init is equal to one there,
+
+108
+00:08:19.880 --> 00:08:23.520
+meaning that the variable
+index is initialized to one.
+
+109
+00:08:25.040 --> 00:08:28.530
+You can also use ng and h2, for example,
+
+110
+00:08:28.530 --> 00:08:32.940
+declare an object, a JavaScript object.
+
+111
+00:08:32.940 --> 00:08:36.910
+So in this case, I am declaring
+dish which is a JavaScript object,
+
+112
+00:08:36.910 --> 00:08:40.700
+which contains several
+properties associated with it.
+
+113
+00:08:43.810 --> 00:08:46.840
+What are angular expressions?
+
+114
+00:08:46.840 --> 00:08:51.000
+Angular expressions are simple
+JavaScript expressions.
+
+115
+00:08:51.000 --> 00:08:56.340
+They are evaluated against what we
+call is an Angular scope object.
+
+116
+00:08:56.340 --> 00:08:58.080
+Now, hold onto the term scope.
+
+117
+00:08:58.080 --> 00:09:02.100
+We are gonna come back to
+that in the second module.
+
+118
+00:09:02.100 --> 00:09:06.470
+At this moment,
+I'm not going to talk about scope, but
+
+119
+00:09:06.470 --> 00:09:09.150
+we'll come to that in the second module.
+
+120
+00:09:10.720 --> 00:09:13.380
+Now when you write expressions in Angular,
+
+121
+00:09:13.380 --> 00:09:18.100
+you're not going to be writing
+conditionals, loops, or exceptions.
+
+122
+00:09:18.100 --> 00:09:21.030
+Those complex expressions are not
+what we're talking about.
+
+123
+00:09:21.030 --> 00:09:24.220
+We're talking about more
+simpler expressions.
+
+124
+00:09:24.220 --> 00:09:30.030
+Now when you write expressions in Angular,
+they're always enclosed in double braces.
+
+125
+00:09:30.030 --> 00:09:34.460
+So you would specify them
+with starting double brace,
+
+126
+00:09:34.460 --> 00:09:37.670
+the expression, and
+then ending double brace.
+
+127
+00:09:37.670 --> 00:09:39.930
+Let's look at a couple of examples.
+
+128
+00:09:39.930 --> 00:09:44.889
+The first example that you see here,
+it says <p> 6 + 5 = and
+
+129
+00:09:44.889 --> 00:09:50.230
+within the double braces you
+are specifying six plus five.
+
+130
+00:09:50.230 --> 00:09:52.850
+Now, when this is
+displayed in your webpage,
+
+131
+00:09:52.850 --> 00:09:56.560
+this will display that six
+plus five is equal to 11.
+
+132
+00:09:56.560 --> 00:09:59.730
+So, the expression that is
+specified within the braces
+
+133
+00:09:59.730 --> 00:10:04.600
+is actually computed when Angular
+application runs and then the value will
+
+134
+00:10:04.600 --> 00:10:09.550
+be substituted in place in the HTML
+code that is displayed on your webpage.
+
+135
+00:10:11.160 --> 00:10:19.170
+Similarly, you will see me using
+the dish object that we declare
+
+136
+00:10:19.170 --> 00:10:24.540
+using the ng init directive that
+we saw in the previous slide.
+
+137
+00:10:24.540 --> 00:10:28.720
+So from the dish object, I can refer to
+any of the properties of the dish object
+
+138
+00:10:28.720 --> 00:10:33.380
+and then use them as expressions
+when I write HTML code.
+
+139
+00:10:33.380 --> 00:10:38.300
+So here, for example,
+I am declaring a media body div.
+
+140
+00:10:38.300 --> 00:10:45.470
+And inside the media body div,
+I am using an H2 tag with the dish.name
+
+141
+00:10:45.470 --> 00:10:51.410
+enclosed in double braces,
+specifying that as an angular expression.
+
+142
+00:10:51.410 --> 00:10:54.611
+So when this is actually
+displayed on your web page,
+
+143
+00:10:54.611 --> 00:10:57.970
+that dish.name will be
+substituted by actual value.
+
+144
+00:10:59.800 --> 00:11:02.130
+Similar the dish.description.
+
+145
+00:11:02.130 --> 00:11:09.312
+So, now you are beginning to see
+the connection between JavaScript,
+
+146
+00:11:09.312 --> 00:11:15.450
+variables, and
+how they are used within the HTML
+
+147
+00:11:15.450 --> 00:11:21.710
+code that we write in order to do binding.
+
+148
+00:11:21.710 --> 00:11:23.530
+Again, hold onto that word, binding.
+
+149
+00:11:23.530 --> 00:11:25.659
+I'm gonna come back to
+that in a short while.
+
+150
+00:11:28.556 --> 00:11:35.958
+Another directive that you're going to
+see in use is the ngModel directive.
+
+151
+00:11:35.958 --> 00:11:40.938
+The ngModel directive allows
+you to bind an input value
+
+152
+00:11:40.938 --> 00:11:45.510
+to a JavaScript variable within the scope.
+
+153
+00:11:45.510 --> 00:11:49.500
+This is where we have the two way
+data binding coming into action.
+
+154
+00:11:51.000 --> 00:11:53.985
+I'll talk about two-way data
+binding in the next slide.
+
+155
+00:11:55.125 --> 00:12:02.245
+As an example,
+in this code you see me writing for
+
+156
+00:12:02.245 --> 00:12:06.250
+a p, I specify the input type as text and
+
+157
+00:12:06.250 --> 00:12:11.260
+then as specific ngModel
+is equal to dish.comment.
+
+158
+00:12:11.260 --> 00:12:17.430
+And you see me using the dish.comment
+in the p above as comment coded,
+
+159
+00:12:17.430 --> 00:12:21.330
+and then I specify
+an expression dish.comment.
+
+160
+00:12:21.330 --> 00:12:25.130
+Let's see the behavior of
+this on your webpage and
+
+161
+00:12:25.130 --> 00:12:27.500
+then we'll come back to
+this slide one more time.
+
+162
+00:12:30.500 --> 00:12:35.250
+Taking a look at the webpage, you can
+notice that the code that I just showed
+
+163
+00:12:35.250 --> 00:12:40.830
+you on that page will
+produce this on the webpage.
+
+164
+00:12:40.830 --> 00:12:45.710
+So inside here you can
+see an input box there.
+
+165
+00:12:45.710 --> 00:12:53.267
+Watch what happens as I type in some
+information into the box there.
+
+166
+00:12:59.121 --> 00:13:04.119
+As you noticed,
+as I type information into the input box,
+
+167
+00:13:04.119 --> 00:13:09.831
+automatically the content right
+next to the comment is displaying
+
+168
+00:13:09.831 --> 00:13:15.037
+exactly the same information
+that I type into the input box.
+
+169
+00:13:15.037 --> 00:13:19.570
+This is two way data binding in action.
+
+170
+00:13:19.570 --> 00:13:25.470
+As I change the value
+in the input box there,
+
+171
+00:13:25.470 --> 00:13:31.300
+that value is being bound to
+the dish.comment, JavaScript variable and
+
+172
+00:13:31.300 --> 00:13:36.650
+I am using the dish.comment JavaScript
+variable inside an expression which
+
+173
+00:13:36.650 --> 00:13:42.520
+is used inside the comment p tag there.
+
+174
+00:13:43.870 --> 00:13:51.280
+So as the variable value changes because
+when I type in the value in the input box,
+
+175
+00:13:51.280 --> 00:13:57.060
+the value of the variable changes, that is
+immediately reflected onto the web page.
+
+176
+00:14:00.480 --> 00:14:02.260
+So getting back to the code.
+
+177
+00:14:02.260 --> 00:14:06.620
+You can now see how using
+the nGModel directive,
+
+178
+00:14:06.620 --> 00:14:11.560
+I can specify that whenever any value
+is changed inside an input box or
+
+179
+00:14:11.560 --> 00:14:14.318
+even text area box or
+
+180
+00:14:14.318 --> 00:14:19.836
+other form elements that
+we have seen before,
+
+181
+00:14:19.836 --> 00:14:25.670
+it'll automatically change
+the value of a JavaScript variable.
+
+182
+00:14:26.820 --> 00:14:31.790
+In turn the JavaScript variable can be
+used in certain expression in my web page
+
+183
+00:14:31.790 --> 00:14:36.740
+and the change in the value is
+immediately reflected into my web page.
+
+184
+00:14:40.480 --> 00:14:47.778
+What you just saw was, in Angular,
+the two-way data binding concept.
+
+185
+00:14:47.778 --> 00:14:50.215
+What does two-way data binding mean?
+
+186
+00:14:50.215 --> 00:14:55.850
+Two-way data binding means
+that you can bind an HTML or
+
+187
+00:14:55.850 --> 00:15:00.040
+a CSS property to a JavaScript variable.
+
+188
+00:15:00.040 --> 00:15:04.480
+So whenever the JavaScript
+variable's value changes, the HTML
+
+189
+00:15:05.540 --> 00:15:10.458
+element value or the CSS property
+will automatically be updated.
+
+190
+00:15:10.458 --> 00:15:15.450
+The reverse also acts, so
+as you saw with the input field,
+
+191
+00:15:15.450 --> 00:15:21.220
+if I enter and try to change the input
+field value, which will result in a change
+
+192
+00:15:21.220 --> 00:15:27.590
+of the JavaScript variable, that will be
+automatically reflected back to the pitch.
+
+193
+00:15:27.590 --> 00:15:29.360
+So this is two-way data binding in action.
+
+194
+00:15:29.360 --> 00:15:34.780
+You're gonna see more of this as we
+go through the rest of this course.
+
+195
+00:15:37.430 --> 00:15:41.870
+Another directive that you're gonna
+encounter is the ngRepeat directive.
+
+196
+00:15:43.200 --> 00:15:47.440
+The ngRepeat directive in
+Angular is a looping construct.
+
+197
+00:15:48.440 --> 00:15:54.855
+The ngRepeat directive can loop over
+a set of items in a collection.
+
+198
+00:15:54.855 --> 00:16:02.360
+Or for example, if you have an array of
+JavaScript objects, then the ngRepeat
+
+199
+00:16:02.360 --> 00:16:07.576
+directive can be used to loop over all
+the JavaScript objects in that array.
+
+200
+00:16:07.576 --> 00:16:14.900
+So in addition,
+the ngRepeat allows you to initialize or
+
+201
+00:16:14.900 --> 00:16:21.000
+instantiate a template for
+each of those items in the collection.
+
+202
+00:16:22.220 --> 00:16:24.070
+Now what exactly is a template?
+
+203
+00:16:24.070 --> 00:16:27.230
+We're going to come to
+that in the next module.
+
+204
+00:16:27.230 --> 00:16:30.580
+But for the moment, all it stands for
+
+205
+00:16:30.580 --> 00:16:36.040
+is some HTML code that is gonna be
+repeated for every item in a collection.
+
+206
+00:16:36.040 --> 00:16:43.500
+So, for example, you will see me using the
+ngRepeat directive like this example here.
+
+207
+00:16:43.500 --> 00:16:48.410
+So here I am declaring a media-list.
+
+208
+00:16:48.410 --> 00:16:54.470
+And inside the media-list,
+I have media-list elements there.
+
+209
+00:16:54.470 --> 00:16:58.920
+And then I specify
+ng-repeat dish in dishes.
+
+210
+00:16:58.920 --> 00:17:02.370
+Let's see the result of this,
+and then we'll come back and
+
+211
+00:17:02.370 --> 00:17:06.319
+see why the ngRepeat directive
+works the way it does.
+
+212
+00:17:07.430 --> 00:17:10.190
+I'm gonna be making use of the ngRepeat
+
+213
+00:17:10.190 --> 00:17:13.480
+directive to construct
+a list of menu items.
+
+214
+00:17:13.480 --> 00:17:18.203
+So you can see that here, on the web page,
+I have a list of menu items.
+
+215
+00:17:18.203 --> 00:17:23.506
+Each of the menu items has displayed
+exactly in the same format.
+
+216
+00:17:23.506 --> 00:17:27.603
+So the template allows me to define
+
+217
+00:17:27.603 --> 00:17:32.831
+the format of the repetitive HTML code,
+and
+
+218
+00:17:32.831 --> 00:17:39.360
+that can be looped over using
+the ngRepeat directive.
+
+219
+00:17:39.360 --> 00:17:44.350
+So here, I am using a media object for
+
+220
+00:17:44.350 --> 00:17:48.520
+defining each one of these elements,
+so that forms a list element.
+
+221
+00:17:48.520 --> 00:17:51.380
+So my media object
+becomes the template for
+
+222
+00:17:51.380 --> 00:17:54.600
+that, and
+then I am repeating them multiple times.
+
+223
+00:17:54.600 --> 00:18:01.110
+So that is what allows me to construct
+a list of menu items on my webpage.
+
+224
+00:18:02.930 --> 00:18:10.050
+Going back to the code, now you begin to
+see why the ngRepeat construct is useful.
+
+225
+00:18:10.050 --> 00:18:13.410
+In the ngRepeat construct,
+I say dish in dishes.
+
+226
+00:18:13.410 --> 00:18:17.810
+Now dishes is going to be
+a JavaScript object array, and
+
+227
+00:18:17.810 --> 00:18:21.720
+I'm gonna loop over every
+object in that array, and
+
+228
+00:18:21.720 --> 00:18:25.680
+then instantiate a template for
+
+229
+00:18:25.680 --> 00:18:31.210
+the menu item that you just saw on
+the web page for each one of those
+
+230
+00:18:31.210 --> 00:18:38.270
+dish objects inside the dishes
+JavaScript array of objects.
+
+231
+00:18:40.090 --> 00:18:44.590
+So ngRepeat is going to be very,
+very useful when you write your
+
+232
+00:18:46.130 --> 00:18:47.690
+Angular applications.
+
+233
+00:18:49.630 --> 00:18:52.680
+Now it's time for some hands on exercise.
+
+234
+00:18:52.680 --> 00:18:57.502
+We have just learned a few
+basics of Angular JS.
+
+235
+00:18:57.502 --> 00:19:03.330
+Let's make use of them In a hands
+on exercise and then consolidate,
+
+236
+00:19:03.330 --> 00:19:07.210
+for understanding of Angular directives.
+
+237
+00:19:09.050 --> 00:19:13.408
+So in this exercise, you're gonna use
+the Angular directives in ng-app,
+
+238
+00:19:13.408 --> 00:19:16.513
+ng-init, ng-model, and ng-repeat.
+
+239
+00:19:16.513 --> 00:19:20.240
+And we'll use angular
+expressions in constructing
+
+240
+00:19:20.240 --> 00:19:24.695
+a web template that you're
+gonna see in the exercise.
+
+241
+00:19:24.695 --> 00:19:31.284
+[NOISE]
+So it's a data driven [NOISE]

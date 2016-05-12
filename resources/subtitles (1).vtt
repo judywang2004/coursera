@@ -1,0 +1,499 @@
+WEBVTT
+
+1
+00:00:01.020 --> 00:00:06.035
+As you begin the journey into this third
+course in the specialization dealing
+
+2
+00:00:06.035 --> 00:00:11.700
+with Front-End JavaScript frameworks,
+in particular AngularJS,
+
+3
+00:00:11.700 --> 00:00:15.890
+let me give you a quick
+overview of the entire course.
+
+4
+00:00:15.890 --> 00:00:20.160
+And then position it in
+the context of the specialization.
+
+5
+00:00:22.210 --> 00:00:29.010
+Going back to our diagram where we looked
+at various technologies in the previous
+
+6
+00:00:29.010 --> 00:00:34.930
+lecture, this particular course is
+still dealing with the front end side.
+
+7
+00:00:34.930 --> 00:00:40.200
+We are looking at front end JavaScript,
+Frameworks.
+
+8
+00:00:40.200 --> 00:00:46.020
+How they make use of the JavaScript on
+the front end side in order to deliver
+
+9
+00:00:46.020 --> 00:00:51.430
+their information to the users, or
+random information in a browser.
+
+10
+00:00:51.430 --> 00:00:56.002
+So, this course dealing with AngularJS,
+
+11
+00:00:56.002 --> 00:01:01.971
+one of the most popular front
+end Java Script frameworks
+
+12
+00:01:01.971 --> 00:01:09.979
+will give you a in-depth introduction
+to various features of AngularJS.
+
+13
+00:01:09.979 --> 00:01:14.842
+As you go through this
+course in addition to
+
+14
+00:01:14.842 --> 00:01:20.180
+AngularJS We will also
+deal with web tools.
+
+15
+00:01:20.180 --> 00:01:24.660
+We have already seen node and
+in the previous course.
+
+16
+00:01:24.660 --> 00:01:28.550
+In this course, we're gonna look
+at task runners, Grunt and Gulp.
+
+17
+00:01:30.080 --> 00:01:37.190
+And also, scaffolding tools,
+Yo and the whole tool bench,
+
+18
+00:01:37.190 --> 00:01:42.010
+the Yeoman tool bench,
+which includes Yo, Grunt and Gulp and
+
+19
+00:01:43.701 --> 00:01:49.060
+together, to enable your
+web development work flow.
+
+20
+00:01:49.060 --> 00:01:52.200
+This diagram is a big picture overview of
+
+21
+00:01:52.200 --> 00:01:56.770
+several things that you will encounter
+as you go through this course.
+
+22
+00:01:56.770 --> 00:02:01.050
+This picture may not make as much
+sense to you at this moment.
+
+23
+00:02:01.050 --> 00:02:06.090
+But when complete the course we will come
+back to this picture one more time, and
+
+24
+00:02:06.090 --> 00:02:13.750
+then see how all that we have covered fits
+into the big picture view of AngularJS.
+
+25
+00:02:13.750 --> 00:02:15.340
+So as you go through this course,
+
+26
+00:02:15.340 --> 00:02:20.870
+we will realize that views which
+is what is seen by the end user.
+
+27
+00:02:20.870 --> 00:02:26.070
+Is rendered in AngularJS as a combination
+of templates and controllers.
+
+28
+00:02:27.250 --> 00:02:30.090
+They require the use of scope.
+
+29
+00:02:30.090 --> 00:02:33.630
+Templates themselves
+are built using directives.
+
+30
+00:02:33.630 --> 00:02:36.240
+Which we will explore in some detail.
+
+31
+00:02:36.240 --> 00:02:41.600
+And we might need to do some
+data filtering using Filters.
+
+32
+00:02:41.600 --> 00:02:47.000
+Now the controllers themselves
+pull the data in from Factories,
+
+33
+00:02:47.000 --> 00:02:49.690
+or Services, or Providers.
+
+34
+00:02:49.690 --> 00:02:54.570
+These Factory Service or Provider
+in turn are the ones that interact
+
+35
+00:02:54.570 --> 00:02:58.500
+with the back end server in order to
+pull in the data into your application.
+
+36
+00:03:00.020 --> 00:03:05.480
+Your application itself, the Angular
+application, is organized as a module or
+
+37
+00:03:05.480 --> 00:03:08.710
+as a group of cooperating modules.
+
+38
+00:03:08.710 --> 00:03:11.490
+Each module has a configuration.
+
+39
+00:03:11.490 --> 00:03:15.820
+And when you have multiple
+views how you move
+
+40
+00:03:15.820 --> 00:03:20.340
+from one view to another in
+response to radius events and
+
+41
+00:03:20.340 --> 00:03:24.778
+user interactions is all controlled by.
+
+42
+00:03:24.778 --> 00:03:31.220
+So we will examine this entire
+picture as we go through this course.
+
+43
+00:03:31.220 --> 00:03:34.275
+And then I'll come back to this
+picture at the end of the course,
+
+44
+00:03:34.275 --> 00:03:39.740
+then put the entire course
+in the right perspective.
+
+45
+00:03:39.740 --> 00:03:43.560
+Once you complete all these
+different pieces that you will see
+
+46
+00:03:44.940 --> 00:03:46.800
+when you go through this course.
+
+47
+00:03:48.670 --> 00:03:52.480
+The course itself is
+organized into four modules,
+
+48
+00:03:52.480 --> 00:03:55.470
+each module corresponding
+to one week of work.
+
+49
+00:03:56.900 --> 00:04:01.910
+In the first module we will still
+review the Full Stack Web Development.
+
+50
+00:04:01.910 --> 00:04:04.150
+If you are coming in
+from the previous course,
+
+51
+00:04:04.150 --> 00:04:06.980
+you will already seen me talking
+about Full Stack Web Development.
+
+52
+00:04:09.050 --> 00:04:14.730
+You may just wish to review just
+the course overview in this lesson.
+
+53
+00:04:15.790 --> 00:04:19.420
+After that,
+we'll introduce you to AngularJS,
+
+54
+00:04:19.420 --> 00:04:26.570
+then we'll look at Model View Controller
+and model view whatever frame works
+
+55
+00:04:26.570 --> 00:04:31.965
+that are essential for understanding and
+how Angular applications are built.
+
+56
+00:04:33.005 --> 00:04:35.465
+Then we'll look at Angular Filters, and
+
+57
+00:04:35.465 --> 00:04:39.105
+that will take you through to
+the first assignment in this course.
+
+58
+00:04:40.745 --> 00:04:45.950
+The second module concentrates
+on giving you the skills
+
+59
+00:04:45.950 --> 00:04:52.230
+of using task runners to automate
+your web development tasks.
+
+60
+00:04:52.230 --> 00:04:57.190
+We'll look at Grunt and
+Gulp in a reasonable amount of detail to
+
+61
+00:04:57.190 --> 00:05:02.160
+help you understand how this
+tools are organized, and
+
+62
+00:05:02.160 --> 00:05:10.030
+how they enable you to manage
+your development workflow.
+
+63
+00:05:10.030 --> 00:05:13.710
+In addition we'll look at Angular Scope,
+and
+
+64
+00:05:13.710 --> 00:05:19.480
+an important concept about Angular
+forms and form validation.
+
+65
+00:05:19.480 --> 00:05:23.070
+Support that is built into Angular, and
+
+66
+00:05:23.070 --> 00:05:25.340
+that will take you through
+to the second assignment.
+
+67
+00:05:27.390 --> 00:05:33.180
+The third week will concentrate
+on Single Page Applications.
+
+68
+00:05:33.180 --> 00:05:38.090
+Now, Angular can be used without using
+it for Single Page Applications.
+
+69
+00:05:38.090 --> 00:05:43.500
+Single Page Applications are something
+that brings angular together and
+
+70
+00:05:43.500 --> 00:05:47.560
+then brings the entirety
+of the angular support
+
+71
+00:05:49.300 --> 00:05:57.580
+integrated well into delivering
+a excellent application to the end user.
+
+72
+00:05:57.580 --> 00:06:03.350
+So we'll look at how we communicate with
+a back end using an Angular Factory or
+
+73
+00:06:03.350 --> 00:06:04.540
+a Service.
+
+74
+00:06:04.540 --> 00:06:07.380
+We'll also talk about
+Dependency Injection.
+
+75
+00:06:08.400 --> 00:06:13.190
+We'll look at Angular Templates and
+how they play a roll
+
+76
+00:06:13.190 --> 00:06:18.530
+in defining the views that you use
+within your angular repetition.
+
+77
+00:06:18.530 --> 00:06:24.270
+Then we look at routing, in particular
+about Angular's ngRoute module.
+
+78
+00:06:25.380 --> 00:06:27.671
+For developing single page applications.
+
+79
+00:06:27.671 --> 00:06:32.655
+We also look at the angular UI-Router
+which is another module that
+
+80
+00:06:32.655 --> 00:06:36.685
+also enables you to build
+single page applications.
+
+81
+00:06:36.685 --> 00:06:40.510
+UI-Router is more flexible of the two.
+
+82
+00:06:42.010 --> 00:06:44.870
+That'll take you through
+to assignment three
+
+83
+00:06:44.870 --> 00:06:47.650
+where you will complete
+a single page application.
+
+84
+00:06:50.050 --> 00:06:54.990
+Finally, in the last module, we are
+dealing with Client-Server Communication.
+
+85
+00:06:56.250 --> 00:07:01.150
+What kind of support does Angular have for
+providing Client-Server Communication?
+
+86
+00:07:01.150 --> 00:07:04.230
+So we'll give you a quick
+overview of networking,
+
+87
+00:07:04.230 --> 00:07:08.810
+essentials that are necessary for you to
+understand Client-Server Communication.
+
+88
+00:07:08.810 --> 00:07:13.256
+We'll look at the use of
+Angular's $Http Service, and
+
+89
+00:07:13.256 --> 00:07:19.110
+Angular's $resource Module to
+enable Client-Server Communication.
+
+90
+00:07:19.110 --> 00:07:24.460
+We'll briefly touch upon
+Angular Testing and then round it off
+
+91
+00:07:24.460 --> 00:07:28.775
+with a discussion about
+scaffolding tunes U.
+
+92
+00:07:28.775 --> 00:07:31.660
+.And the Yeoman work flow.
+
+93
+00:07:33.250 --> 00:07:38.270
+That will take you all the way through
+to the final assignment in this course.
+
+94
+00:07:38.270 --> 00:07:43.950
+Now the Angular course lays
+a very good foundation for
+
+95
+00:07:43.950 --> 00:07:48.590
+the next course that is coming up in
+this specialization, which is about
+
+96
+00:07:50.400 --> 00:07:56.590
+mobile application development using HTML,
+CSS, and JavaScript.
+
+97
+00:07:56.590 --> 00:08:01.770
+Where we will look at Cordova and
+the Ionic Framework.
+
+98
+00:08:03.510 --> 00:08:07.400
+I hope you have fun going
+through this course.
+
+99
+00:08:07.400 --> 00:08:12.510
+Again, it is going to be hard work but
+
+100
+00:08:12.510 --> 00:08:17.170
+it is definitely worth
+the work that you put in.
+
+101
+00:08:18.470 --> 00:08:23.340
+Please take the time to
+learn the concepts in depth.
+
+102
+00:08:24.370 --> 00:08:29.820
+And as always, I am right behind
+you to take care of any questions,
+
+103
+00:08:29.820 --> 00:08:34.480
+comments, and issues that arise
+as you go through this course.

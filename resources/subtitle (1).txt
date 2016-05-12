@@ -1,0 +1,181 @@
+Okay, let's now get
+started with Angular JS. What exactly is Angular JS? How do we make use of it? Where did it come from, and
+where are we going to go with it? Let's ask ourselves some basic
+questions in this lesson. Talking about the history of Angular. Angular was designed by Misko Hevery. I hope I got that right. He was a Google employee that
+designed this framework. It was first released in June 2012,
+and pretty soon became one of the most popular front end
+JavaScript frameworks even to this day. What is Angular? Angular is a structural framework for
+designing dynamic web applications. HTML, as you are familiar with,
+supports only static documents. Whatever you specify in HTML is
+what is shown in your webpage. Angular comes in and fills in the gaps
+to support dynamic applications. So it solves what we call as the impedance
+mismatch between that back end data, and the fact that HTML is only
+able to display static content. Angular adds the dynamic features to HTML. And Angular is particularly designed
+to work well with current applications. Create, read, update,
+and delete applications. We're gonna examine CRUD in more
+detail in some of the later modules. So these applications
+are data driven applications. So which means that the data
+keeps changing and so you need to keep updating your page,
+depending on the changes in the data. Interestingly, Angular also supports
+the declarative approach for programming. So, which means that you specify
+what you want to accomplish, and then Angular takes care of accomplishing
+it, or how it is done on your behalf. When you open any book or
+go to any site talking about Angular, you'll be bombarded with a whole
+bunch of Angular vocabulary. You'll hear people talking about two-way
+data binding, scope, directives, templates, routing, testing, modules,
+controllers, filters, factories, services, provider. And then you collapse, and
+then you say this is not for me, and you will start running away. Don't worry. We'll examine all of these in
+a leisurely pace, step by step, so at the end of this course, you'll have
+understood every one of these concepts. So we'll start with two-way data binding
+and directives in the first lesson. Then, we'll move on to looking at modules
+and controllers, and then filters. Then, in some of the later modules, we'll
+come back to visit templates, routing, scope, and also factories, service, providers, and testing. How you would write test
+driven code in Angular. How do we get started? First, of course get hold of Angular. Now, since we have Bowers helping us,
+we're gonna make use of Bowers to go and grab Angular for
+us when we do our exercises. Now once you get hold of Angular, you need to include the Angular JavaScript
+code into your page. So the script tag comes
+to your rescue there. So you're going to say script. And than supply the source,
+which is Angular JS. Now, in this case,
+I am using angular minified version of JS. I'll talk about what minified
+means in the next module. Now once you get hold of Angular and
+put it in your webpage, then the immediate next step is
+how you make use of Angular. Now the easiest way to get started
+with Angular is looking at Angular directives,
+the built in directives in Angular. Now, Angular directives or the built-in
+directives are HTML custom attributes. They help you to extend HTML
+to support dynamic behavior. Now the way to support it,
+is through what we call as, ng-* attributes, or data-ng-* attributes. If you recall, we had already seen
+the data hyphen star attributes, in the context of Bootstrap and
+jQuery earlier. Angular attributes are built in
+directives, all start with ng hyphen. Or, if you want to make sure that
+the HTML validators will not complain, then you can use data
+hyphen ng hyphen star, when you specify the Angular directives. Now some examples of Angular directives
+that you're gonna examine in this lesson are ng-app, ng-bind, ng-model, ng-init, ng-repeat. Now, when you see them
+written in documentation, you might see them being referred to
+using the using the camelCase as ng app. Ng bind without the hyphen there. So the camelCase,
+starting with ng as the first two letters, and then the actual directives. But within HTML,
+you always use ng- because HTML is case insensitive so specifying it
+using camelCase will not work. So that's why when you see that
+Angular directives being used in code, you will see them being
+used with ng- prefix. Directives is declarative
+programming in action. When you specify a directive, you are
+specifying to Angular what it needs to do. So when you say ng app,
+you are specifying to Angular, start up, and bootstrap the Angular application. When you say ng init, Your asking angular to initialize some
+variables or execute and expression. Let's examine some of
+these in more detail next. The first directive that your gonna
+encounter when you need to do angular application is
+the ngApp directive. So, the ngApp directive is applied to an HTML tag to specify
+the root of your application. You can attach the ngApp directive
+to any of the tags that you want. So, between the opening and
+the closing of that particular tag, E is your very Angular application. E is in operation. Typically you would apply the ngApp
+tag to the HTML tag in your webpage. Essentially, saying that the entire
+page is under the control of an Angular application. The next directive that you will
+encounter is the ng-init directive. Now the ng-init directive is
+used to evaluate an expression. What exactly is an expression? I'm gonna talk about that next. The ng-init can also be used
+to initialize a JavaScript variable that we're gonna
+make use of within your page. So for example,
+you can specify with a <p> tag, you can say ng-init is equal to one there, meaning that the variable
+index is initialized to one. You can also use ng and h2, for example, declare an object, a JavaScript object. So in this case, I am declaring
+dish which is a JavaScript object, which contains several
+properties associated with it. What are angular expressions? Angular expressions are simple
+JavaScript expressions. They are evaluated against what we
+call is an Angular scope object. Now, hold onto the term scope. We are gonna come back to
+that in the second module. At this moment,
+I'm not going to talk about scope, but we'll come to that in the second module. Now when you write expressions in Angular, you're not going to be writing
+conditionals, loops, or exceptions. Those complex expressions are not
+what we're talking about. We're talking about more
+simpler expressions. Now when you write expressions in Angular,
+they're always enclosed in double braces. So you would specify them
+with starting double brace, the expression, and
+then ending double brace. Let's look at a couple of examples. The first example that you see here,
+it says <p> 6 + 5 = and within the double braces you
+are specifying six plus five. Now, when this is
+displayed in your webpage, this will display that six
+plus five is equal to 11. So, the expression that is
+specified within the braces is actually computed when Angular
+application runs and then the value will be substituted in place in the HTML
+code that is displayed on your webpage. Similarly, you will see me using
+the dish object that we declare using the ng init directive that
+we saw in the previous slide. So from the dish object, I can refer to
+any of the properties of the dish object and then use them as expressions
+when I write HTML code. So here, for example,
+I am declaring a media body div. And inside the media body div,
+I am using an H2 tag with the dish.name enclosed in double braces,
+specifying that as an angular expression. So when this is actually
+displayed on your web page, that dish.name will be
+substituted by actual value. Similar the dish.description. So, now you are beginning to see
+the connection between JavaScript, variables, and
+how they are used within the HTML code that we write in order to do binding. Again, hold onto that word, binding. I'm gonna come back to
+that in a short while. Another directive that you're going to
+see in use is the ngModel directive. The ngModel directive allows
+you to bind an input value to a JavaScript variable within the scope. This is where we have the two way
+data binding coming into action. I'll talk about two-way data
+binding in the next slide. As an example,
+in this code you see me writing for a p, I specify the input type as text and then as specific ngModel
+is equal to dish.comment. And you see me using the dish.comment
+in the p above as comment coded, and then I specify
+an expression dish.comment. Let's see the behavior of
+this on your webpage and then we'll come back to
+this slide one more time. Taking a look at the webpage, you can
+notice that the code that I just showed you on that page will
+produce this on the webpage. So inside here you can
+see an input box there. Watch what happens as I type in some
+information into the box there. As you noticed,
+as I type information into the input box, automatically the content right
+next to the comment is displaying exactly the same information
+that I type into the input box. This is two way data binding in action. As I change the value
+in the input box there, that value is being bound to
+the dish.comment, JavaScript variable and I am using the dish.comment JavaScript
+variable inside an expression which is used inside the comment p tag there. So as the variable value changes because
+when I type in the value in the input box, the value of the variable changes, that is
+immediately reflected onto the web page. So getting back to the code. You can now see how using
+the nGModel directive, I can specify that whenever any value
+is changed inside an input box or even text area box or other form elements that
+we have seen before, it'll automatically change
+the value of a JavaScript variable. In turn the JavaScript variable can be
+used in certain expression in my web page and the change in the value is
+immediately reflected into my web page. What you just saw was, in Angular,
+the two-way data binding concept. What does two-way data binding mean? Two-way data binding means
+that you can bind an HTML or a CSS property to a JavaScript variable. So whenever the JavaScript
+variable's value changes, the HTML element value or the CSS property
+will automatically be updated. The reverse also acts, so
+as you saw with the input field, if I enter and try to change the input
+field value, which will result in a change of the JavaScript variable, that will be
+automatically reflected back to the pitch. So this is two-way data binding in action. You're gonna see more of this as we
+go through the rest of this course. Another directive that you're gonna
+encounter is the ngRepeat directive. The ngRepeat directive in
+Angular is a looping construct. The ngRepeat directive can loop over
+a set of items in a collection. Or for example, if you have an array of
+JavaScript objects, then the ngRepeat directive can be used to loop over all
+the JavaScript objects in that array. So in addition,
+the ngRepeat allows you to initialize or instantiate a template for
+each of those items in the collection. Now what exactly is a template? We're going to come to
+that in the next module. But for the moment, all it stands for is some HTML code that is gonna be
+repeated for every item in a collection. So, for example, you will see me using the
+ngRepeat directive like this example here. So here I am declaring a media-list. And inside the media-list,
+I have media-list elements there. And then I specify
+ng-repeat dish in dishes. Let's see the result of this,
+and then we'll come back and see why the ngRepeat directive
+works the way it does. I'm gonna be making use of the ngRepeat directive to construct
+a list of menu items. So you can see that here, on the web page,
+I have a list of menu items. Each of the menu items has displayed
+exactly in the same format. So the template allows me to define the format of the repetitive HTML code,
+and that can be looped over using
+the ngRepeat directive. So here, I am using a media object for defining each one of these elements,
+so that forms a list element. So my media object
+becomes the template for that, and
+then I am repeating them multiple times. So that is what allows me to construct
+a list of menu items on my webpage. Going back to the code, now you begin to
+see why the ngRepeat construct is useful. In the ngRepeat construct,
+I say dish in dishes. Now dishes is going to be
+a JavaScript object array, and I'm gonna loop over every
+object in that array, and then instantiate a template for the menu item that you just saw on
+the web page for each one of those dish objects inside the dishes
+JavaScript array of objects. So ngRepeat is going to be very,
+very useful when you write your Angular applications. Now it's time for some hands on exercise. We have just learned a few
+basics of Angular JS. Let's make use of them In a hands
+on exercise and then consolidate, for understanding of Angular directives. So in this exercise, you're gonna use
+the Angular directives in ng-app, ng-init, ng-model, and ng-repeat. And we'll use angular
+expressions in constructing a web template that you're
+gonna see in the exercise. [NOISE]
+So it's a data driven [NOISE]
