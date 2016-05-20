@@ -1,0 +1,1571 @@
+WEBVTT
+
+1
+00:00:01.754 --> 00:00:05.325
+After grunting so
+much in the previous exercise,
+
+2
+00:00:05.325 --> 00:00:08.307
+you're probably totally out of breath.
+
+3
+00:00:08.307 --> 00:00:11.673
+Take a big gulp of air, relax, and
+
+4
+00:00:11.673 --> 00:00:16.679
+slowly let it out, and
+let's get started on Gulp.
+
+5
+00:00:19.114 --> 00:00:24.127
+As you went through the Grunt exercise
+you realized that configuring a Grunt
+
+6
+00:00:24.127 --> 00:00:29.860
+file is not as straightforward as you
+might expect, and I'm not surprised.
+
+7
+00:00:29.860 --> 00:00:34.830
+It is in art in itself and
+there our experts who have figured
+
+8
+00:00:34.830 --> 00:00:39.710
+out the way of making use of
+Grunt to get the work done.
+
+9
+00:00:39.710 --> 00:00:45.630
+Very often we would be making use
+of pre-configured grunt files that
+
+10
+00:00:45.630 --> 00:00:51.550
+the experts in the field have already
+configured for us to get our work done.
+
+11
+00:00:51.550 --> 00:00:57.080
+But I still wanted you to get some
+hands-on experience of configuring your
+
+12
+00:00:57.080 --> 00:01:02.596
+own Grant file, and then looking
+at what it takes to configure one.
+
+13
+00:01:02.596 --> 00:01:10.100
+Of course, as you gain more
+experience it will get more and
+
+14
+00:01:10.100 --> 00:01:14.820
+more easy to understand how
+to configure these files.
+
+15
+00:01:14.820 --> 00:01:17.904
+Now, Grant was all about configuration.
+
+16
+00:01:17.904 --> 00:01:23.015
+Now, Gulp is another task runner
+which takes the code route,
+
+17
+00:01:23.015 --> 00:01:26.940
+rather than the configuration route.
+
+18
+00:01:26.940 --> 00:01:34.490
+So in Gulp we write a lot of
+code to get our task done,
+
+19
+00:01:34.490 --> 00:01:39.550
+rather than configuring
+either the built in tasks or
+
+20
+00:01:39.550 --> 00:01:46.050
+the modules that we import,
+just like that we did in Grunt.
+
+21
+00:01:46.050 --> 00:01:50.330
+So in Gulp you would notice
+a different way of thinking about
+
+22
+00:01:51.420 --> 00:01:54.990
+implementing solutions for your tasks.
+
+23
+00:01:54.990 --> 00:01:59.780
+Gulp is based around Node.js streams and
+
+24
+00:01:59.780 --> 00:02:03.830
+it uses the Node.js streams
+to build complex pipelines,
+
+25
+00:02:05.010 --> 00:02:08.750
+and this avoids creation
+of intermediate files.
+
+26
+00:02:08.750 --> 00:02:13.260
+Now in Grunt, when you needed to process
+some files, you would process a bunch of
+
+27
+00:02:13.260 --> 00:02:18.860
+files using one of the Grunt modules, and
+then you'd produce some temporary files.
+
+28
+00:02:18.860 --> 00:02:25.200
+These temporary files would then be read
+by other Grunt modules and then processed.
+
+29
+00:02:25.200 --> 00:02:29.650
+Then they would generate temporary
+files until you get your work done, but
+
+30
+00:02:29.650 --> 00:02:34.410
+Gulp's way of doing this is to
+take advantage of Node.js streams.
+
+31
+00:02:34.410 --> 00:02:36.390
+What is a Node.js stream?
+
+32
+00:02:36.390 --> 00:02:40.540
+Going into the details is
+beyond this course, but
+
+33
+00:02:40.540 --> 00:02:47.520
+suffice it to say that a Node.js
+stream is like a file flowing in.
+
+34
+00:02:47.520 --> 00:02:52.360
+So, think of the concept of a stream,
+something that flows in.
+
+35
+00:02:52.360 --> 00:03:00.190
+So, the contents of a file flow
+in Into one of the Gulp tasks.
+
+36
+00:03:00.190 --> 00:03:06.080
+It gets processed and
+then a stream of file is upward and
+
+37
+00:03:06.080 --> 00:03:10.490
+that can be fed into the next
+function in Gulp and
+
+38
+00:03:10.490 --> 00:03:15.070
+then so
+on until you achieve the desired result.
+
+39
+00:03:15.070 --> 00:03:19.480
+I will explain a little more about
+this in one of the next slides.
+
+40
+00:03:19.480 --> 00:03:24.710
+Now, in Gulp,
+the plugins that are designed in Gulp
+
+41
+00:03:24.710 --> 00:03:30.790
+are designed to do only one task,
+and do that one task very well.
+
+42
+00:03:30.790 --> 00:03:34.780
+So in order to achieve a complicated task,
+
+43
+00:03:34.780 --> 00:03:40.690
+you would actually take a bunch of
+plugins and then hook them together
+
+44
+00:03:40.690 --> 00:03:45.360
+just like Lego blocks in order
+to build a bigger pipeline.
+
+45
+00:03:45.360 --> 00:03:48.480
+And you will introduce
+files from one end and
+
+46
+00:03:48.480 --> 00:03:52.340
+out the other end comes
+the processed output.
+
+47
+00:03:54.270 --> 00:03:58.790
+In Gulp, tasks are executed
+with the maximum concurrency.
+
+48
+00:03:58.790 --> 00:04:02.360
+So if you specify multiple
+tasks to be executed,
+
+49
+00:04:02.360 --> 00:04:07.350
+Gulp will try to execute them
+simultaneously as far as possible.
+
+50
+00:04:09.140 --> 00:04:12.240
+How do we get started with Gulp?
+
+51
+00:04:12.240 --> 00:04:16.680
+First, we will install
+the global Gulp package.
+
+52
+00:04:16.680 --> 00:04:23.150
+The Command Line Tool, so
+to do that we do npm install -g gulp.
+
+53
+00:04:23.150 --> 00:04:28.610
+Again, if you're using Mac or
+Linux, make sure to use sudo,
+
+54
+00:04:30.400 --> 00:04:39.750
+then after that you will be installing
+Gulp Package locally within your project.
+
+55
+00:04:39.750 --> 00:04:46.970
+Again, you do npm install gulp --save-dev,
+just like you did before.
+
+56
+00:04:46.970 --> 00:04:52.390
+So we need to configure out
+package.json file so that the Gulp
+
+57
+00:04:53.880 --> 00:04:57.250
+plugins that you installed
+will be written into
+
+58
+00:04:57.250 --> 00:05:02.230
+the packaged.json file for
+later installation if required.
+
+59
+00:05:04.310 --> 00:05:10.840
+In gulp, you will specify
+the tasks inside gulp file.js.
+
+60
+00:05:10.840 --> 00:05:15.190
+Now, the gulp file.js requires you,
+
+61
+00:05:15.190 --> 00:05:21.590
+before you configure the gulp task you
+need to install some gulp plugins.
+
+62
+00:05:21.590 --> 00:05:24.470
+Again, we make use of the npm install.
+
+63
+00:05:24.470 --> 00:05:28.200
+So we're going to install
+a whole set of gulp plugins
+
+64
+00:05:29.510 --> 00:05:33.960
+which have similar functionality to
+what we did with the gulp plugin.
+
+65
+00:05:33.960 --> 00:05:39.370
+So you will have jshint, jshint-stylish,
+imagemmin, concat, uglify,
+
+66
+00:05:39.370 --> 00:05:44.290
+minify, usemin and
+many other gulp plugins.
+
+67
+00:05:44.290 --> 00:05:47.940
+So, here I have a list of gulp
+plugins that I'm going to make use of
+
+68
+00:05:47.940 --> 00:05:49.810
+in the exercise next.
+
+69
+00:05:49.810 --> 00:05:51.050
+So do install them.
+
+70
+00:05:51.050 --> 00:05:55.657
+So npm install and specify all
+the gulp plugins in one shot and
+
+71
+00:05:55.657 --> 00:05:57.733
+then do --save-dev, so
+
+72
+00:05:57.733 --> 00:06:03.531
+that all this Gulpfile information is
+also saved in your package.js file.
+
+73
+00:06:06.444 --> 00:06:10.270
+Then, we go into the gulpfile.js file.
+
+74
+00:06:10.270 --> 00:06:14.040
+The first thing that we do is
+to load in all the plugins.
+
+75
+00:06:14.040 --> 00:06:19.430
+The way you load in plugins is
+to say var gulp = require and
+
+76
+00:06:19.430 --> 00:06:23.330
+the specify the gulp plugin's name.
+
+77
+00:06:23.330 --> 00:06:30.070
+You can also use node packages and
+node modules within your gulp file.
+
+78
+00:06:30.070 --> 00:06:33.990
+Some of the functionality
+is directly used from
+
+79
+00:06:33.990 --> 00:06:39.250
+existing node modules rather than
+writing explicit gulp plugins.
+
+80
+00:06:39.250 --> 00:06:43.480
+We will see a few of them as
+we go through this lecture.
+
+81
+00:06:45.020 --> 00:06:52.210
+So, all the gulp plugins
+are loaded in by using var and
+
+82
+00:06:52.210 --> 00:06:57.480
+then specifying the different plugins
+using the require function there.
+
+83
+00:06:59.690 --> 00:07:04.020
+Another way of loading in all the plugins
+that are part of your project
+
+84
+00:07:04.020 --> 00:07:08.230
+is to use a plugin called
+the gulp load plugins package.
+
+85
+00:07:08.230 --> 00:07:12.425
+I am not going to use that
+route in this exercise.
+
+86
+00:07:12.425 --> 00:07:17.985
+Instead, I will leave that as an optional
+exercise for your to pursue further.
+
+87
+00:07:17.985 --> 00:07:22.940
+In grunt, I showed you the user
+get grunt like that the gulp
+
+88
+00:07:22.940 --> 00:07:28.800
+load plugins plugin also
+serves a similar purpose here.
+
+89
+00:07:28.800 --> 00:07:33.480
+Instead, what I am doing here is
+to load the individual plugins
+
+90
+00:07:33.480 --> 00:07:37.140
+explicitly by using the require function.
+
+91
+00:07:39.170 --> 00:07:44.136
+As I mentioned,
+at the start of this lecture
+
+92
+00:07:44.136 --> 00:07:48.171
+Gulp operates using node streams.
+
+93
+00:07:48.171 --> 00:07:52.838
+So the way a pipeline is
+configured is that you would start
+
+94
+00:07:52.838 --> 00:07:57.712
+with a bunch of files then you
+will pass them through a pipe.
+
+95
+00:07:57.712 --> 00:08:03.037
+And then in between they will be modified
+using one function then the result
+
+96
+00:08:03.037 --> 00:08:08.280
+coming out of it will again be
+piped through to the next function.
+
+97
+00:08:08.280 --> 00:08:12.415
+If you have used Unix, Unix or
+
+98
+00:08:12.415 --> 00:08:17.775
+Linux or even Mac, you know how
+the pipe command works in Unix.
+
+99
+00:08:17.775 --> 00:08:20.775
+So you have a vertical line so
+
+100
+00:08:20.775 --> 00:08:24.575
+that you can take the output
+from one command and then
+
+101
+00:08:24.575 --> 00:08:29.585
+pipe it directly into another command,
+if you are using the terminal vendor.
+
+102
+00:08:30.650 --> 00:08:34.080
+Similar idea here with the gulp buckets.
+
+103
+00:08:34.080 --> 00:08:39.033
+So, each function will transform
+
+104
+00:08:39.033 --> 00:08:44.360
+the incoming file data from the pipe and
+
+105
+00:08:44.360 --> 00:08:50.160
+then output the transformed data
+in the form of an outgoing pipe,
+
+106
+00:08:50.160 --> 00:08:55.350
+so the plugins are all connected
+together using pipes, and
+
+107
+00:08:55.350 --> 00:09:00.360
+you're feeding the files from one end, and
+the result comes out at the other end.
+
+108
+00:09:01.420 --> 00:09:09.350
+So that is why I show you a diagrammatic
+illustration of the gulp plugin operation.
+
+109
+00:09:09.350 --> 00:09:12.300
+Now when you need to
+specify the input files,
+
+110
+00:09:12.300 --> 00:09:16.130
+you will use a gulp source function.
+
+111
+00:09:16.130 --> 00:09:19.970
+This gulp source function
+takes file globs,
+
+112
+00:09:19.970 --> 00:09:23.580
+you know what file globs
+are from the previous lectures.
+
+113
+00:09:23.580 --> 00:09:26.670
+So they take file globs and
+then, using the file glob,
+
+114
+00:09:26.670 --> 00:09:31.750
+they'll select a bunch of files, and
+then these files will be inserted
+
+115
+00:09:31.750 --> 00:09:36.720
+into the pipe and the pipe, when it
+passes through one of the functions.
+
+116
+00:09:36.720 --> 00:09:42.520
+So you specify the functions that need
+to be performed on this stream of files,
+
+117
+00:09:42.520 --> 00:09:43.860
+are using the pipe command.
+
+118
+00:09:45.020 --> 00:09:49.040
+We will see some examples
+in the next few slides.
+
+119
+00:09:49.040 --> 00:09:56.180
+And then finally, the end result with the
+version of using the gulp dest function.
+
+120
+00:09:56.180 --> 00:10:00.340
+So this specifies the destination
+of the modified false.
+
+121
+00:10:00.340 --> 00:10:05.090
+Let's look at some examples of
+the usage in the next few slides.
+
+122
+00:10:07.080 --> 00:10:13.920
+First let me illustrate to you how
+a JSHint task can be configured in Gulp.
+
+123
+00:10:13.920 --> 00:10:18.590
+Remember that this was one of the first
+tasks that we saw even with Grunt.
+
+124
+00:10:18.590 --> 00:10:23.330
+So in, in Gulp's way of
+specifying the JSHint task,
+
+125
+00:10:23.330 --> 00:10:27.230
+you would specify task gulp.task.
+
+126
+00:10:27.230 --> 00:10:33.780
+And then the first parameter to gulp.task
+function is the name of the task.
+
+127
+00:10:33.780 --> 00:10:37.360
+So in this case I am using
+JSHint is the name of the task.
+
+128
+00:10:37.360 --> 00:10:39.340
+The second one is a function.
+
+129
+00:10:39.340 --> 00:10:44.360
+Inside this function,
+note how we have specified several things.
+
+130
+00:10:44.360 --> 00:10:48.180
+The first statement says gulp.src.
+
+131
+00:10:48.180 --> 00:10:51.910
+and you see that file glob
+pattern that I had given there.
+
+132
+00:10:51.910 --> 00:10:56.820
+So this Gulp source will select
+all the JavaScript files
+
+133
+00:10:56.820 --> 00:10:59.867
+in the app/scripts folder.
+
+134
+00:10:59.867 --> 00:11:06.990
+And then all these files are then going
+to be piped through the jshint function.
+
+135
+00:11:06.990 --> 00:11:11.890
+That's why you see the second statement
+where it says pipe, JSHint, and
+
+136
+00:11:11.890 --> 00:11:16.440
+the result from the JSHint function, the
+output from the JSHint will be piped into
+
+137
+00:11:16.440 --> 00:11:21.670
+the JSHint reporter,
+with the stylish option, so
+
+138
+00:11:21.670 --> 00:11:26.010
+the error or the warnings coming in from
+
+139
+00:11:26.010 --> 00:11:31.380
+JSHint will be printed out on the screen,
+using the stylish reporter.
+
+140
+00:11:31.380 --> 00:11:34.890
+Again, same functionality
+that we have seen in grunt.
+
+141
+00:11:34.890 --> 00:11:39.060
+Look at how gulp configures
+that particular task.
+
+142
+00:11:40.870 --> 00:11:45.060
+The next task that you're gonna see,
+which we didn't do with grunt but
+
+143
+00:11:45.060 --> 00:11:50.690
+I want to illustrate how this can be
+done using gulp is Imagemin task.
+
+144
+00:11:50.690 --> 00:11:55.174
+The Imagemin task takes all
+the images in your images folder, and
+
+145
+00:11:55.174 --> 00:12:02.390
+then optimizes these files for
+use on your website.
+
+146
+00:12:02.390 --> 00:12:07.350
+So what we do is the gulp
+source as you can see
+
+147
+00:12:07.350 --> 00:12:12.220
+we are specifying that files
+in the app images folder.
+
+148
+00:12:12.220 --> 00:12:17.330
+Now, all these files are gonna
+be first piped through a cache.
+
+149
+00:12:17.330 --> 00:12:21.570
+The cache can probably hold all the files,
+and then one by one,
+
+150
+00:12:21.570 --> 00:12:28.411
+the files are passed through the Imagemin
+
+151
+00:12:28.411 --> 00:12:31.910
+function.
+
+152
+00:12:31.910 --> 00:12:37.570
+The Imagemin function we have given
+certain configuration values there,
+
+153
+00:12:37.570 --> 00:12:42.130
+so optimization level three,
+progressive is true, interlaced is true.
+
+154
+00:12:42.130 --> 00:12:46.950
+So these image transformations
+are done to those images.
+
+155
+00:12:46.950 --> 00:12:51.590
+And then the result will be
+piped out to the destination,
+
+156
+00:12:51.590 --> 00:12:53.430
+which is distribution/images.
+
+157
+00:12:53.430 --> 00:13:01.380
+So we are slowly building the distribution
+folder with the files from the source
+
+158
+00:13:01.380 --> 00:13:05.230
+folder, the source folder is still
+the app folder that we had used earlier.
+
+159
+00:13:06.230 --> 00:13:12.970
+Then, you also see me using another
+function called the notify function.
+
+160
+00:13:12.970 --> 00:13:18.451
+The notify function will display the
+message that we give as a parameter there
+
+161
+00:13:18.451 --> 00:13:24.950
+to the user, using your standard
+operating system to notify functionality.
+
+162
+00:13:24.950 --> 00:13:32.340
+So it will display a notify message on
+the screen when the task is completed.
+
+163
+00:13:33.720 --> 00:13:38.740
+The next task that we are going
+to look at is the clean-up task.
+
+164
+00:13:38.740 --> 00:13:42.090
+Now I'm gonna use
+the clean-up task to remove
+
+165
+00:13:42.090 --> 00:13:47.430
+all the files from the distribution folder
+and the deleted distribution folder.
+
+166
+00:13:47.430 --> 00:13:52.590
+So to do this we are taking
+the help of a node module
+
+167
+00:13:52.590 --> 00:13:58.000
+called D-E-L, del, so
+this is not a gulp plugin.
+
+168
+00:13:58.000 --> 00:14:01.460
+Instead, this is a module
+that node already provides.
+
+169
+00:14:01.460 --> 00:14:06.650
+So we are taking advantage of the node
+module directly in order to achieve our
+
+170
+00:14:06.650 --> 00:14:08.480
+required functionality.
+
+171
+00:14:08.480 --> 00:14:13.560
+So I can figure this gulp.task
+as saying gulp.task,
+
+172
+00:14:13.560 --> 00:14:16.500
+and then specifically the name as clean,
+and then send the function.
+
+173
+00:14:16.500 --> 00:14:18.190
+I am specifying del, and
+
+174
+00:14:18.190 --> 00:14:23.680
+then the parameter there is desk folder,
+which is being supplied.
+
+175
+00:14:23.680 --> 00:14:28.950
+So this will result in the del
+module being executive, and
+
+176
+00:14:28.950 --> 00:14:34.798
+which will result in the distribution
+folder being deleted from your project.
+
+177
+00:14:34.798 --> 00:14:41.260
+The next task we are going to
+look at is the usemin task.
+
+178
+00:14:41.260 --> 00:14:48.130
+Remember we used a similar usemin
+task in grant which we configured.
+
+179
+00:14:48.130 --> 00:14:52.950
+Now, in case of gulp,as you see,
+this is a streaming way of doing things.
+
+180
+00:14:52.950 --> 00:14:56.630
+So, I configure the gulp task with usemin.
+
+181
+00:14:56.630 --> 00:15:01.160
+And also note the second value there.
+
+182
+00:15:01.160 --> 00:15:07.440
+Inside square brackets,
+I'm specifying jshint.
+
+183
+00:15:08.820 --> 00:15:15.100
+What this means is that before the usemin
+task is run, I should run the jshint task.
+
+184
+00:15:15.100 --> 00:15:20.090
+So in principle, I don't need to
+explicitly specify the JS sync task.
+
+185
+00:15:20.090 --> 00:15:21.853
+Whenever the usemin task runs,
+
+186
+00:15:21.853 --> 00:15:26.260
+before the usemin task actually runs
+it will run the JS sync task also.
+
+187
+00:15:26.260 --> 00:15:27.740
+This is one way of checking
+
+188
+00:15:29.040 --> 00:15:34.490
+the JavaScript files before you go to
+the Concatenation and magnification.
+
+189
+00:15:34.490 --> 00:15:39.800
+For the CSS files, you're gonna do
+the minification and the revisioning.
+
+190
+00:15:39.800 --> 00:15:44.837
+So, here, I am specifying gulp.src.
+
+191
+00:15:44.837 --> 00:15:51.827
+Recall for the usemin task,
+we are going to configure the information
+
+192
+00:15:51.827 --> 00:15:57.171
+inside the HTML file where
+we use the build colon CSS.
+
+193
+00:15:57.171 --> 00:16:02.190
+And the destination file name and
+then the end belt.
+
+194
+00:16:02.190 --> 00:16:08.450
+Remember that we included
+some comments inside the menu
+
+195
+00:16:08.450 --> 00:16:13.980
+HTML page for the earlier grant exercise.
+
+196
+00:16:13.980 --> 00:16:16.570
+They're going to make use of
+the same menu HTML file so
+
+197
+00:16:16.570 --> 00:16:22.885
+the usemin that we are using with gulp
+works with the same menu.html file.
+
+198
+00:16:22.885 --> 00:16:25.570
+Now since we have already
+configured that in our app folder,
+
+199
+00:16:25.570 --> 00:16:29.370
+I'm not gonna repeat that
+in the Gulp exercise.
+
+200
+00:16:30.860 --> 00:16:33.320
+That is taken as the source so
+
+201
+00:16:33.320 --> 00:16:38.320
+from the configuration there we're gonna
+identify which of the CSS files and
+
+202
+00:16:38.320 --> 00:16:42.720
+which of the JavaScript files that
+are being used in this project.
+
+203
+00:16:42.720 --> 00:16:47.050
+Then, that is piped through
+the usemin function.
+
+204
+00:16:47.050 --> 00:16:51.220
+The usemin function
+itself does the cssmin,
+
+205
+00:16:51.220 --> 00:16:54.540
+then the JavaScript uglification and
+all them.
+
+206
+00:16:54.540 --> 00:16:58.710
+So, I am specifying the usemin task.
+
+207
+00:16:58.710 --> 00:17:03.870
+I'm saying for CSS do the minifycss() and
+
+208
+00:17:03.870 --> 00:17:07.200
+you can see that I have specified rev().
+
+209
+00:17:07.200 --> 00:17:10.840
+That is the file revisioning
+that we used with grant.
+
+210
+00:17:11.950 --> 00:17:17.262
+Same thing is provided by
+the Rev plugin for gulp.
+
+211
+00:17:17.262 --> 00:17:23.510
+And after that, also for,
+we'll carry out similar
+
+212
+00:17:23.510 --> 00:17:29.130
+uglification and concatenation for
+the JavaScript files.
+
+213
+00:17:29.130 --> 00:17:35.260
+That is specified the uglify and
+the Rev and the destination of
+
+214
+00:17:35.260 --> 00:17:40.370
+this function is that
+distribution folder so
+
+215
+00:17:40.370 --> 00:17:44.410
+all the results are going to be
+copied into the distribution folder
+
+216
+00:17:44.410 --> 00:17:49.040
+including the HTML files.
+
+217
+00:17:49.040 --> 00:17:52.984
+Another interesting package
+that we're going to use
+
+218
+00:17:52.984 --> 00:17:57.236
+with Gulp is called a browser-sync.
+
+219
+00:17:57.236 --> 00:18:03.345
+Browser-sync is a node package which
+enables you to start a browser and
+
+220
+00:18:03.345 --> 00:18:09.440
+sever a static that fold so
+
+221
+00:18:09.440 --> 00:18:14.395
+it only serves a static web assets,
+static web page and
+
+222
+00:18:14.395 --> 00:18:19.900
+static CS java system first so
+to configure this
+
+223
+00:18:19.900 --> 00:18:24.990
+browser sync task now remember
+browser sync e is an m p m module
+
+224
+00:18:24.990 --> 00:18:30.219
+not a gulp plugin now a similar
+
+225
+00:18:30.219 --> 00:18:36.600
+browser sync module is
+also available with Grant.
+
+226
+00:18:36.600 --> 00:18:41.300
+So instead of using the connect
+that we used with Grant.
+
+227
+00:18:41.300 --> 00:18:43.210
+You can also use browser sync with Grant.
+
+228
+00:18:43.210 --> 00:18:46.026
+The configuration is somewhat similar, but
+
+229
+00:18:46.026 --> 00:18:49.890
+a little bit different than
+the connect package the same way.
+
+230
+00:18:49.890 --> 00:18:52.021
+Gulp also has a connect package, but
+
+231
+00:18:52.021 --> 00:18:55.830
+I wanted to illustrate to
+you the use of BrowserSync.
+
+232
+00:18:55.830 --> 00:19:01.870
+I illustrated the connect module for
+
+233
+00:19:01.870 --> 00:19:05.790
+grunt, so I thought I would illustrate
+the BrowserSync module for gulp.
+
+234
+00:19:07.180 --> 00:19:11.760
+So browser sync as far as I came to know,
+
+235
+00:19:11.760 --> 00:19:16.800
+is more flexible or
+more powerful than connect flow.
+
+236
+00:19:16.800 --> 00:19:20.920
+By all means,
+you can reconfigure the grunt file,
+
+237
+00:19:20.920 --> 00:19:24.640
+to use browser settings
+instead of using connect.
+
+238
+00:19:24.640 --> 00:19:28.230
+Now let's look at how we can
+figure browser sync in gulp.
+
+239
+00:19:28.230 --> 00:19:31.140
+So here we specify the gulp
+task as browser sync.
+
+240
+00:19:32.880 --> 00:19:36.650
+This gulp task browser sync the second
+
+241
+00:19:36.650 --> 00:19:40.750
+value that I specify inside
+the square brackets is 'default'.
+
+242
+00:19:40.750 --> 00:19:43.880
+There is a default task that
+I'm going to configure later.
+
+243
+00:19:45.110 --> 00:19:46.910
+What I am specifying is that,
+
+244
+00:19:46.910 --> 00:19:50.240
+before I run browserSync,
+I should first execute the default task.
+
+245
+00:19:50.240 --> 00:19:55.379
+The default task does the building
+of the distribution folder.
+
+246
+00:19:56.380 --> 00:19:58.540
+As you will see a little bit later.
+
+247
+00:19:58.540 --> 00:20:06.330
+Now the browser sync task, the first var
+files equal to what I am specifying,
+
+248
+00:20:06.330 --> 00:20:11.600
+what I am specifying to the browser sync
+task is that these are all the files
+
+249
+00:20:11.600 --> 00:20:17.740
+that you're going to keep a watch on and
+any one of them if they change
+
+250
+00:20:17.740 --> 00:20:23.350
+you are going to be causing
+the browser window to be reloaded.
+
+251
+00:20:24.860 --> 00:20:28.760
+The second thing that you see
+there is the browserSync.init.
+
+252
+00:20:28.760 --> 00:20:33.620
+So I am specifying configuration for
+the browserSync module.
+
+253
+00:20:33.620 --> 00:20:36.120
+So I specify the first
+parameter of those files,
+
+254
+00:20:36.120 --> 00:20:40.830
+which is the JavaScript variable
+that I just declared earlier.
+
+255
+00:20:40.830 --> 00:20:44.860
+Then the second parameter
+specifies some information about
+
+256
+00:20:44.860 --> 00:20:47.130
+the server configuration.
+
+257
+00:20:47.130 --> 00:20:51.480
+I'm specifying that the server
+should use the distribution folder
+
+258
+00:20:51.480 --> 00:20:54.630
+as the best directory for the server.
+
+259
+00:20:54.630 --> 00:20:57.940
+So files in the distribution
+folder will be served up.
+
+260
+00:20:57.940 --> 00:21:04.080
+And the second parameter there,
+index which I specify as menu.html.
+
+261
+00:21:04.080 --> 00:21:09.938
+I am specifying to gulp
+to browser sync that.
+
+262
+00:21:09.938 --> 00:21:14.157
+The default index.html file
+is not available there.
+
+263
+00:21:14.157 --> 00:21:20.680
+Instead use the menu or html file
+as the index file to be summed up.
+
+264
+00:21:20.680 --> 00:21:23.425
+If you don't specify the index explicitly,
+
+265
+00:21:23.425 --> 00:21:28.670
+BrowserSync automatically assumes
+there is an index or HTML folder
+
+266
+00:21:28.670 --> 00:21:33.658
+dist then it will start serving
+up that particular file.
+
+267
+00:21:33.658 --> 00:21:38.977
+The last configuration down below that
+you see, I'm specifying gulp.watch,
+
+268
+00:21:38.977 --> 00:21:43.160
+gulp.watch is a built-in task in gulp.
+
+269
+00:21:43.160 --> 00:21:44.790
+What the watch task does,
+
+270
+00:21:44.790 --> 00:21:49.250
+is it keeps watch on the files
+specified as a parameter to it.
+
+271
+00:21:49.250 --> 00:21:55.860
+So, inside they're watch task I'm
+specifying dist as their parameter and
+
+272
+00:21:55.860 --> 00:22:02.770
+also I am specifying on the function
+on and then I'm saying change.
+
+273
+00:22:02.770 --> 00:22:06.950
+If there is any change in any of
+the files inside the distribution folder.
+
+274
+00:22:06.950 --> 00:22:11.590
+Then the browser sync reload will
+be called to reload the browser, so
+
+275
+00:22:11.590 --> 00:22:17.050
+this ensures that if you make changes to
+any of the files in the app folder, then
+
+276
+00:22:17.050 --> 00:22:22.530
+the default task will cause a rebuilding
+of your distribution folder.
+
+277
+00:22:22.530 --> 00:22:25.030
+When your distribution folder is rebuilt,
+
+278
+00:22:25.030 --> 00:22:27.660
+then the files in the distribution
+folder will change.
+
+279
+00:22:27.660 --> 00:22:31.860
+This will result in the gulp
+watch here getting triggered and
+
+280
+00:22:31.860 --> 00:22:38.195
+this will cause the processing
+to reload the pitch.
+
+281
+00:22:38.195 --> 00:22:45.740
+In addition, just like in case of grunt,
+we had the watch task.
+
+282
+00:22:45.740 --> 00:22:49.230
+We can also configure
+a watch task in gulp.
+
+283
+00:22:49.230 --> 00:22:54.000
+So for the watch task in gulp I
+am specifying gulp task watch and
+
+284
+00:22:54.000 --> 00:22:58.570
+note that I'm specifying the second
+parameter there with the browser sync.
+
+285
+00:22:58.570 --> 00:23:02.080
+Within the square brackets,
+meaning that the watch task
+
+286
+00:23:02.080 --> 00:23:06.130
+depends upon the BrowserSync task
+to execute before the watch task.
+
+287
+00:23:06.130 --> 00:23:12.980
+Now, this way, if I say gulp watch,
+then this will automatically cause
+
+288
+00:23:12.980 --> 00:23:18.810
+the watch tasks that I have configured
+inside the function here to be started up,
+
+289
+00:23:18.810 --> 00:23:22.840
+and they're going to keep a watch on
+the files that are specified there.
+
+290
+00:23:22.840 --> 00:23:26.271
+And so I am specifying gulp.watch and
+
+291
+00:23:26.271 --> 00:23:29.420
+then look at the file globs
+that I've specified there.
+
+292
+00:23:29.420 --> 00:23:31.510
+I'm saying keep a watch
+on the scripts folder,
+
+293
+00:23:31.510 --> 00:23:36.090
+the styles folder,
+the html files in the folder.
+
+294
+00:23:36.090 --> 00:23:43.350
+When any one of them changes, rate on
+the usemin task if the images change,
+
+295
+00:23:43.350 --> 00:23:48.320
+then you're going to realign
+the imagemin task, in this case.
+
+296
+00:23:48.320 --> 00:23:51.850
+Finally, let me show you
+the default task that I configured.
+
+297
+00:23:53.200 --> 00:23:58.780
+By default Gulp provides this
+default task that you can configure.
+
+298
+00:23:58.780 --> 00:24:03.840
+So if you give the name of the task as
+default, then you can simply execute
+
+299
+00:24:03.840 --> 00:24:09.410
+this task by just typing
+gulp at the command prompt.
+
+300
+00:24:09.410 --> 00:24:13.430
+The default task here,
+again I'm specifying a dependency for
+
+301
+00:24:13.430 --> 00:24:17.120
+the default task on the clean task.
+
+302
+00:24:17.120 --> 00:24:21.730
+So which means that before the default
+executes, the clean task will execute.
+
+303
+00:24:21.730 --> 00:24:26.330
+Now remember that gulp will execute all
+
+304
+00:24:26.330 --> 00:24:32.090
+the tasks that you specify
+asynchronously and simultaneously.
+
+305
+00:24:32.090 --> 00:24:36.450
+Now if I do the clean while I am doing
+usemin and imagemin and copyfonts,
+
+306
+00:24:36.450 --> 00:24:40.480
+it is quite possible that the clean task
+may end up deleting some of the files.
+
+307
+00:24:40.480 --> 00:24:43.240
+That my remaining tasks may create.
+
+308
+00:24:43.240 --> 00:24:47.030
+So in order to prevent
+the kind of behavior,
+
+309
+00:24:47.030 --> 00:24:50.390
+what I am specifying is that
+the clean task is the dependency.
+
+310
+00:24:50.390 --> 00:24:53.810
+The clean task should be
+execute first to completion,
+
+311
+00:24:53.810 --> 00:24:56.860
+then you go about executing
+the remaining task.
+
+312
+00:24:56.860 --> 00:25:02.310
+Here, I am taking the help of a Gulp
+start function that is available.
+
+313
+00:25:02.310 --> 00:25:04.460
+And inside the gulp start function,
+
+314
+00:25:04.460 --> 00:25:09.900
+I am specifying all the tasks
+that are supposed to execute.
+
+315
+00:25:09.900 --> 00:25:14.540
+They could be executed
+sequentially of all concurrently.
+
+316
+00:25:15.990 --> 00:25:18.410
+It doesn't matter to us.
+
+317
+00:25:18.410 --> 00:25:20.720
+These tasks are not
+dependent upon each other.
+
+318
+00:25:22.110 --> 00:25:27.181
+The copyfonts task copies
+the font files from
+
+319
+00:25:27.181 --> 00:25:34.530
+the browser contents fonts folders
+to the distribution folder.
+
+320
+00:25:36.600 --> 00:25:39.860
+Finally, they come to our next exercise.
+
+321
+00:25:39.860 --> 00:25:44.930
+We are going to take all
+the tasks that we just studied,
+
+322
+00:25:44.930 --> 00:25:48.400
+and then configure a Gulp file.
+
+323
+00:25:48.400 --> 00:25:52.532
+And then we're gonna use Gulp to do
+exactly the same thing that we were
+
+324
+00:25:52.532 --> 00:25:54.180
+doing using Grunt before.
+
+325
+00:25:54.180 --> 00:25:57.603
+Now so at the end of this exercise,
+
+326
+00:25:57.603 --> 00:26:02.443
+hopefully you will have
+learned something about
+
+327
+00:26:02.443 --> 00:26:07.530
+how to make use of Gulp for
+doing your task runners.
+
+328
+00:26:07.530 --> 00:26:14.385
+Now Grunt is based around Node.js strings.
+
+329
+00:26:14.385 --> 00:26:16.260
+Sorry.

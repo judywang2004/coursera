@@ -1,0 +1,105 @@
+As we go through angular there are several
+concepts that you will encounter. One such is the angular scope. Let's try to understand to understand
+scope in a bit more detail and see how we make use of it
+within our angular application. When you read Angular documents,
+you will see scope being referred to as an object
+that refers to an application model. Now, in the first instance that
+may not make much sense to you. But as you get familiar with scope and
+how scope works, it'll become all the more clear
+to you how scope is useful. Now Scope is at the core of how
+Angular's two-way data binding works. And Scope is what acts as the glue
+between your controller and the view. The controller takes part
+of the domain model and then exposes that to your
+view through the Scope. So the controller is able to get
+the information from the domain model and then attach it to scope, and
+the scope becomes available to your view. In some sense the view is getting
+a part of the view of the domain model that is required for the view to work. The controller can set
+properties of the scope, and these properties become
+accessible In the view based upon how the controller and
+the view are tied together. As we will learn when we go
+through the rest of the course a view can be bumped to a controller and then the controller decides what
+data gets exposed to that view. Now, once the view makes use of
+the properties set by the controller on the scope, then Angular insures
+that the two are kept in sync. So when the view changes something,
+then it'll be reflected to the scope, to that JavaScript site, and then when any JavaScript object changes,
+that is reflected back to That view. In Angular the top most scope
+is called the root scope. The root scope is started when
+Angular starts your application. So as Angular Boots up and then bootstraps your application,
+it creates the rootScope. And as Angular is
+traversing through the DOM, every time it encounters the reason for
+creating a new scope It does that. Some directives expect angular
+to create a new scope. An NG controller is a directive,
+for example, that creates a new scope
+under the rootscope. So, whenever Angular
+encounters a controller, it creates a new scope for
+that controller, under the new scope. So, this scope a child of the root scope,
+So, in some sense, the scope tree that we end up
+building is similar to the DOM tree. There is some relationship
+between the two. As I said,
+every time Angular creates a new scope it creates where it is
+a child of a parent scope. Now of course the root
+scope is at the top. So whenever controllers are created
+within the Angular application, the topmost controllers all inherit a
+scope which is a child of the root scope. Now this is where this is tied to
+the way JavaScript prototype works. The child scope, when it is created, automatically the child gets access
+to everything in that parent scope. All the properties of the parent scope. In a sense, using nesting, you are able
+to control access to some data. So for example,
+if you have a parent controller and a child controller that is nested
+inside the parent controller. The child controller will have access
+to all the properties as the parent controller puts on it's scope. But whatever is inside the child scope,
+the parent cannot access directly. So this inheritance
+automatically comes in. Their are a few other caveats
+that we need to keep in mind, but this is sufficient for
+us to operate at this moment. Let's look at an example of how
+you go about creating scope. Going back to our menu on our HTML page,
+we are now going to refactor our code, to use the angular scope. Now, so, within this code,
+I have moved all the JavaScript into a separate file called app.js. Let's take a look at the code in app.js. Third year,
+when we defined the controllers in app.js, any JavaScript object or property that
+we wanted to make available to the view, we were using this dot and
+the JavaScript object or the JavaScript property and
+that made it accessible through the view. Now with using scope, the scope
+gets injected into the controller. Now how do we define and
+use scope with an Angular? So for the controller, as you can see,
+you can define scope like this. You use a left square bracket and then within quotes you specify
+dollar scope and then function. You will specify, scope,
+as a parameter to that function. So, inside your code, previously,
+what we were writing as this.tab, this.filtText, we are now going
+to realign the scope.tab, scope.filtText and so on. And all the objects also
+can be created like that. Now,when you define functions, you recall that we define some
+functions within the control. So we would define functions here
+as scope.select equal to function. So this function now becomes
+available to your view. Now when you look at the way the view accesses all these tics. When you switch to the view, which is in
+the HTML page, when you switch to the view you see that all the items there are now
+no longer accessed using menu ctrl. Instead, the items
+are referred to directly. So for example, you can call it
+function by simply saying select 3. The assumption is that this select
+function has been defined and attached to this scope. Similarly, the disk item. So for example, it's ng-repeat you
+would have said dish in dishes. you no longer have to specify
+when you see ctrl.dishes. There is no require similar filtText and
+so on. So here the disk dot or the menu
+control dot is no longer required. Anything that the controller
+attaches to the scope immediately becomes available to the view
+by just using the name of the property that you have
+attached to this scope here. Now so we have rewritten the code for
+both the html. And the app.js to use scope in Angular. We have already examined nested
+scope in a bit more detail. Now, we are going to encounter
+an example of nested scope in the next lesson where we will examine form. So there I will introduce you
+to a nested scope example. In this lesson,
+we will look at using basic scope. Once you define nested scopes,
+then you have pairings, and then you have child controllers. If you define the child controller inside
+the area that is controlled by a parent controller, then the child controller
+inherits everything from the parent. So this is where the scope
+hierarchy is illustrated. At the top, we have the root scope. From the root scope, so
+the parent controller when it is created, this scope inhibits from the root scope,
+and so it creates its own scope. The scope that is available to the parent
+controller now becomes accessible to all the child controllers under the parent
+controller, through inheritance, so that parent scope is passed
+on to the child scope. So everything on the parent scope can be
+accessed within the child controllers, in their scope. And similarly the child views. We'll now move on to the next exercise
+where we will examine angular scope. So this in exercise we we'll understand. Angular Scope and how it is used. Then we will refactor our
+controller code to use scope and also refactor the code in
+the view to use scope. We also encounter a new directive
+called the ng-show directive. Now when you attach ng-show directive
+to any element you can show or hide the element by attaching a property
+that is either true or false. When it is true the element is shown. When it is false the element is hidden. There's a counterpart to ng-show called
+ng-hide which exhibits the exact opposite behavior as ng-show.

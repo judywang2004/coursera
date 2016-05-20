@@ -1,0 +1,487 @@
+We're now going to move to the next
+exercise where we'll look at forms and form validation. In particular, what kind of support
+Angular provides for us for forms as well as validating the forms
+before submission to the server. So, we can do a lot of client side
+validation of the information of the forms, even before the information
+is actually submitted to the server, so many of the typical errors that would be caused by forms can easily be
+caught by doing client side validation. We're gonna look in this
+lesson at how we will go about implementing these in Angular. Before we go ahead with the exercise, let's take a look at our
+contactus.html page, what we have just downloaded and
+see the format. So as you browse through it you
+see that the location information. The address is available to us. But in particular, we are interested in this Feedback
+form that we created earlier. This Feedback form has the First Name,
+the Last Name, the Contact telephone number both the Area code and
+the Telephone number, the email address. And then this check box which
+the user can check in order to specify whether he or
+she can be contacted or not. And then this field that allows
+us to select in what way the user prefers to be contacted. And then the feedback text area box where
+the user can type in their comments and then click on the send
+feedback button here. Now we're going to enhance this using
+Angular forms and form validation. To get you started you are provided
+with an updated contactus.html page. Download this page and put it into
+the app folder of the confusion folder. Once you have downloaded and placed it
+there open the contactus.html page. You will note that this is similar
+to the contact page that we designed in the Bootstrap course,
+except that I have removed the header information and
+the footer information. So I have just retained only the,
+the content part of that particular page. Because for us in this course we are specifically interested in dealing
+with the content part of the page. Now, if you recall, in the previous
+course, we had designed a feedback form for the users to submit
+feedback to the restaurant. Now we are gonna go and then try and
+activate this form to a certain extent. We still don't have a server side yet,
+but we will try to do form validation, and then we will enhance this form
+using the Angular support for forms. Once you have downloaded
+the contactus.html page, open it in a text editor of your choice. Here I have it open in brackets. So looking at the contents of
+this page you can notice that I have retained just the content part
+of the page from the previous course. We still have the contact
+information there and then we have the form that we
+designed in the previous course. In addition I have updated this page
+to use the Angular JavaScript code. So I have already updated the JavaScript
+part of it to use Angular. In addition,
+I'm still going to use the app.js file to store my controller code for this page. Going to the top of page,
+let's now have Angular take over. So our app that we designed, the Con Fusion app is going
+to take over this page. So to the HTML tag I am applying the
+ng-app directive with the Con Fusion app. So with this,
+this page now becomes controllable through the Con Fusion app module, Angular module. Next go into the body of the page
+to the div for the container. I'm going to apply another
+controller class here. Let me apply the controller
+class here next. So here I am specifying through the
+ng-controller directive that the contact controller is going to control
+the entire body of this page. Now which always means that I need
+to implement the contact controller. Now this contact controller is gonna
+control the entire body of this page. Now going in, I want another controller which controls just the form
+part of this pitch. So I'm gonna go down to the form and then where the form starts, I am going
+to introduce another controller. So I have again used
+the ng-controllers directive. And then applied the controller to
+the div that contains the form. Now this controller's name
+is Feedback Controller. So now that I have
+introduced two controllers, now this is in case of one controller
+enclosed inside another controller. So this is nested controllers. So, the outer controller
+is the contact controller. The inner controller is
+the feedback controller. So, the feedback controller is nested
+inside the contact controller. Now the reason why I use nesting is also
+to illustrate another aspect that is with the scope how you can use
+the scope of your parent controller for storing information. Now this is where I will
+illustrate the use of that. Switching to the app.js file. I'm going to now introduce the code for the two controllers that are included
+in the contactus.html page. So going to the bottom of this page I'm
+going to create myself some space here. So the semicolon that closed off
+the controller definition for the previous controller that I had. The menu controller that I had. I'm going to just introduce a few extra lines there to create myself some
+space to introduce a new controller. I am leaving the semicolon by itself
+on a separate line, so this way it is more easy for me to introduce additional
+controllers in the future if I need to. Now, after this, I'm gonna
+introduce the two controllers here. Now, you can see that I have
+introduced the two controllers, the contact controller and
+the feedback controller. Now look at the structure of the
+information that I have introduced here. Structure of the code that
+I've introduced here. The contact controller with
+the scope defined already and the Feedback Controller with
+its own scope defined there. Within the contact controller
+I'm going to introduce a JavaScript object onto the scope. Call this feedback. Now this is the JavaScript object that
+I am going to use to keep track of all the information that I'm
+going to type in using the font. Now, recall that the feedback controller
+is nested inside the contact control. So by the way scope works
+whatever I define in the ContactController will also be
+accessible inside the FeedbackController. So let me introduce the feedback object
+to that ContactController's scope. And this will automatically become
+accessible through the FeedbackController, because it is enclosed inside
+the ContactController. So, introducing the code for the JavaScript object named feedback. I have introduced this object with
+a few properties already predefined. The firstName, the lastName that agree which is a boolean property and
+a couple of others. Now what this means is that
+I would now be able to change them or upgrade them using
+the input fields in my form. So let's now go back to our form and
+see how they can do data binding, two-way data binding between the input
+fields and this JavaScript object. Switching back to the contact of page. Now I am going to introduce and
+include two-way data binding between the input fields
+here in the font and the JavaScript object that
+I just introduced in my conduct controller. The first Data binding
+that I'm introducing is between the first name
+field that I have here. First name input field that I have here,
+and the first name. To do that, to the input field,
+I am using the ng model to do the binding with the feedback
+dot first name property. So I specify ng model equal
+to feedback.firstName. Also, I specify this particular
+field as a required form which means that the user needs to fill in
+this information before the form becomes validated for submission. Similarly, let me do the same thing for
+the last name and the remaining fields. Next, I introduced the same, for
+my last name, input field here. Next for the telephone number field,
+I'm going to introduce another property called the tel.areaCode. Now this property doesn't
+exist in the feedback object that I defined in my controller,
+but if I introduce the ng model
+here then this property will automatically get cleared then added
+into the feedback Java script, object. So here I am introducing another java script object which is inside the
+feedback object called the tail object. The tail object has two parts. One is the area code which keeps track
+of the area code of the phone number and the second field would be
+the actual telephone number. So that needs to be
+introduced to the next field. So here, you can see that I
+have tied their feedback dot tell dot number to the telephone
+number input field here. Next I introduce the email field here. To introduce that,
+I use the engine model to tie feedback.email and also I specify
+that as required field in the form. So that is tied to the input field, which
+allows the user to type in their email. The next property that I'm going
+to use is the checkbox that I had introduced into the from here. In the checkbox I am specifying that if the checkbox is checked then the feedback
+agree is going to be set to true. If the checkbox is not checked,
+the feedback agree will be set to false. So, using the integer model and
+I'm tying in the check box to the feedback directory property
+of the feedback object. And lastly, the text [INAUDIBLE]
+that is available on the form is going to be now
+tied to the feedback comments field. The comments property didn't
+exist in the feedback object. By doing the NG model here, I'm going to introduce the property
+to my feedback object. Finally, in order to illustrate to you
+as the user types in the information I want to show that JavaScript object is
+actually simultaneously getting updated. So what I have done is I have the div
+class on the right hand side of the form, which was an empty, div there. I took the feedback object, and
+then introduced some code in here. And this code, will, will essentially in real time,
+track the information. As you type into the feedback form and
+then show it on the right hand side. Let's now go and
+have a look at the form in the webpage and then see how it gets to work now. Now, taking a look at the form in the web
+page you can now see that the form is pretty much the same as before,
+but on the right hand side you can see that the current information that you type
+into the form is going to be displayed. Right now the form doesn't
+contain any information. Let's type in something into the form and then see what happens to the right
+side as we type the information in. So let me first type in my name first,
+the First Name. Note that as I type in the information
+to the form, on the right-hand side. The JavaScript object has been
+updated automatically and then the updated information is
+being displayed in the picture. The reason I introduced the thing on the
+right hand side is simply to show you that form as soon as you start typing in the
+two bit data link comes into action and the information is immediately
+reflected to the JavaScript object. In a real page you wouldn't be introducing
+what I introduced on the righthand side. That is not necessary, but I just wanted you to see
+the similarity between the two sides. Let's type in my last name. Now, on the right side I am using
+the upper case folder in order type my last name in all capital letters. I can type in the area code. So you can see that the contact
+telephone number is introduced there. And the contact email
+information is introduced there. Now we can click on
+the contact button here and then we can also type in
+feedback information here. Okay, obviously the feedback button
+even if you click it nothing is going to happen because we haven't
+activated the form completely yet. Recall that we have specified
+that the first name, last name, and
+the email are required fields. Now suppose I don't input anything and
+try to click on the feedback button. You can see that the form validation
+that is part of HTML file automatically kicks in to inform me that that
+particular field needs to be filled out. Suppose I fill in the email address
+without the correct format and then click on the feedback. Then it is going to inform
+me that I should have an at sign at least as
+part of an email address. Similarly if I don't fill in
+the first name and then click on the button it's going to inform me
+that I need to fill out the field. So this is HTML5 form validation
+automatically kicking in to show the validation of the form. So this prevents the form being submitted if you specify some of
+the fields as required fields. When we are using Angular to control
+the form, I would rather have Angular do the validation instead
+of having the HTML5 validation. So to the form tag. I'm going to specify that I don't want
+the HTML file validation service, specify no validate. Attribute for the form [INAUDIBLE]. In addition, when the, send feedback button is clicked,
+if you're handling the form in Angular, what you would normally do
+is to associate an NG submit directive with the form as shown with the. So in this code you can notice that to the form tag I have given
+three more pieces of information. First, in name to the form, so
+I have named the form as feedback font. The second one is an ng-submit directive. The ng-submit directive, I have specified
+it to be a sendFeedback function. Meaning that when the submit
+button is clicked, then this will result in a call
+to the sendFeedback function, JavaScript function that I have to
+implement in my controller that feedback that controller that I have
+already included in the app.gsi. In the third part you see me
+specify there is no validate. Meaning that I don't want HTML5 validation
+to be done on this from, instead, I will take care of the validation myself. Now this also means that I am
+gonna take the help of Angular's form support in order to do my
+own validation using Angular. So how do we go about doing that? Let's examine that next. Now we have already seen that
+Angular forms support certain properties that we can examine to find
+out some information about the form. So that's why we gave the form a name so
+that Angular state of identifying of some state of
+the form can be used for this purpose. Now I'm going to leverage that to
+introduce some validation in here. For the first name, recall that this is a required field,
+I'm going to introduce a span tag here with some information,
+this span tag, which has this ng-show specified here. Recall we just studied the ng show
+directive in the previous lecture. And also, the second part is
+class which is helpblock. Now I am taking the help off Bootstraps,
+form validation support here. Now when you look at the boot strap
+form validation support documentation, you will see that I can specify
+something called the help block. And then that will be displayed at the bottom of the input field of the form. Now using the NG show I am going
+to display this information below the first name input field,
+only under circumstances that the form entry,
+the first name form entry is invalid. So I am checking two properties here,
+so for feedbackForm, I'm saying first name error required. So this is the way you can
+check to ensure that if that particular entry doesn't have
+a valid information input there, then I should warn the user that the user
+needs to input the information there. The second part I'm checking is
+feedback from first name pristine. What this means is that if the user
+has not yet touched the phone then I will treat that field as pristine,
+meaning that nothing has been changed so that's why I should not be doing
+this validation at this moment. Until the state changes from
+pristine to another state. I will not show this information. So that's why I'm specifying this
+as not feedback from pristine. Which means that the user has
+not touched this field yet. Like the moment the user
+touches the screen and starts typing the pristine
+value will be set to false, and also the other fields will kick in. The valid field and so on will become,
+those flags will be set. Now this is one part that
+I'm going to introduce. So this one will be shown only is there
+is an error in the user typing it. In addition, boot straps validation
+has this class called has error class. So if I put the has error class to a form group div, then, and activate it under circumstances that
+I want to alertly user about errors. Then, I can ensure that this
+particular field will be displayed in red color to indicate to
+the user that there is an error, so to do that I'm going to
+apply that to that font group that contains this input field for
+the first name, I'm going to apply that using
+the Ng class directive. Now recall we studied ng
+class in the previous module. So here I'm specifying ng
+class equal to within braces. Look at the expression that
+I am specifying there. Has error in Coats. Meaning that this has error class
+will be applied to this div provided after the colon I supply
+a condition to be checked. The condition says feedback first name, error required and
+not feedback first name pristine. So this is the same condition that
+I used in the span tag below. So this has-error class will be applied to this form-group div if this particular input field has an error. That means if the user did
+not type in the first name. And the user has touched that field. So under those circumstances,
+the error will be displayed. I'm going to do the same thing to the last
+name and the email and some other fields. So here I am applying the same
+thing to the lastName field. So here, I'm using
+feedbackForm.lastName.$error.required and lastName.$pristine. And also the span tag
+that I have applied here. So, meaning that if the user
+doesn't type in the last name, then I'm gonna warn the user saying
+last name has not been typed in. The telephone number is
+not a required field so I'm not going to do any
+validation on that. Although, in principle you could do
+validation there saying that the user has typed in only numbers
+not other characters. For the moment I have shown you the method
+you can easily implement that if required. To me, the more interesting
+thing is the email address, for the email address let me introduce the
+error check link or some validation point. So here I am introducing three tags. To the font validation. The first tag I am
+checking to make sure that if the email ID is invalid,
+feedback from our email ID. The email ID that I am using there is the name of the input
+field which I am checking. Okay, if it is invalid and the email ID has been touched. Then I am displaying this glyphic on
+glyphic remove form control feedback. Now what this means is that I
+should apply the has feedback class to my form group to make
+sure that this particular span glyphicon will be displayed
+inside the input field of the form. So I'll display a red cross inside
+the input field if the email ID is wrong. The second span tag that I introduce, will be activated if
+the email address is invalid. See enter a valid email address. The third span tag will be activated if
+the user does not type in the email ID and tries to submit the form. So that's is the third part I am checking. Now I need to upload
+the classes to the phone group. So, let me introduce the code for
+the classes to the phone group. So, to the phone group that includes
+the email I am introducing NG class and note that I am introducing hash error and
+hash feedback as well. So this will be introduced if the feedback email ID is invalid and
+the feedback form is pristine. So in that case,
+I am applying the has error and has feedback to that field, right? Another change that I'm
+going to make is to select element that I have
+introduced in the fall. Now, the select element
+earlier was a static element. Now I'm going to take the help
+of angular in order to automatically put in the various
+options into the select element. Also I will show this
+select element only when the user checks the may
+we contact you checkbox. So to do that, first I will
+introduce the ng show directive to the div class that
+contains this select element. So ng show I specify it as feedback agree. Between study of the user checks
+the may we contact you checkbox, then the select item will be displayed. If the user does not check then this
+option will not be given to the user. So here I am conditionally
+adding elements to the form, only when it is required for
+the user to type in this information. Now In addition, for
+the select field itself, I'm going to give the options by
+setting up a JavaScript object in the controller and then using that to set
+up the options inside the select field. So let's switch to
+the app dot js file now. And then introduce a java
+script object there. Switching to the app.js file,
+now in the contact controller class I am going to
+introduce a JavaScript object Called as channels. Now this channels object
+contains two parts. It's an array of Java Script objects. Each Java Script object
+contains a value and a label. A value and a label. Now this Java Script object is
+what I'm gonna make use of, to setup the select element in my form. Now also, that I am hanging it onto
+that channels object on the scope. Also I have introduced
+this additional Boolean variable here called
+invalidChannelSelection. I'm gonna come back to that in a short
+while, because when we need to do the validation on the select, element, I will leave that in place. So right now, I'm setting that to false. Let's go back to the contactus.html page. Going back to the contactus.html page, I
+am now going to make use of the JavaScript object that I'd just introduced in the app
+or JS file to set up this select element. Now this is where I'm gonna take
+the help of Angular's way of setting up select elements. For this select element note how I
+have modified that selector limit now. I have removed the options from there,
+and then I have retained only one option there, saying option value,
+empty string, Tel. or Email? This option will be displayed in the form,
+and then when the user selects one of the two options
+[INAUDIBLE] to option will be activated. Now in addition,
+look at how I specified the ng-model here. The ng-model,
+I'm specifying it as feedback, mychannel. So I am introducing
+the two-way data binding to the mychannel property of
+the feedback JavaScript object. And the mychannel will carry the option
+that I select using this select element. Now, the second part, you'll see
+me specifying here is ng-options. The ng-options is another
+directive of Angular. This one, I am specifying here as
+channel.value as channel.label. So the channel.label, this is the syntax
+for specifying for the ng-options. You can use that when you're
+setting up a select element. So this is how Angular
+expects you to specify that. So I'm specifying channel.value as
+channel.label for channel in channels. Remember, channels is a JavaScript object that I just
+introduced in the app.js folder in the contact controller. Now, channel in channels,
+this way of looping through all the objects
+of a JavaScript array, we have seen that used with
+ng-repeat directive earlier. It's the same thing that I'm using here. So for every channel object that is
+part of this channel object array, I'm going to use the channel.label of it. And corresponding with the channel.value, the channel.label will be used as
+the option item in my select statement. And when that option item is selected
+the channel value will be assigned to the value for
+this ng-model directive here. So the mychannel will be set to
+the channel.value depending on which one I select, using this select element. So, note how Angular comes to
+help you in setting up your form. In addition, for this particular form group I am specifying
+an ng-class as has-error, invalidChannelSelection. So, again, has-error, we have seen before,
+and invalidChannelSelection, you saw me introduce this Boolean variable
+into the contact controller earlier. Now, that Boolean variable I'm gonna use
+to control whether I'm gonna show this field as a field in error or
+a normal value. So that's one part that I'm gonna
+use when I do validation, but this validation has to be
+done inside JavaScript code. So we're gonna go to the JavaScript code
+to do the validation a short while later. The second part of the validation that
+I'm gonna do is by introducing the span tag to the select field here,
+just below the select element. I specify ng-show,
+invalidChannelSelection. So if invalidChannelSelection is set
+to true, then I'm gonna show this. Now this invalidChannelSelection
+tracks to see whether the user has selected the appropriate
+communication channel to use or not. If the user does not select, then the invalidChannelSelection
+will be set to true. Now this has to be handled in JavaScript,
+so we're gonna switch to JavaScript soon to show how this
+Boolean variable will be changed, while doing the validation inside
+the controller, in a short while. The last change that I'm gonna
+introduce to this contactus.html page is to make sure that the bottom
+will remain disabled until, at least, the user has typed in the first
+name, the last name, and the email. So to help me with this
+I am taking the help of Angular's way of tracking whether
+the form is valid or invalid. So for feedbackForm.$invalid, we have
+studied this in the lecture earlier. So I am using that as a way of controlling whether the ng-disabled will be
+applied to the button or not. The ng-disabled is a directive again. Now if you apply the ng-disabled
+directive to any particular HTML element, that will be disabled unless
+The ng-disabled evaluates to false. So if this condition to the right of
+ng-disabled equaled with this condition to the right side, evaluates to false,
+then the ng-disabled will not be applied. If this evaluation is true,
+then the ng-disabled will be applied. So which means that this
+button will remain disabled until the feedbackForm becomes valid. So that way, I'm already preventing the
+user from submitting incorrect information unless the user has typed
+in their first name, the last name, and the email address,
+the three required fields in this form. So that way I'm controlling the errors that the user can introduce in the forms. Let's save the changes, and
+then we'll switch to app.js, and then do the validation of the select
+element in the JavaScript code. Switching to the JavaScript
+code in app.js. Now, first thing that I
+need to do is that, for the form, the ngSubmit in the form. I have specified that if
+the submit button is clicked then it will result in a call
+to that same feedback function. So I have to introduce that function
+inside my feedback controller. So let me go ahead and introduce the
+function inside the feedback controller. So here, you see me introducing
+the function in the feedback controller. Now this function will recall whenever
+the user clicks the sendFeedback button. So the form information
+will be submitted here. Now the console log allows
+us to print out information to the JavaScript inner
+console that comes as part of many of the developer tools that
+are included in various browsers. I'm gonna show that to you in
+Chrome in a short while but whether you use Safari or any other browser, they
+might have these developer options, so check for them with the default
+browser that you use. You must have developer options in them. And then you can open
+the JavaScript console. So that if my JavaScript is done running
+and it needs to generate any output and if I use console log that information will
+be printed out in JavaScript console. So that's one part. Now what I am doing here is
+that when this function is executed because the user clicked
+on the send feedback button. I will come in here and then printout their feedback object
+out of the JavaScript console so that way I can examine what
+the feedback object actually contains. Now this is one way you can do a little
+bit of debugging of your JavaScript code. Also, one more interesting
+aspect that Iw ould like to again emphasize
+to you is the parent and the child controllers and
+the inheritance of scope. Remember that the way we
+designed the contact us .html page is that we had the contact
+controller that was controlling almost the entire body of
+the contactus.html page. Now, part of that, I also gave
+control to the feedback controller. Now since the feedback controller is
+nested inside the contact controller in the web page. So, the feedback controller automatically
+gets access to anything that is on the scope for the contact controller. So this is an extra scoping. So that's why the feedback
+controller has complete access to the feedback object that I created
+in the contact controller. I could as well have taken the term then
+put it inside the feedback controller. But I wanted to illustrate this interesting aspect
+of scope nesting to you. So that's why I used this approach for
+implementing the solution. The last part that I want
+to do with this form is to make sure that if the user
+checks the media contact you button, then I will force
+the user to either select the either telephone or email for
+the channel for communication. So I'm gonna check the part inside
+this send feedback function. So when the user submits the button. I'm gonna come in here, and
+then check, to ensure that the, if the, maybe contact you,
+check box is checked, then the user has correctly
+selected one of the two options. So here, I have introduced the code which
+I am using for validating that part. There is no direct way of validating on
+the form itself, so that's why I am using the JavaScript code in the controller
+to build a validation. So I am illustrating two different
+ways of doing validation. One is directly validating things
+on the HTML page itself using the various properties that
+Angular supplies for your phone. The pristine, the invalid,
+the valid, and the other properties. Now here,
+the other way of doing validation. When the information comes
+in upon the user clicking the submit button I can check the
+information inside the JavaScript code, so here I'm checking scope feedback agree,
+meaning if the check box for the agree has been checked by the user and "scope.feedback.mychannel" is
+an empty string, so that is the second part
+that I'm checking here. So, if it is an empty string, that means that the user did
+not do the selection correctly. So, in that case, I'm going to set
+"scope.invalidChannelSelection" to true. So if I do that, then I'm going to
+go back to the user and say look you did not submit the, you did not do
+the proper selection of the channel. So please do so. So the validation is done in this way,
+in the code I am checking and then going back to the user
+to remind the user saying, no, this form is not complete,
+make the selection properly. Now, otherwise the otherwise
+part is equally interesting. So that's the else part. When you go into the else
+part that means that if the maybe contact you check
+box has not been clicked. Then I don't care about the select option. But if it is checked, and the user has
+already selected one of the two channels, the telephone or the email. I am happy. Then I can go ahead then and
+validate the form further. So in here, I am setting Scope
+invalid channel selection to false, meaning that everything is okay,
+no problem. What I can do now then is at this point I would be able to do in ajax request and
+send the form over to a server. If I am having a server site that
+will accept this information and then do some changes. Right now I am not doing that part will
+come back to do that in one of the later exercises. So, after that has been done,
+then I need to clear out the form. So to do that, I am setting my
+feedback object back to its normal, empty form state. And then I am also setting
+the feedback form. Set pristine so
+when I call this set pristine this is going to set
+the feedback from pristine. That means that form has
+been completely cleared out. And then I am done. Okay, so that is the set up steps that I'm
+doing in the else part of this statement. And then also, of course,
+note me using the console log to log information here and there, so
+that I can check on the JavaScript console if my JavaScript code is
+correctly getting executed or not. So this is one way of debugging
+your JavaScript code. Now, let's go back to our webpage, and
+then see the form validation in action. So, I will type in my first name. My last name, and
+contact telephone number, I don't care. I'll just type in an email
+address with just one letter. Immediately notice how
+the formulation kicks in and says, that is not a valid email address. S is not a valid email address,
+so it's going to check it again. What is valid and
+what is invalid is only to the extent of the format of the email
+address is correct. It doesn't go to check whether
+your email address is correct or not, it just checks to make sure that
+when you type in an email address, there must be an at sign as part of this
+email address somewhere, and the email address doesn't end with just an at
+sign or something with a dot at the end. So, for
+example if I continue on I can say. Abc. So note that the validation is still
+pushing me to type it correctly. So I can say @, and the moment I type u, that is a valid email address. Okay, so it turns off that validation. If I keep continuing to type and
+then I put a dot there, note that it again complains, saying that is
+not valid, something should end it there. So that's why it is waiting for
+me to do the ending. So note that validation kicking in. Bit by bit. So let me type in the complete address. Now, if I remove the last name and
+try to submit, note that if I don't type in my last
+name my Feedback button is disabled. I can't click on the button. But the moment I type in my last name, even if I type a single character,
+look at the Feedback button. It has now become activated. So, let me select my last name there. Now, let's examine how this part works. Now right now,
+the check box is not checked. So that's why you don't see
+the select field up here. Now, the moment I check the box,
+that thing appears immediately. Now, this is because I am using the NG show which is controlled
+by this check box. If I check this, then the NG show,
+will ensure that this is sure. If I uncheck it, that goes away. But if I check it, and
+then I don't select it and I try to submit the form,
+let's try to do that. We are crazy, we are going to try
+all errors to see what happens. If I click on that,
+note what the validation has done. It has come back and said,
+look that is not valid. You need to select one of those options. Okay. Now, if I select an option, okay, and then
+I submit the form, then it'll get cleared. Now, if I select an option, immediately I can go back and check,
+although I could implement a bit more complex code inside my controller
+to check for all these things. I'm a little bit lazy at this moment. I don't want to confuse
+you beyond this point. Let's hold on there and
+then let's type in a few things here. Now, I'm going to cause
+a problem somewhere else. I'll remove my first name. Now, if I remove my first name,
+it won't allow me to submit. So, I have to type back in my first name,
+and then if I click on the button,
+look what happens. Now everything is valid. I have selected the option there, I have
+filled out all the required fields there. If I submit the Send Feedback button,
+also note on the right side that the current state of the JavaScript
+object has been displayed correctly. Let me click on the Send Feedback. And then,
+once I click on the Send Feedback, the information has been submitted. The form has been cleared out and
+set back to its pristine state. So this is angular forms and
+form validation in action for you. So in this exercise,
+we looked at angular forms, we looked at how we can use angular
+support for forms to enhance that validation of fonts, and how we can. Enhance the user experience
+using this approach.

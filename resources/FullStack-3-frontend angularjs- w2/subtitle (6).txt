@@ -1,0 +1,155 @@
+Let's now talk about forms and Angular
+Support for Forms and Form Validation. You have already realized that forms are
+an integral part of designing any website. Forms are a way for users to provide
+information to their website. So, how does Angular support forms or what
+kind of features does Angular provide for us, to enable support for
+forms and Form Validation? This is what we will
+explore in this lecture. Angular and
+forms are like two peas in a pod. They work together very well,
+in a straight forward manner. Because of the two-way data
+binding that Angular provides, it's very easy to match up
+form fields to the JavaScript objects that you can use
+within your Angular coach. Now, how do we go about doing this? We can define JavaScript objects on
+the scope, in our controller for example, and the controller could be controlling
+a part of the page which contains a form. Now you can easily match up
+the input fields in the form. Or the other form fields to
+appropriate JavaScript variables using the ng-model directive. We have already seen this in action, in some of the earlier examples and
+the exercises that we considered. Now, as an example, let's look at how we would define a Java
+Script variable inside a controller. In this example, you can see me
+defining this JavaScript object, called as feedback on the scope. Now within the form itself, I am
+matching this input field of the form to a property of this JavaScript object,
+using the ng-model directive. So for the ng-model I specified
+as feedback, First Name. So, whatever changes I make in this
+form field will be automatically reflected to the property
+in the JavaScript object. So, this is fairly straightforward for
+transferring information from or to the form, from the JavaScript code. If you have select elements in your form, then Angular provides a wonderful
+way of managing the select elements. You can define a JavaScript
+object array in your code. As you see in this example, I defined this
+channels object array, in the code and then I will hang those channels on
+to the scope in the JavaScript code. And then in my form
+element declaration for the select,
+I can specify using the ng-model, I can match up the selection that
+I do using this select statement to a property in my JavaScript
+object in the code. Similarly I can use the ng-options
+directive to be able to make use of the various JavaScript objects that are
+defined in the JavaScript object array. And make use of them to define
+the options in my selected statement. So, in this example, you can see that
+I am defining channel in channels for the ng-options towards the last
+part I say channel in channel. So every object that is part
+of the channel's JavaScript object array, I'm looking at each one of
+them and then I am using the first part. Look at how I define
+channel.value as channel.label. Now, so, the channel.label,
+so the label property of that object is gonna be use as
+the label for my select options. And then when I make that selection
+of that particular option, then the channel value
+that I specify here, will be assigned as the value
+that is gonna be assigned using the ng-model to the JavaScript
+property in my code. So whatever the channel value, that will
+be assigned to the feedback, mychannel, that I defined in
+the ng-model directive there. So this way I can ensure that
+I can dynamically generate the options in the select element. In addition, I can give a default
+prompt option value there, so you can see that I have specified option
+value blank string, Tel or Email there. So that would be displayed as
+the default value in the options, and then it'll force the user
+to select an option value. Form validation in Angular is again,
+very well supported. You can verify any of the input fields and
+the value that you supply in the input fields, very easily using
+Angular Support for Form Validation. Let's explore this in
+a little more detail. Now, HTML5 comes with validation
+support for the form fields. Now, if you are using Angular,
+you may wish to turn off the HTML5s built in support and instead, let Angular
+take over the validation of the form. So, to do that for the form cloud form, I will specify the novalidate
+option when in the form tac. Also, when the form is submitted,
+I can have the form invoke a JavaScript function
+in my controller, for example. So using the ng-submit directive here, I can specify a function which will be
+called when the user submits this form. So, inside that function I can
+handle the submission of the form. So, for example, inside that function I
+may issue an AJAX call from the JavaScript code in order to send over the information
+to a server in the backend. To make all this work,
+you need to give the form a name. So the name attribute should
+be specified for the form. So in this example, I am specifying
+the name as feedbackForm, and that will enable me to
+access various properties that I can use for
+validation of the form input elements. All the form fields that are available
+within your form will be validated by Angular, by default, before
+the values is assigned to the scope. So if a particular input field
+does not validate properly, so the value will not be transferred
+to the JavaScript object, the corresponding property of
+the JavaScript object in my code. Some directives that you can specify for
+the fields is including, ng-minlength, ng-maxlength,
+to specify the minimum and the maximum length of the input that the
+user can provide with the name put fields. You can also use ng-pattern,
+where you can specify a regular expression, and
+let angular verify that the input that is entered by the user matches
+this regular expression. So that's a very valuable way of verifying input that the user
+provides in those fields. Any field that you have within your forms, if you give names to those fields
+you can easily use certain properties that Angular attaches to
+those names to check for values. So for example,
+if I give my form a name as feedback form, and then an input element. If I give the name as first name,
+then by default Angular hands four different property
+values to these field names. So, you can use that within the HTML code,
+and also within the JavaScript code
+in order to verify values. The fourth property is that Angular
+associates are pristine, dirty, valid, and invalid. If the pristine property,
+so for example for a field if you wanna verify that
+the field is pristine you can say feedback from firstName.$pristine. That will be true if that
+field has not been touched or not been modified in any way by the user. The opposite of it is dirty. So dirty if it is true, then that
+feed has been touched by the user. Similarly, valid and invalid. Valid will be true if the input
+value in the field is a valid input that can be accepted. If not,
+the valid flag will be set to false. So these four properties
+allow us to easily verify various form inputs that
+we use it supplies. Now how will we actually make use of this? Now this is where you can use these
+properties in order to check and then deliver validation results
+to the user on the form. So for example, if a field is invalid, you could highlight that by
+turning that field into red color. To give feedback to the user saying,
+look this doesn't work correctly. Now fortunately if you're using Bootstrap,
+Bootstrap already provides a lot of CSS classes that enable you to set up
+validation states for various fields. So within Bootstrap we
+have the .has-error, .has-warning, .has-success
+classes available. You can specify those classes with,
+for example, the form group divs that you use or other elements within your form. Also there is this help block class that is available that will
+enable you to display helpful messages. Let's look at an example of how we can
+make use of this within our form fields. This is an example of how I am using
+those pristine, their valid and invalid. Now the pristine valid invalid are also
+associated with the form itself, so you can say feedbackForm.pristine, meaning
+the entire form is a pristine or not. Similarly feedbackForm.$valid, meaning whether the entire
+form is valid or not. If all the fields are valid,
+the entire form will be valid. If any of the fields of
+the form is not valid, the entire form will be
+declared as invalid. Now, let's look at the form
+validation usage within our code. So in here I am specifying for
+the div class. I am using the ng class. Directive, to apply the has-error and has-feedback classes to the entire div. And the right side of it, so I specified
+feedbackForm.emailid.$invalid and feedbackForm.emailid.$pristine and
+not feedbackForm.emailid.$pristine. So which means that these two classes
+will be obliged to this form group. If the emailid is invalid, and the field itself, is not pristine,
+or the field, itself, is dirty. So I could easily say
+feedbackForm.emailid.$dirty. When both these conditions are valid, then these two classes are gonna
+be applied to this div. Now, the has-error class,
+when you apply to the div. It will end up showing
+the entire input field and the label in red color. So that's a very nice, visual feedback
+that you can provide to the user. Not only that,
+you can also use span fields inside, and for the span field,
+if you specify the classes help block. Then whatever value you specify
+into the span, that span field or rather the span tag will be displayed
+underneath the input field of your form. So for example, here I would say
+feedbackForm.emailid$invalid and not feedbackForm.emailid.$pristine,
+then I would be able to display this message saying,
+enter a valid email address, in red color underneath the input field. So that's another way of
+delivering a message to the user. Now, using the has-feedback class. Now the has-feedback class,
+when it is used, I can also include glyphicon's inside
+the input fields in bootstrap. So here I am using this glyphicon
+called glyphicon-remove. And also specified it as
+form-control-feedback. Now when I do this,
+this will display a cross, red cross sign, inside the input
+field if that input field is invalid. So that's one more way of
+delivering feedback to the user. So, hopefully,
+that has given you a quick introduction to how you can set up forms and
+do Form Validation in Angular. We'll now move on to the next exercise
+where we will make use of all that we have learned in this lecture, and
+apply it to a form in our Web page. So we are going to use Angular support for
+fonts. We're gonna establish two way data
+binding between the form fields and a JavaScript object. We're gonna use Angular support for
+Form Validation and also you will explore how you can do Form
+Validation inside the JavaScript code. Now, for the select element, I'm going to do form validation
+inside the JavaScript code. So that's another way of
+doing Form Validation. Let's move onto the next exercise.

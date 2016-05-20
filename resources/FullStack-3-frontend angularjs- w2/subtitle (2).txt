@@ -1,0 +1,96 @@
+So, are you ready for the next exercise? Gulp, it is. Before you start this exercise,
+the first thing I would like you to do is to go to the confusion folder, and
+then go inside node modules, and then delete everything inside
+the node modules folder. We are not going to be using Grunt in this
+exercise, we are going to be using Gulp. So we will install all the Gulp
+plugins into this folder. Going back to the node modules folder, now we're gonna make some
+changes to the project. First, open package.json file and
+then replace the contents of the package.json file with
+the contents shown here. So we are again dress toting the
+package.json file two weeks empty state so that we can start installing all the gulp plugins and gulp/ related packages. Next, at the command prompt, type npm install -g gulp. Remember if you are using Mac or Linux, use sudo in front of it. Once Gulp has installed and completed, then you're going to install
+the Gulp locally with our project. At the command prompt, type npm install gulp --save-dev. Next, I am going to install all the Gulp
+plugins and load modules that I'm gonna make use of in this exercise in one
+shot rather than doing them one by one. And the command prompt,
+type in the statement and the let all the,
+Gulp plugins be installed. It'll take a few minutes. After waiting for quite a few minutes, everything will get installed
+on your machine in one shot. Next, let's go ahead and
+configure our Gulp file. Go to the conFusion folder
+in your text editor and then create a new file named
+gulpfile.js with a small g. Now we're going to paste in all the Gulp
+related tasks into this file step by step. First I'm going to load in all
+the plugins that I have just installed. In the gulp file I am now importing all
+the plugins that I have just installed. Next I have pasted in the code for
+the jshint, the clean and the default task here. Next I paste in the code for the usemin
+task, which we have examined before. After this I have pasted in the code for
+the imagemin task. Next I pasted in the code for
+the copyfonts task. Now I did not explain
+the copy font task earlier. Now what the copy font task does
+is it uses the gulp source and then reads in all the font files from the copyfonts and
+the boot strap disk folders, and then pipes all those files directly to the
+destination folder, which is dist fonts. There's no transformation
+to be done to these files. They just need to be copied from
+the bower components folders to the dist fonts folder. So I'm just coping them using the pipe g/. No addition transformation is being done. Finally, I pasted the code for
+the watch and the BrowserSync. We have only examined this code
+in the lecture previously so I'm not going into more
+details about on this. Now once we have completed all this, then
+we'll go ahead and save the gulp file. Returning to the Terminal,
+now add the prompt. If I type in gulp this is
+going to run the default task. The default task cleans up
+the distribution folder if it exists and then does the JS hinting. The usemin and the imagemin and
+copy force tasks. So let's go ahead and
+run using just gulp and the prompt. Once you run the gulp command
+then you would notice that there first, the clean task is run. Then, the default task starts, which includes the JS hinting,
+the image main clean. And the default tasks all are started
+together, the copy font tasks, and once they all complete, then your
+distribution folder is now ready. Going to the confusion folder you can
+now see that the dispersion folder has been prepared. Going into the dispersion
+folder you can see that we have the fonts all ready copied there. We have all the images that have
+been optimized and copied here. We have the menu.html. Inside the scripts file,
+notice that we have the main.js. Again, using the rev,
+the rev that we used in Gulp is somewhat different from the file
+route that we used with Grunt but they achieve similar results meaning
+that the main will have some random strings of characters
+attached to the name. Same thing with ties. You can see that the main
+RCS is filed there. Now, if you open the main user HTML file, it should work correctly
+in your default browser. So you can see the menu.html file being
+served up in your default browser here. Recall that in the Gulp file, I configured
+the Watch task and the BrowserSync task. Let's see how these two work together. To do that, at the command prompt
+I'm gonna type Gulp watch. This will cause the watch
+task to be executed. When the watch task executes, it'll cause
+the BrowserSync task to be executed before that, and that in turn will
+cause the default task to be executed, which means that first your
+distribution folder is built. Then the BrowserSync will load
+the page into your default browser by starting a server, and then the Watch
+task will keep your watch on the files. So let's run this and see the result. You will note that
+the BrowserSync now starts up, and then opens the web page
+in the default browser. BrowserSync seems to have a little bit
+of problem adjusting here to Gulp. Now, you would see that it'll
+show this thing called get all cannot get slash here. Just reload the page and
+then you will see the webpage coming in. There seems to be some little
+issue with not having the index not start the HTML file but after this,
+everything works perfectly fine. So you can see that the menu.html
+file is served up here. Now just like what we saw with live
+reload, I'm now going to go and then edit the html file,
+the menu.html file in the app folder. And then you would see the behavior of how
+BrowserSync automatically syncs the page. Going to the menu.html page,
+now for the tabs there, I'm going to remove that
+space between the the and the menu there and then save the file. You would note that Watch task notices
+that this html file has changed and then it will Usenet task and
+then that, in turn, will trigger BrowserSync
+to reload the page. So if I now go to the webpage, you will
+see the modified webpage being loaded. Going to the webpage you notice
+that the modified webpages will already be loaded into the browser. When you go to your terminal,
+you will, or your command window, you will notice that Gulp has noticed
+the change in the HTML page and then it re-runs the usemin task and
+after that, since the files the distribution
+folder's change, the browser sync will
+notice what the change. And then it'll reload
+the page in my browser. This completes the gulp
+exercise I hope that quick run-through gulp was informative for you to understand how gulp can be used for configuring and
+running your web development tasks. Now this exercise I went through
+more quickly than Grant, because you have seen all
+these steps with Grant. I'm just repeating all
+the steps with Gulp. Hopefully you have understood the,
+functionality, and the advantages that the task
+runners bring to our web development. Now that you have completed the gulp
+exercise, it's time for a Big Gulp, 7-Eleven, here I come.

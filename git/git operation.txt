@@ -220,7 +220,7 @@ git add -u
 
 
  
-Commit Changes to Local Repository
+Commit Changes to Local Repository"
 
 git commit -m "commit message"
 

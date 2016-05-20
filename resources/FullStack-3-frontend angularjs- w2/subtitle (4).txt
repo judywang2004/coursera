@@ -1,0 +1,91 @@
+In this lesson,
+I'm going to formally introduce you to Task Runners: Grunt and Gulp. We will first look at
+what task runners are, what are the functionality
+that they provide. Thereafter we will review Grunt and Gulp in more detail,
+in the subsequent lectures. As you have already realized or
+will realize very soon, web development involves
+a lot of repetitive tasks. Every time you change a Less or
+a Sass file, you need to recompile it. And then every time you, they compile and create a CSS file you'll
+have to modify it. And you may have to concatenate
+a bunch of files in order to create the concatenated file. Maybe you edit a JavaScript file, then you have to do a check to make
+sure that your code is correct. Thereafter, you need to uglify
+the JavaScript code, and so on. So you have a lot of repetitive tasks that you perform when you're
+doing the development. Now the principle behind
+these task runners is to make these repetitive
+tasks easy to perform. So that's why we talk
+about the DRY principle, the do not repeat yourself principle. And this is where the need
+to build automated tools for running the different
+tasks becomes essential. Let's quickly review some of the
+repetitive tasks that you need to perform. Now talking about CSS, for example,
+you might have to compile Sass or Less into CSS whenever the Sass or
+Less files are changed. You may need to run
+an autoprefixer in order to add vendor-specific
+markups to the CSS file. You may need to do minification meaning
+that you'll remove all the unnecessary characters, like white spaces, new lines,
+comments from the source code so that you will get a smaller sized file, without of course,
+compromising the functionality. We'll look at the results
+of minification in the exercise as we examine Grunt and Gulp. Similarly you may want to concatenate
+a whole bunch of CSS files and create one single master CSS file which
+you would include in your Web page. All these tasks are as
+I said repetitive and this is where task runners
+come to your rescue. Similarly when it comes to JavaScript we
+will have to check the JavaScript code for errors and potential problems,
+what we call as static code analysis. This is where JSHint comes to our rescue. This will go through all
+your JavaScript files and then check to make sure that you
+are following the right conventions, and the syntax is correct so that you avoid
+potential problems in the future. Similarly, you may have multiple
+JavaScript files that you may want to concatenate and
+create one single large JavaScript file. You may want to do uglification
+which is minification, meaning removing all the white spaces and
+also mangling, meaning that you are going
+to replace all the local variables that you declare inside your
+functions with simple single letters. Now once you deploy the code on a website, it doesn't really matter what the code
+looks like, as long as it works correctly. So this is where we try to compact the
+information that you have in the files, by removing anything that is
+extraneous from these files. Now, after this processes,
+you may wanna recheck for errors to make sure that nothing
+has been broken within your files. Similarly you'll have other tasks like for example if you have a lot of images
+in your Web page, you may want to optimize those files so
+as to reduce the sizes of those files. So optimization tasks need to be
+run whenever you include a new file into your assets that you
+use within your Web page. Similarly, you may want to have
+a mechanism that will keep a watch on all these files. And whenever any one of them changes, it will automatically run these tasks for
+you. You don't have to manually
+intervene to run these tasks. Instead if you set up the watch task then
+it will keep a watch on all these files. Anytime a Sass or Less file
+changes it'll run the compilation, the minification and concatenation and
+generate the final files for you. Similarly whenever any JavaScript code is
+changed, it will automatically take care of JSHint and
+uglification tasks on the code. Also, you may want to build
+a server within your task runner, so that it'll automatically
+serve up the compiled code for you so that you can check
+the result in a browser. So this is where a server with livereload. Livereload allows you
+to automatically reload the Web page every time anything changes. So anytime any of the files changed the
+watch tasks will recompile everything for you, and then the livereload will
+ensure that your Web page is reloaded in your browser where you're
+checking the result of the changes. And when you do development testing
+as it should be an integral part of your development so you should
+carry out various kinds of tests. Later on in this course, we will examine
+how different tests are built for Angular. So running automated tests
+is equally as important. Finally, you may want to build
+your site for actual deployment on a website or on a web server where
+you're hosting your website. So all these tasks should be
+done automatically for you. This is where task runners
+come to your rescue. What are task runners? Task runners allow you to configure all
+these different tasks that we just listed in the previous slides such that they can
+be automatically run whenever required. Now if you look at the web
+development landscape, there are a number of task
+runners in use out there. The two major ones are Grunt and Gulp. We have other ones, like Cake, Broccoli, Brunch, now that's going to
+make you hungry pretty soon. But we are examining Grunt and
+Gulp in more detail in this lesson. Now obviously you're gonna ask,
+should I use Grunt or should I use Gulp? Now that depends upon how
+you do your workflow. Grunt is a configuration-based
+task runner, which means that you configure
+all the tasks ahead of time. And then Grunt takes care
+of your [INAUDIBLE] tasks. Gulp on the other hand is more code,
+rather than configuration. You create your tasks by writing code,
+and then it'll allow you to run. So less emphasis on configuration. So depending on how you operate,
+you might like one or the other tools for your development. Sometimes it can be worthwhile
+to combine the two, make use of both of them together,
+of course, one after another. Again, that depends upon how
+you build your workflow.

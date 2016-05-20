@@ -1,0 +1,156 @@
+In this exercise,
+we're going to explore Angular Scope, and how we make use of Scope within
+our Angular application. We'll also look at the ngShow
+Angular directive in this exercise. When we use the Angular Scope
+within our JavaScript code, we need to make sure that the uglify task
+does not end up mangling up the Scope. So, to help us preserve that, we take the help off in
+ngAnnotate gulp plugin. The gulp plugin is
+called gulp-ng-annotate. So, I'm gonna install this gulp plugin,
+and then, include the gulp plugin
+into the gulp file. So, that when we run gulp on our project,
+and then, build the distribution,
+it'll not end up causing problems in the uglify, and
+concatenated JavaScript code. At the command prompt, type in npm install gulp-ng-annotate save dev. And once that is installed, then, the ng-annotate gulp plugin
+is available for us. Now, if we move to our gulp file,
+and then, we are going to to include
+the ng-annotate plugin here. So, first I'll do the require for
+the ng-annotate. So here, I have included the ngannotate,
+using require. Next, I need to update the usemin
+task definition, below. So that it will make sure
+that the ngannotate runs before the uglify for JavaScript. So, for the JavaScript part of usemin, I have added in the ngannotate, and
+with this will save the gulp file. And then, now the gulp file is ready for use with Angular Scope,
+if we make use of it within our code. Next, we will update the Controller
+code in app.js to use Scope. So, let me introduce the Scope
+into the Controller. Another thing that we need to note,
+is that by convention, in Angular, the Controller names
+always start with a capital letter. In the earlier examples, I used small
+letter for the menu Controller, so let me correct that before
+somebody starts complaining that you're not teaching Angular the right way. You don't know diddly squat about Angular,
+peace. Let me go ahead, and make change to
+the menu Controller to capital M. Now, in addition, we need to introduce
+the scope in front of the function here. Like that.
+So, the left square bracket, and scope within quotes and a comma. This is the normal way you specify
+the use of scope within the Controller. So ,you see that we have the left square
+bracket, scope within brackets, function. And then, inside the function
+the parameter is specified as scope. Now, they need to close
+off this square bracket, that will go at the bottom
+of the controls. Right at the bottom of the controller code
+I have entered close off square bracket. Returning now, within the code I am going to replace all the dish words by scope. So, let me go through the code,
+step by step, and then, replace every one of them with the scope. Once you have completed
+replacing the dish, throughout this file with the scope. There was a statement here saying
+this dish is equal to dishes. Remove that statement,
+we no longer need that, because we all ready attached
+the dishes object to the scope here. With this update,
+the update of the JavaScript code inside the app.js file is complete. Let me go, and
+make the changes to the menu or.HTML file. Moving to the menu.html file. Here, I no longer need to use
+the menu controller alias here. So, I'm going to remove
+the manual controller alias from the NG controller attribute here. Before I make the change, let me change
+the name of the menu controller. To capital M. And then, after that I'm going to
+remove the alias for a minute. The controller because
+I no longer need it. I will access all the items from the scope directly. All the variables from the scope directly. So, within the code, wherever I am using
+menuCtrl I'm going to delete that part. So, as you go through the code. Called step by step. Now, you noticed that we have
+the menu controller there. I'm going to remove that. The similarly the menu controller there
+I'm going to remove that And so on. We'll keep doing that until we
+remove that M menu ctrl from the remaining parts of the code. This is no longer needed for us,
+because all of these variables are directly attached, and the functions
+are directly attached to the scope. So, I can refer to them, directly,
+by their names inside my HTML. Cooked Same thing. The dishes here, for the filter also,
+I am removing that part. Let me go ahead and save. The changes. And then,
+we'll have a look at the page now. Now, this webpage has now been modified
+completely to use the angular scope. Now, going back to our webpage, you don't
+notice any difference in the webpage. It is gonna look exactly
+the same as before. [INAUDIBLE] So there is no change
+in the functionality itself, the page operates just like before. Next, I'm going to make use of the. In this short directive that
+is available in Angular. For this webpage, I'm going to introduce
+a button here called Show Details button. The way this button works, now you
+notice that in this updated webpage, the descriptions of all
+the menu items are hidden. If I click on the Show Details button,
+the descriptions are gonna be shown. Again, note that the button, itself, has
+changed from Show Details to Hide Details. When I didn't click on the button,
+the description is hidden, and the button, itself, is changed to Show Details. One more time,
+Hide Details and Show Details. This is the behaviour that
+I want to implement next. Going back to menu.html, I'm going to introduce a button right
+before these tabs here. This button, as you can see,
+I have introduced it with an ng-click="toggleDetails()"
+function here. I'm going to talk about
+that in a short while. This is a standard button that
+is styled using bootstrap. And then, there end,
+the close of the button tag. Now, how am I going to
+make use of this button? Now, when this button is
+present on the webpage, when the button is shown,
+it'll show the button as at showDetails. Now, if I click on the button then,
+it is going to show the complete description
+of all the dishes. And then, the button will
+itself change to Hide Details. Now, when I click on the button again, it will hide all the description
+of various dishes. And then, the button itself
+will change to showDetails. Now, let me briefly talk about
+how I implement this here. Now, this ng-click with this function,
+toggleDetails in here. Obviously, this means that I must
+implement this toggleDetails function in my menu controller. It will go to the app.js File, and then, update the JavaScript code there to
+implement this function later on. The next part that you see me
+using here is an expression, an angular expression here, in which I
+am saying showDetails in camel case. Now, what this means is that
+this must be a JavaScript variable that I am using
+inside my controller. So, I am making use of
+a JavaScript variable here. Here, I am saying that with a question
+mark, and then, I give two strings here. Now, if show details is true then, this expression will
+evaluate to hide details, so the button will show this as
+the string inside the button. Now, if show details is equal to false,
+then, that means that the details
+have been hidden from the menu items then, the button should
+show details on the button. So, that's why I am specifying these
+two as as the two possibilities. So, I am using the show details JavaScript
+variable, and then, creating that if it evaluates to true, this will be the string
+that is displayed in the button. If it evaluates to false, this would be the string that
+would be displayed in the button. Now, how do I make use
+of this showDetails? Now, this is where I take the help
+of the ng-show angular directive. Now, going down to the list of menu items, you'll note that this <p>
+tag is the one that is showing the description of the dish. Now when</p> there show details
+available is set to false, I want to hide verse
+description when the show details value is set to true,
+I want to show this item. Now, this is where I'm gonna take
+the help of the ng-show directive. Let me update the code, and then,
+explain to you what it does. So, I have introduced
+the ng-show directive here. For the ng-show directive, the value that
+I'm specifying here is "showdetails". Now, what this means is that
+this ng-show directive, if this expression evaluates to true then,
+this p tag, whatever is inside this p tag,
+will be shown. If this expression evaluates to false, whatever's inside this
+p tag will be hidden. So, that's how the NG
+show directive models. There is a counter part to the ng-show
+directive called ng-hide directive. You can also also use the ng-hide
+directive for the same purpose. If I use the ng-hide directive then,
+the variable that I will use, will be if the variable is true then,
+the content of the p tag will be hidden, if the variable is false then,
+the content of the p tag will be shown. So, that is the use of ng-hide directive, in this example I am using
+the ng-show directive. So, that's why when show details
+is equal to true, the content. The description will be shown. When showDetail is equal to false,
+the description will be hidden. Now, let's go and update. The JavaScript code. Switching to the JavaScript
+code in app.js, I'm going to now update
+the MenuController. First, I will need to
+introduce this JavaScript variable called ShowDetails, and
+I'll hang in onto the scope. So, by default at the start, I will
+set showDetails to false, which means when the page is loaded the description
+of all the menu new items will be hidden. Now, when the user clicks on the showDetails button,
+then I want to be able to show the items. So, I will introduce this function
+here called Toggle Details function. So, let's go to the lower
+part of this code. Now here, I'm going to introduce
+this toggleDetails function, here. So, let me add the code, here. So, this toggleDetails function,
+as you can. Again, look at how we define
+the toggle details function. I am touching this to this scope, and
+then, I am declaring this function. Inside the toggle details function,
+whenever this function is called, whatever the value of showDetails is,
+it will be inverted. So, if showDetails starts out to be false,
+then, when this function is executed,
+showDetails will be set to true. If showDetails is true,
+then it will be set to false. So, with this change, I have completed the update of both
+the HTML code, and the JavaScript code. Let's go and look at our the pitch. Returning to our web page, you can
+now notice at the top right corner, there is a button called showDetails. Let's click on the button. When you click on the button, you can immediately notice that
+the description of the dishes is shown. Again, clicking on the button,
+the description of the dishes is hidden. Now, this behavior will be
+exhibited in all the tabs. This completes,
+this exercise on using angular scope. In this exercise,
+you have looked at angular scope. How we introduced the scope
+in to a JavaScript code. And how we need to update our HTML code. With the use of the scope,
+we also examine the ng-show directive,and used it in order to show, and hide details of our
+dishes in the menu.

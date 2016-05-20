@@ -1,0 +1,1698 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:04.829
+Let us now learn how to make use of Grunt.
+
+2
+00:00:04.829 --> 00:00:09.323
+We'll configure Grunt file
+in this exercise, and
+
+3
+00:00:09.323 --> 00:00:14.131
+then use Grunt to automate
+several off the web building
+
+4
+00:00:14.131 --> 00:00:18.221
+tasks that we need to do
+with our development.
+
+5
+00:00:20.890 --> 00:00:26.173
+To get started, let's first install
+the grunt command line interface.
+
+6
+00:00:26.173 --> 00:00:31.785
+To do that, add the command prompt type
+
+7
+00:00:31.785 --> 00:00:36.726
+'npm install -g grunt-cli'.
+
+8
+00:00:36.726 --> 00:00:40.782
+If you are using a Mac or Linux,
+
+9
+00:00:40.782 --> 00:00:47.031
+make sure to perceive
+command with the pseudo.
+
+10
+00:00:49.689 --> 00:00:57.090
+Once the installation is complete, then
+your machine is now ready to use crunch.
+
+11
+00:01:00.420 --> 00:01:03.740
+Next, go to the confusion folder and
+
+12
+00:01:03.740 --> 00:01:08.490
+create a file named package.jsub and
+
+13
+00:01:08.490 --> 00:01:13.750
+include the following
+code inside package.jsub.
+
+14
+00:01:13.750 --> 00:01:19.070
+We are configuring this
+package.jsub file with the name
+
+15
+00:01:19.070 --> 00:01:24.500
+of the project and
+additional information here.
+
+16
+00:01:24.500 --> 00:01:27.990
+Next, we are going to install several
+
+17
+00:01:27.990 --> 00:01:32.560
+Grunt modules in order to make
+use of Grunt within our project.
+
+18
+00:01:34.560 --> 00:01:40.280
+In the next step, let's install Grunt
+locally within our conFusion project so,
+
+19
+00:01:40.280 --> 00:01:44.360
+that we can make use of it for
+our development.
+
+20
+00:01:44.360 --> 00:01:49.512
+To do that, at the command prompt type
+
+21
+00:01:49.512 --> 00:01:54.347
+npm install grunt --save-dev.
+
+22
+00:02:04.806 --> 00:02:08.730
+With this, we are making sure
+that Grunt is installed and
+
+23
+00:02:08.730 --> 00:02:14.070
+also the current configuration is saved
+in the package, the adjacent file.
+
+24
+00:02:20.430 --> 00:02:26.290
+Once the grunt installation is completed,
+let's now create a Grunt file.
+
+25
+00:02:29.563 --> 00:02:33.180
+Next, go to the confusion folder and
+
+26
+00:02:33.180 --> 00:02:38.180
+create Gruntfile.js, with a capital G.
+
+27
+00:02:38.180 --> 00:02:42.310
+Now, once you create the Grunt file,
+inside the Grunt file,
+
+28
+00:02:42.310 --> 00:02:46.400
+add the code as shown here.
+
+29
+00:02:46.400 --> 00:02:52.230
+We are configuring the Grunt file as
+module exports equal to function Grunt and
+
+30
+00:02:52.230 --> 00:02:56.100
+then inside that, we are specifying
+the Grunt with the entered config.
+
+31
+00:02:58.390 --> 00:03:03.460
+Next, we're gonna configure our
+project in order to make use of Grunt.
+
+32
+00:03:04.750 --> 00:03:08.704
+In the web page menu.html,
+
+33
+00:03:08.704 --> 00:03:15.108
+surround the links that
+import the CSS files with the
+
+34
+00:03:15.108 --> 00:03:25.246
+built:CSSstyles/menu.cssComment
+
+35
+00:03:25.246 --> 00:03:30.380
+like we explained in the previous lecture.
+
+36
+00:03:32.200 --> 00:03:36.670
+So I am going to insert
+the built comment here at
+
+37
+00:03:36.670 --> 00:03:40.950
+the beginning of the links.
+
+38
+00:03:42.800 --> 00:03:51.060
+Then at the end of the links,
+I'm going to insert the end build.
+
+39
+00:03:51.060 --> 00:03:54.800
+So that everything between the build and
+
+40
+00:03:54.800 --> 00:04:00.120
+the end build now can be used
+to buy the use min package
+
+41
+00:04:00.120 --> 00:04:05.880
+in order to concatenate and
+css min all the css files.
+
+42
+00:04:07.070 --> 00:04:13.190
+Next, we're going to go to the bottom
+of this menu HTML page and
+
+43
+00:04:13.190 --> 00:04:16.880
+then replace all the scripts there.
+
+44
+00:04:18.160 --> 00:04:22.170
+Going to the bottom of the menu HTML page,
+
+45
+00:04:22.170 --> 00:04:29.858
+you remember that we had included the
+angular code here inside the script tact.
+
+46
+00:04:29.858 --> 00:04:33.834
+Now, we are going to take this
+angular code completely and
+
+47
+00:04:33.834 --> 00:04:37.822
+move it off to a separate
+JavaScript file called app.js.
+
+48
+00:04:37.822 --> 00:04:40.020
+We'll do that in the next step.
+
+49
+00:04:40.020 --> 00:04:45.447
+Before that I'm going
+to replace the entire
+
+50
+00:04:45.447 --> 00:04:50.141
+script code here with a import line for
+
+51
+00:04:50.141 --> 00:04:53.817
+importing the app.js file.
+
+52
+00:04:53.817 --> 00:04:59.337
+Now, we're going to create
+the app.js file for
+
+53
+00:04:59.337 --> 00:05:04.740
+this project inside
+the app/scripts folder.
+
+54
+00:05:04.740 --> 00:05:09.140
+After replacing the JavaScript code,
+now we are left
+
+55
+00:05:09.140 --> 00:05:13.940
+with the configuration as
+shown in the screen here.
+
+56
+00:05:13.940 --> 00:05:18.550
+We are still importing
+Angular just like before.
+
+57
+00:05:18.550 --> 00:05:22.634
+Now we have scripts/app.js file,
+
+58
+00:05:22.634 --> 00:05:29.250
+which means that now all the Java Script
+code for Angular that we created earlier
+
+59
+00:05:29.250 --> 00:05:35.020
+is going to be moved to this app.js
+file in that scripts folder.
+
+60
+00:05:35.020 --> 00:05:39.832
+In addition, I am surrounding
+these two scripts lines with
+
+61
+00:05:39.832 --> 00:05:46.320
+build:js scripts/min.js and then endbuild.
+
+62
+00:05:46.320 --> 00:05:49.650
+This is for use with the useminPrepare.
+
+63
+00:05:49.650 --> 00:05:53.490
+The useman prepare will look
+at first configuration, and
+
+64
+00:05:53.490 --> 00:05:56.900
+then take these two files, and
+then concatenate them, and
+
+65
+00:05:56.900 --> 00:06:02.960
+then amplify them for
+use in our distribution project.
+
+66
+00:06:02.960 --> 00:06:06.220
+So once we have completed
+the configuration, in the next step,
+
+67
+00:06:06.220 --> 00:06:10.907
+we are gonna create app.js File.
+
+68
+00:06:10.907 --> 00:06:16.290
+Next, go to the scripts
+folder inside the app folder.
+
+69
+00:06:17.560 --> 00:06:22.030
+And then clear the app.js file,
+which would be an empty file.
+
+70
+00:06:22.030 --> 00:06:27.270
+Now we are going to add in the angular
+script into this ab.js file.
+
+71
+00:06:27.270 --> 00:06:33.862
+We have already included the ab.js
+file into our mini.html page.
+
+72
+00:06:36.078 --> 00:06:37.860
+After adding in the code,
+
+73
+00:06:37.860 --> 00:06:42.490
+we have essentially cut the code
+from the mini.html page and then.
+
+74
+00:06:43.600 --> 00:06:47.160
+Paste it here and
+made a couple of changes.
+
+75
+00:06:47.160 --> 00:06:53.760
+One change that you'll notice is that I am
+simply declaring it as an angular module.
+
+76
+00:06:53.760 --> 00:06:56.490
+And note that I don't
+have a semi-colon there,
+
+77
+00:06:56.490 --> 00:07:02.390
+because I am using chaining to declare
+the controller immediately thereafter.
+
+78
+00:07:02.390 --> 00:07:07.740
+So the angular module and them I'm
+saying .controller and menuController.
+
+79
+00:07:07.740 --> 00:07:12.300
+And inside the menuController
+function definition here,
+
+80
+00:07:12.300 --> 00:07:18.340
+I have included all the code from the menu
+html file that I have defined earlier.
+
+81
+00:07:23.290 --> 00:07:28.680
+And then at the end of this code,
+the semicolon will close this statement.
+
+82
+00:07:28.680 --> 00:07:31.150
+So I have defined the angular module, and
+
+83
+00:07:31.150 --> 00:07:35.120
+then attached the controller
+to the angular module here.
+
+84
+00:07:35.120 --> 00:07:38.517
+Now the app guard JS file is complete, and
+
+85
+00:07:38.517 --> 00:07:42.022
+can be used within our
+many URL HTML pitch.
+
+86
+00:07:43.527 --> 00:07:49.261
+Next, I'm going to configure
+the JSHint module for
+
+87
+00:07:49.261 --> 00:07:52.269
+use to create a Grunt task.
+
+88
+00:07:52.269 --> 00:07:57.063
+We are going to create
+the JSHinting grunt task first.
+
+89
+00:07:57.063 --> 00:08:01.030
+So to do that,
+let me install the JShint grunt module.
+
+90
+00:08:01.030 --> 00:08:09.631
+So we type in npm install
+grunt-contrib-jshint--save--dev.
+
+91
+00:08:17.190 --> 00:08:22.367
+After this,
+we're gonna install the jshint-stylish.
+
+92
+00:08:25.722 --> 00:08:31.740
+Next, we're going to install
+a grand module called time-grunt.
+
+93
+00:08:31.740 --> 00:08:38.000
+The time-grunt module will keep
+track of each of the tasks.
+
+94
+00:08:38.000 --> 00:08:42.827
+Take and then generate status ticks
+at the end of the grunt line.
+
+95
+00:08:45.033 --> 00:08:49.780
+The next grunt module we're gonna
+install is called git grunt.
+
+96
+00:08:49.780 --> 00:08:55.345
+The git grunt module will
+automatically look inside
+
+97
+00:08:55.345 --> 00:09:01.795
+your node modules folder, and
+then input any grant module,
+
+98
+00:09:01.795 --> 00:09:06.489
+then it is required in your grantfile.js.
+
+99
+00:09:06.489 --> 00:09:11.635
+Now, the other alternative
+is to explicitly include
+
+100
+00:09:11.635 --> 00:09:16.896
+all the Grunt modules that
+you install in the .modules
+
+101
+00:09:16.896 --> 00:09:22.289
+folder explicitly by using
+the load grunt empty tasks.
+
+102
+00:09:22.289 --> 00:09:26.633
+Instead, I am circumventing that
+whole process by simply saying,
+
+103
+00:09:26.633 --> 00:09:27.928
+require JIT grunt,
+
+104
+00:09:27.928 --> 00:09:32.896
+and that will take care of loading all
+the grunt modules as and when required.
+
+105
+00:09:32.896 --> 00:09:36.441
+Just in time grunt,
+that's why it's called JIT grunt.
+
+106
+00:09:41.283 --> 00:09:47.275
+Once we have completed that, we
+are going to go to our grunt file in js,
+
+107
+00:09:47.275 --> 00:09:50.450
+and then configure the jshint task.
+
+108
+00:09:50.450 --> 00:09:56.338
+To do that to the grunt file of js5,
+I'm going to first.
+
+109
+00:09:56.338 --> 00:10:00.630
+Require the time-grunt module and
+the jit-grunt module.
+
+110
+00:10:00.630 --> 00:10:04.212
+So I will include those modules by saying,
+
+111
+00:10:04.212 --> 00:10:09.300
+gitquire timegrunt grunt,
+and require jit-grunt grunt.
+
+112
+00:10:09.300 --> 00:10:12.690
+This will ensure that those
+two modules get loaded.
+
+113
+00:10:12.690 --> 00:10:18.362
+Now I'm going to add the configuration for
+the jshint task.
+
+114
+00:10:18.362 --> 00:10:24.280
+So here, I have added the configuration
+information for the jshint task.
+
+115
+00:10:24.280 --> 00:10:29.080
+We have already examined the structure of
+
+116
+00:10:29.080 --> 00:10:32.870
+this configuration information
+in the previous lecture.
+
+117
+00:10:35.250 --> 00:10:41.340
+Next, I'm going to configure
+the build task and the default task.
+
+118
+00:10:43.980 --> 00:10:48.730
+So here I am registering the two tasks,
+the build task and the default task.
+
+119
+00:10:48.730 --> 00:10:53.600
+The build task currently I am
+registering to contain only jshint.
+
+120
+00:10:53.600 --> 00:10:56.750
+And the default task is
+the same as the built task.
+
+121
+00:10:58.510 --> 00:11:05.330
+So, with this, if I simply type
+grunt at the command line,
+
+122
+00:11:05.330 --> 00:11:10.540
+then the JSHint will run and
+then check all
+
+123
+00:11:10.540 --> 00:11:15.610
+the JavaScript files inside my app folder.
+
+124
+00:11:17.350 --> 00:11:22.670
+Next, I'm going to create
+a file dot JSHintrc.
+
+125
+00:11:24.090 --> 00:11:30.640
+In the confusion folder
+.jshintrc js H-I-N-T-R-C and
+
+126
+00:11:30.640 --> 00:11:34.640
+then include the following
+code inside that folder.
+
+127
+00:11:34.640 --> 00:11:39.780
+Here I am specifying to jshint
+what it is supposed to check.
+
+128
+00:11:39.780 --> 00:11:42.950
+Let's not worry about what
+this configuration is,
+
+129
+00:11:42.950 --> 00:11:46.110
+it is just specifying some
+things that the jshint.
+
+130
+00:11:48.570 --> 00:11:52.560
+JavaScript checker is going to check for
+it.
+
+131
+00:11:54.500 --> 00:11:58.020
+Now at the command prompt,
+if you type grunt,
+
+132
+00:11:58.020 --> 00:12:03.410
+it is going to run the jshint task,
+and generate the output.
+
+133
+00:12:06.480 --> 00:12:11.350
+Fortunately, we don't have any
+errors in our JavaScript file,
+
+134
+00:12:11.350 --> 00:12:14.110
+so that is why there is no complaint.
+
+135
+00:12:14.110 --> 00:12:18.110
+Let me introduce a small
+error in the app js file and
+
+136
+00:12:18.110 --> 00:12:23.300
+then show you what that jshint
+task will show as the result.
+
+137
+00:12:24.770 --> 00:12:29.860
+Going to the app js5,
+let me just delete this semi-colon and
+
+138
+00:12:29.860 --> 00:12:34.660
+then save it and then run jshint and
+see what the results are.
+
+139
+00:12:37.580 --> 00:12:38.700
+Add the command prompt.
+
+140
+00:12:38.700 --> 00:12:45.670
+Now if I type grunt you notice
+that jshint is complaining
+
+141
+00:12:45.670 --> 00:12:53.770
+that in the app.js file at line
+8 col 31 missing semicolon.
+
+142
+00:12:53.770 --> 00:12:56.990
+So this is how jshint finds out.
+
+143
+00:12:58.050 --> 00:13:04.920
+Part potential errors or
+mistakes in your JavaScript files.
+
+144
+00:13:04.920 --> 00:13:08.945
+Let me go back and correct that so
+that my JShint will no longer comply.
+
+145
+00:13:08.945 --> 00:13:11.846
+Going back to the abguardJS file,
+
+146
+00:13:11.846 --> 00:13:18.290
+let me restore the semicolon there and
+then run JShint one more time.
+
+147
+00:13:18.290 --> 00:13:21.120
+Now, when I run Grunt I can see that
+
+148
+00:13:22.210 --> 00:13:25.710
+it says there are no further
+errors in the files.
+
+149
+00:13:28.680 --> 00:13:36.620
+Next, I'm going to configure the copy and
+clean Grunt modules.
+
+150
+00:13:36.620 --> 00:13:40.940
+So to do that, at the command prompt,
+let me type npm
+
+151
+00:13:40.940 --> 00:13:45.780
+install grunt-contrib-copy and
+I installed copy.
+
+152
+00:13:47.330 --> 00:13:49.830
+Let me next install clean.
+
+153
+00:13:51.060 --> 00:13:56.220
+So I type in npm install
+grunt-contrib-clean--save-dev.
+
+154
+00:13:56.220 --> 00:14:02.880
+So, I have now installed the copy and
+the clean grunt tasks.
+
+155
+00:14:02.880 --> 00:14:05.470
+So, let me go ahead and
+configure the copy and
+
+156
+00:14:05.470 --> 00:14:09.510
+the clean grunt tasks,
+in the grunt file gs5.
+
+157
+00:14:09.510 --> 00:14:15.270
+And then, we'll run grunt and
+see the result going to the grunt file.
+
+158
+00:14:15.270 --> 00:14:20.240
+Now, I will create the copy and the clean
+
+159
+00:14:21.270 --> 00:14:28.620
+task configurations inside
+the grunt.init.config method call.
+
+160
+00:14:28.620 --> 00:14:30.920
+So let me add the code for
+the copy and the clean.
+
+161
+00:14:30.920 --> 00:14:34.040
+We have already seen this in the lecture.
+
+162
+00:14:34.040 --> 00:14:38.280
+So let me go ahead and
+add the copy and the clean code here.
+
+163
+00:14:38.280 --> 00:14:41.210
+So I have added the copy and
+the clean configuration here.
+
+164
+00:14:45.590 --> 00:14:50.190
+One thing that I should clearly warn
+you is that when you add the code
+
+165
+00:14:50.190 --> 00:14:54.760
+make sure that there is
+a configuration that already exists.
+
+166
+00:14:54.760 --> 00:14:57.710
+Make sure that you put a comma after
+
+167
+00:14:59.590 --> 00:15:05.500
+the previous configuration
+that exists in the grunt file.
+
+168
+00:15:07.580 --> 00:15:11.890
+After adding the copy and
+the clean configurations,
+
+169
+00:15:11.890 --> 00:15:16.591
+let me add the copy and
+the clean tasks, to the build task.
+
+170
+00:15:21.188 --> 00:15:26.869
+So now when I run grunt,
+or when I say grunt build,
+
+171
+00:15:26.869 --> 00:15:31.199
+it will run clean first then jshint and
+
+172
+00:15:31.199 --> 00:15:35.377
+copy, then it runs the copy task.
+
+173
+00:15:35.377 --> 00:15:39.867
+Then all the files from the app
+folder will be copied to their
+
+174
+00:15:39.867 --> 00:15:41.407
+distribution folder.
+
+175
+00:15:41.407 --> 00:15:44.560
+Let's see this running and
+then see the result.
+
+176
+00:15:44.560 --> 00:15:49.314
+Next, when you go to
+the confusion folder you can see
+
+177
+00:15:49.314 --> 00:15:54.083
+the folder named dist
+doesn't exist at the moment.
+
+178
+00:15:54.083 --> 00:16:00.166
+Now if you run grunt then
+the distribution folder will be created.
+
+179
+00:16:03.648 --> 00:16:06.942
+At the command prompt type grunt.
+
+180
+00:16:09.985 --> 00:16:13.936
+You will note that when you type grunt,
+
+181
+00:16:13.936 --> 00:16:18.840
+the first,
+the clean task will be executed.
+
+182
+00:16:18.840 --> 00:16:23.730
+It'll clean up if the distribution
+folder exists it cleans up,
+
+183
+00:16:23.730 --> 00:16:29.040
+then the jshint task will be executed and
+it'll check for errors.
+
+184
+00:16:29.040 --> 00:16:33.090
+And then the copy:dist
+task will be run and
+
+185
+00:16:33.090 --> 00:16:38.720
+then it copies the files over from
+the app folder to the dist folder.
+
+186
+00:16:38.720 --> 00:16:44.190
+At the end of this grunt run,
+let's take a look at the conFusion folder.
+
+187
+00:16:47.685 --> 00:16:51.680
+Now, when you go to the conFusion folder.
+
+188
+00:16:51.680 --> 00:16:54.900
+You can see that the dist
+folder has been created.
+
+189
+00:16:54.900 --> 00:16:59.050
+This dist folder will contain all
+the files that you will upload
+
+190
+00:16:59.050 --> 00:17:03.030
+to your web server, so
+that your website goes live.
+
+191
+00:17:03.030 --> 00:17:08.500
+So going into the dist folder, you can see
+that the menu.html folder already exists.
+
+192
+00:17:08.500 --> 00:17:13.080
+All the images have been copied
+into the images subfolder there.
+
+193
+00:17:13.080 --> 00:17:16.120
+The fonts have been copied into
+the fonts subfolder there.
+
+194
+00:17:16.120 --> 00:17:23.500
+The scripts folder is currently empty and
+the styles folder is currently empty.
+
+195
+00:17:23.500 --> 00:17:28.200
+Now we're going to configure useman and
+
+196
+00:17:28.200 --> 00:17:34.000
+run all the tasks in order to create our
+
+197
+00:17:34.000 --> 00:17:40.490
+combined css and
+JavaScript files for our website.
+
+198
+00:17:40.490 --> 00:17:45.660
+In order to prepare the distribution
+folder completely you are going to install
+
+199
+00:17:45.660 --> 00:17:51.900
+a few more grant modules, and then
+configure the grant tasks correspondingly.
+
+200
+00:17:53.080 --> 00:17:59.198
+First we will install
+the Contact Grunt module.
+
+201
+00:18:02.739 --> 00:18:07.404
+Next, we will install
+the CSS min Grunt module.
+
+202
+00:18:12.817 --> 00:18:17.107
+Next, we're going to install the uglify,
+module.
+
+203
+00:18:23.319 --> 00:18:27.878
+Then, the filereft grunt module, and
+
+204
+00:18:27.878 --> 00:18:32.170
+finally, the usemin grunt module.
+
+205
+00:18:36.860 --> 00:18:40.021
+So once we have completed
+installing these,
+
+206
+00:18:40.021 --> 00:18:44.940
+now you can configure the css
+minification and concatenation tasks.
+
+207
+00:18:44.940 --> 00:18:49.869
+And also the JavaScript minification and
+
+208
+00:18:49.869 --> 00:18:54.664
+conFusion tasks, and the usemin task.
+
+209
+00:18:54.664 --> 00:18:59.150
+So let's go ahead and
+configure them in our grunt file.
+
+210
+00:19:01.460 --> 00:19:07.020
+Returning to our grunt file, I'm now
+going to add in the configuration for
+
+211
+00:19:07.020 --> 00:19:14.350
+the usemin prepare,
+that use main task, the file rev task,
+
+212
+00:19:14.350 --> 00:19:19.530
+and the CSS main uglify and contact tasks.
+
+213
+00:19:19.530 --> 00:19:22.800
+So let me add in
+the corresponding code here.
+
+214
+00:19:22.800 --> 00:19:25.680
+We have already seen this
+code in the previous lecture.
+
+215
+00:19:28.590 --> 00:19:33.365
+The first step I am doing,
+is to configure jit-grunt,
+
+216
+00:19:33.365 --> 00:19:38.142
+to inform jit-grunt that for
+the useminPrepare task,
+
+217
+00:19:38.142 --> 00:19:43.239
+the useminPrepare task is part
+of the grunt-usemin task.
+
+218
+00:19:43.239 --> 00:19:47.687
+So that is what I am
+specifying by modifying
+
+219
+00:19:47.687 --> 00:19:52.020
+the jit-grunt require statement here.
+
+220
+00:19:52.020 --> 00:19:57.460
+Next, I'm gonna include
+the configuration for the tasks.
+
+221
+00:19:57.460 --> 00:20:01.360
+Now, you'll notice that I have
+included the configuration for
+
+222
+00:20:01.360 --> 00:20:05.890
+the useminPrepare, the concat.
+
+223
+00:20:05.890 --> 00:20:09.740
+Note that the concat information
+is pretty much empty.
+
+224
+00:20:09.740 --> 00:20:15.310
+This is going to be reconfigured by the
+use main prepare task during the runtime.
+
+225
+00:20:15.310 --> 00:20:23.200
+Similarly, the uglify in CSS min, I have
+left the configurations to be empty there.
+
+226
+00:20:23.200 --> 00:20:27.240
+They're gonna be configured at
+runtime by the useminPrepare task.
+
+227
+00:20:29.930 --> 00:20:33.463
+Next, you'll see that I have
+configured the filerev task,
+
+228
+00:20:33.463 --> 00:20:36.107
+just like the way I
+explained in the lecture.
+
+229
+00:20:40.226 --> 00:20:45.490
+And finally,
+the usemin task has been configured.
+
+230
+00:20:45.490 --> 00:20:49.510
+Now we're going to update
+the tasks that we have registered.
+
+231
+00:20:49.510 --> 00:20:52.960
+The build task and the default task.
+
+232
+00:20:54.630 --> 00:20:56.070
+Go into the build task.
+
+233
+00:20:56.070 --> 00:21:02.154
+We will add in the tasks
+into the build tasks here.
+
+234
+00:21:04.900 --> 00:21:07.980
+First we will run them in the sequence.
+
+235
+00:21:07.980 --> 00:21:10.950
+UseminPrepare, concat, cssmin, uglify.
+
+236
+00:21:10.950 --> 00:21:14.050
+Once they have completed,
+then we'll do the copy, and
+
+237
+00:21:14.050 --> 00:21:19.755
+then after copying,
+we're gonna do filerev and usemin.
+
+238
+00:21:19.755 --> 00:21:23.005
+So, now, the build task is complete.
+
+239
+00:21:23.005 --> 00:21:26.605
+Now, if I go to the command prompt and
+then type grunt,
+
+240
+00:21:28.295 --> 00:21:32.625
+it should completely prepare
+the distribution folder.
+
+241
+00:21:37.120 --> 00:21:40.850
+It will run all the tasks that
+we have just configured and
+
+242
+00:21:40.850 --> 00:21:42.850
+then prepare the distribution for it.
+
+243
+00:21:42.850 --> 00:21:45.660
+Now let's go into
+the distribution folder and
+
+244
+00:21:45.660 --> 00:21:49.160
+see the results of running
+all of these tasks.
+
+245
+00:21:50.480 --> 00:21:56.160
+Interestingly, if you are interested in
+what the time grunt task will produce,
+
+246
+00:21:56.160 --> 00:22:04.020
+you can see the statistics being
+produced on the command window here,
+
+247
+00:22:04.020 --> 00:22:08.410
+or the terminal if you are using OSX or
+Linux.
+
+248
+00:22:08.410 --> 00:22:11.814
+You can see that the time status takes for
+
+249
+00:22:11.814 --> 00:22:15.934
+each of the tasks has been
+printed on the screen.
+
+250
+00:22:17.732 --> 00:22:20.582
+Now, going to the distribution
+folder again,
+
+251
+00:22:20.582 --> 00:22:23.810
+let's look inside the distribution folder.
+
+252
+00:22:23.810 --> 00:22:26.380
+The menu.html file remains there.
+
+253
+00:22:26.380 --> 00:22:28.240
+The images are still there.
+
+254
+00:22:29.840 --> 00:22:32.740
+The fonts are still there.
+
+255
+00:22:32.740 --> 00:22:39.170
+Now when you go into the scripts folder
+you notice that there is a main.
+
+256
+00:22:41.000 --> 00:22:46.140
+Notice the 20 character tag
+that has been attached.
+
+257
+00:22:46.140 --> 00:22:51.276
+This is what filerev has
+attached to the main file .js.
+
+258
+00:22:53.989 --> 00:22:58.206
+Similarly, if you go
+into the styles folder,
+
+259
+00:22:58.206 --> 00:23:03.722
+you would notice that you have
+main.and then a big tag here,
+
+260
+00:23:03.722 --> 00:23:06.700
+.css attached to the main.
+
+261
+00:23:06.700 --> 00:23:11.399
+Now these two, the CSS files and
+the JavaScript
+
+262
+00:23:11.399 --> 00:23:16.216
+files are containing all
+the code that we need for
+
+263
+00:23:16.216 --> 00:23:20.230
+our menu.html file to work correctly.
+
+264
+00:23:21.815 --> 00:23:26.990
+Just to show you
+the contents of these files
+
+265
+00:23:26.990 --> 00:23:31.610
+I go into the dist folder in brackets.
+
+266
+00:23:31.610 --> 00:23:34.260
+And then let me open the menu.html file.
+
+267
+00:23:35.280 --> 00:23:39.230
+Now when you see the menu.html file,
+
+268
+00:23:39.230 --> 00:23:44.168
+you will notice that
+the style sheet referenced
+
+269
+00:23:44.168 --> 00:23:48.872
+now includes only one
+single CSS file there.
+
+270
+00:23:48.872 --> 00:23:51.935
+This is the concatenated and
+
+271
+00:23:51.935 --> 00:23:57.684
+minified file that we created
+using the usemin task.
+
+272
+00:23:57.684 --> 00:24:03.760
+Going to the bottom of that menu.html
+page you now can see that the scripts
+
+273
+00:24:06.839 --> 00:24:14.835
+Include file now says scripts/main.
+
+274
+00:24:14.835 --> 00:24:19.930
+Filereftac.js.
+
+275
+00:24:19.930 --> 00:24:23.980
+So this file contains all
+the JavaScript you need,
+
+276
+00:24:23.980 --> 00:24:30.515
+including the angular code that we
+are going to use in this project.
+
+277
+00:24:30.515 --> 00:24:37.915
+Now let's take a look inside these files,
+the main.css and main.js file.
+
+278
+00:24:37.915 --> 00:24:42.535
+First, to do that I will go to the styles
+folder in my distribution folder, and
+
+279
+00:24:42.535 --> 00:24:47.247
+then click on main.css, and
+you can notice that this
+
+280
+00:24:47.247 --> 00:24:52.880
+main.css file contains all the code
+
+281
+00:24:52.880 --> 00:24:58.250
+from the boot strap folder,
+everything concatenated together and
+
+282
+00:24:58.250 --> 00:25:02.410
+then modified,
+all the extra lines have been removed.
+
+283
+00:25:02.410 --> 00:25:07.640
+And the whole code has been compressed and
+modified in here.
+
+284
+00:25:07.640 --> 00:25:15.640
+This is very hard for us to read because
+this is okay for a browser to read.
+
+285
+00:25:15.640 --> 00:25:20.385
+The browser doesn't care how the file is,
+how the code is formatted.
+
+286
+00:25:20.385 --> 00:25:25.895
+For a human being to read, this is
+going to be extremely difficult, quite.
+
+287
+00:25:25.895 --> 00:25:28.575
+This file is not meant for
+human consumption.
+
+288
+00:25:28.575 --> 00:25:33.550
+This file is meant for
+consumption by your browser.
+
+289
+00:25:33.550 --> 00:25:36.960
+In the user that comes
+to visit your webpage.
+
+290
+00:25:39.970 --> 00:25:44.780
+This is what minification causes to your
+
+291
+00:25:44.780 --> 00:25:49.590
+CSS files taking a look
+at that Java Script
+
+292
+00:25:49.590 --> 00:25:54.200
+code inside the main.JS file.
+
+293
+00:25:54.200 --> 00:26:00.140
+You can now see that the JavaScript code
+has all been compressed and included here.
+
+294
+00:26:02.140 --> 00:26:07.220
+It has been uglified and
+compressed and included here.
+
+295
+00:26:07.220 --> 00:26:09.120
+Obviously, not for human consumption.
+
+296
+00:26:11.640 --> 00:26:15.680
+Any way this is the result
+of concatenation and
+
+297
+00:26:15.680 --> 00:26:19.250
+uglification of all the JavaScript code.
+
+298
+00:26:20.880 --> 00:26:25.620
+Now if you want to you can
+open the menu.HTML5 in
+
+299
+00:26:25.620 --> 00:26:30.260
+your default browser and you will see
+that the webpage worked correctly.
+
+300
+00:26:30.260 --> 00:26:33.020
+The menu.html in the distribution folders.
+
+301
+00:26:34.570 --> 00:26:36.770
+Let me go ahead and
+double click and open it.
+
+302
+00:26:36.770 --> 00:26:40.930
+You can see that the web page
+is being properly configured and
+
+303
+00:26:40.930 --> 00:26:43.800
+served in my default folder here.
+
+304
+00:26:48.975 --> 00:26:57.950
+That is the interesting aspect of using
+Grunt to take care of all the tasks.
+
+305
+00:26:57.950 --> 00:27:03.730
+The last two changes that I'm gonna
+make is to configure the watch and
+
+306
+00:27:03.730 --> 00:27:08.520
+the connect grunt modules.
+
+307
+00:27:08.520 --> 00:27:11.850
+So let me install the watch and
+the connect grunt modules.
+
+308
+00:27:22.116 --> 00:27:26.667
+Now that I have installed the watch and
+the connect grunt modules,
+
+309
+00:27:26.667 --> 00:27:30.924
+let me go ahead and configure them
+in the grunt file or js file.
+
+310
+00:27:30.924 --> 00:27:37.945
+Going to the grand file now,
+I'm going to add in the configuration for
+
+311
+00:27:37.945 --> 00:27:42.229
+both the watch and the connect tasks here.
+
+312
+00:27:45.203 --> 00:27:49.095
+So now you can see that I've
+added in the configuration for
+
+313
+00:27:49.095 --> 00:27:53.540
+the watch task, and
+the configuration for the connect task.
+
+314
+00:27:53.540 --> 00:27:58.480
+We have seen most of this
+code in the lecture earlier.
+
+315
+00:28:00.720 --> 00:28:08.520
+The last step is to add the grunt
+serve task into the Grunt file.
+
+316
+00:28:09.820 --> 00:28:15.120
+So now you see that I have
+configured a new task called serve,
+
+317
+00:28:15.120 --> 00:28:21.280
+which is going to do build,
+connect:dist, and watch.
+
+318
+00:28:21.280 --> 00:28:24.410
+After we complete these tasks,
+let's go ahead and
+
+319
+00:28:24.410 --> 00:28:30.080
+then run grunt serve on our
+command line and see that message.
+
+320
+00:28:31.380 --> 00:28:38.060
+At the command line, now if you
+type grunt serve, this is going to
+
+321
+00:28:39.910 --> 00:28:45.360
+do it built,
+then it's going to start up the server and
+
+322
+00:28:45.360 --> 00:28:48.500
+then start serving up the page
+in your default browser.
+
+323
+00:28:49.560 --> 00:28:52.310
+And also start up the watch task so
+
+324
+00:28:52.310 --> 00:28:57.640
+that if you change anything
+in any of the files,
+
+325
+00:28:57.640 --> 00:29:02.870
+then the built will
+
+326
+00:29:04.440 --> 00:29:07.840
+automatically be done and
+the live reload with ensure.
+
+327
+00:29:09.350 --> 00:29:14.490
+The newer webpage will be
+loaded into my server.
+
+328
+00:29:14.490 --> 00:29:17.180
+So let me type grunt serve and
+see the result.
+
+329
+00:29:22.740 --> 00:29:25.810
+Once grunt serve starts running,
+
+330
+00:29:25.810 --> 00:29:30.820
+then you see that it automatically
+switches to my default browser.
+
+331
+00:29:30.820 --> 00:29:35.710
+And that page has been loaded
+into my default browser.
+
+332
+00:29:35.710 --> 00:29:40.830
+Now, to show how watch works,
+I'm going to go into my HTML page and
+
+333
+00:29:40.830 --> 00:29:44.260
+then edit the menu.
+
+334
+00:29:44.260 --> 00:29:50.320
+And you will notice that this will
+result in the watch task noticing that
+
+335
+00:29:50.320 --> 00:29:54.870
+the HTML page has been changed, and then
+automatically re-running the build task.
+
+336
+00:29:54.870 --> 00:29:59.790
+And reload that page into the browser.
+
+337
+00:30:01.030 --> 00:30:06.880
+Now, I have opened the menu.html
+page in the app folder.
+
+338
+00:30:06.880 --> 00:30:12.120
+Remember, the watch task is watching
+the files in the app folder.
+
+339
+00:30:12.120 --> 00:30:15.250
+That is where our source files exist.
+
+340
+00:30:15.250 --> 00:30:20.250
+So, any changes that you make to your
+source files will cause a rebuilding of
+
+341
+00:30:20.250 --> 00:30:27.080
+the distribution folder and
+live reloading of the browser.
+
+342
+00:30:27.080 --> 00:30:34.520
+So, let me change this, the menu and
+remove the space there.
+
+343
+00:30:34.520 --> 00:30:39.710
+When I remove the space,
+watch and save the file.
+
+344
+00:30:39.710 --> 00:30:42.730
+Watch, notice that the file
+has been changed and
+
+345
+00:30:42.730 --> 00:30:45.530
+then it will recompile all the files for
+us.
+
+346
+00:30:48.140 --> 00:30:53.220
+Now, when I go to the browser, you will
+notice that that all the build tasks have
+
+347
+00:30:53.220 --> 00:30:58.570
+been run one more time and
+the file is now being surfed.
+
+348
+00:30:59.650 --> 00:31:01.780
+If you go to your browser window.
+
+349
+00:31:01.780 --> 00:31:05.620
+You would notice that
+the menu has been updated and
+
+350
+00:31:05.620 --> 00:31:07.730
+this piece has been removed there.
+
+351
+00:31:07.730 --> 00:31:14.650
+So the live reloading of our
+webpage works correctly with Grunt.
+
+352
+00:31:17.593 --> 00:31:23.363
+I again modified the menu page
+back to its original state,
+
+353
+00:31:23.363 --> 00:31:28.330
+and the page has been again
+reloaded by live rent.
+
+354
+00:31:29.500 --> 00:31:35.290
+This is their power that grunt brings
+to us, the automated task runner.
+
+355
+00:31:36.310 --> 00:31:38.810
+This completes this exercise.
+
+356
+00:31:38.810 --> 00:31:44.680
+In this exercise,
+you have learned how to use grunt and
+
+357
+00:31:44.680 --> 00:31:49.450
+how to configure the automated
+tasks in grunt and
+
+358
+00:31:49.450 --> 00:31:55.460
+how to make use of radius grunt
+modules in order to accomplish
+
+359
+00:31:55.460 --> 00:31:58.430
+grunt radius grunt modules tasks.

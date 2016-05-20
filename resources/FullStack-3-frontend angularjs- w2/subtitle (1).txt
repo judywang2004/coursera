@@ -1,0 +1,255 @@
+After grunting so
+much in the previous exercise, you're probably totally out of breath. Take a big gulp of air, relax, and slowly let it out, and
+let's get started on Gulp. As you went through the Grunt exercise
+you realized that configuring a Grunt file is not as straightforward as you
+might expect, and I'm not surprised. It is in art in itself and
+there our experts who have figured out the way of making use of
+Grunt to get the work done. Very often we would be making use
+of pre-configured grunt files that the experts in the field have already
+configured for us to get our work done. But I still wanted you to get some
+hands-on experience of configuring your own Grant file, and then looking
+at what it takes to configure one. Of course, as you gain more
+experience it will get more and more easy to understand how
+to configure these files. Now, Grant was all about configuration. Now, Gulp is another task runner
+which takes the code route, rather than the configuration route. So in Gulp we write a lot of
+code to get our task done, rather than configuring
+either the built in tasks or the modules that we import,
+just like that we did in Grunt. So in Gulp you would notice
+a different way of thinking about implementing solutions for your tasks. Gulp is based around Node.js streams and it uses the Node.js streams
+to build complex pipelines, and this avoids creation
+of intermediate files. Now in Grunt, when you needed to process
+some files, you would process a bunch of files using one of the Grunt modules, and
+then you'd produce some temporary files. These temporary files would then be read
+by other Grunt modules and then processed. Then they would generate temporary
+files until you get your work done, but Gulp's way of doing this is to
+take advantage of Node.js streams. What is a Node.js stream? Going into the details is
+beyond this course, but suffice it to say that a Node.js
+stream is like a file flowing in. So, think of the concept of a stream,
+something that flows in. So, the contents of a file flow
+in Into one of the Gulp tasks. It gets processed and
+then a stream of file is upward and that can be fed into the next
+function in Gulp and then so
+on until you achieve the desired result. I will explain a little more about
+this in one of the next slides. Now, in Gulp,
+the plugins that are designed in Gulp are designed to do only one task,
+and do that one task very well. So in order to achieve a complicated task, you would actually take a bunch of
+plugins and then hook them together just like Lego blocks in order
+to build a bigger pipeline. And you will introduce
+files from one end and out the other end comes
+the processed output. In Gulp, tasks are executed
+with the maximum concurrency. So if you specify multiple
+tasks to be executed, Gulp will try to execute them
+simultaneously as far as possible. How do we get started with Gulp? First, we will install
+the global Gulp package. The Command Line Tool, so
+to do that we do npm install -g gulp. Again, if you're using Mac or
+Linux, make sure to use sudo, then after that you will be installing
+Gulp Package locally within your project. Again, you do npm install gulp --save-dev,
+just like you did before. So we need to configure out
+package.json file so that the Gulp plugins that you installed
+will be written into the packaged.json file for
+later installation if required. In gulp, you will specify
+the tasks inside gulp file.js. Now, the gulp file.js requires you, before you configure the gulp task you
+need to install some gulp plugins. Again, we make use of the npm install. So we're going to install
+a whole set of gulp plugins which have similar functionality to
+what we did with the gulp plugin. So you will have jshint, jshint-stylish,
+imagemmin, concat, uglify, minify, usemin and
+many other gulp plugins. So, here I have a list of gulp
+plugins that I'm going to make use of in the exercise next. So do install them. So npm install and specify all
+the gulp plugins in one shot and then do --save-dev, so that all this Gulpfile information is
+also saved in your package.js file. Then, we go into the gulpfile.js file. The first thing that we do is
+to load in all the plugins. The way you load in plugins is
+to say var gulp = require and the specify the gulp plugin's name. You can also use node packages and
+node modules within your gulp file. Some of the functionality
+is directly used from existing node modules rather than
+writing explicit gulp plugins. We will see a few of them as
+we go through this lecture. So, all the gulp plugins
+are loaded in by using var and then specifying the different plugins
+using the require function there. Another way of loading in all the plugins
+that are part of your project is to use a plugin called
+the gulp load plugins package. I am not going to use that
+route in this exercise. Instead, I will leave that as an optional
+exercise for your to pursue further. In grunt, I showed you the user
+get grunt like that the gulp load plugins plugin also
+serves a similar purpose here. Instead, what I am doing here is
+to load the individual plugins explicitly by using the require function. As I mentioned,
+at the start of this lecture Gulp operates using node streams. So the way a pipeline is
+configured is that you would start with a bunch of files then you
+will pass them through a pipe. And then in between they will be modified
+using one function then the result coming out of it will again be
+piped through to the next function. If you have used Unix, Unix or Linux or even Mac, you know how
+the pipe command works in Unix. So you have a vertical line so that you can take the output
+from one command and then pipe it directly into another command,
+if you are using the terminal vendor. Similar idea here with the gulp buckets. So, each function will transform the incoming file data from the pipe and then output the transformed data
+in the form of an outgoing pipe, so the plugins are all connected
+together using pipes, and you're feeding the files from one end, and
+the result comes out at the other end. So that is why I show you a diagrammatic
+illustration of the gulp plugin operation. Now when you need to
+specify the input files, you will use a gulp source function. This gulp source function
+takes file globs, you know what file globs
+are from the previous lectures. So they take file globs and
+then, using the file glob, they'll select a bunch of files, and
+then these files will be inserted into the pipe and the pipe, when it
+passes through one of the functions. So you specify the functions that need
+to be performed on this stream of files, are using the pipe command. We will see some examples
+in the next few slides. And then finally, the end result with the
+version of using the gulp dest function. So this specifies the destination
+of the modified false. Let's look at some examples of
+the usage in the next few slides. First let me illustrate to you how
+a JSHint task can be configured in Gulp. Remember that this was one of the first
+tasks that we saw even with Grunt. So in, in Gulp's way of
+specifying the JSHint task, you would specify task gulp.task. And then the first parameter to gulp.task
+function is the name of the task. So in this case I am using
+JSHint is the name of the task. The second one is a function. Inside this function,
+note how we have specified several things. The first statement says gulp.src. and you see that file glob
+pattern that I had given there. So this Gulp source will select
+all the JavaScript files in the app/scripts folder. And then all these files are then going
+to be piped through the jshint function. That's why you see the second statement
+where it says pipe, JSHint, and the result from the JSHint function, the
+output from the JSHint will be piped into the JSHint reporter,
+with the stylish option, so the error or the warnings coming in from JSHint will be printed out on the screen,
+using the stylish reporter. Again, same functionality
+that we have seen in grunt. Look at how gulp configures
+that particular task. The next task that you're gonna see,
+which we didn't do with grunt but I want to illustrate how this can be
+done using gulp is Imagemin task. The Imagemin task takes all
+the images in your images folder, and then optimizes these files for
+use on your website. So what we do is the gulp
+source as you can see we are specifying that files
+in the app images folder. Now, all these files are gonna
+be first piped through a cache. The cache can probably hold all the files,
+and then one by one, the files are passed through the Imagemin function. The Imagemin function we have given
+certain configuration values there, so optimization level three,
+progressive is true, interlaced is true. So these image transformations
+are done to those images. And then the result will be
+piped out to the destination, which is distribution/images. So we are slowly building the distribution
+folder with the files from the source folder, the source folder is still
+the app folder that we had used earlier. Then, you also see me using another
+function called the notify function. The notify function will display the
+message that we give as a parameter there to the user, using your standard
+operating system to notify functionality. So it will display a notify message on
+the screen when the task is completed. The next task that we are going
+to look at is the clean-up task. Now I'm gonna use
+the clean-up task to remove all the files from the distribution folder
+and the deleted distribution folder. So to do this we are taking
+the help of a node module called D-E-L, del, so
+this is not a gulp plugin. Instead, this is a module
+that node already provides. So we are taking advantage of the node
+module directly in order to achieve our required functionality. So I can figure this gulp.task
+as saying gulp.task, and then specifically the name as clean,
+and then send the function. I am specifying del, and then the parameter there is desk folder,
+which is being supplied. So this will result in the del
+module being executive, and which will result in the distribution
+folder being deleted from your project. The next task we are going to
+look at is the usemin task. Remember we used a similar usemin
+task in grant which we configured. Now, in case of gulp,as you see,
+this is a streaming way of doing things. So, I configure the gulp task with usemin. And also note the second value there. Inside square brackets,
+I'm specifying jshint. What this means is that before the usemin
+task is run, I should run the jshint task. So in principle, I don't need to
+explicitly specify the JS sync task. Whenever the usemin task runs, before the usemin task actually runs
+it will run the JS sync task also. This is one way of checking the JavaScript files before you go to
+the Concatenation and magnification. For the CSS files, you're gonna do
+the minification and the revisioning. So, here, I am specifying gulp.src. Recall for the usemin task,
+we are going to configure the information inside the HTML file where
+we use the build colon CSS. And the destination file name and
+then the end belt. Remember that we included
+some comments inside the menu HTML page for the earlier grant exercise. They're going to make use of
+the same menu HTML file so the usemin that we are using with gulp
+works with the same menu.html file. Now since we have already
+configured that in our app folder, I'm not gonna repeat that
+in the Gulp exercise. That is taken as the source so from the configuration there we're gonna
+identify which of the CSS files and which of the JavaScript files that
+are being used in this project. Then, that is piped through
+the usemin function. The usemin function
+itself does the cssmin, then the JavaScript uglification and
+all them. So, I am specifying the usemin task. I'm saying for CSS do the minifycss() and you can see that I have specified rev(). That is the file revisioning
+that we used with grant. Same thing is provided by
+the Rev plugin for gulp. And after that, also for,
+we'll carry out similar uglification and concatenation for
+the JavaScript files. That is specified the uglify and
+the Rev and the destination of this function is that
+distribution folder so all the results are going to be
+copied into the distribution folder including the HTML files. Another interesting package
+that we're going to use with Gulp is called a browser-sync. Browser-sync is a node package which
+enables you to start a browser and sever a static that fold so it only serves a static web assets,
+static web page and static CS java system first so
+to configure this browser sync task now remember
+browser sync e is an m p m module not a gulp plugin now a similar browser sync module is
+also available with Grant. So instead of using the connect
+that we used with Grant. You can also use browser sync with Grant. The configuration is somewhat similar, but a little bit different than
+the connect package the same way. Gulp also has a connect package, but I wanted to illustrate to
+you the use of BrowserSync. I illustrated the connect module for grunt, so I thought I would illustrate
+the BrowserSync module for gulp. So browser sync as far as I came to know, is more flexible or
+more powerful than connect flow. By all means,
+you can reconfigure the grunt file, to use browser settings
+instead of using connect. Now let's look at how we can
+figure browser sync in gulp. So here we specify the gulp
+task as browser sync. This gulp task browser sync the second value that I specify inside
+the square brackets is 'default'. There is a default task that
+I'm going to configure later. What I am specifying is that, before I run browserSync,
+I should first execute the default task. The default task does the building
+of the distribution folder. As you will see a little bit later. Now the browser sync task, the first var
+files equal to what I am specifying, what I am specifying to the browser sync
+task is that these are all the files that you're going to keep a watch on and
+any one of them if they change you are going to be causing
+the browser window to be reloaded. The second thing that you see
+there is the browserSync.init. So I am specifying configuration for
+the browserSync module. So I specify the first
+parameter of those files, which is the JavaScript variable
+that I just declared earlier. Then the second parameter
+specifies some information about the server configuration. I'm specifying that the server
+should use the distribution folder as the best directory for the server. So files in the distribution
+folder will be served up. And the second parameter there,
+index which I specify as menu.html. I am specifying to gulp
+to browser sync that. The default index.html file
+is not available there. Instead use the menu or html file
+as the index file to be summed up. If you don't specify the index explicitly, BrowserSync automatically assumes
+there is an index or HTML folder dist then it will start serving
+up that particular file. The last configuration down below that
+you see, I'm specifying gulp.watch, gulp.watch is a built-in task in gulp. What the watch task does, is it keeps watch on the files
+specified as a parameter to it. So, inside they're watch task I'm
+specifying dist as their parameter and also I am specifying on the function
+on and then I'm saying change. If there is any change in any of
+the files inside the distribution folder. Then the browser sync reload will
+be called to reload the browser, so this ensures that if you make changes to
+any of the files in the app folder, then the default task will cause a rebuilding
+of your distribution folder. When your distribution folder is rebuilt, then the files in the distribution
+folder will change. This will result in the gulp
+watch here getting triggered and this will cause the processing
+to reload the pitch. In addition, just like in case of grunt,
+we had the watch task. We can also configure
+a watch task in gulp. So for the watch task in gulp I
+am specifying gulp task watch and note that I'm specifying the second
+parameter there with the browser sync. Within the square brackets,
+meaning that the watch task depends upon the BrowserSync task
+to execute before the watch task. Now, this way, if I say gulp watch,
+then this will automatically cause the watch tasks that I have configured
+inside the function here to be started up, and they're going to keep a watch on
+the files that are specified there. And so I am specifying gulp.watch and then look at the file globs
+that I've specified there. I'm saying keep a watch
+on the scripts folder, the styles folder,
+the html files in the folder. When any one of them changes, rate on
+the usemin task if the images change, then you're going to realign
+the imagemin task, in this case. Finally, let me show you
+the default task that I configured. By default Gulp provides this
+default task that you can configure. So if you give the name of the task as
+default, then you can simply execute this task by just typing
+gulp at the command prompt. The default task here,
+again I'm specifying a dependency for the default task on the clean task. So which means that before the default
+executes, the clean task will execute. Now remember that gulp will execute all the tasks that you specify
+asynchronously and simultaneously. Now if I do the clean while I am doing
+usemin and imagemin and copyfonts, it is quite possible that the clean task
+may end up deleting some of the files. That my remaining tasks may create. So in order to prevent
+the kind of behavior, what I am specifying is that
+the clean task is the dependency. The clean task should be
+execute first to completion, then you go about executing
+the remaining task. Here, I am taking the help of a Gulp
+start function that is available. And inside the gulp start function, I am specifying all the tasks
+that are supposed to execute. They could be executed
+sequentially of all concurrently. It doesn't matter to us. These tasks are not
+dependent upon each other. The copyfonts task copies
+the font files from the browser contents fonts folders
+to the distribution folder. Finally, they come to our next exercise. We are going to take all
+the tasks that we just studied, and then configure a Gulp file. And then we're gonna use Gulp to do
+exactly the same thing that we were doing using Grunt before. Now so at the end of this exercise, hopefully you will have
+learned something about how to make use of Gulp for
+doing your task runners. Now Grunt is based around Node.js strings. Sorry.

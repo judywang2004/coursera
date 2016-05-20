@@ -1,0 +1,915 @@
+WEBVTT
+
+1
+00:00:01.120 --> 00:00:08.100
+Let's now talk about forms and Angular
+Support for Forms and Form Validation.
+
+2
+00:00:08.100 --> 00:00:14.810
+You have already realized that forms are
+an integral part of designing any website.
+
+3
+00:00:14.810 --> 00:00:21.180
+Forms are a way for users to provide
+information to their website.
+
+4
+00:00:21.180 --> 00:00:27.060
+So, how does Angular support forms or what
+kind of features does Angular provide for
+
+5
+00:00:27.060 --> 00:00:31.660
+us, to enable support for
+forms and Form Validation?
+
+6
+00:00:31.660 --> 00:00:34.290
+This is what we will
+explore in this lecture.
+
+7
+00:00:37.330 --> 00:00:41.540
+Angular and
+forms are like two peas in a pod.
+
+8
+00:00:41.540 --> 00:00:47.520
+They work together very well,
+in a straight forward manner.
+
+9
+00:00:47.520 --> 00:00:50.610
+Because of the two-way data
+binding that Angular provides,
+
+10
+00:00:50.610 --> 00:00:56.780
+it's very easy to match up
+form fields to the JavaScript
+
+11
+00:00:56.780 --> 00:01:01.410
+objects that you can use
+within your Angular coach.
+
+12
+00:01:01.410 --> 00:01:04.380
+Now, how do we go about doing this?
+
+13
+00:01:04.380 --> 00:01:09.850
+We can define JavaScript objects on
+the scope, in our controller for example,
+
+14
+00:01:09.850 --> 00:01:15.700
+and the controller could be controlling
+a part of the page which contains a form.
+
+15
+00:01:15.700 --> 00:01:20.030
+Now you can easily match up
+the input fields in the form.
+
+16
+00:01:20.030 --> 00:01:24.990
+Or the other form fields to
+appropriate JavaScript variables
+
+17
+00:01:24.990 --> 00:01:27.340
+using the ng-model directive.
+
+18
+00:01:27.340 --> 00:01:31.350
+We have already seen this in action,
+
+19
+00:01:31.350 --> 00:01:38.040
+in some of the earlier examples and
+the exercises that we considered.
+
+20
+00:01:39.160 --> 00:01:41.650
+Now, as an example,
+
+21
+00:01:41.650 --> 00:01:46.490
+let's look at how we would define a Java
+Script variable inside a controller.
+
+22
+00:01:46.490 --> 00:01:51.484
+In this example, you can see me
+defining this JavaScript object,
+
+23
+00:01:51.484 --> 00:01:55.080
+called as feedback on the scope.
+
+24
+00:01:55.080 --> 00:02:02.950
+Now within the form itself, I am
+matching this input field of the form to
+
+25
+00:02:02.950 --> 00:02:08.120
+a property of this JavaScript object,
+using the ng-model directive.
+
+26
+00:02:08.120 --> 00:02:11.990
+So for the ng-model I specified
+as feedback, First Name.
+
+27
+00:02:11.990 --> 00:02:18.112
+So, whatever changes I make in this
+form field will be automatically
+
+28
+00:02:18.112 --> 00:02:23.170
+reflected to the property
+in the JavaScript object.
+
+29
+00:02:23.170 --> 00:02:28.700
+So, this is fairly straightforward for
+transferring information from or
+
+30
+00:02:28.700 --> 00:02:32.340
+to the form, from the JavaScript code.
+
+31
+00:02:33.390 --> 00:02:36.840
+If you have select elements in your form,
+
+32
+00:02:36.840 --> 00:02:42.820
+then Angular provides a wonderful
+way of managing the select elements.
+
+33
+00:02:42.820 --> 00:02:49.220
+You can define a JavaScript
+object array in your code.
+
+34
+00:02:49.220 --> 00:02:55.030
+As you see in this example, I defined this
+channels object array, in the code and
+
+35
+00:02:55.030 --> 00:03:00.580
+then I will hang those channels on
+to the scope in the JavaScript code.
+
+36
+00:03:00.580 --> 00:03:05.400
+And then in my form
+element declaration for
+
+37
+00:03:05.400 --> 00:03:09.960
+the select,
+I can specify using the ng-model,
+
+38
+00:03:09.960 --> 00:03:15.300
+I can match up the selection that
+I do using this select statement
+
+39
+00:03:15.300 --> 00:03:21.830
+to a property in my JavaScript
+object in the code.
+
+40
+00:03:21.830 --> 00:03:28.080
+Similarly I can use the ng-options
+directive to be able to make use of
+
+41
+00:03:29.420 --> 00:03:36.160
+the various JavaScript objects that are
+defined in the JavaScript object array.
+
+42
+00:03:36.160 --> 00:03:42.520
+And make use of them to define
+the options in my selected statement.
+
+43
+00:03:42.520 --> 00:03:48.220
+So, in this example, you can see that
+I am defining channel in channels for
+
+44
+00:03:48.220 --> 00:03:52.440
+the ng-options towards the last
+part I say channel in channel.
+
+45
+00:03:52.440 --> 00:03:58.000
+So every object that is part
+of the channel's JavaScript
+
+46
+00:03:58.000 --> 00:04:02.820
+object array, I'm looking at each one of
+them and then I am using the first part.
+
+47
+00:04:02.820 --> 00:04:07.061
+Look at how I define
+channel.value as channel.label.
+
+48
+00:04:07.061 --> 00:04:12.096
+Now, so, the channel.label,
+so the label property
+
+49
+00:04:12.096 --> 00:04:18.014
+of that object is gonna be use as
+the label for my select options.
+
+50
+00:04:18.014 --> 00:04:23.367
+And then when I make that selection
+of that particular option,
+
+51
+00:04:23.367 --> 00:04:27.104
+then the channel value
+that I specify here,
+
+52
+00:04:27.104 --> 00:04:32.154
+will be assigned as the value
+that is gonna be assigned using
+
+53
+00:04:32.154 --> 00:04:37.110
+the ng-model to the JavaScript
+property in my code.
+
+54
+00:04:37.110 --> 00:04:42.251
+So whatever the channel value, that will
+be assigned to the feedback, mychannel,
+
+55
+00:04:42.251 --> 00:04:47.590
+that I defined in
+the ng-model directive there.
+
+56
+00:04:47.590 --> 00:04:51.980
+So this way I can ensure that
+I can dynamically generate
+
+57
+00:04:51.980 --> 00:04:57.040
+the options in the select element.
+
+58
+00:04:57.040 --> 00:05:02.730
+In addition, I can give a default
+prompt option value there, so
+
+59
+00:05:02.730 --> 00:05:09.800
+you can see that I have specified option
+value blank string, Tel or Email there.
+
+60
+00:05:09.800 --> 00:05:16.380
+So that would be displayed as
+the default value in the options,
+
+61
+00:05:16.380 --> 00:05:21.330
+and then it'll force the user
+to select an option value.
+
+62
+00:05:21.330 --> 00:05:27.560
+Form validation in Angular is again,
+very well supported.
+
+63
+00:05:27.560 --> 00:05:32.556
+You can verify any of the input fields and
+the value that you supply in
+
+64
+00:05:32.556 --> 00:05:38.180
+the input fields, very easily using
+Angular Support for Form Validation.
+
+65
+00:05:38.180 --> 00:05:40.780
+Let's explore this in
+a little more detail.
+
+66
+00:05:42.390 --> 00:05:47.360
+Now, HTML5 comes with validation
+support for the form fields.
+
+67
+00:05:47.360 --> 00:05:52.470
+Now, if you are using Angular,
+you may wish to turn off the HTML5s
+
+68
+00:05:52.470 --> 00:05:57.810
+built in support and instead, let Angular
+take over the validation of the form.
+
+69
+00:05:57.810 --> 00:06:01.200
+So, to do that for the form cloud form,
+
+70
+00:06:01.200 --> 00:06:07.480
+I will specify the novalidate
+option when in the form tac.
+
+71
+00:06:07.480 --> 00:06:14.075
+Also, when the form is submitted,
+I can have the form
+
+72
+00:06:14.075 --> 00:06:19.175
+invoke a JavaScript function
+in my controller, for example.
+
+73
+00:06:19.175 --> 00:06:23.575
+So using the ng-submit directive here,
+
+74
+00:06:23.575 --> 00:06:28.890
+I can specify a function which will be
+called when the user submits this form.
+
+75
+00:06:28.890 --> 00:06:34.180
+So, inside that function I can
+handle the submission of the form.
+
+76
+00:06:34.180 --> 00:06:40.800
+So, for example, inside that function I
+may issue an AJAX call from the JavaScript
+
+77
+00:06:40.800 --> 00:06:45.120
+code in order to send over the information
+to a server in the backend.
+
+78
+00:06:46.340 --> 00:06:51.000
+To make all this work,
+you need to give the form a name.
+
+79
+00:06:51.000 --> 00:06:54.790
+So the name attribute should
+be specified for the form.
+
+80
+00:06:54.790 --> 00:06:59.540
+So in this example, I am specifying
+the name as feedbackForm, and
+
+81
+00:06:59.540 --> 00:07:04.210
+that will enable me to
+access various properties
+
+82
+00:07:04.210 --> 00:07:09.080
+that I can use for
+validation of the form input elements.
+
+83
+00:07:10.360 --> 00:07:16.190
+All the form fields that are available
+within your form will be validated by
+
+84
+00:07:16.190 --> 00:07:21.650
+Angular, by default, before
+the values is assigned to the scope.
+
+85
+00:07:23.350 --> 00:07:27.940
+So if a particular input field
+does not validate properly,
+
+86
+00:07:27.940 --> 00:07:32.810
+so the value will not be transferred
+to the JavaScript object,
+
+87
+00:07:32.810 --> 00:07:37.260
+the corresponding property of
+the JavaScript object in my code.
+
+88
+00:07:37.260 --> 00:07:43.172
+Some directives that you can specify for
+the fields is including,
+
+89
+00:07:43.172 --> 00:07:47.540
+ng-minlength, ng-maxlength,
+to specify the minimum and
+
+90
+00:07:47.540 --> 00:07:54.558
+the maximum length of the input that the
+user can provide with the name put fields.
+
+91
+00:07:54.558 --> 00:07:59.624
+You can also use ng-pattern,
+where you can specify a regular
+
+92
+00:07:59.624 --> 00:08:04.399
+expression, and
+let angular verify that the input that is
+
+93
+00:08:04.399 --> 00:08:08.950
+entered by the user matches
+this regular expression.
+
+94
+00:08:08.950 --> 00:08:13.320
+So that's a very valuable way of verifying
+
+95
+00:08:13.320 --> 00:08:16.979
+input that the user
+provides in those fields.
+
+96
+00:08:18.450 --> 00:08:23.210
+Any field that you have within your forms,
+
+97
+00:08:23.210 --> 00:08:27.880
+if you give names to those fields
+you can easily use certain
+
+98
+00:08:27.880 --> 00:08:33.080
+properties that Angular attaches to
+those names to check for values.
+
+99
+00:08:33.080 --> 00:08:39.330
+So for example,
+if I give my form a name as feedback form,
+
+100
+00:08:39.330 --> 00:08:41.080
+and then an input element.
+
+101
+00:08:41.080 --> 00:08:47.040
+If I give the name as first name,
+then by default Angular hands
+
+102
+00:08:47.040 --> 00:08:52.830
+four different property
+values to these field names.
+
+103
+00:08:52.830 --> 00:08:57.770
+So, you can use that within the HTML code,
+and
+
+104
+00:08:57.770 --> 00:09:01.380
+also within the JavaScript code
+in order to verify values.
+
+105
+00:09:01.380 --> 00:09:06.970
+The fourth property is that Angular
+associates are pristine, dirty,
+
+106
+00:09:06.970 --> 00:09:08.270
+valid, and invalid.
+
+107
+00:09:09.570 --> 00:09:13.670
+If the pristine property,
+so for example for
+
+108
+00:09:13.670 --> 00:09:18.600
+a field if you wanna verify that
+the field is pristine you can say
+
+109
+00:09:18.600 --> 00:09:23.770
+feedback from firstName.$pristine.
+
+110
+00:09:23.770 --> 00:09:29.080
+That will be true if that
+field has not been touched or
+
+111
+00:09:29.080 --> 00:09:31.930
+not been modified in any way by the user.
+
+112
+00:09:33.310 --> 00:09:35.680
+The opposite of it is dirty.
+
+113
+00:09:35.680 --> 00:09:40.450
+So dirty if it is true, then that
+feed has been touched by the user.
+
+114
+00:09:40.450 --> 00:09:42.410
+Similarly, valid and invalid.
+
+115
+00:09:42.410 --> 00:09:47.140
+Valid will be true if the input
+value in the field is a valid
+
+116
+00:09:48.250 --> 00:09:50.510
+input that can be accepted.
+
+117
+00:09:50.510 --> 00:09:54.620
+If not,
+the valid flag will be set to false.
+
+118
+00:09:54.620 --> 00:09:58.730
+So these four properties
+allow us to easily verify
+
+119
+00:09:58.730 --> 00:10:03.206
+various form inputs that
+we use it supplies.
+
+120
+00:10:03.206 --> 00:10:07.060
+Now how will we actually make use of this?
+
+121
+00:10:07.060 --> 00:10:11.973
+Now this is where you can use these
+properties in order to check and
+
+122
+00:10:11.973 --> 00:10:16.360
+then deliver validation results
+to the user on the form.
+
+123
+00:10:16.360 --> 00:10:19.006
+So for example, if a field is invalid,
+
+124
+00:10:19.006 --> 00:10:24.240
+you could highlight that by
+turning that field into red color.
+
+125
+00:10:24.240 --> 00:10:29.127
+To give feedback to the user saying,
+look this doesn't work correctly.
+
+126
+00:10:29.127 --> 00:10:35.459
+Now fortunately if you're using Bootstrap,
+Bootstrap already provides a lot of
+
+127
+00:10:35.459 --> 00:10:41.348
+CSS classes that enable you to set up
+validation states for various fields.
+
+128
+00:10:41.348 --> 00:10:44.990
+So within Bootstrap we
+have the .has-error,
+
+129
+00:10:44.990 --> 00:10:49.375
+.has-warning, .has-success
+classes available.
+
+130
+00:10:49.375 --> 00:10:53.385
+You can specify those classes with,
+for example,
+
+131
+00:10:53.385 --> 00:10:57.310
+the form group divs that you use or
+
+132
+00:10:57.310 --> 00:11:02.290
+other elements within your form.
+
+133
+00:11:02.290 --> 00:11:05.500
+Also there is this help block
+
+134
+00:11:05.500 --> 00:11:10.870
+class that is available that will
+enable you to display helpful messages.
+
+135
+00:11:10.870 --> 00:11:17.596
+Let's look at an example of how we can
+make use of this within our form fields.
+
+136
+00:11:17.596 --> 00:11:25.170
+This is an example of how I am using
+those pristine, their valid and invalid.
+
+137
+00:11:25.170 --> 00:11:30.375
+Now the pristine valid invalid are also
+associated with the form itself, so
+
+138
+00:11:30.375 --> 00:11:36.186
+you can say feedbackForm.pristine, meaning
+the entire form is a pristine or not.
+
+139
+00:11:36.186 --> 00:11:40.280
+Similarly feedbackForm.$valid,
+
+140
+00:11:40.280 --> 00:11:44.370
+meaning whether the entire
+form is valid or not.
+
+141
+00:11:44.370 --> 00:11:47.620
+If all the fields are valid,
+the entire form will be valid.
+
+142
+00:11:47.620 --> 00:11:50.500
+If any of the fields of
+the form is not valid,
+
+143
+00:11:50.500 --> 00:11:52.780
+the entire form will be
+declared as invalid.
+
+144
+00:11:54.170 --> 00:11:58.600
+Now, let's look at the form
+validation usage within our code.
+
+145
+00:11:58.600 --> 00:12:02.300
+So in here I am specifying for
+the div class.
+
+146
+00:12:02.300 --> 00:12:05.147
+I am using the ng class.
+
+147
+00:12:05.147 --> 00:12:10.099
+Directive, to apply the has-error and
+
+148
+00:12:10.099 --> 00:12:15.346
+has-feedback classes to the entire div.
+
+149
+00:12:15.346 --> 00:12:21.046
+And the right side of it, so I specified
+feedbackForm.emailid.$invalid and
+
+150
+00:12:21.046 --> 00:12:27.295
+feedbackForm.emailid.$pristine and
+not feedbackForm.emailid.$pristine.
+
+151
+00:12:27.295 --> 00:12:32.855
+So which means that these two classes
+will be obliged to this form group.
+
+152
+00:12:32.855 --> 00:12:37.330
+If the emailid is invalid, and
+
+153
+00:12:37.330 --> 00:12:42.970
+the field itself, is not pristine,
+or the field, itself, is dirty.
+
+154
+00:12:42.970 --> 00:12:47.910
+So I could easily say
+feedbackForm.emailid.$dirty.
+
+155
+00:12:47.910 --> 00:12:50.190
+When both these conditions are valid,
+
+156
+00:12:50.190 --> 00:12:55.380
+then these two classes are gonna
+be applied to this div.
+
+157
+00:12:55.380 --> 00:12:58.360
+Now, the has-error class,
+when you apply to the div.
+
+158
+00:12:58.360 --> 00:13:03.680
+It will end up showing
+the entire input field and
+
+159
+00:13:03.680 --> 00:13:06.980
+the label in red color.
+
+160
+00:13:06.980 --> 00:13:12.570
+So that's a very nice, visual feedback
+that you can provide to the user.
+
+161
+00:13:12.570 --> 00:13:17.568
+Not only that,
+you can also use span fields inside,
+
+162
+00:13:17.568 --> 00:13:22.280
+and for the span field,
+if you specify the classes help block.
+
+163
+00:13:22.280 --> 00:13:27.428
+Then whatever value you specify
+into the span, that span field or
+
+164
+00:13:27.428 --> 00:13:35.770
+rather the span tag will be displayed
+underneath the input field of your form.
+
+165
+00:13:35.770 --> 00:13:41.278
+So for example, here I would say
+feedbackForm.emailid$invalid and
+
+166
+00:13:41.278 --> 00:13:46.540
+not feedbackForm.emailid.$pristine,
+then I would
+
+167
+00:13:46.540 --> 00:13:51.095
+be able to display this message saying,
+enter a valid email address,
+
+168
+00:13:51.095 --> 00:13:56.035
+in red color underneath the input field.
+
+169
+00:13:56.035 --> 00:14:00.555
+So that's another way of
+delivering a message to the user.
+
+170
+00:14:00.555 --> 00:14:05.120
+Now, using the has-feedback class.
+
+171
+00:14:05.120 --> 00:14:09.080
+Now the has-feedback class,
+when it is used,
+
+172
+00:14:09.080 --> 00:14:15.320
+I can also include glyphicon's inside
+the input fields in bootstrap.
+
+173
+00:14:15.320 --> 00:14:19.094
+So here I am using this glyphicon
+called glyphicon-remove.
+
+174
+00:14:20.150 --> 00:14:24.590
+And also specified it as
+form-control-feedback.
+
+175
+00:14:24.590 --> 00:14:29.980
+Now when I do this,
+this will display a cross,
+
+176
+00:14:29.980 --> 00:14:35.960
+red cross sign, inside the input
+field if that input field is invalid.
+
+177
+00:14:35.960 --> 00:14:40.190
+So that's one more way of
+delivering feedback to the user.
+
+178
+00:14:41.840 --> 00:14:46.180
+So, hopefully,
+that has given you a quick introduction to
+
+179
+00:14:46.180 --> 00:14:50.150
+how you can set up forms and
+do Form Validation in Angular.
+
+180
+00:14:51.490 --> 00:14:56.300
+We'll now move on to the next exercise
+where we will make use of all that we have
+
+181
+00:14:56.300 --> 00:15:02.670
+learned in this lecture, and
+apply it to a form in our Web page.
+
+182
+00:15:04.090 --> 00:15:07.972
+So we are going to use Angular support for
+fonts.
+
+183
+00:15:07.972 --> 00:15:12.190
+We're gonna establish two way data
+binding between the form fields and
+
+184
+00:15:12.190 --> 00:15:14.072
+a JavaScript object.
+
+185
+00:15:14.072 --> 00:15:17.590
+We're gonna use Angular support for
+Form Validation and
+
+186
+00:15:17.590 --> 00:15:24.080
+also you will explore how you can do Form
+Validation inside the JavaScript code.
+
+187
+00:15:24.080 --> 00:15:27.480
+Now, for the select element,
+
+188
+00:15:27.480 --> 00:15:32.070
+I'm going to do form validation
+inside the JavaScript code.
+
+189
+00:15:32.070 --> 00:15:35.490
+So that's another way of
+doing Form Validation.
+
+190
+00:15:36.610 --> 00:15:39.100
+Let's move onto the next exercise.

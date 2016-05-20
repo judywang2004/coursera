@@ -1,0 +1,262 @@
+Let us now learn how to make use of Grunt. We'll configure Grunt file
+in this exercise, and then use Grunt to automate
+several off the web building tasks that we need to do
+with our development. To get started, let's first install
+the grunt command line interface. To do that, add the command prompt type 'npm install -g grunt-cli'. If you are using a Mac or Linux, make sure to perceive
+command with the pseudo. Once the installation is complete, then
+your machine is now ready to use crunch. Next, go to the confusion folder and create a file named package.jsub and include the following
+code inside package.jsub. We are configuring this
+package.jsub file with the name of the project and
+additional information here. Next, we are going to install several Grunt modules in order to make
+use of Grunt within our project. In the next step, let's install Grunt
+locally within our conFusion project so, that we can make use of it for
+our development. To do that, at the command prompt type npm install grunt --save-dev. With this, we are making sure
+that Grunt is installed and also the current configuration is saved
+in the package, the adjacent file. Once the grunt installation is completed,
+let's now create a Grunt file. Next, go to the confusion folder and create Gruntfile.js, with a capital G. Now, once you create the Grunt file,
+inside the Grunt file, add the code as shown here. We are configuring the Grunt file as
+module exports equal to function Grunt and then inside that, we are specifying
+the Grunt with the entered config. Next, we're gonna configure our
+project in order to make use of Grunt. In the web page menu.html, surround the links that
+import the CSS files with the built:CSSstyles/menu.cssComment like we explained in the previous lecture. So I am going to insert
+the built comment here at the beginning of the links. Then at the end of the links,
+I'm going to insert the end build. So that everything between the build and the end build now can be used
+to buy the use min package in order to concatenate and
+css min all the css files. Next, we're going to go to the bottom
+of this menu HTML page and then replace all the scripts there. Going to the bottom of the menu HTML page, you remember that we had included the
+angular code here inside the script tact. Now, we are going to take this
+angular code completely and move it off to a separate
+JavaScript file called app.js. We'll do that in the next step. Before that I'm going
+to replace the entire script code here with a import line for importing the app.js file. Now, we're going to create
+the app.js file for this project inside
+the app/scripts folder. After replacing the JavaScript code,
+now we are left with the configuration as
+shown in the screen here. We are still importing
+Angular just like before. Now we have scripts/app.js file, which means that now all the Java Script
+code for Angular that we created earlier is going to be moved to this app.js
+file in that scripts folder. In addition, I am surrounding
+these two scripts lines with build:js scripts/min.js and then endbuild. This is for use with the useminPrepare. The useman prepare will look
+at first configuration, and then take these two files, and
+then concatenate them, and then amplify them for
+use in our distribution project. So once we have completed
+the configuration, in the next step, we are gonna create app.js File. Next, go to the scripts
+folder inside the app folder. And then clear the app.js file,
+which would be an empty file. Now we are going to add in the angular
+script into this ab.js file. We have already included the ab.js
+file into our mini.html page. After adding in the code, we have essentially cut the code
+from the mini.html page and then. Paste it here and
+made a couple of changes. One change that you'll notice is that I am
+simply declaring it as an angular module. And note that I don't
+have a semi-colon there, because I am using chaining to declare
+the controller immediately thereafter. So the angular module and them I'm
+saying .controller and menuController. And inside the menuController
+function definition here, I have included all the code from the menu
+html file that I have defined earlier. And then at the end of this code,
+the semicolon will close this statement. So I have defined the angular module, and then attached the controller
+to the angular module here. Now the app guard JS file is complete, and can be used within our
+many URL HTML pitch. Next, I'm going to configure
+the JSHint module for use to create a Grunt task. We are going to create
+the JSHinting grunt task first. So to do that,
+let me install the JShint grunt module. So we type in npm install
+grunt-contrib-jshint--save--dev. After this,
+we're gonna install the jshint-stylish. Next, we're going to install
+a grand module called time-grunt. The time-grunt module will keep
+track of each of the tasks. Take and then generate status ticks
+at the end of the grunt line. The next grunt module we're gonna
+install is called git grunt. The git grunt module will
+automatically look inside your node modules folder, and
+then input any grant module, then it is required in your grantfile.js. Now, the other alternative
+is to explicitly include all the Grunt modules that
+you install in the .modules folder explicitly by using
+the load grunt empty tasks. Instead, I am circumventing that
+whole process by simply saying, require JIT grunt, and that will take care of loading all
+the grunt modules as and when required. Just in time grunt,
+that's why it's called JIT grunt. Once we have completed that, we
+are going to go to our grunt file in js, and then configure the jshint task. To do that to the grunt file of js5,
+I'm going to first. Require the time-grunt module and
+the jit-grunt module. So I will include those modules by saying, gitquire timegrunt grunt,
+and require jit-grunt grunt. This will ensure that those
+two modules get loaded. Now I'm going to add the configuration for
+the jshint task. So here, I have added the configuration
+information for the jshint task. We have already examined the structure of this configuration information
+in the previous lecture. Next, I'm going to configure
+the build task and the default task. So here I am registering the two tasks,
+the build task and the default task. The build task currently I am
+registering to contain only jshint. And the default task is
+the same as the built task. So, with this, if I simply type
+grunt at the command line, then the JSHint will run and
+then check all the JavaScript files inside my app folder. Next, I'm going to create
+a file dot JSHintrc. In the confusion folder
+.jshintrc js H-I-N-T-R-C and then include the following
+code inside that folder. Here I am specifying to jshint
+what it is supposed to check. Let's not worry about what
+this configuration is, it is just specifying some
+things that the jshint. JavaScript checker is going to check for
+it. Now at the command prompt,
+if you type grunt, it is going to run the jshint task,
+and generate the output. Fortunately, we don't have any
+errors in our JavaScript file, so that is why there is no complaint. Let me introduce a small
+error in the app js file and then show you what that jshint
+task will show as the result. Going to the app js5,
+let me just delete this semi-colon and then save it and then run jshint and
+see what the results are. Add the command prompt. Now if I type grunt you notice
+that jshint is complaining that in the app.js file at line
+8 col 31 missing semicolon. So this is how jshint finds out. Part potential errors or
+mistakes in your JavaScript files. Let me go back and correct that so
+that my JShint will no longer comply. Going back to the abguardJS file, let me restore the semicolon there and
+then run JShint one more time. Now, when I run Grunt I can see that it says there are no further
+errors in the files. Next, I'm going to configure the copy and
+clean Grunt modules. So to do that, at the command prompt,
+let me type npm install grunt-contrib-copy and
+I installed copy. Let me next install clean. So I type in npm install
+grunt-contrib-clean--save-dev. So, I have now installed the copy and
+the clean grunt tasks. So, let me go ahead and
+configure the copy and the clean grunt tasks,
+in the grunt file gs5. And then, we'll run grunt and
+see the result going to the grunt file. Now, I will create the copy and the clean task configurations inside
+the grunt.init.config method call. So let me add the code for
+the copy and the clean. We have already seen this in the lecture. So let me go ahead and
+add the copy and the clean code here. So I have added the copy and
+the clean configuration here. One thing that I should clearly warn
+you is that when you add the code make sure that there is
+a configuration that already exists. Make sure that you put a comma after the previous configuration
+that exists in the grunt file. After adding the copy and
+the clean configurations, let me add the copy and
+the clean tasks, to the build task. So now when I run grunt,
+or when I say grunt build, it will run clean first then jshint and copy, then it runs the copy task. Then all the files from the app
+folder will be copied to their distribution folder. Let's see this running and
+then see the result. Next, when you go to
+the confusion folder you can see the folder named dist
+doesn't exist at the moment. Now if you run grunt then
+the distribution folder will be created. At the command prompt type grunt. You will note that when you type grunt, the first,
+the clean task will be executed. It'll clean up if the distribution
+folder exists it cleans up, then the jshint task will be executed and
+it'll check for errors. And then the copy:dist
+task will be run and then it copies the files over from
+the app folder to the dist folder. At the end of this grunt run,
+let's take a look at the conFusion folder. Now, when you go to the conFusion folder. You can see that the dist
+folder has been created. This dist folder will contain all
+the files that you will upload to your web server, so
+that your website goes live. So going into the dist folder, you can see
+that the menu.html folder already exists. All the images have been copied
+into the images subfolder there. The fonts have been copied into
+the fonts subfolder there. The scripts folder is currently empty and
+the styles folder is currently empty. Now we're going to configure useman and run all the tasks in order to create our combined css and
+JavaScript files for our website. In order to prepare the distribution
+folder completely you are going to install a few more grant modules, and then
+configure the grant tasks correspondingly. First we will install
+the Contact Grunt module. Next, we will install
+the CSS min Grunt module. Next, we're going to install the uglify,
+module. Then, the filereft grunt module, and finally, the usemin grunt module. So once we have completed
+installing these, now you can configure the css
+minification and concatenation tasks. And also the JavaScript minification and conFusion tasks, and the usemin task. So let's go ahead and
+configure them in our grunt file. Returning to our grunt file, I'm now
+going to add in the configuration for the usemin prepare,
+that use main task, the file rev task, and the CSS main uglify and contact tasks. So let me add in
+the corresponding code here. We have already seen this
+code in the previous lecture. The first step I am doing,
+is to configure jit-grunt, to inform jit-grunt that for
+the useminPrepare task, the useminPrepare task is part
+of the grunt-usemin task. So that is what I am
+specifying by modifying the jit-grunt require statement here. Next, I'm gonna include
+the configuration for the tasks. Now, you'll notice that I have
+included the configuration for the useminPrepare, the concat. Note that the concat information
+is pretty much empty. This is going to be reconfigured by the
+use main prepare task during the runtime. Similarly, the uglify in CSS min, I have
+left the configurations to be empty there. They're gonna be configured at
+runtime by the useminPrepare task. Next, you'll see that I have
+configured the filerev task, just like the way I
+explained in the lecture. And finally,
+the usemin task has been configured. Now we're going to update
+the tasks that we have registered. The build task and the default task. Go into the build task. We will add in the tasks
+into the build tasks here. First we will run them in the sequence. UseminPrepare, concat, cssmin, uglify. Once they have completed,
+then we'll do the copy, and then after copying,
+we're gonna do filerev and usemin. So, now, the build task is complete. Now, if I go to the command prompt and
+then type grunt, it should completely prepare
+the distribution folder. It will run all the tasks that
+we have just configured and then prepare the distribution for it. Now let's go into
+the distribution folder and see the results of running
+all of these tasks. Interestingly, if you are interested in
+what the time grunt task will produce, you can see the statistics being
+produced on the command window here, or the terminal if you are using OSX or
+Linux. You can see that the time status takes for each of the tasks has been
+printed on the screen. Now, going to the distribution
+folder again, let's look inside the distribution folder. The menu.html file remains there. The images are still there. The fonts are still there. Now when you go into the scripts folder
+you notice that there is a main. Notice the 20 character tag
+that has been attached. This is what filerev has
+attached to the main file .js. Similarly, if you go
+into the styles folder, you would notice that you have
+main.and then a big tag here, .css attached to the main. Now these two, the CSS files and
+the JavaScript files are containing all
+the code that we need for our menu.html file to work correctly. Just to show you
+the contents of these files I go into the dist folder in brackets. And then let me open the menu.html file. Now when you see the menu.html file, you will notice that
+the style sheet referenced now includes only one
+single CSS file there. This is the concatenated and minified file that we created
+using the usemin task. Going to the bottom of that menu.html
+page you now can see that the scripts Include file now says scripts/main. Filereftac.js. So this file contains all
+the JavaScript you need, including the angular code that we
+are going to use in this project. Now let's take a look inside these files,
+the main.css and main.js file. First, to do that I will go to the styles
+folder in my distribution folder, and then click on main.css, and
+you can notice that this main.css file contains all the code from the boot strap folder,
+everything concatenated together and then modified,
+all the extra lines have been removed. And the whole code has been compressed and
+modified in here. This is very hard for us to read because
+this is okay for a browser to read. The browser doesn't care how the file is,
+how the code is formatted. For a human being to read, this is
+going to be extremely difficult, quite. This file is not meant for
+human consumption. This file is meant for
+consumption by your browser. In the user that comes
+to visit your webpage. This is what minification causes to your CSS files taking a look
+at that Java Script code inside the main.JS file. You can now see that the JavaScript code
+has all been compressed and included here. It has been uglified and
+compressed and included here. Obviously, not for human consumption. Any way this is the result
+of concatenation and uglification of all the JavaScript code. Now if you want to you can
+open the menu.HTML5 in your default browser and you will see
+that the webpage worked correctly. The menu.html in the distribution folders. Let me go ahead and
+double click and open it. You can see that the web page
+is being properly configured and served in my default folder here. That is the interesting aspect of using
+Grunt to take care of all the tasks. The last two changes that I'm gonna
+make is to configure the watch and the connect grunt modules. So let me install the watch and
+the connect grunt modules. Now that I have installed the watch and
+the connect grunt modules, let me go ahead and configure them
+in the grunt file or js file. Going to the grand file now,
+I'm going to add in the configuration for both the watch and the connect tasks here. So now you can see that I've
+added in the configuration for the watch task, and
+the configuration for the connect task. We have seen most of this
+code in the lecture earlier. The last step is to add the grunt
+serve task into the Grunt file. So now you see that I have
+configured a new task called serve, which is going to do build,
+connect:dist, and watch. After we complete these tasks,
+let's go ahead and then run grunt serve on our
+command line and see that message. At the command line, now if you
+type grunt serve, this is going to do it built,
+then it's going to start up the server and then start serving up the page
+in your default browser. And also start up the watch task so that if you change anything
+in any of the files, then the built will automatically be done and
+the live reload with ensure. The newer webpage will be
+loaded into my server. So let me type grunt serve and
+see the result. Once grunt serve starts running, then you see that it automatically
+switches to my default browser. And that page has been loaded
+into my default browser. Now, to show how watch works,
+I'm going to go into my HTML page and then edit the menu. And you will notice that this will
+result in the watch task noticing that the HTML page has been changed, and then
+automatically re-running the build task. And reload that page into the browser. Now, I have opened the menu.html
+page in the app folder. Remember, the watch task is watching
+the files in the app folder. That is where our source files exist. So, any changes that you make to your
+source files will cause a rebuilding of the distribution folder and
+live reloading of the browser. So, let me change this, the menu and
+remove the space there. When I remove the space,
+watch and save the file. Watch, notice that the file
+has been changed and then it will recompile all the files for
+us. Now, when I go to the browser, you will
+notice that that all the build tasks have been run one more time and
+the file is now being surfed. If you go to your browser window. You would notice that
+the menu has been updated and this piece has been removed there. So the live reloading of our
+webpage works correctly with Grunt. I again modified the menu page
+back to its original state, and the page has been again
+reloaded by live rent. This is their power that grunt brings
+to us, the automated task runner. This completes this exercise. In this exercise,
+you have learned how to use grunt and how to configure the automated
+tasks in grunt and how to make use of radius grunt
+modules in order to accomplish grunt radius grunt modules tasks.

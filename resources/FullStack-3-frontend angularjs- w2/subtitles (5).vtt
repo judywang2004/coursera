@@ -1,0 +1,984 @@
+WEBVTT
+
+1
+00:00:02.320 --> 00:00:06.590
+In this exercise,
+we're going to explore Angular Scope, and
+
+2
+00:00:06.590 --> 00:00:11.580
+how we make use of Scope within
+our Angular application.
+
+3
+00:00:12.670 --> 00:00:20.320
+We'll also look at the ngShow
+Angular directive in this exercise.
+
+4
+00:00:23.130 --> 00:00:28.920
+When we use the Angular Scope
+within our JavaScript code,
+
+5
+00:00:28.920 --> 00:00:35.231
+we need to make sure that the uglify task
+does not end up mangling up the Scope.
+
+6
+00:00:36.470 --> 00:00:39.816
+So, to help us preserve that,
+
+7
+00:00:39.816 --> 00:00:44.990
+we take the help off in
+ngAnnotate gulp plugin.
+
+8
+00:00:44.990 --> 00:00:49.350
+The gulp plugin is
+called gulp-ng-annotate.
+
+9
+00:00:49.350 --> 00:00:54.153
+So, I'm gonna install this gulp plugin,
+and then,
+
+10
+00:00:54.153 --> 00:00:58.122
+include the gulp plugin
+into the gulp file.
+
+11
+00:00:58.122 --> 00:01:02.854
+So, that when we run gulp on our project,
+and then,
+
+12
+00:01:02.854 --> 00:01:08.343
+build the distribution,
+it'll not end up causing problems
+
+13
+00:01:08.343 --> 00:01:13.100
+in the uglify, and
+concatenated JavaScript code.
+
+14
+00:01:13.100 --> 00:01:18.048
+At the command prompt, type in npm
+
+15
+00:01:18.048 --> 00:01:23.855
+install gulp-ng-annotate save dev.
+
+16
+00:01:23.855 --> 00:01:28.969
+And once that is installed, then,
+
+17
+00:01:28.969 --> 00:01:36.302
+the ng-annotate gulp plugin
+is available for us.
+
+18
+00:01:39.507 --> 00:01:42.269
+Now, if we move to our gulp file,
+and then,
+
+19
+00:01:42.269 --> 00:01:46.555
+we are going to to include
+the ng-annotate plugin here.
+
+20
+00:01:46.555 --> 00:01:49.953
+So, first I'll do the require for
+the ng-annotate.
+
+21
+00:02:00.263 --> 00:02:05.670
+So here, I have included the ngannotate,
+using require.
+
+22
+00:02:05.670 --> 00:02:11.400
+Next, I need to update the usemin
+task definition, below.
+
+23
+00:02:11.400 --> 00:02:16.371
+So that it will make sure
+that the ngannotate runs
+
+24
+00:02:16.371 --> 00:02:20.015
+before the uglify for JavaScript.
+
+25
+00:02:34.899 --> 00:02:38.421
+So, for the JavaScript part of usemin,
+
+26
+00:02:38.421 --> 00:02:44.950
+I have added in the ngannotate, and
+with this will save the gulp file.
+
+27
+00:02:44.950 --> 00:02:49.840
+And then, now the gulp file is ready for
+
+28
+00:02:49.840 --> 00:02:54.680
+use with Angular Scope,
+if we make use of it within our code.
+
+29
+00:02:57.870 --> 00:03:03.410
+Next, we will update the Controller
+code in app.js to use Scope.
+
+30
+00:03:03.410 --> 00:03:06.882
+So, let me introduce the Scope
+into the Controller.
+
+31
+00:03:16.541 --> 00:03:22.599
+Another thing that we need to note,
+is that by convention,
+
+32
+00:03:22.599 --> 00:03:30.500
+in Angular, the Controller names
+always start with a capital letter.
+
+33
+00:03:30.500 --> 00:03:34.950
+In the earlier examples, I used small
+letter for the menu Controller, so
+
+34
+00:03:34.950 --> 00:03:38.930
+let me correct that before
+somebody starts complaining that
+
+35
+00:03:38.930 --> 00:03:41.340
+you're not teaching Angular the right way.
+
+36
+00:03:41.340 --> 00:03:46.100
+You don't know diddly squat about Angular,
+peace.
+
+37
+00:03:46.100 --> 00:03:50.430
+Let me go ahead, and make change to
+the menu Controller to capital M.
+
+38
+00:03:55.660 --> 00:04:03.290
+Now, in addition, we need to introduce
+the scope in front of the function here.
+
+39
+00:04:05.310 --> 00:04:10.370
+Like that.
+So, the left square bracket, and
+
+40
+00:04:10.370 --> 00:04:13.240
+scope within quotes and a comma.
+
+41
+00:04:13.240 --> 00:04:18.780
+This is the normal way you specify
+the use of scope within the Controller.
+
+42
+00:04:18.780 --> 00:04:25.580
+So ,you see that we have the left square
+bracket, scope within brackets, function.
+
+43
+00:04:25.580 --> 00:04:31.480
+And then, inside the function
+the parameter is specified as scope.
+
+44
+00:04:31.480 --> 00:04:35.029
+Now, they need to close
+off this square bracket,
+
+45
+00:04:35.029 --> 00:04:38.083
+that will go at the bottom
+of the controls.
+
+46
+00:04:42.217 --> 00:04:48.976
+Right at the bottom of the controller code
+I have entered close off square bracket.
+
+47
+00:04:48.976 --> 00:04:54.416
+Returning now, within the code I am going
+
+48
+00:04:54.416 --> 00:05:00.400
+to replace all the dish words by scope.
+
+49
+00:05:00.400 --> 00:05:03.792
+So, let me go through the code,
+step by step, and then,
+
+50
+00:05:03.792 --> 00:05:06.287
+replace every one of them with the scope.
+
+51
+00:05:25.025 --> 00:05:29.205
+Once you have completed
+replacing the dish,
+
+52
+00:05:29.205 --> 00:05:32.730
+throughout this file with the scope.
+
+53
+00:05:34.610 --> 00:05:40.400
+There was a statement here saying
+this dish is equal to dishes.
+
+54
+00:05:40.400 --> 00:05:46.047
+Remove that statement,
+we no longer need that,
+
+55
+00:05:46.047 --> 00:05:53.770
+because we all ready attached
+the dishes object to the scope here.
+
+56
+00:05:53.770 --> 00:06:00.534
+With this update,
+the update of the JavaScript
+
+57
+00:06:00.534 --> 00:06:07.290
+code inside the app.js file is complete.
+
+58
+00:06:07.290 --> 00:06:13.409
+Let me go, and
+make the changes to the menu or.HTML file.
+
+59
+00:06:17.495 --> 00:06:19.620
+Moving to the menu.html file.
+
+60
+00:06:20.670 --> 00:06:26.160
+Here, I no longer need to use
+the menu controller alias here.
+
+61
+00:06:26.160 --> 00:06:30.030
+So, I'm going to remove
+the manual controller alias
+
+62
+00:06:30.030 --> 00:06:33.960
+from the NG controller attribute here.
+
+63
+00:06:34.960 --> 00:06:39.370
+Before I make the change, let me change
+the name of the menu controller.
+
+64
+00:06:39.370 --> 00:06:40.620
+To capital M.
+
+65
+00:06:40.620 --> 00:06:46.390
+And then, after that I'm going to
+remove the alias for a minute.
+
+66
+00:06:46.390 --> 00:06:49.480
+The controller because
+I no longer need it.
+
+67
+00:06:49.480 --> 00:06:54.160
+I will access all the items
+
+68
+00:06:55.920 --> 00:06:58.750
+from the scope directly.
+
+69
+00:06:58.750 --> 00:07:02.210
+All the variables from the scope directly.
+
+70
+00:07:02.210 --> 00:07:08.470
+So, within the code, wherever I am using
+menuCtrl I'm going to delete that part.
+
+71
+00:07:09.800 --> 00:07:11.085
+So, as you go through the code.
+
+72
+00:07:11.085 --> 00:07:12.755
+Called step by step.
+
+73
+00:07:14.635 --> 00:07:22.685
+Now, you noticed that we have
+the menu controller there.
+
+74
+00:07:22.685 --> 00:07:24.359
+I'm going to remove that.
+
+75
+00:07:24.359 --> 00:07:25.327
+The similarly the menu controller there
+I'm going to remove that And so on.
+
+76
+00:07:25.327 --> 00:07:30.347
+We'll keep doing that until we
+remove that M menu ctrl from
+
+77
+00:07:30.347 --> 00:07:33.717
+the remaining parts of the code.
+
+78
+00:07:33.717 --> 00:07:40.120
+This is no longer needed for us,
+because all of these variables
+
+79
+00:07:40.120 --> 00:07:44.420
+are directly attached, and the functions
+are directly attached to the scope.
+
+80
+00:07:44.420 --> 00:07:49.980
+So, I can refer to them, directly,
+by their names inside my HTML.
+
+81
+00:07:51.355 --> 00:07:57.485
+Cooked Same thing.
+
+82
+00:07:57.485 --> 00:08:02.205
+The dishes here, for the filter also,
+I am removing that part.
+
+83
+00:08:03.255 --> 00:08:04.900
+Let me go ahead and save.
+
+84
+00:08:04.900 --> 00:08:05.910
+The changes.
+
+85
+00:08:05.910 --> 00:08:10.050
+And then,
+we'll have a look at the page now.
+
+86
+00:08:10.050 --> 00:08:15.187
+Now, this webpage has now been modified
+completely to use the angular scope.
+
+87
+00:08:18.437 --> 00:08:22.800
+Now, going back to our webpage, you don't
+notice any difference in the webpage.
+
+88
+00:08:22.800 --> 00:08:24.665
+It is gonna look exactly
+the same as before.
+
+89
+00:08:24.665 --> 00:08:29.820
+[INAUDIBLE] So there is no change
+in the functionality itself,
+
+90
+00:08:29.820 --> 00:08:32.150
+the page operates just like before.
+
+91
+00:08:34.460 --> 00:08:37.235
+Next, I'm going to make use of the.
+
+92
+00:08:37.235 --> 00:08:41.185
+In this short directive that
+is available in Angular.
+
+93
+00:08:42.905 --> 00:08:50.115
+For this webpage, I'm going to introduce
+a button here called Show Details button.
+
+94
+00:08:50.115 --> 00:08:55.065
+The way this button works, now you
+notice that in this updated webpage,
+
+95
+00:08:55.065 --> 00:09:00.219
+the descriptions of all
+the menu items are hidden.
+
+96
+00:09:01.410 --> 00:09:07.010
+If I click on the Show Details button,
+the descriptions are gonna be shown.
+
+97
+00:09:07.010 --> 00:09:14.830
+Again, note that the button, itself, has
+changed from Show Details to Hide Details.
+
+98
+00:09:14.830 --> 00:09:19.980
+When I didn't click on the button,
+the description is hidden, and the button,
+
+99
+00:09:19.980 --> 00:09:22.300
+itself, is changed to Show Details.
+
+100
+00:09:23.500 --> 00:09:28.470
+One more time,
+Hide Details and Show Details.
+
+101
+00:09:28.470 --> 00:09:31.960
+This is the behaviour that
+I want to implement next.
+
+102
+00:09:34.170 --> 00:09:38.368
+Going back to menu.html, I'm going to
+
+103
+00:09:38.368 --> 00:09:43.563
+introduce a button right
+before these tabs here.
+
+104
+00:09:48.973 --> 00:09:53.548
+This button, as you can see,
+I have introduced it with
+
+105
+00:09:53.548 --> 00:09:58.820
+an ng-click="toggleDetails()"
+function here.
+
+106
+00:09:58.820 --> 00:10:00.830
+I'm going to talk about
+that in a short while.
+
+107
+00:10:00.830 --> 00:10:04.486
+This is a standard button that
+is styled using bootstrap.
+
+108
+00:10:04.486 --> 00:10:10.250
+And then, there end,
+the close of the button tag.
+
+109
+00:10:10.250 --> 00:10:13.390
+Now, how am I going to
+make use of this button?
+
+110
+00:10:13.390 --> 00:10:18.310
+Now, when this button is
+present on the webpage,
+
+111
+00:10:18.310 --> 00:10:25.310
+when the button is shown,
+it'll show the button as at showDetails.
+
+112
+00:10:25.310 --> 00:10:29.090
+Now, if I click on the button then,
+it is going to show
+
+113
+00:10:29.090 --> 00:10:34.550
+the complete description
+of all the dishes.
+
+114
+00:10:34.550 --> 00:10:37.810
+And then, the button will
+itself change to Hide Details.
+
+115
+00:10:37.810 --> 00:10:39.660
+Now, when I click on the button again,
+
+116
+00:10:39.660 --> 00:10:44.030
+it will hide all the description
+of various dishes.
+
+117
+00:10:44.030 --> 00:10:47.500
+And then, the button itself
+will change to showDetails.
+
+118
+00:10:47.500 --> 00:10:50.698
+Now, let me briefly talk about
+how I implement this here.
+
+119
+00:10:50.698 --> 00:10:57.670
+Now, this ng-click with this function,
+toggleDetails in here.
+
+120
+00:10:57.670 --> 00:11:02.830
+Obviously, this means that I must
+implement this toggleDetails function
+
+121
+00:11:02.830 --> 00:11:05.200
+in my menu controller.
+
+122
+00:11:05.200 --> 00:11:08.630
+It will go to the app.js File, and then,
+
+123
+00:11:08.630 --> 00:11:14.040
+update the JavaScript code there to
+implement this function later on.
+
+124
+00:11:14.040 --> 00:11:19.170
+The next part that you see me
+using here is an expression,
+
+125
+00:11:19.170 --> 00:11:26.880
+an angular expression here, in which I
+am saying showDetails in camel case.
+
+126
+00:11:26.880 --> 00:11:31.380
+Now, what this means is that
+this must be a JavaScript
+
+127
+00:11:31.380 --> 00:11:35.910
+variable that I am using
+inside my controller.
+
+128
+00:11:35.910 --> 00:11:39.010
+So, I am making use of
+a JavaScript variable here.
+
+129
+00:11:39.010 --> 00:11:46.240
+Here, I am saying that with a question
+mark, and then, I give two strings here.
+
+130
+00:11:46.240 --> 00:11:55.920
+Now, if show details is true then,
+
+131
+00:11:55.920 --> 00:12:02.122
+this expression will
+evaluate to hide details,
+
+132
+00:12:02.122 --> 00:12:07.760
+so the button will show this as
+the string inside the button.
+
+133
+00:12:08.800 --> 00:12:14.130
+Now, if show details is equal to false,
+then,
+
+134
+00:12:14.130 --> 00:12:20.950
+that means that the details
+have been hidden from the menu
+
+135
+00:12:20.950 --> 00:12:26.140
+items then, the button should
+show details on the button.
+
+136
+00:12:26.140 --> 00:12:30.290
+So, that's why I am specifying these
+two as as the two possibilities.
+
+137
+00:12:30.290 --> 00:12:35.330
+So, I am using the show details JavaScript
+variable, and then, creating that if it
+
+138
+00:12:35.330 --> 00:12:41.890
+evaluates to true, this will be the string
+that is displayed in the button.
+
+139
+00:12:41.890 --> 00:12:43.780
+If it evaluates to false,
+
+140
+00:12:43.780 --> 00:12:47.320
+this would be the string that
+would be displayed in the button.
+
+141
+00:12:47.320 --> 00:12:51.280
+Now, how do I make use
+of this showDetails?
+
+142
+00:12:51.280 --> 00:12:57.870
+Now, this is where I take the help
+of the ng-show angular directive.
+
+143
+00:12:57.870 --> 00:13:01.580
+Now, going down to the list of menu items,
+
+144
+00:13:04.130 --> 00:13:11.250
+you'll note that this <p>
+tag is the one that is
+
+145
+00:13:11.250 --> 00:13:16.020
+showing the description of the dish.
+
+146
+00:13:16.020 --> 00:13:24.460
+Now when</p> there show details
+available is set to false,
+
+147
+00:13:24.460 --> 00:13:29.735
+I want to hide verse
+description when the show
+
+148
+00:13:29.735 --> 00:13:35.545
+details value is set to true,
+I want to show this item.
+
+149
+00:13:35.545 --> 00:13:39.875
+Now, this is where I'm gonna take
+the help of the ng-show directive.
+
+150
+00:13:39.875 --> 00:13:42.189
+Let me update the code, and then,
+explain to you what it does.
+
+151
+00:13:46.080 --> 00:13:49.950
+So, I have introduced
+the ng-show directive here.
+
+152
+00:13:49.950 --> 00:13:56.040
+For the ng-show directive, the value that
+I'm specifying here is "showdetails".
+
+153
+00:13:56.040 --> 00:14:00.260
+Now, what this means is that
+this ng-show directive, if this
+
+154
+00:14:01.370 --> 00:14:06.128
+expression evaluates to true then,
+this p tag,
+
+155
+00:14:06.128 --> 00:14:10.740
+whatever is inside this p tag,
+will be shown.
+
+156
+00:14:10.740 --> 00:14:13.820
+If this expression evaluates to false,
+
+157
+00:14:13.820 --> 00:14:16.560
+whatever's inside this
+p tag will be hidden.
+
+158
+00:14:16.560 --> 00:14:20.910
+So, that's how the NG
+show directive models.
+
+159
+00:14:20.910 --> 00:14:25.930
+There is a counter part to the ng-show
+directive called ng-hide directive.
+
+160
+00:14:25.930 --> 00:14:30.440
+You can also also use the ng-hide
+directive for the same purpose.
+
+161
+00:14:30.440 --> 00:14:34.972
+If I use the ng-hide directive then,
+the variable that I will use,
+
+162
+00:14:34.972 --> 00:14:42.460
+will be if the variable is true then,
+the content of the p tag will be hidden,
+
+163
+00:14:42.460 --> 00:14:47.600
+if the variable is false then,
+the content of the p tag will be shown.
+
+164
+00:14:47.600 --> 00:14:50.290
+So, that is the use of ng-hide directive,
+
+165
+00:14:50.290 --> 00:14:53.750
+in this example I am using
+the ng-show directive.
+
+166
+00:14:53.750 --> 00:14:58.350
+So, that's why when show details
+is equal to true, the content.
+
+167
+00:14:59.570 --> 00:15:01.460
+The description will be shown.
+
+168
+00:15:02.500 --> 00:15:07.450
+When showDetail is equal to false,
+the description will be hidden.
+
+169
+00:15:09.120 --> 00:15:11.310
+Now, let's go and update.
+
+170
+00:15:11.310 --> 00:15:13.110
+The JavaScript code.
+
+171
+00:15:16.941 --> 00:15:20.157
+Switching to the JavaScript
+code in app.js,
+
+172
+00:15:20.157 --> 00:15:23.900
+I'm going to now update
+the MenuController.
+
+173
+00:15:23.900 --> 00:15:28.670
+First, I will need to
+introduce this JavaScript
+
+174
+00:15:28.670 --> 00:15:33.690
+variable called ShowDetails, and
+I'll hang in onto the scope.
+
+175
+00:15:37.390 --> 00:15:44.430
+So, by default at the start, I will
+set showDetails to false, which means
+
+176
+00:15:44.430 --> 00:15:49.748
+when the page is loaded the description
+of all the menu new items will be hidden.
+
+177
+00:15:49.748 --> 00:15:55.030
+Now, when the user
+
+178
+00:15:55.030 --> 00:16:00.520
+clicks on the showDetails button,
+then I want to be able to show the items.
+
+179
+00:16:00.520 --> 00:16:06.030
+So, I will introduce this function
+here called Toggle Details function.
+
+180
+00:16:06.030 --> 00:16:11.290
+So, let's go to the lower
+part of this code.
+
+181
+00:16:15.353 --> 00:16:19.790
+Now here, I'm going to introduce
+this toggleDetails function, here.
+
+182
+00:16:19.790 --> 00:16:21.830
+So, let me add the code, here.
+
+183
+00:16:21.830 --> 00:16:25.050
+So, this toggleDetails function,
+as you can.
+
+184
+00:16:27.130 --> 00:16:30.190
+Again, look at how we define
+the toggle details function.
+
+185
+00:16:30.190 --> 00:16:35.550
+I am touching this to this scope, and
+then, I am declaring this function.
+
+186
+00:16:35.550 --> 00:16:40.050
+Inside the toggle details function,
+whenever this function is called,
+
+187
+00:16:40.050 --> 00:16:44.480
+whatever the value of showDetails is,
+it will be inverted.
+
+188
+00:16:44.480 --> 00:16:47.760
+So, if showDetails starts out to be false,
+then,
+
+189
+00:16:47.760 --> 00:16:52.870
+when this function is executed,
+showDetails will be set to true.
+
+190
+00:16:52.870 --> 00:16:56.760
+If showDetails is true,
+then it will be set to false.
+
+191
+00:16:56.760 --> 00:16:58.290
+So, with this change,
+
+192
+00:16:58.290 --> 00:17:04.000
+I have completed the update of both
+the HTML code, and the JavaScript code.
+
+193
+00:17:04.000 --> 00:17:06.455
+Let's go and look at our the pitch.
+
+194
+00:17:09.295 --> 00:17:14.215
+Returning to our web page, you can
+now notice at the top right corner,
+
+195
+00:17:14.215 --> 00:17:16.860
+there is a button called showDetails.
+
+196
+00:17:18.155 --> 00:17:19.096
+Let's click on the button.
+
+197
+00:17:22.649 --> 00:17:24.860
+When you click on the button,
+
+198
+00:17:24.860 --> 00:17:30.264
+you can immediately notice that
+the description of the dishes is shown.
+
+199
+00:17:32.772 --> 00:17:38.300
+Again, clicking on the button,
+the description of the dishes is hidden.
+
+200
+00:17:39.940 --> 00:17:46.881
+Now, this behavior will be
+exhibited in all the tabs.
+
+201
+00:18:01.672 --> 00:18:06.860
+This completes,
+this exercise on using angular scope.
+
+202
+00:18:08.880 --> 00:18:12.610
+In this exercise,
+you have looked at angular scope.
+
+203
+00:18:12.610 --> 00:18:15.950
+How we introduced the scope
+in to a JavaScript code.
+
+204
+00:18:15.950 --> 00:18:18.810
+And how we need to update our HTML code.
+
+205
+00:18:19.890 --> 00:18:26.258
+With the use of the scope,
+we also examine the ng-show
+
+206
+00:18:26.258 --> 00:18:31.105
+directive,and used it in order to show,
+
+207
+00:18:31.105 --> 00:18:36.095
+and hide details of our
+dishes in the menu.

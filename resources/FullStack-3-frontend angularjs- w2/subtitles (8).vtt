@@ -1,0 +1,3059 @@
+WEBVTT
+
+1
+00:00:01.630 --> 00:00:07.430
+We're now going to move to the next
+exercise where we'll look at forms and
+
+2
+00:00:07.430 --> 00:00:09.150
+form validation.
+
+3
+00:00:09.150 --> 00:00:14.500
+In particular, what kind of support
+Angular provides for us for
+
+4
+00:00:15.680 --> 00:00:22.440
+forms as well as validating the forms
+before submission to the server.
+
+5
+00:00:22.440 --> 00:00:26.880
+So, we can do a lot of client side
+validation of the information of
+
+6
+00:00:26.880 --> 00:00:31.340
+the forms, even before the information
+is actually submitted to the server,
+
+7
+00:00:31.340 --> 00:00:35.020
+so many of the typical errors that
+
+8
+00:00:35.020 --> 00:00:40.232
+would be caused by forms can easily be
+caught by doing client side validation.
+
+9
+00:00:40.232 --> 00:00:44.800
+We're gonna look in this
+lesson at how we will go about
+
+10
+00:00:44.800 --> 00:00:46.830
+implementing these in Angular.
+
+11
+00:00:50.610 --> 00:00:53.470
+Before we go ahead with the exercise,
+
+12
+00:00:53.470 --> 00:00:59.320
+let's take a look at our
+contactus.html page,
+
+13
+00:00:59.320 --> 00:01:03.940
+what we have just downloaded and
+see the format.
+
+14
+00:01:03.940 --> 00:01:07.510
+So as you browse through it you
+see that the location information.
+
+15
+00:01:07.510 --> 00:01:09.832
+The address is available to us.
+
+16
+00:01:09.832 --> 00:01:11.590
+But in particular,
+
+17
+00:01:11.590 --> 00:01:16.800
+we are interested in this Feedback
+form that we created earlier.
+
+18
+00:01:16.800 --> 00:01:21.400
+This Feedback form has the First Name,
+the Last Name, the Contact telephone
+
+19
+00:01:21.400 --> 00:01:25.733
+number both the Area code and
+the Telephone number, the email address.
+
+20
+00:01:25.733 --> 00:01:30.472
+And then this check box which
+the user can check in order to
+
+21
+00:01:30.472 --> 00:01:35.040
+specify whether he or
+she can be contacted or not.
+
+22
+00:01:35.040 --> 00:01:39.756
+And then this field that allows
+us to select in what way the user
+
+23
+00:01:39.756 --> 00:01:41.760
+prefers to be contacted.
+
+24
+00:01:41.760 --> 00:01:47.523
+And then the feedback text area box where
+the user can type in their comments and
+
+25
+00:01:47.523 --> 00:01:50.861
+then click on the send
+feedback button here.
+
+26
+00:01:50.861 --> 00:01:56.410
+Now we're going to enhance this using
+Angular forms and form validation.
+
+27
+00:02:00.110 --> 00:02:09.570
+To get you started you are provided
+with an updated contactus.html page.
+
+28
+00:02:09.570 --> 00:02:14.910
+Download this page and put it into
+the app folder of the confusion folder.
+
+29
+00:02:16.300 --> 00:02:22.646
+Once you have downloaded and placed it
+there open the contactus.html page.
+
+30
+00:02:22.646 --> 00:02:27.623
+You will note that this is similar
+to the contact page that we
+
+31
+00:02:27.623 --> 00:02:32.802
+designed in the Bootstrap course,
+except that I have removed
+
+32
+00:02:32.802 --> 00:02:37.302
+the header information and
+the footer information.
+
+33
+00:02:37.302 --> 00:02:44.370
+So I have just retained only the,
+the content part of that particular page.
+
+34
+00:02:44.370 --> 00:02:47.390
+Because for us in this course
+
+35
+00:02:48.500 --> 00:02:52.610
+we are specifically interested in dealing
+with the content part of the page.
+
+36
+00:02:52.610 --> 00:02:57.980
+Now, if you recall, in the previous
+course, we had designed a feedback form
+
+37
+00:02:57.980 --> 00:03:02.378
+for the users to submit
+feedback to the restaurant.
+
+38
+00:03:02.378 --> 00:03:08.550
+Now we are gonna go and then try and
+activate this form to a certain extent.
+
+39
+00:03:08.550 --> 00:03:14.370
+We still don't have a server side yet,
+but we will try to do form validation,
+
+40
+00:03:14.370 --> 00:03:19.795
+and then we will enhance this form
+using the Angular support for forms.
+
+41
+00:03:21.770 --> 00:03:25.200
+Once you have downloaded
+the contactus.html page,
+
+42
+00:03:25.200 --> 00:03:29.460
+open it in a text editor of your choice.
+
+43
+00:03:29.460 --> 00:03:32.780
+Here I have it open in brackets.
+
+44
+00:03:32.780 --> 00:03:37.750
+So looking at the contents of
+this page you can notice that I
+
+45
+00:03:37.750 --> 00:03:42.720
+have retained just the content part
+of the page from the previous course.
+
+46
+00:03:42.720 --> 00:03:46.820
+We still have the contact
+information there and
+
+47
+00:03:46.820 --> 00:03:52.319
+then we have the form that we
+designed in the previous course.
+
+48
+00:03:54.400 --> 00:04:03.030
+In addition I have updated this page
+to use the Angular JavaScript code.
+
+49
+00:04:03.030 --> 00:04:08.380
+So I have already updated the JavaScript
+part of it to use Angular.
+
+50
+00:04:08.380 --> 00:04:12.440
+In addition,
+I'm still going to use the app.js file
+
+51
+00:04:12.440 --> 00:04:17.250
+to store my controller code for this page.
+
+52
+00:04:19.960 --> 00:04:25.750
+Going to the top of page,
+let's now have Angular take over.
+
+53
+00:04:25.750 --> 00:04:27.460
+So our app that we designed,
+
+54
+00:04:27.460 --> 00:04:30.830
+the Con Fusion app is going
+to take over this page.
+
+55
+00:04:30.830 --> 00:04:39.228
+So to the HTML tag I am applying the
+ng-app directive with the Con Fusion app.
+
+56
+00:04:40.720 --> 00:04:45.405
+So with this,
+this page now becomes controllable through
+
+57
+00:04:45.405 --> 00:04:49.050
+the Con Fusion app module, Angular module.
+
+58
+00:04:51.300 --> 00:04:57.580
+Next go into the body of the page
+to the div for the container.
+
+59
+00:04:57.580 --> 00:05:02.060
+I'm going to apply another
+controller class here.
+
+60
+00:05:04.640 --> 00:05:06.840
+Let me apply the controller
+class here next.
+
+61
+00:05:08.200 --> 00:05:15.220
+So here I am specifying through the
+ng-controller directive that the contact
+
+62
+00:05:15.220 --> 00:05:21.740
+controller is going to control
+the entire body of this page.
+
+63
+00:05:21.740 --> 00:05:27.070
+Now which always means that I need
+to implement the contact controller.
+
+64
+00:05:27.070 --> 00:05:32.420
+Now this contact controller is gonna
+control the entire body of this page.
+
+65
+00:05:32.420 --> 00:05:35.710
+Now going in, I want another controller
+
+66
+00:05:35.710 --> 00:05:40.790
+which controls just the form
+part of this pitch.
+
+67
+00:05:40.790 --> 00:05:46.870
+So I'm gonna go down to the form and
+
+68
+00:05:46.870 --> 00:05:50.355
+then where the form starts, I am going
+to introduce another controller.
+
+69
+00:05:53.770 --> 00:05:59.340
+So I have again used
+the ng-controllers directive.
+
+70
+00:05:59.340 --> 00:06:04.280
+And then applied the controller to
+the div that contains the form.
+
+71
+00:06:04.280 --> 00:06:08.320
+Now this controller's name
+is Feedback Controller.
+
+72
+00:06:08.320 --> 00:06:12.442
+So now that I have
+introduced two controllers,
+
+73
+00:06:12.442 --> 00:06:18.940
+now this is in case of one controller
+enclosed inside another controller.
+
+74
+00:06:18.940 --> 00:06:20.680
+So this is nested controllers.
+
+75
+00:06:20.680 --> 00:06:24.980
+So, the outer controller
+is the contact controller.
+
+76
+00:06:24.980 --> 00:06:27.750
+The inner controller is
+the feedback controller.
+
+77
+00:06:27.750 --> 00:06:33.860
+So, the feedback controller is nested
+inside the contact controller.
+
+78
+00:06:33.860 --> 00:06:39.260
+Now the reason why I use nesting is also
+to illustrate another aspect that is
+
+79
+00:06:39.260 --> 00:06:45.120
+with the scope how you can use
+the scope of your parent controller for
+
+80
+00:06:45.120 --> 00:06:46.820
+storing information.
+
+81
+00:06:46.820 --> 00:06:48.945
+Now this is where I will
+illustrate the use of that.
+
+82
+00:06:51.446 --> 00:06:54.590
+Switching to the app.js file.
+
+83
+00:06:54.590 --> 00:06:57.420
+I'm going to now introduce the code for
+
+84
+00:06:57.420 --> 00:07:02.800
+the two controllers that are included
+in the contactus.html page.
+
+85
+00:07:02.800 --> 00:07:08.260
+So going to the bottom of this page I'm
+going to create myself some space here.
+
+86
+00:07:08.260 --> 00:07:13.950
+So the semicolon that closed off
+the controller definition for
+
+87
+00:07:13.950 --> 00:07:17.370
+the previous controller that I had.
+
+88
+00:07:17.370 --> 00:07:19.520
+The menu controller that I had.
+
+89
+00:07:19.520 --> 00:07:24.780
+I'm going to just introduce a few extra
+
+90
+00:07:24.780 --> 00:07:29.940
+lines there to create myself some
+space to introduce a new controller.
+
+91
+00:07:29.940 --> 00:07:35.202
+I am leaving the semicolon by itself
+on a separate line, so this way it is
+
+92
+00:07:35.202 --> 00:07:40.260
+more easy for me to introduce additional
+controllers in the future if I need to.
+
+93
+00:07:40.260 --> 00:07:44.850
+Now, after this, I'm gonna
+introduce the two controllers here.
+
+94
+00:07:52.100 --> 00:07:55.601
+Now, you can see that I have
+introduced the two controllers,
+
+95
+00:07:55.601 --> 00:07:58.713
+the contact controller and
+the feedback controller.
+
+96
+00:07:58.713 --> 00:08:04.650
+Now look at the structure of the
+information that I have introduced here.
+
+97
+00:08:04.650 --> 00:08:07.260
+Structure of the code that
+I've introduced here.
+
+98
+00:08:09.450 --> 00:08:13.520
+The contact controller with
+the scope defined already and
+
+99
+00:08:13.520 --> 00:08:16.700
+the Feedback Controller with
+its own scope defined there.
+
+100
+00:08:18.910 --> 00:08:23.760
+Within the contact controller
+I'm going to introduce
+
+101
+00:08:23.760 --> 00:08:27.100
+a JavaScript object onto the scope.
+
+102
+00:08:27.100 --> 00:08:29.170
+Call this feedback.
+
+103
+00:08:29.170 --> 00:08:33.610
+Now this is the JavaScript object that
+I am going to use to keep track of
+
+104
+00:08:33.610 --> 00:08:38.600
+all the information that I'm
+going to type in using the font.
+
+105
+00:08:38.600 --> 00:08:45.860
+Now, recall that the feedback controller
+is nested inside the contact control.
+
+106
+00:08:45.860 --> 00:08:51.185
+So by the way scope works
+whatever I define in
+
+107
+00:08:51.185 --> 00:08:57.395
+the ContactController will also be
+accessible inside the FeedbackController.
+
+108
+00:08:57.395 --> 00:09:04.175
+So let me introduce the feedback object
+to that ContactController's scope.
+
+109
+00:09:04.175 --> 00:09:07.525
+And this will automatically become
+accessible through the FeedbackController,
+
+110
+00:09:07.525 --> 00:09:10.929
+because it is enclosed inside
+the ContactController.
+
+111
+00:09:12.350 --> 00:09:14.990
+So, introducing the code for
+
+112
+00:09:14.990 --> 00:09:20.750
+the JavaScript object named feedback.
+
+113
+00:09:20.750 --> 00:09:27.930
+I have introduced this object with
+a few properties already predefined.
+
+114
+00:09:27.930 --> 00:09:32.680
+The firstName, the lastName that agree
+
+115
+00:09:32.680 --> 00:09:38.090
+which is a boolean property and
+a couple of others.
+
+116
+00:09:38.090 --> 00:09:42.190
+Now what this means is that
+I would now be able to
+
+117
+00:09:43.510 --> 00:09:49.010
+change them or upgrade them using
+the input fields in my form.
+
+118
+00:09:49.010 --> 00:09:53.885
+So let's now go back to our form and
+see how they can do data binding,
+
+119
+00:09:53.885 --> 00:10:01.970
+two-way data binding between the input
+fields and this JavaScript object.
+
+120
+00:10:04.200 --> 00:10:09.110
+Switching back to the contact of page.
+
+121
+00:10:09.110 --> 00:10:13.982
+Now I am going to introduce and
+include two-way data binding
+
+122
+00:10:13.982 --> 00:10:18.600
+between the input fields
+here in the font and
+
+123
+00:10:18.600 --> 00:10:22.812
+the JavaScript object that
+I just introduced in my
+
+124
+00:10:22.812 --> 00:10:28.991
+conduct controller.
+
+125
+00:10:28.991 --> 00:10:34.020
+The first Data binding
+that I'm introducing
+
+126
+00:10:34.020 --> 00:10:38.900
+is between the first name
+field that I have here.
+
+127
+00:10:38.900 --> 00:10:43.220
+First name input field that I have here,
+and the first name.
+
+128
+00:10:43.220 --> 00:10:49.850
+To do that, to the input field,
+I am using the ng model to
+
+129
+00:10:50.930 --> 00:10:57.620
+do the binding with the feedback
+dot first name property.
+
+130
+00:10:57.620 --> 00:11:02.260
+So I specify ng model equal
+to feedback.firstName.
+
+131
+00:11:02.260 --> 00:11:07.080
+Also, I specify this particular
+field as a required form
+
+132
+00:11:07.080 --> 00:11:11.117
+which means that the user needs to fill in
+this information before the form becomes
+
+133
+00:11:11.117 --> 00:11:16.870
+validated for submission.
+
+134
+00:11:16.870 --> 00:11:21.710
+Similarly, let me do the same thing for
+the last name and the remaining fields.
+
+135
+00:11:23.550 --> 00:11:29.100
+Next, I introduced the same, for
+my last name, input field here.
+
+136
+00:11:32.300 --> 00:11:36.840
+Next for the telephone number field,
+I'm going to introduce
+
+137
+00:11:36.840 --> 00:11:41.050
+another property called the tel.areaCode.
+
+138
+00:11:41.050 --> 00:11:46.410
+Now this property doesn't
+exist in the feedback
+
+139
+00:11:46.410 --> 00:11:49.660
+object that I defined in my controller,
+but
+
+140
+00:11:49.660 --> 00:11:55.040
+if I introduce the ng model
+here then this property will
+
+141
+00:11:55.040 --> 00:12:00.230
+automatically get cleared then added
+into the feedback Java script, object.
+
+142
+00:12:01.450 --> 00:12:03.860
+So here I am introducing another
+
+143
+00:12:06.920 --> 00:12:11.450
+java script object which is inside the
+feedback object called the tail object.
+
+144
+00:12:11.450 --> 00:12:13.070
+The tail object has two parts.
+
+145
+00:12:13.070 --> 00:12:18.870
+One is the area code which keeps track
+of the area code of the phone number and
+
+146
+00:12:18.870 --> 00:12:22.780
+the second field would be
+the actual telephone number.
+
+147
+00:12:22.780 --> 00:12:26.049
+So that needs to be
+introduced to the next field.
+
+148
+00:12:33.790 --> 00:12:38.412
+So here, you can see that I
+have tied their feedback dot
+
+149
+00:12:38.412 --> 00:12:43.350
+tell dot number to the telephone
+number input field here.
+
+150
+00:12:46.230 --> 00:12:50.630
+Next I introduce the email field here.
+
+151
+00:12:50.630 --> 00:12:56.260
+To introduce that,
+I use the engine model to
+
+152
+00:12:56.260 --> 00:13:03.200
+tie feedback.email and also I specify
+that as required field in the form.
+
+153
+00:13:03.200 --> 00:13:08.100
+So that is tied to the input field, which
+allows the user to type in their email.
+
+154
+00:13:09.680 --> 00:13:14.560
+The next property that I'm going
+to use is the checkbox that I
+
+155
+00:13:14.560 --> 00:13:18.630
+had introduced into the from here.
+
+156
+00:13:18.630 --> 00:13:23.580
+In the checkbox I am specifying that if
+
+157
+00:13:23.580 --> 00:13:29.290
+the checkbox is checked then the feedback
+agree is going to be set to true.
+
+158
+00:13:29.290 --> 00:13:33.120
+If the checkbox is not checked,
+the feedback agree will be set to false.
+
+159
+00:13:34.250 --> 00:13:39.310
+So, using the integer model and
+I'm tying in the check box to
+
+160
+00:13:39.310 --> 00:13:43.981
+the feedback directory property
+of the feedback object.
+
+161
+00:13:43.981 --> 00:13:51.040
+And lastly, the text [INAUDIBLE]
+that is
+
+162
+00:13:51.040 --> 00:13:58.290
+available on the form is going to be now
+tied to the feedback comments field.
+
+163
+00:13:58.290 --> 00:14:04.830
+The comments property didn't
+exist in the feedback object.
+
+164
+00:14:04.830 --> 00:14:06.440
+By doing the NG model here,
+
+165
+00:14:06.440 --> 00:14:10.210
+I'm going to introduce the property
+to my feedback object.
+
+166
+00:14:13.530 --> 00:14:19.520
+Finally, in order to illustrate to you
+as the user types in the information
+
+167
+00:14:19.520 --> 00:14:26.190
+I want to show that JavaScript object is
+actually simultaneously getting updated.
+
+168
+00:14:26.190 --> 00:14:31.500
+So what I have done is I have the div
+class on the right hand side of the form,
+
+169
+00:14:31.500 --> 00:14:36.780
+which was an empty, div there.
+
+170
+00:14:36.780 --> 00:14:42.880
+I took the feedback object, and
+then introduced some code in here.
+
+171
+00:14:42.880 --> 00:14:48.290
+And this code, will, will
+
+172
+00:14:48.290 --> 00:14:54.080
+essentially in real time,
+track the information.
+
+173
+00:14:54.080 --> 00:15:01.870
+As you type into the feedback form and
+then show it on the right hand side.
+
+174
+00:15:04.370 --> 00:15:10.419
+Let's now go and
+have a look at the form in the webpage and
+
+175
+00:15:10.419 --> 00:15:13.911
+then see how it gets to work now.
+
+176
+00:15:15.791 --> 00:15:21.012
+Now, taking a look at the form in the web
+page you can now see that the form
+
+177
+00:15:21.012 --> 00:15:26.148
+is pretty much the same as before,
+but on the right hand side you can see
+
+178
+00:15:26.148 --> 00:15:32.910
+that the current information that you type
+into the form is going to be displayed.
+
+179
+00:15:32.910 --> 00:15:35.540
+Right now the form doesn't
+contain any information.
+
+180
+00:15:35.540 --> 00:15:38.400
+Let's type in something into the form and
+
+181
+00:15:38.400 --> 00:15:43.570
+then see what happens to the right
+side as we type the information in.
+
+182
+00:15:43.570 --> 00:15:49.129
+So let me first type in my name first,
+the First Name.
+
+183
+00:15:49.129 --> 00:15:55.129
+Note that as I type in the information
+to the form, on the right-hand side.
+
+184
+00:15:55.129 --> 00:15:59.267
+The JavaScript object has been
+updated automatically and
+
+185
+00:15:59.267 --> 00:16:04.400
+then the updated information is
+being displayed in the picture.
+
+186
+00:16:04.400 --> 00:16:11.230
+The reason I introduced the thing on the
+right hand side is simply to show you that
+
+187
+00:16:11.230 --> 00:16:16.840
+form as soon as you start typing in the
+two bit data link comes into action and
+
+188
+00:16:16.840 --> 00:16:21.610
+the information is immediately
+reflected to the JavaScript object.
+
+189
+00:16:22.910 --> 00:16:27.340
+In a real page you wouldn't be introducing
+what I introduced on the righthand side.
+
+190
+00:16:27.340 --> 00:16:29.190
+That is not necessary, but
+
+191
+00:16:29.190 --> 00:16:34.510
+I just wanted you to see
+the similarity between the two sides.
+
+192
+00:16:34.510 --> 00:16:36.191
+Let's type in my last name.
+
+193
+00:16:40.591 --> 00:16:45.463
+Now, on the right side I am using
+the upper case folder in order type
+
+194
+00:16:45.463 --> 00:16:48.660
+my last name in all capital letters.
+
+195
+00:16:48.660 --> 00:16:50.504
+I can type in the area code.
+
+196
+00:17:00.267 --> 00:17:04.725
+So you can see that the contact
+telephone number is introduced there.
+
+197
+00:17:12.515 --> 00:17:16.060
+And the contact email
+information is introduced there.
+
+198
+00:17:16.060 --> 00:17:20.458
+Now we can click on
+the contact button here and
+
+199
+00:17:20.458 --> 00:17:25.569
+then we can also type in
+feedback information here.
+
+200
+00:17:34.903 --> 00:17:40.034
+Okay, obviously the feedback button
+even if you click it nothing is
+
+201
+00:17:40.034 --> 00:17:45.537
+going to happen because we haven't
+activated the form completely yet.
+
+202
+00:17:45.537 --> 00:17:48.793
+Recall that we have specified
+that the first name,
+
+203
+00:17:48.793 --> 00:17:51.829
+last name, and
+the email are required fields.
+
+204
+00:17:51.829 --> 00:17:57.370
+Now suppose I don't input anything and
+try to click on the feedback button.
+
+205
+00:17:59.130 --> 00:18:04.810
+You can see that the form validation
+that is part of HTML file automatically
+
+206
+00:18:04.810 --> 00:18:10.210
+kicks in to inform me that that
+particular field needs to be filled out.
+
+207
+00:18:17.400 --> 00:18:22.960
+Suppose I fill in the email address
+without the correct format and
+
+208
+00:18:22.960 --> 00:18:24.540
+then click on the feedback.
+
+209
+00:18:24.540 --> 00:18:28.576
+Then it is going to inform
+me that I should have
+
+210
+00:18:28.576 --> 00:18:32.728
+an at sign at least as
+part of an email address.
+
+211
+00:18:37.046 --> 00:18:41.247
+Similarly if I don't fill in
+the first name and then click on
+
+212
+00:18:41.247 --> 00:18:46.080
+the button it's going to inform me
+that I need to fill out the field.
+
+213
+00:18:46.080 --> 00:18:50.530
+So this is HTML5 form validation
+automatically kicking in
+
+214
+00:18:51.790 --> 00:18:55.500
+to show the validation of the form.
+
+215
+00:18:55.500 --> 00:18:58.380
+So this prevents the form being submitted
+
+216
+00:18:58.380 --> 00:19:02.320
+if you specify some of
+the fields as required fields.
+
+217
+00:19:04.750 --> 00:19:09.250
+When we are using Angular to control
+the form, I would rather have
+
+218
+00:19:09.250 --> 00:19:13.920
+Angular do the validation instead
+of having the HTML5 validation.
+
+219
+00:19:13.920 --> 00:19:17.710
+So to the form tag.
+
+220
+00:19:17.710 --> 00:19:22.360
+I'm going to specify that I don't want
+the HTML file validation service,
+
+221
+00:19:22.360 --> 00:19:23.830
+specify no validate.
+
+222
+00:19:25.240 --> 00:19:28.154
+Attribute for the form [INAUDIBLE].
+
+223
+00:19:28.154 --> 00:19:30.220
+In addition, when the,
+
+224
+00:19:30.220 --> 00:19:35.650
+send feedback button is clicked,
+if you're handling the form in Angular,
+
+225
+00:19:35.650 --> 00:19:40.230
+what you would normally do
+is to associate an NG submit
+
+226
+00:19:41.350 --> 00:19:47.480
+directive with the form as shown with the.
+
+227
+00:19:47.480 --> 00:19:50.820
+So in this code you can notice that
+
+228
+00:19:50.820 --> 00:19:55.460
+to the form tag I have given
+three more pieces of information.
+
+229
+00:19:55.460 --> 00:20:00.802
+First, in name to the form, so
+I have named the form as feedback font.
+
+230
+00:20:00.802 --> 00:20:05.434
+The second one is an ng-submit directive.
+
+231
+00:20:05.434 --> 00:20:11.900
+The ng-submit directive, I have specified
+it to be a sendFeedback function.
+
+232
+00:20:11.900 --> 00:20:15.280
+Meaning that when the submit
+button is clicked,
+
+233
+00:20:15.280 --> 00:20:19.878
+then this will result in a call
+to the sendFeedback function,
+
+234
+00:20:19.878 --> 00:20:26.810
+JavaScript function that I have to
+implement in my controller that feedback
+
+235
+00:20:26.810 --> 00:20:31.760
+that controller that I have
+already included in the app.gsi.
+
+236
+00:20:31.760 --> 00:20:35.910
+In the third part you see me
+specify there is no validate.
+
+237
+00:20:35.910 --> 00:20:40.130
+Meaning that I don't want HTML5 validation
+to be done on this from, instead,
+
+238
+00:20:40.130 --> 00:20:43.180
+I will take care of the validation myself.
+
+239
+00:20:43.180 --> 00:20:47.910
+Now this also means that I am
+gonna take the help of Angular's
+
+240
+00:20:47.910 --> 00:20:53.340
+form support in order to do my
+own validation using Angular.
+
+241
+00:20:53.340 --> 00:20:56.460
+So how do we go about doing that?
+
+242
+00:20:56.460 --> 00:20:58.540
+Let's examine that next.
+
+243
+00:21:01.220 --> 00:21:05.630
+Now we have already seen that
+Angular forms support certain
+
+244
+00:21:07.590 --> 00:21:13.700
+properties that we can examine to find
+out some information about the form.
+
+245
+00:21:13.700 --> 00:21:18.830
+So that's why we gave the form a name so
+that Angular state
+
+246
+00:21:18.830 --> 00:21:24.210
+of identifying of some state of
+the form can be used for this purpose.
+
+247
+00:21:24.210 --> 00:21:28.450
+Now I'm going to leverage that to
+introduce some validation in here.
+
+248
+00:21:29.450 --> 00:21:34.050
+For the first name,
+
+249
+00:21:34.050 --> 00:21:40.210
+recall that this is a required field,
+I'm going to introduce a span
+
+250
+00:21:43.150 --> 00:21:47.590
+tag here with some information,
+this span tag,
+
+251
+00:21:48.990 --> 00:21:53.080
+which has this ng-show specified here.
+
+252
+00:21:53.080 --> 00:21:58.510
+Recall we just studied the ng show
+directive in the previous lecture.
+
+253
+00:21:58.510 --> 00:22:02.770
+And also, the second part is
+class which is helpblock.
+
+254
+00:22:02.770 --> 00:22:09.540
+Now I am taking the help off Bootstraps,
+form validation support here.
+
+255
+00:22:09.540 --> 00:22:14.860
+Now when you look at the boot strap
+form validation support documentation,
+
+256
+00:22:14.860 --> 00:22:18.360
+you will see that I can specify
+something called the help block.
+
+257
+00:22:18.360 --> 00:22:22.300
+And then that will be displayed at
+
+258
+00:22:23.740 --> 00:22:28.200
+the bottom of the input field of the form.
+
+259
+00:22:28.200 --> 00:22:34.800
+Now using the NG show I am going
+to display this information below
+
+260
+00:22:34.800 --> 00:22:40.070
+the first name input field,
+only under circumstances that
+
+261
+00:22:40.070 --> 00:22:46.080
+the form entry,
+the first name form entry is invalid.
+
+262
+00:22:46.080 --> 00:22:50.220
+So I am checking two properties here,
+so for feedbackForm,
+
+263
+00:22:50.220 --> 00:22:54.590
+I'm saying first name error required.
+
+264
+00:22:54.590 --> 00:22:59.390
+So this is the way you can
+check to ensure that if
+
+265
+00:23:01.330 --> 00:23:07.310
+that particular entry doesn't have
+a valid information input there,
+
+266
+00:23:07.310 --> 00:23:14.650
+then I should warn the user that the user
+needs to input the information there.
+
+267
+00:23:14.650 --> 00:23:19.480
+The second part I'm checking is
+feedback from first name pristine.
+
+268
+00:23:19.480 --> 00:23:26.210
+What this means is that if the user
+has not yet touched the phone
+
+269
+00:23:26.210 --> 00:23:30.660
+then I will treat that field as pristine,
+meaning that nothing has been changed so
+
+270
+00:23:30.660 --> 00:23:36.050
+that's why I should not be doing
+this validation at this moment.
+
+271
+00:23:36.050 --> 00:23:41.320
+Until the state changes from
+pristine to another state.
+
+272
+00:23:41.320 --> 00:23:42.838
+I will not show this information.
+
+273
+00:23:42.838 --> 00:23:49.004
+So that's why I'm specifying this
+as not feedback from pristine.
+
+274
+00:23:49.004 --> 00:23:53.337
+Which means that the user has
+not touched this field yet.
+
+275
+00:23:53.337 --> 00:23:57.333
+Like the moment the user
+touches the screen and
+
+276
+00:23:57.333 --> 00:24:02.049
+starts typing the pristine
+value will be set to false,
+
+277
+00:24:02.049 --> 00:24:06.110
+and also the other fields will kick in.
+
+278
+00:24:06.110 --> 00:24:11.090
+The valid field and so on will become,
+those flags will be set.
+
+279
+00:24:12.840 --> 00:24:14.860
+Now this is one part that
+I'm going to introduce.
+
+280
+00:24:14.860 --> 00:24:20.160
+So this one will be shown only is there
+is an error in the user typing it.
+
+281
+00:24:20.160 --> 00:24:28.710
+In addition, boot straps validation
+has this class called has error class.
+
+282
+00:24:28.710 --> 00:24:35.150
+So if I put the has error class to a form
+
+283
+00:24:35.150 --> 00:24:42.090
+group div, then, and
+
+284
+00:24:42.090 --> 00:24:49.410
+activate it under circumstances that
+I want to alertly user about errors.
+
+285
+00:24:49.410 --> 00:24:54.210
+Then, I can ensure that this
+particular field will be
+
+286
+00:24:54.210 --> 00:24:59.130
+displayed in red color to indicate to
+the user that there is an error, so
+
+287
+00:24:59.130 --> 00:25:04.280
+to do that I'm going to
+apply that to that font
+
+288
+00:25:04.280 --> 00:25:11.380
+group that contains this input field for
+the first name,
+
+289
+00:25:11.380 --> 00:25:17.620
+I'm going to apply that using
+the Ng class directive.
+
+290
+00:25:17.620 --> 00:25:21.150
+Now recall we studied ng
+class in the previous module.
+
+291
+00:25:21.150 --> 00:25:28.410
+So here I'm specifying ng
+class equal to within braces.
+
+292
+00:25:28.410 --> 00:25:30.848
+Look at the expression that
+I am specifying there.
+
+293
+00:25:30.848 --> 00:25:34.980
+Has error in Coats.
+
+294
+00:25:34.980 --> 00:25:41.570
+Meaning that this has error class
+will be applied to this div
+
+295
+00:25:41.570 --> 00:25:47.540
+provided after the colon I supply
+a condition to be checked.
+
+296
+00:25:47.540 --> 00:25:49.780
+The condition says feedback first name,
+
+297
+00:25:49.780 --> 00:25:53.070
+error required and
+not feedback first name pristine.
+
+298
+00:25:53.070 --> 00:25:57.781
+So this is the same condition that
+I used in the span tag below.
+
+299
+00:25:57.781 --> 00:26:02.900
+So this has-error class will be applied
+
+300
+00:26:02.900 --> 00:26:07.610
+to this form-group div if
+
+301
+00:26:07.610 --> 00:26:12.850
+this particular input field has an error.
+
+302
+00:26:12.850 --> 00:26:15.800
+That means if the user did
+not type in the first name.
+
+303
+00:26:17.260 --> 00:26:19.640
+And the user has touched that field.
+
+304
+00:26:19.640 --> 00:26:24.220
+So under those circumstances,
+the error will be displayed.
+
+305
+00:26:24.220 --> 00:26:30.090
+I'm going to do the same thing to the last
+name and the email and some other fields.
+
+306
+00:26:31.890 --> 00:26:37.040
+So here I am applying the same
+thing to the lastName field.
+
+307
+00:26:37.040 --> 00:26:40.783
+So here, I'm using
+feedbackForm.lastName.$error.required and
+
+308
+00:26:40.783 --> 00:26:42.060
+lastName.$pristine.
+
+309
+00:26:42.060 --> 00:26:45.240
+And also the span tag
+that I have applied here.
+
+310
+00:26:45.240 --> 00:26:48.230
+So, meaning that if the user
+doesn't type in the last name,
+
+311
+00:26:48.230 --> 00:26:51.370
+then I'm gonna warn the user saying
+last name has not been typed in.
+
+312
+00:26:53.740 --> 00:26:56.020
+The telephone number is
+not a required field so
+
+313
+00:26:56.020 --> 00:26:58.770
+I'm not going to do any
+validation on that.
+
+314
+00:26:58.770 --> 00:27:02.800
+Although, in principle you could do
+validation there saying that the user has
+
+315
+00:27:02.800 --> 00:27:06.620
+typed in only numbers
+not other characters.
+
+316
+00:27:06.620 --> 00:27:12.130
+For the moment I have shown you the method
+you can easily implement that if required.
+
+317
+00:27:14.140 --> 00:27:18.110
+To me, the more interesting
+thing is the email address, for
+
+318
+00:27:18.110 --> 00:27:24.740
+the email address let me introduce the
+error check link or some validation point.
+
+319
+00:27:24.740 --> 00:27:29.370
+So here I am introducing three tags.
+
+320
+00:27:29.370 --> 00:27:31.370
+To the font validation.
+
+321
+00:27:31.370 --> 00:27:35.390
+The first tag I am
+checking to make sure that
+
+322
+00:27:35.390 --> 00:27:40.730
+if the email ID is invalid,
+feedback from our email ID.
+
+323
+00:27:40.730 --> 00:27:43.810
+The email ID that I am using there
+
+324
+00:27:43.810 --> 00:27:49.360
+is the name of the input
+field which I am checking.
+
+325
+00:27:49.360 --> 00:27:53.049
+Okay, if it is invalid and
+
+326
+00:27:53.049 --> 00:27:57.430
+the email ID has been touched.
+
+327
+00:27:57.430 --> 00:28:04.120
+Then I am displaying this glyphic on
+glyphic remove form control feedback.
+
+328
+00:28:04.120 --> 00:28:08.510
+Now what this means is that I
+should apply the has feedback
+
+329
+00:28:08.510 --> 00:28:12.750
+class to my form group to make
+sure that this particular
+
+330
+00:28:14.910 --> 00:28:21.050
+span glyphicon will be displayed
+inside the input field of the form.
+
+331
+00:28:21.050 --> 00:28:25.870
+So I'll display a red cross inside
+the input field if the email ID is wrong.
+
+332
+00:28:27.590 --> 00:28:30.500
+The second span tag that I introduce,
+
+333
+00:28:30.500 --> 00:28:34.330
+will be activated if
+the email address is invalid.
+
+334
+00:28:34.330 --> 00:28:37.010
+See enter a valid email address.
+
+335
+00:28:37.010 --> 00:28:42.920
+The third span tag will be activated if
+the user does not type in the email ID and
+
+336
+00:28:42.920 --> 00:28:44.320
+tries to submit the form.
+
+337
+00:28:44.320 --> 00:28:46.990
+So that's is the third part I am checking.
+
+338
+00:28:46.990 --> 00:28:51.640
+Now I need to upload
+the classes to the phone group.
+
+339
+00:28:51.640 --> 00:28:55.150
+So, let me introduce the code for
+the classes to the phone group.
+
+340
+00:28:55.150 --> 00:29:01.590
+So, to the phone group that includes
+the email I am introducing NG class and
+
+341
+00:29:01.590 --> 00:29:05.370
+note that I am introducing hash error and
+hash feedback as well.
+
+342
+00:29:07.540 --> 00:29:11.070
+So this will be introduced if the feedback
+
+343
+00:29:12.100 --> 00:29:16.140
+email ID is invalid and
+the feedback form is pristine.
+
+344
+00:29:16.140 --> 00:29:18.570
+So in that case,
+I am applying the has error and
+
+345
+00:29:18.570 --> 00:29:22.622
+has feedback to that field, right?
+
+346
+00:29:24.620 --> 00:29:28.510
+Another change that I'm
+going to make is to select
+
+347
+00:29:29.890 --> 00:29:32.420
+element that I have
+introduced in the fall.
+
+348
+00:29:32.420 --> 00:29:36.310
+Now, the select element
+earlier was a static element.
+
+349
+00:29:36.310 --> 00:29:41.458
+Now I'm going to take the help
+of angular in order to
+
+350
+00:29:41.458 --> 00:29:48.303
+automatically put in the various
+options into the select element.
+
+351
+00:29:48.303 --> 00:29:52.825
+Also I will show this
+select element only when
+
+352
+00:29:52.825 --> 00:29:58.370
+the user checks the may
+we contact you checkbox.
+
+353
+00:29:58.370 --> 00:30:04.530
+So to do that, first I will
+introduce the ng show directive
+
+354
+00:30:04.530 --> 00:30:11.680
+to the div class that
+contains this select element.
+
+355
+00:30:11.680 --> 00:30:16.060
+So ng show I specify it as feedback agree.
+
+356
+00:30:16.060 --> 00:30:22.170
+Between study of the user checks
+the may we contact you checkbox,
+
+357
+00:30:22.170 --> 00:30:24.540
+then the select item will be displayed.
+
+358
+00:30:24.540 --> 00:30:28.780
+If the user does not check then this
+option will not be given to the user.
+
+359
+00:30:28.780 --> 00:30:33.000
+So here I am conditionally
+adding elements to the form,
+
+360
+00:30:33.000 --> 00:30:38.530
+only when it is required for
+the user to type in this information.
+
+361
+00:30:38.530 --> 00:30:44.050
+Now In addition, for
+the select field itself,
+
+362
+00:30:44.050 --> 00:30:50.550
+I'm going to give the options by
+setting up a JavaScript object in
+
+363
+00:30:50.550 --> 00:30:56.620
+the controller and then using that to set
+up the options inside the select field.
+
+364
+00:30:56.620 --> 00:31:00.440
+So let's switch to
+the app dot js file now.
+
+365
+00:31:00.440 --> 00:31:03.995
+And then introduce a java
+script object there.
+
+366
+00:31:07.596 --> 00:31:13.238
+Switching to the app.js file,
+now in the contact
+
+367
+00:31:13.238 --> 00:31:20.100
+controller class I am going to
+introduce a JavaScript object
+
+368
+00:31:24.717 --> 00:31:27.580
+Called as channels.
+
+369
+00:31:27.580 --> 00:31:30.920
+Now this channels object
+contains two parts.
+
+370
+00:31:30.920 --> 00:31:34.780
+It's an array of Java Script objects.
+
+371
+00:31:34.780 --> 00:31:38.540
+Each Java Script object
+contains a value and a label.
+
+372
+00:31:38.540 --> 00:31:40.170
+A value and a label.
+
+373
+00:31:40.170 --> 00:31:45.916
+Now this Java Script object is
+what I'm gonna make use of,
+
+374
+00:31:45.916 --> 00:31:49.797
+to setup the select element in my form.
+
+375
+00:31:49.797 --> 00:31:57.588
+Now also, that I am hanging it onto
+that channels object on the scope.
+
+376
+00:31:57.588 --> 00:32:02.039
+Also I have introduced
+this additional Boolean
+
+377
+00:32:02.039 --> 00:32:06.852
+variable here called
+invalidChannelSelection.
+
+378
+00:32:06.852 --> 00:32:10.700
+I'm gonna come back to that in a short
+while, because when we need to do
+
+379
+00:32:10.700 --> 00:32:15.820
+the validation on the select,
+
+380
+00:32:18.720 --> 00:32:21.240
+element, I will leave that in place.
+
+381
+00:32:21.240 --> 00:32:24.260
+So right now, I'm setting that to false.
+
+382
+00:32:24.260 --> 00:32:29.143
+Let's go back to the contactus.html page.
+
+383
+00:32:32.509 --> 00:32:37.551
+Going back to the contactus.html page, I
+am now going to make use of the JavaScript
+
+384
+00:32:37.551 --> 00:32:43.235
+object that I'd just introduced in the app
+or JS file to set up this select element.
+
+385
+00:32:43.235 --> 00:32:48.030
+Now this is where I'm gonna take
+the help of Angular's way of
+
+386
+00:32:48.030 --> 00:32:50.388
+setting up select elements.
+
+387
+00:32:57.739 --> 00:33:05.242
+For this select element note how I
+have modified that selector limit now.
+
+388
+00:33:05.242 --> 00:33:09.964
+I have removed the options from there,
+and then I have retained only one
+
+389
+00:33:09.964 --> 00:33:13.914
+option there, saying option value,
+empty string, Tel.
+
+390
+00:33:13.914 --> 00:33:14.840
+or Email?
+
+391
+00:33:14.840 --> 00:33:21.030
+This option will be displayed in the form,
+and then when
+
+392
+00:33:21.030 --> 00:33:25.820
+the user selects one of the two options
+[INAUDIBLE] to option will be activated.
+
+393
+00:33:25.820 --> 00:33:31.060
+Now in addition,
+look at how I specified the ng-model here.
+
+394
+00:33:31.060 --> 00:33:36.020
+The ng-model,
+I'm specifying it as feedback, mychannel.
+
+395
+00:33:36.020 --> 00:33:40.091
+So I am introducing
+the two-way data binding to
+
+396
+00:33:40.091 --> 00:33:45.308
+the mychannel property of
+the feedback JavaScript object.
+
+397
+00:33:45.308 --> 00:33:52.828
+And the mychannel will carry the option
+that I select using this select element.
+
+398
+00:33:52.828 --> 00:33:58.469
+Now, the second part, you'll see
+me specifying here is ng-options.
+
+399
+00:33:58.469 --> 00:34:03.793
+The ng-options is another
+directive of Angular.
+
+400
+00:34:03.793 --> 00:34:12.075
+This one, I am specifying here as
+channel.value as channel.label.
+
+401
+00:34:12.075 --> 00:34:18.520
+So the channel.label, this is the syntax
+for specifying for the ng-options.
+
+402
+00:34:18.520 --> 00:34:21.610
+You can use that when you're
+setting up a select element.
+
+403
+00:34:21.610 --> 00:34:25.470
+So this is how Angular
+expects you to specify that.
+
+404
+00:34:25.470 --> 00:34:32.410
+So I'm specifying channel.value as
+channel.label for channel in channels.
+
+405
+00:34:32.410 --> 00:34:36.973
+Remember, channels is a JavaScript
+
+406
+00:34:36.973 --> 00:34:42.419
+object that I just
+introduced in the app.js
+
+407
+00:34:42.419 --> 00:34:46.844
+folder in the contact controller.
+
+408
+00:34:46.844 --> 00:34:51.714
+Now, channel in channels,
+this way of looping
+
+409
+00:34:51.714 --> 00:34:56.584
+through all the objects
+of a JavaScript array,
+
+410
+00:34:56.584 --> 00:35:03.260
+we have seen that used with
+ng-repeat directive earlier.
+
+411
+00:35:03.260 --> 00:35:05.230
+It's the same thing that I'm using here.
+
+412
+00:35:05.230 --> 00:35:11.198
+So for every channel object that is
+part of this channel object array,
+
+413
+00:35:11.198 --> 00:35:15.890
+I'm going to use the channel.label of it.
+
+414
+00:35:15.890 --> 00:35:18.176
+And corresponding with the channel.value,
+
+415
+00:35:18.176 --> 00:35:23.780
+the channel.label will be used as
+the option item in my select statement.
+
+416
+00:35:23.780 --> 00:35:28.430
+And when that option item is selected
+the channel value will be assigned to
+
+417
+00:35:28.430 --> 00:35:35.430
+the value for
+this ng-model directive here.
+
+418
+00:35:35.430 --> 00:35:40.390
+So the mychannel will be set to
+the channel.value depending on which one I
+
+419
+00:35:40.390 --> 00:35:42.950
+select, using this select element.
+
+420
+00:35:44.460 --> 00:35:52.149
+So, note how Angular comes to
+help you in setting up your form.
+
+421
+00:35:52.149 --> 00:35:57.492
+In addition, for this particular
+
+422
+00:35:57.492 --> 00:36:06.151
+form group I am specifying
+an ng-class as has-error,
+
+423
+00:36:06.151 --> 00:36:10.770
+invalidChannelSelection.
+
+424
+00:36:11.960 --> 00:36:18.618
+So, again, has-error, we have seen before,
+and invalidChannelSelection,
+
+425
+00:36:18.618 --> 00:36:25.950
+you saw me introduce this Boolean variable
+into the contact controller earlier.
+
+426
+00:36:25.950 --> 00:36:30.880
+Now, that Boolean variable I'm gonna use
+to control whether I'm gonna show this
+
+427
+00:36:30.880 --> 00:36:35.310
+field as a field in error or
+a normal value.
+
+428
+00:36:35.310 --> 00:36:39.510
+So that's one part that I'm gonna
+use when I do validation, but
+
+429
+00:36:39.510 --> 00:36:42.650
+this validation has to be
+done inside JavaScript code.
+
+430
+00:36:42.650 --> 00:36:47.830
+So we're gonna go to the JavaScript code
+to do the validation a short while later.
+
+431
+00:36:50.370 --> 00:36:57.140
+The second part of the validation that
+I'm gonna do is by introducing the span
+
+432
+00:36:58.800 --> 00:37:05.290
+tag to the select field here,
+just below the select element.
+
+433
+00:37:05.290 --> 00:37:08.970
+I specify ng-show,
+invalidChannelSelection.
+
+434
+00:37:08.970 --> 00:37:13.848
+So if invalidChannelSelection is set
+to true, then I'm gonna show this.
+
+435
+00:37:13.848 --> 00:37:18.929
+Now this invalidChannelSelection
+tracks to see whether the user
+
+436
+00:37:18.929 --> 00:37:24.206
+has selected the appropriate
+communication channel to use or not.
+
+437
+00:37:24.206 --> 00:37:26.041
+If the user does not select,
+
+438
+00:37:26.041 --> 00:37:29.647
+then the invalidChannelSelection
+will be set to true.
+
+439
+00:37:29.647 --> 00:37:34.919
+Now this has to be handled in JavaScript,
+so we're gonna switch to
+
+440
+00:37:34.919 --> 00:37:40.289
+JavaScript soon to show how this
+Boolean variable will be changed,
+
+441
+00:37:40.289 --> 00:37:45.865
+while doing the validation inside
+the controller, in a short while.
+
+442
+00:37:45.865 --> 00:37:51.188
+The last change that I'm gonna
+introduce to this contactus.html
+
+443
+00:37:51.188 --> 00:37:56.319
+page is to make sure that the bottom
+will remain disabled until,
+
+444
+00:37:56.319 --> 00:38:02.610
+at least, the user has typed in the first
+name, the last name, and the email.
+
+445
+00:38:03.720 --> 00:38:08.070
+So to help me with this
+I am taking the help of
+
+446
+00:38:08.070 --> 00:38:12.580
+Angular's way of tracking whether
+the form is valid or invalid.
+
+447
+00:38:12.580 --> 00:38:20.530
+So for feedbackForm.$invalid, we have
+studied this in the lecture earlier.
+
+448
+00:38:20.530 --> 00:38:24.340
+So I am using that as a way of controlling
+
+449
+00:38:24.340 --> 00:38:28.860
+whether the ng-disabled will be
+applied to the button or not.
+
+450
+00:38:28.860 --> 00:38:32.870
+The ng-disabled is a directive again.
+
+451
+00:38:32.870 --> 00:38:39.620
+Now if you apply the ng-disabled
+directive to any particular HTML element,
+
+452
+00:38:39.620 --> 00:38:45.730
+that will be disabled unless
+The ng-disabled evaluates to false.
+
+453
+00:38:45.730 --> 00:38:51.093
+So if this condition to the right of
+ng-disabled equaled with this condition
+
+454
+00:38:51.093 --> 00:38:57.040
+to the right side, evaluates to false,
+then the ng-disabled will not be applied.
+
+455
+00:38:57.040 --> 00:39:00.710
+If this evaluation is true,
+then the ng-disabled will be applied.
+
+456
+00:39:00.710 --> 00:39:06.170
+So which means that this
+button will remain disabled
+
+457
+00:39:06.170 --> 00:39:10.811
+until the feedbackForm becomes valid.
+
+458
+00:39:10.811 --> 00:39:17.170
+So that way, I'm already preventing the
+user from submitting incorrect information
+
+459
+00:39:17.170 --> 00:39:21.625
+unless the user has typed
+in their first name,
+
+460
+00:39:21.625 --> 00:39:26.710
+the last name, and the email address,
+the three required fields in this form.
+
+461
+00:39:26.710 --> 00:39:31.256
+So that way I'm controlling the errors
+
+462
+00:39:31.256 --> 00:39:36.086
+that the user can introduce in the forms.
+
+463
+00:39:36.086 --> 00:39:41.659
+Let's save the changes, and
+then we'll switch to app.js,
+
+464
+00:39:41.659 --> 00:39:48.212
+and then do the validation of the select
+element in the JavaScript code.
+
+465
+00:39:54.671 --> 00:40:00.990
+Switching to the JavaScript
+code in app.js.
+
+466
+00:40:00.990 --> 00:40:04.930
+Now, first thing that I
+need to do is that, for
+
+467
+00:40:04.930 --> 00:40:08.720
+the form, the ngSubmit in the form.
+
+468
+00:40:08.720 --> 00:40:12.880
+I have specified that if
+the submit button is clicked
+
+469
+00:40:12.880 --> 00:40:17.520
+then it will result in a call
+to that same feedback function.
+
+470
+00:40:17.520 --> 00:40:21.490
+So I have to introduce that function
+inside my feedback controller.
+
+471
+00:40:21.490 --> 00:40:25.424
+So let me go ahead and introduce the
+function inside the feedback controller.
+
+472
+00:40:31.343 --> 00:40:37.330
+So here, you see me introducing
+the function in the feedback controller.
+
+473
+00:40:37.330 --> 00:40:45.210
+Now this function will recall whenever
+the user clicks the sendFeedback button.
+
+474
+00:40:45.210 --> 00:40:47.750
+So the form information
+will be submitted here.
+
+475
+00:40:49.510 --> 00:40:56.580
+Now the console log allows
+us to print out information
+
+476
+00:40:56.580 --> 00:41:01.860
+to the JavaScript inner
+console that comes as part
+
+477
+00:41:01.860 --> 00:41:07.310
+of many of the developer tools that
+are included in various browsers.
+
+478
+00:41:07.310 --> 00:41:12.620
+I'm gonna show that to you in
+Chrome in a short while but whether
+
+479
+00:41:12.620 --> 00:41:17.960
+you use Safari or any other browser, they
+might have these developer options, so
+
+480
+00:41:17.960 --> 00:41:23.520
+check for them with the default
+browser that you use.
+
+481
+00:41:23.520 --> 00:41:27.410
+You must have developer options in them.
+
+482
+00:41:27.410 --> 00:41:30.130
+And then you can open
+the JavaScript console.
+
+483
+00:41:30.130 --> 00:41:34.950
+So that if my JavaScript is done running
+and it needs to generate any output and
+
+484
+00:41:34.950 --> 00:41:39.220
+if I use console log that information will
+be printed out in JavaScript console.
+
+485
+00:41:40.790 --> 00:41:42.250
+So that's one part.
+
+486
+00:41:42.250 --> 00:41:47.100
+Now what I am doing here is
+that when this function is
+
+487
+00:41:47.100 --> 00:41:52.690
+executed because the user clicked
+on the send feedback button.
+
+488
+00:41:52.690 --> 00:41:54.156
+I will come in here and
+
+489
+00:41:54.156 --> 00:41:58.884
+then printout their feedback object
+out of the JavaScript console so
+
+490
+00:41:58.884 --> 00:42:03.543
+that way I can examine what
+the feedback object actually contains.
+
+491
+00:42:03.543 --> 00:42:09.986
+Now this is one way you can do a little
+bit of debugging of your JavaScript code.
+
+492
+00:42:09.986 --> 00:42:15.085
+Also, one more interesting
+aspect that Iw ould
+
+493
+00:42:15.085 --> 00:42:20.055
+like to again emphasize
+to you is the parent and
+
+494
+00:42:20.055 --> 00:42:25.800
+the child controllers and
+the inheritance of scope.
+
+495
+00:42:27.080 --> 00:42:32.230
+Remember that the way we
+designed the contact us .html
+
+496
+00:42:32.230 --> 00:42:36.240
+page is that we had the contact
+controller that was controlling
+
+497
+00:42:37.490 --> 00:42:43.130
+almost the entire body of
+the contactus.html page.
+
+498
+00:42:43.130 --> 00:42:49.100
+Now, part of that, I also gave
+control to the feedback controller.
+
+499
+00:42:49.100 --> 00:42:53.190
+Now since the feedback controller is
+nested inside the contact controller
+
+500
+00:42:54.200 --> 00:42:56.450
+in the web page.
+
+501
+00:42:56.450 --> 00:43:00.860
+So, the feedback controller automatically
+gets access to anything that is on
+
+502
+00:43:00.860 --> 00:43:03.100
+the scope for the contact controller.
+
+503
+00:43:03.100 --> 00:43:05.260
+So this is an extra scoping.
+
+504
+00:43:05.260 --> 00:43:09.160
+So that's why the feedback
+controller has complete access to
+
+505
+00:43:09.160 --> 00:43:14.540
+the feedback object that I created
+in the contact controller.
+
+506
+00:43:14.540 --> 00:43:18.510
+I could as well have taken the term then
+put it inside the feedback controller.
+
+507
+00:43:18.510 --> 00:43:20.200
+But I wanted to illustrate
+
+508
+00:43:21.410 --> 00:43:25.740
+this interesting aspect
+of scope nesting to you.
+
+509
+00:43:25.740 --> 00:43:30.470
+So that's why I used this approach for
+implementing the solution.
+
+510
+00:43:32.140 --> 00:43:36.224
+The last part that I want
+to do with this form is
+
+511
+00:43:37.485 --> 00:43:43.125
+to make sure that if the user
+checks the media contact you
+
+512
+00:43:43.125 --> 00:43:47.135
+button, then I will force
+the user to either select
+
+513
+00:43:48.645 --> 00:43:53.935
+the either telephone or email for
+the channel for communication.
+
+514
+00:43:53.935 --> 00:43:58.435
+So I'm gonna check the part inside
+this send feedback function.
+
+515
+00:43:58.435 --> 00:44:01.650
+So when the user submits the button.
+
+516
+00:44:01.650 --> 00:44:06.702
+I'm gonna come in here, and
+then check, to ensure that the,
+
+517
+00:44:06.702 --> 00:44:10.879
+if the, maybe contact you,
+check box is checked,
+
+518
+00:44:10.879 --> 00:44:15.854
+then the user has correctly
+selected one of the two options.
+
+519
+00:44:19.730 --> 00:44:27.250
+So here, I have introduced the code which
+I am using for validating that part.
+
+520
+00:44:27.250 --> 00:44:33.320
+There is no direct way of validating on
+the form itself, so that's why I am using
+
+521
+00:44:33.320 --> 00:44:39.450
+the JavaScript code in the controller
+to build a validation.
+
+522
+00:44:39.450 --> 00:44:43.450
+So I am illustrating two different
+ways of doing validation.
+
+523
+00:44:43.450 --> 00:44:51.530
+One is directly validating things
+on the HTML page itself using
+
+524
+00:44:51.530 --> 00:44:57.000
+the various properties that
+Angular supplies for your phone.
+
+525
+00:44:57.000 --> 00:45:01.680
+The pristine, the invalid,
+the valid, and the other properties.
+
+526
+00:45:01.680 --> 00:45:05.780
+Now here,
+the other way of doing validation.
+
+527
+00:45:05.780 --> 00:45:11.062
+When the information comes
+in upon the user clicking
+
+528
+00:45:11.062 --> 00:45:16.270
+the submit button I can check the
+information inside the JavaScript code, so
+
+529
+00:45:16.270 --> 00:45:23.120
+here I'm checking scope feedback agree,
+meaning if the check box for
+
+530
+00:45:23.120 --> 00:45:27.870
+the agree has been checked by the user and
+
+531
+00:45:27.870 --> 00:45:33.260
+"scope.feedback.mychannel" is
+an empty string, so
+
+532
+00:45:33.260 --> 00:45:35.750
+that is the second part
+that I'm checking here.
+
+533
+00:45:35.750 --> 00:45:36.860
+So, if it is an empty string,
+
+534
+00:45:36.860 --> 00:45:40.150
+that means that the user did
+not do the selection correctly.
+
+535
+00:45:40.150 --> 00:45:45.370
+So, in that case, I'm going to set
+"scope.invalidChannelSelection" to true.
+
+536
+00:45:45.370 --> 00:45:49.310
+So if I do that, then I'm going to
+go back to the user and say look
+
+537
+00:45:49.310 --> 00:45:53.720
+you did not submit the, you did not do
+the proper selection of the channel.
+
+538
+00:45:54.790 --> 00:45:56.340
+So please do so.
+
+539
+00:45:56.340 --> 00:45:59.940
+So the validation is done in this way,
+in the code I am checking and
+
+540
+00:45:59.940 --> 00:46:02.980
+then going back to the user
+to remind the user saying,
+
+541
+00:46:02.980 --> 00:46:07.370
+no, this form is not complete,
+make the selection properly.
+
+542
+00:46:08.470 --> 00:46:13.100
+Now, otherwise the otherwise
+part is equally interesting.
+
+543
+00:46:13.100 --> 00:46:14.940
+So that's the else part.
+
+544
+00:46:14.940 --> 00:46:19.390
+When you go into the else
+part that means that if
+
+545
+00:46:19.390 --> 00:46:25.890
+the maybe contact you check
+box has not been clicked.
+
+546
+00:46:25.890 --> 00:46:28.730
+Then I don't care about the select option.
+
+547
+00:46:28.730 --> 00:46:34.560
+But if it is checked, and the user has
+already selected one of the two channels,
+
+548
+00:46:34.560 --> 00:46:38.970
+the telephone or the email.
+
+549
+00:46:38.970 --> 00:46:39.890
+I am happy.
+
+550
+00:46:39.890 --> 00:46:44.000
+Then I can go ahead then and
+validate the form further.
+
+551
+00:46:44.000 --> 00:46:49.130
+So in here, I am setting Scope
+invalid channel selection to false,
+
+552
+00:46:49.130 --> 00:46:51.530
+meaning that everything is okay,
+no problem.
+
+553
+00:46:54.240 --> 00:46:58.200
+What I can do now then is at this point
+
+554
+00:46:59.680 --> 00:47:05.290
+I would be able to do in ajax request and
+send the form over to a server.
+
+555
+00:47:05.290 --> 00:47:09.590
+If I am having a server site that
+will accept this information and
+
+556
+00:47:09.590 --> 00:47:11.300
+then do some changes.
+
+557
+00:47:11.300 --> 00:47:15.210
+Right now I am not doing that part will
+come back to do that in one of the later
+
+558
+00:47:15.210 --> 00:47:16.380
+exercises.
+
+559
+00:47:16.380 --> 00:47:23.060
+So, after that has been done,
+then I need to clear out the form.
+
+560
+00:47:23.060 --> 00:47:28.210
+So to do that, I am setting my
+feedback object back to its
+
+561
+00:47:28.210 --> 00:47:32.890
+normal, empty form state.
+
+562
+00:47:32.890 --> 00:47:37.047
+And then I am also setting
+the feedback form.
+
+563
+00:47:37.047 --> 00:47:41.557
+Set pristine so
+when I call this set pristine this
+
+564
+00:47:41.557 --> 00:47:45.629
+is going to set
+the feedback from pristine.
+
+565
+00:47:45.629 --> 00:47:50.020
+That means that form has
+been completely cleared out.
+
+566
+00:47:50.020 --> 00:47:52.922
+And then I am done.
+
+567
+00:47:52.922 --> 00:47:59.100
+Okay, so that is the set up steps that I'm
+doing in the else part of this statement.
+
+568
+00:48:00.220 --> 00:48:04.860
+And then also, of course,
+note me using the console log to
+
+569
+00:48:04.860 --> 00:48:09.080
+log information here and there, so
+that I can check on the JavaScript
+
+570
+00:48:09.080 --> 00:48:13.870
+console if my JavaScript code is
+correctly getting executed or not.
+
+571
+00:48:13.870 --> 00:48:17.650
+So this is one way of debugging
+your JavaScript code.
+
+572
+00:48:20.360 --> 00:48:28.219
+Now, let's go back to our webpage, and
+then see the form validation in action.
+
+573
+00:48:29.550 --> 00:48:33.428
+So, I will type in my first name.
+
+574
+00:48:36.955 --> 00:48:41.680
+My last name, and
+contact telephone number, I don't care.
+
+575
+00:48:41.680 --> 00:48:46.600
+I'll just type in an email
+address with just one letter.
+
+576
+00:48:46.600 --> 00:48:50.010
+Immediately notice how
+the formulation kicks in and
+
+577
+00:48:50.010 --> 00:48:53.570
+says, that is not a valid email address.
+
+578
+00:48:53.570 --> 00:48:58.640
+S is not a valid email address,
+so it's going to check it again.
+
+579
+00:48:58.640 --> 00:49:02.140
+What is valid and
+what is invalid is only to the extent of
+
+580
+00:49:02.140 --> 00:49:05.590
+the format of the email
+address is correct.
+
+581
+00:49:05.590 --> 00:49:08.440
+It doesn't go to check whether
+your email address is correct or
+
+582
+00:49:08.440 --> 00:49:12.630
+not, it just checks to make sure that
+when you type in an email address,
+
+583
+00:49:12.630 --> 00:49:17.560
+there must be an at sign as part of this
+email address somewhere, and the email
+
+584
+00:49:17.560 --> 00:49:22.650
+address doesn't end with just an at
+sign or something with a dot at the end.
+
+585
+00:49:22.650 --> 00:49:27.092
+So, for
+example if I continue on I can say.
+
+586
+00:49:29.832 --> 00:49:33.305
+Abc.
+
+587
+00:49:33.305 --> 00:49:39.697
+So note that the validation is still
+pushing me to type it correctly.
+
+588
+00:49:39.697 --> 00:49:44.253
+So I can say @, and the moment I type u,
+
+589
+00:49:44.253 --> 00:49:47.854
+that is a valid email address.
+
+590
+00:49:47.854 --> 00:49:51.163
+Okay, so it turns off that validation.
+
+591
+00:49:51.163 --> 00:49:56.263
+If I keep continuing to type and
+then I put a dot there, note
+
+592
+00:49:56.263 --> 00:50:01.413
+that it again complains, saying that is
+not valid, something should end it there.
+
+593
+00:50:01.413 --> 00:50:03.873
+So that's why it is waiting for
+me to do the ending.
+
+594
+00:50:03.873 --> 00:50:06.313
+So note that validation kicking in.
+
+595
+00:50:08.935 --> 00:50:10.600
+Bit by bit.
+
+596
+00:50:10.600 --> 00:50:12.840
+So let me type in the complete address.
+
+597
+00:50:12.840 --> 00:50:20.130
+Now, if I remove the last name and
+try to submit,
+
+598
+00:50:22.030 --> 00:50:29.000
+note that if I don't type in my last
+name my Feedback button is disabled.
+
+599
+00:50:29.000 --> 00:50:30.820
+I can't click on the button.
+
+600
+00:50:30.820 --> 00:50:33.280
+But the moment I type in my last name,
+
+601
+00:50:34.620 --> 00:50:38.890
+even if I type a single character,
+look at the Feedback button.
+
+602
+00:50:38.890 --> 00:50:40.170
+It has now become activated.
+
+603
+00:50:41.270 --> 00:50:44.860
+So, let me select my last name there.
+
+604
+00:50:44.860 --> 00:50:48.870
+Now, let's examine how this part works.
+
+605
+00:50:48.870 --> 00:50:53.000
+Now right now,
+the check box is not checked.
+
+606
+00:50:53.000 --> 00:50:56.060
+So that's why you don't see
+the select field up here.
+
+607
+00:50:56.060 --> 00:51:01.710
+Now, the moment I check the box,
+that thing appears immediately.
+
+608
+00:51:01.710 --> 00:51:04.300
+Now, this is because I am using the NG
+
+609
+00:51:04.300 --> 00:51:07.810
+show which is controlled
+by this check box.
+
+610
+00:51:07.810 --> 00:51:13.336
+If I check this, then the NG show,
+will ensure that this is sure.
+
+611
+00:51:13.336 --> 00:51:18.600
+If I uncheck it, that goes away.
+
+612
+00:51:18.600 --> 00:51:21.750
+But if I check it, and
+then I don't select it and
+
+613
+00:51:21.750 --> 00:51:26.340
+I try to submit the form,
+let's try to do that.
+
+614
+00:51:26.340 --> 00:51:31.990
+We are crazy, we are going to try
+all errors to see what happens.
+
+615
+00:51:31.990 --> 00:51:36.040
+If I click on that,
+note what the validation has done.
+
+616
+00:51:36.040 --> 00:51:38.810
+It has come back and said,
+look that is not valid.
+
+617
+00:51:38.810 --> 00:51:41.040
+You need to select one of those options.
+
+618
+00:51:42.740 --> 00:51:43.720
+Okay.
+
+619
+00:51:43.720 --> 00:51:50.560
+Now, if I select an option, okay, and then
+I submit the form, then it'll get cleared.
+
+620
+00:51:52.530 --> 00:51:55.190
+Now, if I select an option,
+
+621
+00:51:55.190 --> 00:51:59.540
+immediately I can go back and check,
+although I could implement a bit
+
+622
+00:51:59.540 --> 00:52:03.090
+more complex code inside my controller
+to check for all these things.
+
+623
+00:52:03.090 --> 00:52:04.710
+I'm a little bit lazy at this moment.
+
+624
+00:52:04.710 --> 00:52:07.780
+I don't want to confuse
+you beyond this point.
+
+625
+00:52:07.780 --> 00:52:14.460
+Let's hold on there and
+then let's type in a few things here.
+
+626
+00:52:14.460 --> 00:52:16.960
+Now, I'm going to cause
+a problem somewhere else.
+
+627
+00:52:16.960 --> 00:52:18.800
+I'll remove my first name.
+
+628
+00:52:18.800 --> 00:52:21.850
+Now, if I remove my first name,
+it won't allow me to submit.
+
+629
+00:52:21.850 --> 00:52:25.630
+So, I have to type back in my first name,
+and
+
+630
+00:52:25.630 --> 00:52:29.790
+then if I click on the button,
+look what happens.
+
+631
+00:52:29.790 --> 00:52:31.080
+Now everything is valid.
+
+632
+00:52:31.080 --> 00:52:36.770
+I have selected the option there, I have
+filled out all the required fields there.
+
+633
+00:52:36.770 --> 00:52:41.415
+If I submit the Send Feedback button,
+also note on the right side
+
+634
+00:52:41.415 --> 00:52:45.265
+that the current state of the JavaScript
+object has been displayed correctly.
+
+635
+00:52:46.335 --> 00:52:49.275
+Let me click on the Send Feedback.
+
+636
+00:52:49.275 --> 00:52:51.335
+And then,
+once I click on the Send Feedback,
+
+637
+00:52:51.335 --> 00:52:52.815
+the information has been submitted.
+
+638
+00:52:54.745 --> 00:52:59.755
+The form has been cleared out and
+set back to its pristine state.
+
+639
+00:53:00.940 --> 00:53:07.382
+So this is angular forms and
+form validation in action for you.
+
+640
+00:53:07.382 --> 00:53:12.940
+So in this exercise,
+we looked at angular forms,
+
+641
+00:53:12.940 --> 00:53:19.540
+we looked at how we can use angular
+support for forms to enhance
+
+642
+00:53:19.540 --> 00:53:25.520
+that validation of fonts, and how we can.
+
+643
+00:53:27.746 --> 00:53:32.281
+Enhance the user experience
+using this approach.

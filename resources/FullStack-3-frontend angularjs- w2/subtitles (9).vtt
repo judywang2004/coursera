@@ -1,0 +1,637 @@
+WEBVTT
+
+1
+00:00:02.220 --> 00:00:07.210
+As we go through angular there are several
+concepts that you will encounter.
+
+2
+00:00:07.210 --> 00:00:09.940
+One such is the angular scope.
+
+3
+00:00:09.940 --> 00:00:14.510
+Let's try to understand to understand
+scope in a bit more detail and
+
+4
+00:00:14.510 --> 00:00:18.990
+see how we make use of it
+within our angular application.
+
+5
+00:00:22.620 --> 00:00:25.930
+When you read Angular documents,
+you will see
+
+6
+00:00:25.930 --> 00:00:31.410
+scope being referred to as an object
+that refers to an application model.
+
+7
+00:00:31.410 --> 00:00:35.710
+Now, in the first instance that
+may not make much sense to you.
+
+8
+00:00:35.710 --> 00:00:40.120
+But as you get familiar with scope and
+how scope works,
+
+9
+00:00:40.120 --> 00:00:45.670
+it'll become all the more clear
+to you how scope is useful.
+
+10
+00:00:45.670 --> 00:00:51.710
+Now Scope is at the core of how
+Angular's two-way data binding works.
+
+11
+00:00:51.710 --> 00:00:58.190
+And Scope is what acts as the glue
+between your controller and the view.
+
+12
+00:00:58.190 --> 00:01:01.780
+The controller takes part
+of the domain model and
+
+13
+00:01:01.780 --> 00:01:05.410
+then exposes that to your
+view through the Scope.
+
+14
+00:01:05.410 --> 00:01:10.450
+So the controller is able to get
+the information from the domain model and
+
+15
+00:01:10.450 --> 00:01:14.710
+then attach it to scope, and
+the scope becomes available to your view.
+
+16
+00:01:14.710 --> 00:01:19.970
+In some sense the view is getting
+a part of the view of the domain model
+
+17
+00:01:19.970 --> 00:01:23.220
+that is required for the view to work.
+
+18
+00:01:24.670 --> 00:01:28.320
+The controller can set
+properties of the scope, and
+
+19
+00:01:28.320 --> 00:01:33.970
+these properties become
+accessible In the view based upon
+
+20
+00:01:33.970 --> 00:01:38.800
+how the controller and
+the view are tied together.
+
+21
+00:01:38.800 --> 00:01:44.000
+As we will learn when we go
+through the rest of the course
+
+22
+00:01:44.000 --> 00:01:47.230
+a view can be bumped to a controller and
+
+23
+00:01:47.230 --> 00:01:52.930
+then the controller decides what
+data gets exposed to that view.
+
+24
+00:01:52.930 --> 00:01:58.030
+Now, once the view makes use of
+the properties set by the controller
+
+25
+00:01:58.030 --> 00:02:03.950
+on the scope, then Angular insures
+that the two are kept in sync.
+
+26
+00:02:03.950 --> 00:02:08.840
+So when the view changes something,
+then it'll be reflected
+
+27
+00:02:08.840 --> 00:02:13.870
+to the scope, to that JavaScript site, and
+
+28
+00:02:13.870 --> 00:02:19.180
+then when any JavaScript object changes,
+that is reflected back to That view.
+
+29
+00:02:20.680 --> 00:02:25.960
+In Angular the top most scope
+is called the root scope.
+
+30
+00:02:25.960 --> 00:02:30.510
+The root scope is started when
+Angular starts your application.
+
+31
+00:02:30.510 --> 00:02:34.420
+So as Angular Boots up and
+
+32
+00:02:34.420 --> 00:02:38.110
+then bootstraps your application,
+it creates the rootScope.
+
+33
+00:02:38.110 --> 00:02:41.650
+And as Angular is
+traversing through the DOM,
+
+34
+00:02:41.650 --> 00:02:47.050
+every time it encounters the reason for
+creating a new scope It does that.
+
+35
+00:02:47.050 --> 00:02:52.460
+Some directives expect angular
+to create a new scope.
+
+36
+00:02:52.460 --> 00:02:55.640
+An NG controller is a directive,
+for example,
+
+37
+00:02:55.640 --> 00:03:00.320
+that creates a new scope
+under the rootscope.
+
+38
+00:03:00.320 --> 00:03:03.610
+So, whenever Angular
+encounters a controller,
+
+39
+00:03:03.610 --> 00:03:08.120
+it creates a new scope for
+that controller, under the new scope.
+
+40
+00:03:08.120 --> 00:03:13.800
+So, this scope a child of the root scope,
+So, in some sense,
+
+41
+00:03:13.800 --> 00:03:20.360
+the scope tree that we end up
+building is similar to the DOM tree.
+
+42
+00:03:20.360 --> 00:03:23.330
+There is some relationship
+between the two.
+
+43
+00:03:24.950 --> 00:03:29.470
+As I said,
+every time Angular creates a new scope
+
+44
+00:03:29.470 --> 00:03:34.240
+it creates where it is
+a child of a parent scope.
+
+45
+00:03:34.240 --> 00:03:37.160
+Now of course the root
+scope is at the top.
+
+46
+00:03:37.160 --> 00:03:45.220
+So whenever controllers are created
+within the Angular application,
+
+47
+00:03:45.220 --> 00:03:51.720
+the topmost controllers all inherit a
+scope which is a child of the root scope.
+
+48
+00:03:51.720 --> 00:03:56.800
+Now this is where this is tied to
+the way JavaScript prototype works.
+
+49
+00:03:56.800 --> 00:04:00.290
+The child scope, when it is created,
+
+50
+00:04:00.290 --> 00:04:04.770
+automatically the child gets access
+to everything in that parent scope.
+
+51
+00:04:04.770 --> 00:04:06.680
+All the properties of the parent scope.
+
+52
+00:04:07.860 --> 00:04:14.970
+In a sense, using nesting, you are able
+to control access to some data.
+
+53
+00:04:14.970 --> 00:04:17.120
+So for example,
+if you have a parent controller and
+
+54
+00:04:17.120 --> 00:04:20.670
+a child controller that is nested
+inside the parent controller.
+
+55
+00:04:20.670 --> 00:04:24.250
+The child controller will have access
+to all the properties as the parent
+
+56
+00:04:24.250 --> 00:04:26.010
+controller puts on it's scope.
+
+57
+00:04:27.260 --> 00:04:32.640
+But whatever is inside the child scope,
+the parent cannot access directly.
+
+58
+00:04:32.640 --> 00:04:35.914
+So this inheritance
+automatically comes in.
+
+59
+00:04:35.914 --> 00:04:39.500
+Their are a few other caveats
+that we need to keep in mind,
+
+60
+00:04:39.500 --> 00:04:44.130
+but this is sufficient for
+us to operate at this moment.
+
+61
+00:04:44.130 --> 00:04:47.580
+Let's look at an example of how
+you go about creating scope.
+
+62
+00:04:49.420 --> 00:04:54.790
+Going back to our menu on our HTML page,
+we are now going to refactor our code,
+
+63
+00:04:54.790 --> 00:04:58.230
+to use the angular scope.
+
+64
+00:04:58.230 --> 00:05:04.590
+Now, so, within this code,
+I have moved all the JavaScript
+
+65
+00:05:04.590 --> 00:05:09.010
+into a separate file called app.js.
+
+66
+00:05:09.010 --> 00:05:13.114
+Let's take a look at the code in app.js.
+
+67
+00:05:15.820 --> 00:05:21.151
+Third year,
+when we defined the controllers in app.js,
+
+68
+00:05:21.151 --> 00:05:28.030
+any JavaScript object or property that
+we wanted to make available to the view,
+
+69
+00:05:28.030 --> 00:05:33.880
+we were using this dot and
+the JavaScript object or
+
+70
+00:05:33.880 --> 00:05:39.800
+the JavaScript property and
+that made it accessible through the view.
+
+71
+00:05:39.800 --> 00:05:47.720
+Now with using scope, the scope
+gets injected into the controller.
+
+72
+00:05:47.720 --> 00:05:51.620
+Now how do we define and
+use scope with an Angular?
+
+73
+00:05:51.620 --> 00:05:56.860
+So for the controller, as you can see,
+you can define scope like this.
+
+74
+00:05:56.860 --> 00:06:01.520
+You use a left square bracket and
+
+75
+00:06:01.520 --> 00:06:06.480
+then within quotes you specify
+dollar scope and then function.
+
+76
+00:06:07.990 --> 00:06:12.110
+You will specify, scope,
+as a parameter to that function.
+
+77
+00:06:12.110 --> 00:06:17.167
+So, inside your code, previously,
+what we were writing as this.tab,
+
+78
+00:06:17.167 --> 00:06:22.553
+this.filtText, we are now going
+to realign the scope.tab,
+
+79
+00:06:22.553 --> 00:06:25.440
+scope.filtText and so on.
+
+80
+00:06:26.970 --> 00:06:31.525
+And all the objects also
+can be created like that.
+
+81
+00:06:31.525 --> 00:06:34.390
+Now,when you define functions,
+
+82
+00:06:35.690 --> 00:06:39.510
+you recall that we define some
+functions within the control.
+
+83
+00:06:39.510 --> 00:06:43.960
+So we would define functions here
+as scope.select equal to function.
+
+84
+00:06:43.960 --> 00:06:48.330
+So this function now becomes
+available to your view.
+
+85
+00:06:48.330 --> 00:06:54.217
+Now when you look at the way the view
+
+86
+00:06:54.217 --> 00:06:58.686
+accesses all these tics.
+
+87
+00:06:58.686 --> 00:07:03.992
+When you switch to the view, which is in
+the HTML page, when you switch to the view
+
+88
+00:07:03.992 --> 00:07:08.929
+you see that all the items there are now
+no longer accessed using menu ctrl.
+
+89
+00:07:08.929 --> 00:07:12.180
+Instead, the items
+are referred to directly.
+
+90
+00:07:12.180 --> 00:07:15.410
+So for example, you can call it
+function by simply saying select 3.
+
+91
+00:07:15.410 --> 00:07:19.410
+The assumption is that this select
+function has been defined and
+
+92
+00:07:19.410 --> 00:07:21.190
+attached to this scope.
+
+93
+00:07:21.190 --> 00:07:24.510
+Similarly, the disk item.
+
+94
+00:07:24.510 --> 00:07:29.670
+So for example, it's ng-repeat you
+would have said dish in dishes.
+
+95
+00:07:29.670 --> 00:07:34.340
+you no longer have to specify
+when you see ctrl.dishes.
+
+96
+00:07:34.340 --> 00:07:37.630
+There is no require similar filtText and
+so on.
+
+97
+00:07:37.630 --> 00:07:43.720
+So here the disk dot or the menu
+control dot is no longer required.
+
+98
+00:07:43.720 --> 00:07:48.270
+Anything that the controller
+attaches to the scope immediately
+
+99
+00:07:48.270 --> 00:07:52.650
+becomes available to the view
+by just using the name
+
+100
+00:07:52.650 --> 00:07:56.850
+of the property that you have
+attached to this scope here.
+
+101
+00:07:56.850 --> 00:08:03.338
+Now so we have rewritten the code for
+both the html.
+
+102
+00:08:03.338 --> 00:08:07.410
+And the app.js to use scope in Angular.
+
+103
+00:08:09.650 --> 00:08:13.430
+We have already examined nested
+scope in a bit more detail.
+
+104
+00:08:13.430 --> 00:08:18.490
+Now, we are going to encounter
+an example of nested scope in the next
+
+105
+00:08:18.490 --> 00:08:21.110
+lesson where we will examine form.
+
+106
+00:08:21.110 --> 00:08:26.000
+So there I will introduce you
+to a nested scope example.
+
+107
+00:08:26.000 --> 00:08:33.105
+In this lesson,
+we will look at using basic scope.
+
+108
+00:08:35.485 --> 00:08:40.322
+Once you define nested scopes,
+then you have pairings,
+
+109
+00:08:40.322 --> 00:08:43.560
+and then you have child controllers.
+
+110
+00:08:43.560 --> 00:08:47.630
+If you define the child controller inside
+the area that is controlled by a parent
+
+111
+00:08:47.630 --> 00:08:52.200
+controller, then the child controller
+inherits everything from the parent.
+
+112
+00:08:52.200 --> 00:08:55.620
+So this is where the scope
+hierarchy is illustrated.
+
+113
+00:08:56.750 --> 00:08:59.110
+At the top, we have the root scope.
+
+114
+00:08:59.110 --> 00:09:02.190
+From the root scope, so
+the parent controller when it is created,
+
+115
+00:09:02.190 --> 00:09:07.750
+this scope inhibits from the root scope,
+and so it creates its own scope.
+
+116
+00:09:07.750 --> 00:09:11.590
+The scope that is available to the parent
+controller now becomes accessible to all
+
+117
+00:09:11.590 --> 00:09:16.070
+the child controllers under the parent
+controller, through inheritance, so
+
+118
+00:09:16.070 --> 00:09:19.100
+that parent scope is passed
+on to the child scope.
+
+119
+00:09:19.100 --> 00:09:23.850
+So everything on the parent scope can be
+accessed within the child controllers,
+
+120
+00:09:25.360 --> 00:09:26.110
+in their scope.
+
+121
+00:09:26.110 --> 00:09:28.980
+And similarly the child views.
+
+122
+00:09:30.900 --> 00:09:35.590
+We'll now move on to the next exercise
+where we will examine angular scope.
+
+123
+00:09:35.590 --> 00:09:37.710
+So this in exercise we we'll understand.
+
+124
+00:09:37.710 --> 00:09:40.750
+Angular Scope and how it is used.
+
+125
+00:09:40.750 --> 00:09:44.950
+Then we will refactor our
+controller code to use scope and
+
+126
+00:09:44.950 --> 00:09:48.790
+also refactor the code in
+the view to use scope.
+
+127
+00:09:50.130 --> 00:09:55.270
+We also encounter a new directive
+called the ng-show directive.
+
+128
+00:09:55.270 --> 00:10:00.080
+Now when you attach ng-show directive
+to any element you can show or
+
+129
+00:10:00.080 --> 00:10:07.110
+hide the element by attaching a property
+that is either true or false.
+
+130
+00:10:07.110 --> 00:10:09.900
+When it is true the element is shown.
+
+131
+00:10:09.900 --> 00:10:12.680
+When it is false the element is hidden.
+
+132
+00:10:12.680 --> 00:10:18.130
+There's a counterpart to ng-show called
+ng-hide which exhibits the exact opposite
+
+133
+00:10:18.130 --> 00:10:24.154
+behavior as ng-show.

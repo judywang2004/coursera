@@ -1,0 +1,535 @@
+WEBVTT
+
+1
+00:00:02.570 --> 00:00:07.110
+In this lesson,
+I'm going to formally introduce you to
+
+2
+00:00:07.110 --> 00:00:10.800
+Task Runners: Grunt and Gulp.
+
+3
+00:00:10.800 --> 00:00:14.240
+We will first look at
+what task runners are,
+
+4
+00:00:14.240 --> 00:00:17.460
+what are the functionality
+that they provide.
+
+5
+00:00:17.460 --> 00:00:19.980
+Thereafter we will review Grunt and
+
+6
+00:00:19.980 --> 00:00:23.799
+Gulp in more detail,
+in the subsequent lectures.
+
+7
+00:00:27.450 --> 00:00:31.715
+As you have already realized or
+will realize very soon,
+
+8
+00:00:31.715 --> 00:00:36.400
+web development involves
+a lot of repetitive tasks.
+
+9
+00:00:36.400 --> 00:00:40.490
+Every time you change a Less or
+a Sass file, you need to recompile it.
+
+10
+00:00:40.490 --> 00:00:42.820
+And then every time you, they compile and
+
+11
+00:00:42.820 --> 00:00:45.420
+create a CSS file you'll
+have to modify it.
+
+12
+00:00:45.420 --> 00:00:49.600
+And you may have to concatenate
+a bunch of files in order to create
+
+13
+00:00:49.600 --> 00:00:51.380
+the concatenated file.
+
+14
+00:00:52.390 --> 00:00:54.895
+Maybe you edit a JavaScript file,
+
+15
+00:00:54.895 --> 00:00:58.915
+then you have to do a check to make
+sure that your code is correct.
+
+16
+00:00:58.915 --> 00:01:03.875
+Thereafter, you need to uglify
+the JavaScript code, and so on.
+
+17
+00:01:03.875 --> 00:01:08.652
+So you have a lot of repetitive tasks that
+
+18
+00:01:08.652 --> 00:01:11.742
+you perform when you're
+doing the development.
+
+19
+00:01:11.742 --> 00:01:15.782
+Now the principle behind
+these task runners
+
+20
+00:01:15.782 --> 00:01:20.302
+is to make these repetitive
+tasks easy to perform.
+
+21
+00:01:20.302 --> 00:01:22.972
+So that's why we talk
+about the DRY principle,
+
+22
+00:01:22.972 --> 00:01:25.842
+the do not repeat yourself principle.
+
+23
+00:01:25.842 --> 00:01:31.130
+And this is where the need
+to build automated tools for
+
+24
+00:01:31.130 --> 00:01:33.730
+running the different
+tasks becomes essential.
+
+25
+00:01:36.210 --> 00:01:41.140
+Let's quickly review some of the
+repetitive tasks that you need to perform.
+
+26
+00:01:41.140 --> 00:01:45.808
+Now talking about CSS, for example,
+you might have to compile Sass or
+
+27
+00:01:45.808 --> 00:01:49.700
+Less into CSS whenever the Sass or
+Less files are changed.
+
+28
+00:01:49.700 --> 00:01:54.308
+You may need to run
+an autoprefixer in order to
+
+29
+00:01:54.308 --> 00:01:59.820
+add vendor-specific
+markups to the CSS file.
+
+30
+00:01:59.820 --> 00:02:03.830
+You may need to do minification meaning
+that you'll remove all the unnecessary
+
+31
+00:02:03.830 --> 00:02:09.190
+characters, like white spaces, new lines,
+comments from the source code so
+
+32
+00:02:09.190 --> 00:02:13.790
+that you will get a smaller sized file,
+
+33
+00:02:13.790 --> 00:02:17.670
+without of course,
+compromising the functionality.
+
+34
+00:02:17.670 --> 00:02:22.107
+We'll look at the results
+of minification in
+
+35
+00:02:22.107 --> 00:02:26.320
+the exercise as we examine Grunt and Gulp.
+
+36
+00:02:27.480 --> 00:02:31.520
+Similarly you may want to concatenate
+a whole bunch of CSS files and
+
+37
+00:02:31.520 --> 00:02:36.250
+create one single master CSS file which
+you would include in your Web page.
+
+38
+00:02:37.920 --> 00:02:41.480
+All these tasks are as
+I said repetitive and
+
+39
+00:02:41.480 --> 00:02:44.370
+this is where task runners
+come to your rescue.
+
+40
+00:02:46.150 --> 00:02:52.100
+Similarly when it comes to JavaScript we
+will have to check the JavaScript code for
+
+41
+00:02:52.100 --> 00:02:56.500
+errors and potential problems,
+what we call as static code analysis.
+
+42
+00:02:56.500 --> 00:02:59.410
+This is where JSHint comes to our rescue.
+
+43
+00:03:00.410 --> 00:03:03.577
+This will go through all
+your JavaScript files and
+
+44
+00:03:03.577 --> 00:03:07.230
+then check to make sure that you
+are following the right conventions, and
+
+45
+00:03:07.230 --> 00:03:12.450
+the syntax is correct so that you avoid
+potential problems in the future.
+
+46
+00:03:13.750 --> 00:03:16.960
+Similarly, you may have multiple
+JavaScript files that you may
+
+47
+00:03:16.960 --> 00:03:21.320
+want to concatenate and
+create one single large JavaScript file.
+
+48
+00:03:21.320 --> 00:03:25.740
+You may want to do uglification
+which is minification,
+
+49
+00:03:25.740 --> 00:03:30.710
+meaning removing all the white spaces and
+also mangling,
+
+50
+00:03:30.710 --> 00:03:35.040
+meaning that you are going
+to replace all the local
+
+51
+00:03:35.040 --> 00:03:40.050
+variables that you declare inside your
+functions with simple single letters.
+
+52
+00:03:40.050 --> 00:03:43.295
+Now once you deploy the code on a website,
+
+53
+00:03:43.295 --> 00:03:48.615
+it doesn't really matter what the code
+looks like, as long as it works correctly.
+
+54
+00:03:48.615 --> 00:03:53.805
+So this is where we try to compact the
+information that you have in the files,
+
+55
+00:03:53.805 --> 00:03:57.805
+by removing anything that is
+extraneous from these files.
+
+56
+00:03:59.035 --> 00:04:01.975
+Now, after this processes,
+you may wanna recheck for
+
+57
+00:04:01.975 --> 00:04:06.455
+errors to make sure that nothing
+has been broken within your files.
+
+58
+00:04:08.470 --> 00:04:10.620
+Similarly you'll have other tasks like for
+
+59
+00:04:10.620 --> 00:04:15.390
+example if you have a lot of images
+in your Web page, you may want to
+
+60
+00:04:15.390 --> 00:04:20.180
+optimize those files so
+as to reduce the sizes of those files.
+
+61
+00:04:20.180 --> 00:04:25.380
+So optimization tasks need to be
+run whenever you include a new file
+
+62
+00:04:25.380 --> 00:04:30.390
+into your assets that you
+use within your Web page.
+
+63
+00:04:30.390 --> 00:04:35.120
+Similarly, you may want to have
+a mechanism that will keep
+
+64
+00:04:35.120 --> 00:04:37.210
+a watch on all these files.
+
+65
+00:04:37.210 --> 00:04:39.510
+And whenever any one of them changes,
+
+66
+00:04:39.510 --> 00:04:42.120
+it will automatically run these tasks for
+you.
+
+67
+00:04:42.120 --> 00:04:45.100
+You don't have to manually
+intervene to run these tasks.
+
+68
+00:04:45.100 --> 00:04:50.440
+Instead if you set up the watch task then
+it will keep a watch on all these files.
+
+69
+00:04:50.440 --> 00:04:55.423
+Anytime a Sass or Less file
+changes it'll run the compilation,
+
+70
+00:04:55.423 --> 00:05:01.570
+the minification and concatenation and
+generate the final files for you.
+
+71
+00:05:01.570 --> 00:05:05.510
+Similarly whenever any JavaScript code is
+changed, it will automatically take care
+
+72
+00:05:05.510 --> 00:05:11.790
+of JSHint and
+uglification tasks on the code.
+
+73
+00:05:13.750 --> 00:05:20.080
+Also, you may want to build
+a server within your task runner,
+
+74
+00:05:20.080 --> 00:05:25.470
+so that it'll automatically
+serve up the compiled code for
+
+75
+00:05:25.470 --> 00:05:30.130
+you so that you can check
+the result in a browser.
+
+76
+00:05:30.130 --> 00:05:32.650
+So this is where a server with livereload.
+
+77
+00:05:32.650 --> 00:05:35.622
+Livereload allows you
+to automatically reload
+
+78
+00:05:35.622 --> 00:05:38.550
+the Web page every time anything changes.
+
+79
+00:05:38.550 --> 00:05:44.140
+So anytime any of the files changed the
+watch tasks will recompile everything for
+
+80
+00:05:44.140 --> 00:05:49.080
+you, and then the livereload will
+ensure that your Web page is reloaded
+
+81
+00:05:49.080 --> 00:05:53.560
+in your browser where you're
+checking the result of the changes.
+
+82
+00:05:55.090 --> 00:06:00.240
+And when you do development testing
+as it should be an integral part
+
+83
+00:06:00.240 --> 00:06:04.520
+of your development so you should
+carry out various kinds of tests.
+
+84
+00:06:04.520 --> 00:06:10.000
+Later on in this course, we will examine
+how different tests are built for Angular.
+
+85
+00:06:10.000 --> 00:06:14.300
+So running automated tests
+is equally as important.
+
+86
+00:06:15.950 --> 00:06:21.480
+Finally, you may want to build
+your site for actual deployment on
+
+87
+00:06:21.480 --> 00:06:26.690
+a website or on a web server where
+you're hosting your website.
+
+88
+00:06:26.690 --> 00:06:30.490
+So all these tasks should be
+done automatically for you.
+
+89
+00:06:32.340 --> 00:06:37.250
+This is where task runners
+come to your rescue.
+
+90
+00:06:37.250 --> 00:06:38.920
+What are task runners?
+
+91
+00:06:38.920 --> 00:06:44.520
+Task runners allow you to configure all
+these different tasks that we just listed
+
+92
+00:06:44.520 --> 00:06:51.800
+in the previous slides such that they can
+be automatically run whenever required.
+
+93
+00:06:52.910 --> 00:06:56.110
+Now if you look at the web
+development landscape,
+
+94
+00:06:56.110 --> 00:06:59.830
+there are a number of task
+runners in use out there.
+
+95
+00:06:59.830 --> 00:07:02.650
+The two major ones are Grunt and Gulp.
+
+96
+00:07:02.650 --> 00:07:05.290
+We have other ones, like Cake, Broccoli,
+
+97
+00:07:05.290 --> 00:07:07.940
+Brunch, now that's going to
+make you hungry pretty soon.
+
+98
+00:07:09.380 --> 00:07:15.600
+But we are examining Grunt and
+Gulp in more detail in this lesson.
+
+99
+00:07:19.060 --> 00:07:23.820
+Now obviously you're gonna ask,
+should I use Grunt or should I use Gulp?
+
+100
+00:07:23.820 --> 00:07:27.760
+Now that depends upon how
+you do your workflow.
+
+101
+00:07:28.900 --> 00:07:32.393
+Grunt is a configuration-based
+task runner,
+
+102
+00:07:32.393 --> 00:07:37.040
+which means that you configure
+all the tasks ahead of time.
+
+103
+00:07:37.040 --> 00:07:39.940
+And then Grunt takes care
+of your [INAUDIBLE] tasks.
+
+104
+00:07:39.940 --> 00:07:43.890
+Gulp on the other hand is more code,
+rather than configuration.
+
+105
+00:07:43.890 --> 00:07:49.350
+You create your tasks by writing code,
+and then it'll allow you to run.
+
+106
+00:07:49.350 --> 00:07:52.130
+So less emphasis on configuration.
+
+107
+00:07:52.130 --> 00:07:56.040
+So depending on how you operate,
+you might like one or
+
+108
+00:07:56.040 --> 00:07:59.120
+the other tools for your development.
+
+109
+00:07:59.120 --> 00:08:02.700
+Sometimes it can be worthwhile
+to combine the two,
+
+110
+00:08:02.700 --> 00:08:07.120
+make use of both of them together,
+of course, one after another.
+
+111
+00:08:08.180 --> 00:08:11.030
+Again, that depends upon how
+you build your workflow.
