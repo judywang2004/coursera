@@ -41,12 +41,6 @@ git pull
 
 2: Git Operations
 
- Created by David Payt on May 19, 2015 9:56 AM. Last modified by David Payt on Feb 12, 2016 9:50 AM. 
-Version 31 
-
-U160322004221
-
-
 • Git Tools 
 • Git Setup 
 • Git Operations • Clone a project 
@@ -426,58 +420,30 @@ How to undo things
 
 
 We all mess up occasionally. This section should be used to describe how to fix mistakes made using git.
-
-
-
-
  
 Undoing a local commit
-
-
-
-
 If you are working on a local feature branch and you commit changes, it is trivial to undo them.  Just use:
-
-
-
-
 git reset --hard HEAD~1
-
-
 
 
 This goes back 1 commit.  To go back 2 commits, you can use HEAD~2 instead of HEAD~1.
 
-
 Maybe you committed prematurely.  If you want to change a couple more things in the last commit, that's easy too, just omit the --hard:
-
-
 
 
 git reset HEAD~1
 
 
- 
-
 A few words of caution regarding reset: it does modify history, so it is safe to use only on local feature branches.  Don't use this with commits already pushed to release.  If you push the feature branch, then use reset, you will need to force push the branch to fix it.  Never force push shared branches and never force push release!
 
 
-
-
 git push -f origin <feature>
-
-
 
  
 Undoing a merge
 
 
-
-
-
 To undo a merge of a feature branch, first find the commit hash for the merge, gitlab will be helpful here.  Next determine which side of the merge is the baseline.  E.g, if you merge into release, you want release to be the baseline.  Now you have enough information to perform the revert:
-
-
 
 
 git revert -m 1 <hash> 
@@ -485,15 +451,9 @@ git revert -m 1 <hash>
 git push origin release
 
 
-
-
-
 The "-m 1" tells git to use the 1st parent commit (which should be the baseline commit for the release branch) as the baseline.
 
 Note that reverting only undoes the changes.  The commits remain.  After reverting, the feature branch cannot be merged again unless additional steps are taken because Git thinks that it already is merged!  To remedy this, on your feature branch, run the following commands:
-
-
-
 
 git fetch
 
@@ -502,22 +462,12 @@ git merge origin/release
 git revert <hash from the other revert>
 
 
-
-
 By reverting the revert, you redo all the changes made in the feature branch and it can once again be merged to release when you are ready.
-
-
-
 
  
 Undoing part of a large integration branch
 
-
-
-
 Large integration branches can be problematic.  Their size can complicate things.  The recommended approach is to keep only one such branch (e.g: a release branch).  If you merge this into another branch and later discover that there are features in there that should not be, this section will explain how to remove them.
-
-
 
 
 First, make sure you have a branch with the correct set of features, e.g: fixed-branch.  Next, use the following command:
@@ -527,17 +477,14 @@ git rev-list --grep="into '<wrong branch>'" --merges --reverse fixed-branch..<wr
 to look for merge commits into the wrong branch that were never merged into the fixed-branch. Essentially, you are finding a set difference between the set of merges in the two branches.  Save the hashes, and use them in a revert command, in the order listed by rev-list:
 
  
-
 git revert -n -m 1 <hash>
 
 ...
 
  
-
 Here's a shell script for the above (untested):
 
  
-
 #!/bin/sh
 
  
@@ -589,11 +536,8 @@ How are branches being used in Nexen for the "simple" use cases (i.e. one develo
 
 If so, can you elaborate on why to use branches at all for this?  Is it just for better naming and a single atomic commit?  Or am I missing something about git?  (I am just learning about branching myself, so I am asking half to solidify my understanding of git and half to learn the Nexen workflow.)
 
-thanks!
-David PaytSep 8, 2015 10:38 AM (in response to Francis Browne) 
 
 Some answers to your questions can be found in the Development Workflow. 
-
 All work must be done in branches that are based off the 'master' branch. 'master' branch is the gold standard, and represents the last version to be deployed to production. 'develop' branch is our current solution to Continuous Deployment, when a branch is "completed" then it must be merge-requested into 'develop' which is the automatically deployed to NEXEN development server (https://dev-nexen.bnymellon.com/). Branches can be developed locally, but it is recommended to push your branches so they are hosted in case your laptop dies. There is a branch naming convention.
 Branches are useful for various reasons. Features should be encapsulated into a branch. Branches must be code reviewed. Branches, once accepted, make their way into 'master' as part of the Buildmaster Instructions and Release Planning.
 Even if there was a major change, then even that would likely get its own branch, with individual sub-features being implemented on branches off that branch.
@@ -604,8 +548,6 @@ Feel free to reach out to me on Lync if you require further assistance.
 ''
 
 3: 
-
-
 Sure it is possible to have an ssh access without a "git server".
  You need a ssh server (daemon) though.
 
@@ -632,5 +574,3 @@ If you're doing this just for yourself, on the server:
  cd repo
  git init --bare --shared=group
  
-
-
